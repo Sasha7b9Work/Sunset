@@ -6,7 +6,6 @@
 #include "MainWindow.h"
 #include "Settings/Settings.h"
 #include "Display/Graphics/AutoCursors.h"
-#include "Panels/PanelConfig/PanelCalc/WindowCursors.h"
 
 
 MenuDisplay::MenuDisplay() : wxMenu()
@@ -44,15 +43,15 @@ void MenuDisplay::AppendMenuTrack()
 
     trackX = subMenu->AppendCheckItem(wxID_ANY, "По X");
     Bind(wxEVT_MENU, &MenuDisplay::OnTrack, this, trackX->GetId());
-    subMenu->Check(trackX->GetId(), TheWindowCursors->chbTrackX->IsChecked());
+//    subMenu->Check(trackX->GetId(), TheWindowCursors->chbTrackX->IsChecked());
 
     trackY = subMenu->AppendCheckItem(wxID_ANY, "По Y");
     Bind(wxEVT_MENU, &MenuDisplay::OnTrack, this, trackY->GetId());
-    subMenu->Check(trackY->GetId(), TheWindowCursors->chbTrackY->IsChecked());
+//    subMenu->Check(trackY->GetId(), TheWindowCursors->chbTrackY->IsChecked());
 
     trackMouse = subMenu->AppendCheckItem(wxID_ANY, "Указатель мыши");
     Bind(wxEVT_MENU, &MenuDisplay::OnTrack, this, trackMouse->GetId());
-    subMenu->Check(trackMouse->GetId(), TheWindowCursors->chbTrackMouse->IsChecked());
+//    subMenu->Check(trackMouse->GetId(), TheWindowCursors->chbTrackMouse->IsChecked());
 
     AppendSubMenu(subMenu, "Отслеживать");
 }
@@ -143,19 +142,19 @@ void MenuDisplay::OnFullScreen(wxCommandEvent &event)
 void MenuDisplay::OnTrack(wxCommandEvent &event)
 {
     int id = event.GetId();
-    bool check = event.IsChecked();
+//    bool check = event.IsChecked();
 
     if (event.GetId() == trackX->GetId())
     {
-        TheWindowCursors->chbTrackX->SetNewValue(check);
+//        TheWindowCursors->chbTrackX->SetNewValue(check);
     }
     else if(id == trackY->GetId())
     {
-        TheWindowCursors->chbTrackY->SetNewValue(check);
+//        TheWindowCursors->chbTrackY->SetNewValue(check);
     }
     else if (id == trackMouse->GetId())
     {
-        TheWindowCursors->chbTrackMouse->SetNewValue(check);
+//        TheWindowCursors->chbTrackMouse->SetNewValue(check);
     }
 }
 

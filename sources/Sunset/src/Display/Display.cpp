@@ -15,11 +15,11 @@ Display *TheDisplay = nullptr;
 
 
 Display::Display(wxWindow *parent) :
-    Panel(parent, 0, MainWindow::HEIGHT_HI, MainWindow::WIDTH_DRAW, MainWindow::HEIGHT_DRAW)
+    wxPanel(parent, wxID_ANY, { 0, MainWindow::HEIGHT_HI }, { MainWindow::WIDTH_DRAW, MainWindow::HEIGHT_DRAW})
 {
     TheDisplay = this;
 
-    Panel::SetDoubleBuffered(true);
+    wxPanel::SetDoubleBuffered(true);
     Bind(wxEVT_PAINT, &Display::OnEventPaint, this);
     Bind(wxEVT_LEFT_DOWN, &Display::OnEventMouseDown, this);
     Bind(wxEVT_LEFT_UP, &Display::OnEventMouseUp, this);
@@ -46,9 +46,9 @@ Display::Display(wxWindow *parent) :
 
     panel_errors = new PanelErrors(this);
 
-    new PanelTable(this);
+//    new PanelTable(this);
 
-    PanelTable::self->Hide();
+//    PanelTable::self->Hide();
 
     Init();
 }
@@ -92,19 +92,19 @@ void Display::Init()
     int width = full_screen ? MainWindow::WIDTH : MainWindow::WIDTH_DRAW;
     int height = full_screen ? MainWindow::HEIGHT : MainWindow::HEIGHT_DRAW;
 
-    Panel::SetSize({ width, height });
+    wxPanel::SetSize({ width, height });
 
-    Panel::SetPosition({ 0, full_screen ? 0 : MainWindow::HEIGHT_HI });
+    wxPanel::SetPosition({ 0, full_screen ? 0 : MainWindow::HEIGHT_HI });
 
     SAFE_DELETE(bitmap);
 
-    bitmap = new wxBitmap(Panel::GetSize().x, Panel::GetSize().y);
+    bitmap = new wxBitmap(wxPanel::GetSize().x, wxPanel::GetSize().y);
 
     IGrid::Create();
 
     int w = btnHelp->GetSize().x;
     int d = 10;
-    int x0 = Panel::GetSize().x - d - btnHelp->GetSize().x;
+    int x0 = wxPanel::GetSize().x - d - btnHelp->GetSize().x;
     int y0 = d;
 
     btnHelp->SetPosition({ x0, y0 });
@@ -117,7 +117,7 @@ void Display::Init()
 
     panel_errors->ReInit();
 
-    Panel::Layout();
+    wxPanel::Layout();
 
     GraphMeasure::CreateForEmulator(entities);
 
@@ -517,13 +517,13 @@ void Display::OnEventCnangeMeasuredElement()
 
 wxSize Display::GetDrawingSize() const
 {
-    return Panel::GetClientSize();
+    return wxPanel::GetClientSize();
 }
 
 
 wxSize Display::GetFullSize() const
 {
-    return Panel::GetSize();
+    return wxPanel::GetSize();
 }
 
 

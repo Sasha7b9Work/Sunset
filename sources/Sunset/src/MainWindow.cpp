@@ -58,23 +58,7 @@ MainWindow::MainWindow(const wxString &title)
 
     new AutoCursors();
 
-    new PanelName(this);
-
-    new PanelUpper(this);
-
-    new PanelConfig(this);
-
     TheDisplay = new Display(this);
-
-    new PanelIndicator(this);
-
-    new PanelModeLower(this);
-
-    new PanelMenu(this);
-
-    new PanelDebug(this);
-
-    new PanelReferenceGraph(this);
 
     SetMode(ModeMainWindow::Standard);
 }
@@ -82,7 +66,7 @@ MainWindow::MainWindow(const wxString &title)
 
 void MainWindow::PeriodicTask()
 {
-    ThePanelDebug->PeriodicTask();
+
 }
 
 
@@ -177,8 +161,6 @@ void MainWindow::OnQuit(wxCommandEvent &WXUNUSED(event))
 
 void MainWindow::OnEventCloseWindow(wxCloseEvent &event)
 {
-    ThePanelDebug->Show(false);
-
     Test::Save("example.tst");
 
     if (ConsoleRS232::self)
@@ -230,23 +212,11 @@ void MainWindow::SetMode(ModeMainWindow::E mode)
 {
     ModeMainWindow::current = mode;
 
-    PanelName::self->Show(mode == ModeMainWindow::Standard);
-    PanelUpper::self->Show(mode == ModeMainWindow::Standard);
-    ThePanelConfig->Show(mode == ModeMainWindow::Standard);
     TheDisplay->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
-    PanelIndicator::self->Show(mode == ModeMainWindow::Standard);
-    PanelModeLower::self->Show(mode == ModeMainWindow::Standard);
-    PanelMenu::self->Show(mode == ModeMainWindow::Standard);
-
-    ThePanelDebug->Show(mode == ModeMainWindow::Debug);
-
-    PanelReferenceGraph::self->Show(mode == ModeMainWindow::ReferenceGraphs);
 
     TheDisplay->FullScreen(mode == ModeMainWindow::FullGraph);
 
     wxFrame::Layout();
-
-    ThePanelDebug->Pack();
 }
 
 
