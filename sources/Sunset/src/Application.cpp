@@ -9,6 +9,8 @@
 #include "Controls/AutoRebootDialog.h"
 #include "SoftTests/SoftTests.h"
 #include "IPPP/I_IPPP.h"
+#include "IPPP/Real/Chips.h"
+#include "IPPP/DeviceFactory.h"
 #include <cstdlib>
 
 
@@ -111,6 +113,12 @@ bool Application::OnInit()
 
     // we use a PNG image in our HTML page
     wxImage::AddHandler(new wxPNGHandler);
+
+    Chip::Init();
+
+    auto device = DeviceFactory::CreateFromConfig();
+
+    I_IPPP::SetInstance(std::move(device));
 
     // create and show the main application window
     MainWindow *frame = new MainWindow(wxT("ИППП 4"));
