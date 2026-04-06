@@ -27,8 +27,10 @@ void AutoCursors::Draw(const std::vector<GraphMeasure *> & /*measures*/)
     wxPoint mouse_pos = TheGrid->GetMousePosition();
 
     wxPoint2DDouble value = TheGrid->CoordToValues(mouse_pos);
+    (void)value;
 
     wxRect rect = TheGrid->GetRect();
+    (void)rect;
 
     TheDisplay->SetColorPen(SET::GUI::color_curve->Get());
 
