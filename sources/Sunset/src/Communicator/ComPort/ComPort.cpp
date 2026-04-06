@@ -6,7 +6,6 @@
 #include "Utils/StringUtils.h"
 #include "Settings/Settings.h"
 #include "Windows/ConsoleRS232.h"
-#include "Panels/PanelUpper.h"
 
 
 using namespace std::chrono;
@@ -74,12 +73,12 @@ bool ComPort::Connect(int num_port)
 
         SET::GUI::serial_port_num->Set(num_port + 1);
 
-        PanelUpper::self->color_square->SetColor(*wxGREEN);
+//        PanelUpper::self->color_square->SetColor(*wxGREEN);
 
         return true;
     }
 
-    PanelUpper::self->color_square->SetColor(*wxRED);
+//    PanelUpper::self->color_square->SetColor(*wxRED);
 
 #endif
 
