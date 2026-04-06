@@ -1,0 +1,1653 @@
+# Microsoft eMbedded Visual Tools Project File - Name="Line" - Package Owner=<4>
+# Microsoft eMbedded Visual Tools Generated Build File, Format Version 6.02
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (WCE x86) Application" 0x8301
+
+CFG=Line - Win32 (WCE x86) Debug
+!MESSAGE This is not a valid makefile. To build this project using NMAKE,
+!MESSAGE use the Export Makefile command and run
+!MESSAGE 
+!MESSAGE NMAKE /f "Line.vcn".
+!MESSAGE 
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "Line.vcn" CFG="Line - Win32 (WCE x86) Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "Line - Win32 (WCE x86) Release" (based on "Win32 (WCE x86) Application")
+!MESSAGE "Line - Win32 (WCE x86) Debug" (based on "Win32 (WCE x86) Application")
+!MESSAGE 
+
+# Begin Project
+# PROP AllowPerConfigDependencies 0
+# PROP Scc_ProjName ""
+# PROP Scc_LocalPath ""
+# PROP ATL_Project 2
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "Line - Win32 (WCE x86) Release"
+
+# PROP BASE Use_MFC 2
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "X86Rel"
+# PROP BASE Intermediate_Dir "X86Rel"
+# PROP BASE CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 2
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "X86Rel"
+# PROP Intermediate_Dir "X86Rel"
+# PROP CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Target_Dir ""
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /d "_AFXDLL" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "NDEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /d "_AFXDLL" /r
+# ADD BASE CPP /nologo /W3 /Oxs /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_WIN32_WCE_CEPC" /D "_AFXDLL" /Yu"stdafx.h" /Gs8192 /GF /c
+# ADD CPP /nologo /W3 /Oxs /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_WIN32_WCE_CEPC" /D "_AFXDLL" /Yu"stdafx.h" /Gs8192 /GF /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"wWinMainCRTStartup" /subsystem:$(CESubsystem) /MACHINE:IX86
+# ADD LINK32 /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"wWinMainCRTStartup" /subsystem:$(CESubsystem) /MACHINE:IX86
+
+!ELSEIF  "$(CFG)" == "Line - Win32 (WCE x86) Debug"
+
+# PROP BASE Use_MFC 2
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "X86Dbg"
+# PROP BASE Intermediate_Dir "X86Dbg"
+# PROP BASE CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP BASE Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 2
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "X86Dbg"
+# PROP Intermediate_Dir "X86Dbg"
+# PROP CPU_ID "{D6518FF3-710F-11D3-99F2-00105A0DF099}"
+# PROP Platform_ID "{8A9A2F80-6887-11D3-842E-005004848CBA}"
+# PROP Target_Dir ""
+# ADD BASE RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /d "_AFXDLL" /r
+# ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "UNICODE" /d "_UNICODE" /d "DEBUG" /d "$(CePlatform)" /d "_X86_" /d "x86" /d "_i386_" /d "_AFXDLL" /r
+# ADD BASE CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_WIN32_WCE_CEPC" /D "_AFXDLL" /Yu"stdafx.h" /Gs8192 /GF /c
+# ADD CPP /nologo /W3 /Zi /Od /D "DEBUG" /D "_i386_" /D UNDER_CE=$(CEVersion) /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_WIN32_WCE_CEPC" /D "_AFXDLL" /Yu"stdafx.h" /Gs8192 /GF /c
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"wWinMainCRTStartup" /debug /subsystem:$(CESubsystem) /MACHINE:IX86
+# ADD LINK32 /nologo /base:"0x00010000" /stack:0x10000,0x1000 /entry:"wWinMainCRTStartup" /debug /subsystem:$(CESubsystem) /MACHINE:IX86
+
+!ENDIF 
+
+# Begin Target
+
+# Name "Line - Win32 (WCE x86) Release"
+# Name "Line - Win32 (WCE x86) Debug"
+# Begin Group "Source Files"
+
+# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# Begin Source File
+
+SOURCE=.\AutoSetNull.cpp
+DEP_CPP_AUTOS=\
+	".\AutoSetNull.h"\
+	".\GradBtn.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartAxis.cpp
+DEP_CPP_CHART=\
+	".\ChartAxis.h"\
+	".\ChartAxisLabel.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartAxisLabel.cpp
+DEP_CPP_CHARTA=\
+	".\ChartAxisLabel.h"\
+	".\ChartObject.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartCtrl.cpp
+DEP_CPP_CHARTC=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartLineSerie.h"\
+	".\ChartMarker.h"\
+	".\ChartMixedSerie.h"\
+	".\ChartObject.h"\
+	".\ChartPointSerie.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartGrid.cpp
+DEP_CPP_CHARTG=\
+	".\ChartAxis.h"\
+	".\ChartGrid.h"\
+	".\ChartObject.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartLegend.cpp
+DEP_CPP_CHARTL=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartLineSerie.cpp
+DEP_CPP_CHARTLI=\
+	".\ChartAxis.h"\
+	".\ChartLineSerie.h"\
+	".\ChartObject.h"\
+	".\ChartSerie.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartMarker.cpp
+DEP_CPP_CHARTM=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartMixedSerie.cpp
+DEP_CPP_CHARTMI=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartMixedSerie.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartPointSerie.cpp
+DEP_CPP_CHARTP=\
+	".\ChartAxis.h"\
+	".\ChartObject.h"\
+	".\ChartPointSerie.h"\
+	".\ChartSerie.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSecant.cpp
+DEP_CPP_CHARTS=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSerie.cpp
+DEP_CPP_CHARTSE=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSerieFamily.cpp
+DEP_CPP_CHARTSER=\
+	".\ChartSerieFamily.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\CopyFileDlg.cpp
+DEP_CPP_COPYF=\
+	".\CopyFileDlg.h"\
+	".\GradBtn.h"\
+	".\HelpDlg.h"\
+	".\InfoCopyFileDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\DelTstDlg.cpp
+DEP_CPP_DELTS=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\DelTstDlg.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\LineDlg.h"\
+	".\Mod.h"\
+	".\SaveOtchDlg.h"\
+	".\StdAfx.h"\
+	".\TreeAddDlg.h"\
+	".\TreeViewDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffDlg.cpp
+DEP_CPP_DIFFD=\
+	".\DiffDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\FileDlg.cpp
+DEP_CPP_FILED=\
+	".\FileDlg.h"\
+	".\GradBtn.h"\
+	".\ParolDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\FreeMemoryDlg.cpp
+DEP_CPP_FREEM=\
+	".\FreeMemoryDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\GradBtn.cpp
+DEP_CPP_GRADB=\
+	".\GradBtn.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\HelpDlg.cpp
+DEP_CPP_HELPD=\
+	".\HelpDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\InfoCopyFileDlg.cpp
+DEP_CPP_INFOC=\
+	".\GradBtn.h"\
+	".\InfoCopyFileDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\IpInfo.cpp
+DEP_CPP_IPINF=\
+	".\GradBtn.h"\
+	".\IpInfo.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\KalibrDlg.cpp
+DEP_CPP_KALIB=\
+	".\GradBtn.h"\
+	".\KalibrDlg.h"\
+	".\ParolDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\Klava.cpp
+DEP_CPP_KLAVA=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\LineDlg.h"\
+	".\Mod.h"\
+	".\SaveOtchDlg.h"\
+	".\SaveRefDlg.h"\
+	".\SaveTstDlg.h"\
+	".\StdAfx.h"\
+	".\TestRenameDlg.h"\
+	".\TreeAddDlg.h"\
+	".\TreeAddFromPanelDlg.h"\
+	".\TreeViewDlg.h"\
+	".\ValEnter.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\KoefDlg.cpp
+DEP_CPP_KOEFD=\
+	".\GradBtn.h"\
+	".\KoefDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\Line.cpp
+DEP_CPP_LINE_=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\conio.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\Line.h"\
+	".\LineDlg.h"\
+	".\Mod.h"\
+	".\SaveOtchDlg.h"\
+	".\StdAfx.h"\
+	".\TreeAddDlg.h"\
+	".\TreeViewDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\Line.rc
+# End Source File
+# Begin Source File
+
+SOURCE=.\LineDlg.cpp
+DEP_CPP_LINED=\
+	".\AutoSetNull.h"\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\conio.h"\
+	".\CopyFileDlg.h"\
+	".\DelTstDlg.h"\
+	".\DiffDlg.h"\
+	".\FileDlg.h"\
+	".\FreeMemoryDlg.h"\
+	".\GradBtn.h"\
+	".\IpInfo.h"\
+	".\KalibrDlg.h"\
+	".\Klava.h"\
+	".\KoefDlg.h"\
+	".\Line.h"\
+	".\LineDlg.h"\
+	".\LupaDlg.h"\
+	".\Mod.h"\
+	".\ModificationDlg.h"\
+	".\ParolDlg.h"\
+	".\PartDlg.h"\
+	".\ReparolDlg.h"\
+	".\SaveAsDlg.h"\
+	".\SaveOtchDlg.h"\
+	".\SaveRefDlg.h"\
+	".\SaveTablDlg.h"\
+	".\SaveTstDlg.h"\
+	".\ScalDlg.h"\
+	".\StdAfx.h"\
+	".\TablDlg.h"\
+	".\TestRenameDlg.h"\
+	".\TreeAddDlg.h"\
+	".\TreeAddFromPanelDlg.h"\
+	".\TreeViewDlg.h"\
+	".\ValEnter.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\LupaDlg.cpp
+DEP_CPP_LUPAD=\
+	".\GradBtn.h"\
+	".\LupaDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\Mod.cpp
+DEP_CPP_MOD_C=\
+	".\Mod.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModificationDlg.cpp
+DEP_CPP_MODIF=\
+	".\ModificationDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ParolDlg.cpp
+DEP_CPP_PAROL=\
+	".\GradBtn.h"\
+	".\ParolDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\PartDlg.cpp
+DEP_CPP_PARTD=\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\PartDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReparolDlg.cpp
+DEP_CPP_REPAR=\
+	".\GradBtn.h"\
+	".\ReparolDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveAsDlg.cpp
+DEP_CPP_SAVEA=\
+	".\GradBtn.h"\
+	".\SaveAsDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveOtchDlg.cpp
+DEP_CPP_SAVEO=\
+	".\FileDlg.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\SaveOtchDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveRefDlg.cpp
+DEP_CPP_SAVER=\
+	".\FileDlg.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\SaveRefDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveTablDlg.cpp
+DEP_CPP_SAVET=\
+	".\GradBtn.h"\
+	".\SaveTablDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveTstDlg.cpp
+DEP_CPP_SAVETS=\
+	".\FileDlg.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\SaveTstDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScalDlg.cpp
+DEP_CPP_SCALD=\
+	".\ScalDlg.h"\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.cpp
+DEP_CPP_STDAF=\
+	".\StdAfx.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# ADD CPP /Yc"stdafx.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\TablDlg.cpp
+DEP_CPP_TABLD=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\LineDlg.h"\
+	".\Mod.h"\
+	".\SaveOtchDlg.h"\
+	".\SaveTablDlg.h"\
+	".\StdAfx.h"\
+	".\TablDlg.h"\
+	".\TreeAddDlg.h"\
+	".\TreeViewDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestRenameDlg.cpp
+DEP_CPP_TESTR=\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\StdAfx.h"\
+	".\TestRenameDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeAddDlg.cpp
+DEP_CPP_TREEA=\
+	".\ChartAxis.h"\
+	".\ChartBMPSaver.h"\
+	".\ChartCtrl.h"\
+	".\ChartGrid.h"\
+	".\ChartLegend.h"\
+	".\ChartMarker.h"\
+	".\ChartObject.h"\
+	".\ChartSecant.h"\
+	".\ChartSerie.h"\
+	".\ChartSerieFamily.h"\
+	".\FileDlg.h"\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\LineDlg.h"\
+	".\Mod.h"\
+	".\SaveOtchDlg.h"\
+	".\StdAfx.h"\
+	".\TreeAddDlg.h"\
+	".\TreeViewDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeAddFromPanelDlg.cpp
+DEP_CPP_TREEAD=\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\StdAfx.h"\
+	".\TreeAddFromPanelDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeViewDlg.cpp
+DEP_CPP_TREEV=\
+	".\StdAfx.h"\
+	".\TreeViewDlg.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\ValEnter.cpp
+DEP_CPP_VALEN=\
+	".\GradBtn.h"\
+	".\Klava.h"\
+	".\StdAfx.h"\
+	".\ValEnter.h"\
+	{$(INCLUDE)}"ipexport.h"\
+	{$(INCLUDE)}"iphlpapi.h"\
+	{$(INCLUDE)}"iptypes.h"\
+	
+# End Source File
+# End Group
+# Begin Group "Header Files"
+
+# PROP Default_Filter "h;hpp;hxx;hm;inl"
+# Begin Source File
+
+SOURCE=.\AutoSetNull.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartAxis.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartAxisLabel.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartCtrl.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartGrid.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartLegend.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartLineSerie.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartMarker.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartMixedSerie.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartPointSerie.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSecant.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSerie.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChartSerieFamily.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CopyFileDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DelTstDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DiffDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\FileDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\FreeMemoryDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GradBtn.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HelpDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\InfoCopyFileDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IpInfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\KalibrDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Klava.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\KoefDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Line.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\LineDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\LupaDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Mod.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModificationDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\newres.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ParolDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PartDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReparolDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Resource.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveAsDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveOtchDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveRefDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveTablDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SaveTstDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ScalDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TablDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TestRenameDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeAddDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeAddFromPanelDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreeViewDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ValEnter.h
+# End Source File
+# End Group
+# Begin Group "Resource Files"
+
+# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+# Begin Source File
+
+SOURCE=.\res\addtree.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap1.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap_c.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap_k.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap_m.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmap_n.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bitmapci.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00001.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00002.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00003.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00004.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00005.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00006.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00007.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00008.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00009.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00010.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00011.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00012.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00013.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00014.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00015.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00016.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00017.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00018.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00019.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00020.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00021.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00022.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00023.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00024.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00025.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00026.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00027.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00028.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00029.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00030.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00031.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00032.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00033.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00034.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00035.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00036.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00037.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00038.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00039.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00040.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00041.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00042.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00043.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00044.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00045.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00046.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00047.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00048.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00049.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00050.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00051.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00052.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00053.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00054.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00055.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00056.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00057.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00058.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00059.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00060.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00061.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00062.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00063.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00064.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00065.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00066.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00067.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00068.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00069.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00070.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00071.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00072.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00073.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00074.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00075.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00076.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00077.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00078.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00079.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00080.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00081.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\bmp00082.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\diod.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\em.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00001.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00002.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00003.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00004.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00005.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00006.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00007.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00008.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00009.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00010.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00011.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00012.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00013.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00014.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00015.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00016.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00017.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00018.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00019.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00020.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00021.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00022.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00023.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00024.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00025.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00026.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00027.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00028.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00029.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00030.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00031.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00032.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00033.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00034.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00035.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00036.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00037.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00038.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00039.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00040.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00041.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\ico00042.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon1.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon2.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon_inv.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon_nul.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon_pas.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\icon_tip.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\iconcons.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\kol_off_.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\leftu.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Line.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Line.rc2
+# PROP Exclude_From_Scan -1
+# PROP BASE Exclude_From_Build 1
+# PROP Exclude_From_Build 1
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\miggreen.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\migsigna.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\resetd.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\resetu.bmp
+# End Source File
+# End Group
+# Begin Source File
+
+SOURCE=.\ReadMe.txt
+# End Source File
+# End Target
+# End Project
