@@ -149,8 +149,8 @@ source_group(src                                  FILES ${SRC})
 #source_group(System                               FILES ${SYSTEM})
 #source_group(Utils                                FILES ${UTILS})
 #source_group(Windows                              FILES ${WINDOWS})
-#source_group(Plugs/Arm64                          FILES ${PLUGS_ARM64})
-#source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
+source_group(Plugs/Arm64                          FILES ${PLUGS_ARM64})
+source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
 
 add_executable(${PROJECT_NAME}
     ${RESOURCES}
@@ -187,8 +187,8 @@ add_executable(${PROJECT_NAME}
 #    ${SYSTEM}
 #    ${UTILS}
 #    ${WINDOWS}
-#    ${PLUGS_ARM64}
-#    ${PLUGS_LINUX}
+    ${PLUGS_ARM64}
+    ${PLUGS_LINUX}
 )
 
 set_source_files_properties(
