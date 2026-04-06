@@ -15,9 +15,9 @@ if (COMMAND cmake_policy)
 endif ()
 
 # Set project name
-project (Linia2-GUI)
+project (Sunset)
 
-set (TARGET_NAME Linia2-GUI)
+set (TARGET_NAME Sunset)
 
 set(CMAKE_UNITY_BUILD ON)
 

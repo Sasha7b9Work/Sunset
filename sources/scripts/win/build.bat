@@ -3,7 +3,7 @@
 @echo.
 @echo %TIME%   Building VS-GUI version ...
 
-MSBuild.exe ..\..\generated\Linia\Linia2-GUI.slnx -clp:ErrorsOnly;WarningsOnly -nologo /m
+MSBuild.exe ..\..\generated\Linia\Sunset.slnx -clp:ErrorsOnly;WarningsOnly -nologo /m
 set BUILD_STATUS=%ERRORLEVEL%
 if %BUILD_STATUS%==0 goto Succsess
 

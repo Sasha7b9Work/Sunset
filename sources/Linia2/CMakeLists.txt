@@ -1,5 +1,5 @@
 ﻿# 2023/07/04 15:47:47 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
-project (Linia2)
+project (Sunset)
 
 #set(CMAKE_UNITY_BUILD OFF)
 
@@ -67,40 +67,39 @@ endif()
 add_definitions(-DOPT_GENERIC)
 
 file(GLOB RESOURCES                     resources/*.*)
-file(GLOB DOC                           doc/*.*)
 file(GLOB SRC                           src/*.*)
-file(GLOB COMMUNICATOR                  src/Communicator/*.*)
-file(GLOB COMMUNICATOR_COMPORT          src/Communicator/ComPort/*.*)
-file(GLOB COMMUNICATOR_GPIO             src/Communicator/GPIO/*.*)
-file(GLOB COMMUNICATOR_SPI              src/Communicator/SPI/*.*)
-file(GLOB COMMUNICATOR_UART             src/Communicator/UART/*.*)
-file(GLOB CONTROLS                      src/Controls/*.*)
-file(GLOB DATA                          src/Data/*.*)
-file(GLOB DISPLAY                       src/Display/*.*)
-file(GLOB DISPLAY_GRAPHICS              src/Display/Graphics/*.*)
-file(GLOB DISPLAY_GRID                  src/Display/Grid/*.*)
-file(GLOB IPPP                          src/IPPP/*.*)
-file(GLOB IPPP_EMULATOR                 src/IPPP/Emulator/*.*)
-file(GLOB IPPP_KEYBOARD                 src/IPPP/Keyboard/*.*)
-file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
-file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
-file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
-file(GLOB PANELS                        src/Panels/*.*)
-file(GLOB PANELS_PANELCONFIG            src/Panels/PanelConfig/*.*)
-file(GLOB PANELS_PANELCONFIG_CALC       src/Panels/PanelConfig/PanelCalc/*.*)
-file(GLOB PANELS_PANELCONFIG_SCHEME     src/Panels/PanelConfig/PanelScheme/*.*)
-file(GLOB PANELS_PANELMENU              src/Panels/PanelMenu/*.*)
-file(GLOB PANELS_PANELMENU_SETUP        src/Panels/PanelMenu/Setup/*.*)
-file(GLOB PANELS_PANELMENU_SETUP_FP     src/Panels/PanelMenu/Setup/MyComputer/*.*)
-file(GLOB PANELS_PANELDEBUG             src/Panels/PanelDebug/*.*)
-file(GLOB PANELS_PANELDEBUG_NOTEBOOK    src/Panels/PanelDebug/Notebook/*.*)
-file(GLOB PANELS_WINDOWCALCULATION      src/Panels/WindowCalculation/*.*)
-file(GLOB SETTINGS                      src/Settings/*.*)
-file(GLOB SOFTTESTS                     src/SoftTests/*.*)
-file(GLOB STORAGE                       src/Storage/*.*)
-file(GLOB SYSTEM                        src/System/*.*)
-file(GLOB UTILS                         src/Utils/*.*)
-file(GLOB WINDOWS                       src/Windows/*.*)
+#file(GLOB COMMUNICATOR                  src/Communicator/*.*)
+#file(GLOB COMMUNICATOR_COMPORT          src/Communicator/ComPort/*.*)
+#file(GLOB COMMUNICATOR_GPIO             src/Communicator/GPIO/*.*)
+#file(GLOB COMMUNICATOR_SPI              src/Communicator/SPI/*.*)
+#file(GLOB COMMUNICATOR_UART             src/Communicator/UART/*.*)
+#file(GLOB CONTROLS                      src/Controls/*.*)
+#file(GLOB DATA                          src/Data/*.*)
+#file(GLOB DISPLAY                       src/Display/*.*)
+#file(GLOB DISPLAY_GRAPHICS              src/Display/Graphics/*.*)
+#file(GLOB DISPLAY_GRID                  src/Display/Grid/*.*)
+#file(GLOB IPPP                          src/IPPP/*.*)
+#file(GLOB IPPP_EMULATOR                 src/IPPP/Emulator/*.*)
+#file(GLOB IPPP_KEYBOARD                 src/IPPP/Keyboard/*.*)
+#file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
+#file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
+#file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
+#file(GLOB PANELS                        src/Panels/*.*)
+#file(GLOB PANELS_PANELCONFIG            src/Panels/PanelConfig/*.*)
+#file(GLOB PANELS_PANELCONFIG_CALC       src/Panels/PanelConfig/PanelCalc/*.*)
+#file(GLOB PANELS_PANELCONFIG_SCHEME     src/Panels/PanelConfig/PanelScheme/*.*)
+#file(GLOB PANELS_PANELMENU              src/Panels/PanelMenu/*.*)
+#file(GLOB PANELS_PANELMENU_SETUP        src/Panels/PanelMenu/Setup/*.*)
+#file(GLOB PANELS_PANELMENU_SETUP_FP     src/Panels/PanelMenu/Setup/MyComputer/*.*)
+#file(GLOB PANELS_PANELDEBUG             src/Panels/PanelDebug/*.*)
+#file(GLOB PANELS_PANELDEBUG_NOTEBOOK    src/Panels/PanelDebug/Notebook/*.*)
+#file(GLOB PANELS_WINDOWCALCULATION      src/Panels/WindowCalculation/*.*)
+#file(GLOB SETTINGS                      src/Settings/*.*)
+#file(GLOB SOFTTESTS                     src/SoftTests/*.*)
+#file(GLOB STORAGE                       src/Storage/*.*)
+#file(GLOB SYSTEM                        src/System/*.*)
+#file(GLOB UTILS                         src/Utils/*.*)
+#file(GLOB WINDOWS                       src/Windows/*.*)
 
 if(WIN32)                                                           # Эти заглушки включаем для Windows
     file(GLOB PLUGS_ARM64               arm64_plugs/*.*
@@ -116,82 +115,80 @@ else()
     endif()
 endif()
 
-source_group(doc                                  FILES ${DOC})
 source_group(Resources                            FILES ${RESOURCES})
 source_group(src                                  FILES ${SRC})
-source_group(Communicator                         FILES ${COMMUNICATOR})
-source_group(Communicator/ComPort                 FILES ${COMMUNICATOR_COMPORT})
-source_group(Communicator/GPIO                    FILES ${COMMUNICATOR_GPIO})
-source_group(Communicator/SPI                     FILES ${COMMUNICATOR_SPI})
-source_group(Communicator/UART                    FILES ${COMMUNICATOR_UART})
-source_group(Controls                             FILES ${CONTROLS})
-source_group(Data                                 FILES ${DATA})
-source_group(Display                              FILES ${DISPLAY})
-source_group(Display/Graphics                     FILES ${DISPLAY_GRAPHICS})
-source_group(Display/Grid                         FILES ${DISPLAY_GRID})
-source_group(IPPP                                 FILES ${IPPP})
-source_group(IPPP/Emulator                        FILES ${IPPP_EMULATOR})
-source_group(IPPP/Keyboard                        FILES ${IPPP_KEYBOARD})
-source_group(IPPP/Real                            FILES ${IPPP_REAL})
-source_group(IPPP/SCPI                            FILES ${IPPP_SCPI})
-source_group(IPPP/Tests                           FILES ${IPPP_TESTS})
-source_group(Panels                               FILES ${PANELS})
-source_group(Panels/PanelConfig                   FILES ${PANELS_PANELCONFIG})
-source_group(Panels/PanelConfig/PanelCalc         FILES ${PANELS_PANELCONFIG_CALC})
-source_group(Panels/PanelConfig/PanelScheme       FILES ${PANELS_PANELCONFIG_SCHEME})
-source_group(Panels/PanelMenu                     FILES ${PANELS_PANELMENU})
-source_group(Panels/PanelMenu/Setup               FILES ${PANELS_PANELMENU_SETUP})
-source_group(Panels/PanelMenu/Setup/MyComputer    FILES ${PANELS_PANELMENU_SETUP_FP})
-source_group(Panels/PanelDebug                    FILES ${PANELS_PANELDEBUG})
-source_group(Panels/PanelDebug/Notebook           FILES ${PANELS_PANELDEBUG_NOTEBOOK})
-source_group(Panels/WindowCalculation             FILES ${PANELS_WINDOWCALCULATION})
-source_group(Settings                             FILES ${SETTINGS})
-source_group(SoftTests                            FILES ${SOFTTESTS})
-source_group(Storage                              FILES ${STORAGE})
-source_group(System                               FILES ${SYSTEM})
-source_group(Utils                                FILES ${UTILS})
-source_group(Windows                              FILES ${WINDOWS})
-source_group(Plugs/Arm64                          FILES ${PLUGS_ARM64})
-source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
+#source_group(Communicator                         FILES ${COMMUNICATOR})
+#source_group(Communicator/ComPort                 FILES ${COMMUNICATOR_COMPORT})
+#source_group(Communicator/GPIO                    FILES ${COMMUNICATOR_GPIO})
+#source_group(Communicator/SPI                     FILES ${COMMUNICATOR_SPI})
+#source_group(Communicator/UART                    FILES ${COMMUNICATOR_UART})
+#source_group(Controls                             FILES ${CONTROLS})
+#source_group(Data                                 FILES ${DATA})
+#source_group(Display                              FILES ${DISPLAY})
+#source_group(Display/Graphics                     FILES ${DISPLAY_GRAPHICS})
+#source_group(Display/Grid                         FILES ${DISPLAY_GRID})
+#source_group(IPPP                                 FILES ${IPPP})
+#source_group(IPPP/Emulator                        FILES ${IPPP_EMULATOR})
+#source_group(IPPP/Keyboard                        FILES ${IPPP_KEYBOARD})
+#source_group(IPPP/Real                            FILES ${IPPP_REAL})
+#source_group(IPPP/SCPI                            FILES ${IPPP_SCPI})
+#source_group(IPPP/Tests                           FILES ${IPPP_TESTS})
+#source_group(Panels                               FILES ${PANELS})
+#source_group(Panels/PanelConfig                   FILES ${PANELS_PANELCONFIG})
+#source_group(Panels/PanelConfig/PanelCalc         FILES ${PANELS_PANELCONFIG_CALC})
+#source_group(Panels/PanelConfig/PanelScheme       FILES ${PANELS_PANELCONFIG_SCHEME})
+#source_group(Panels/PanelMenu                     FILES ${PANELS_PANELMENU})
+#source_group(Panels/PanelMenu/Setup               FILES ${PANELS_PANELMENU_SETUP})
+#source_group(Panels/PanelMenu/Setup/MyComputer    FILES ${PANELS_PANELMENU_SETUP_FP})
+#source_group(Panels/PanelDebug                    FILES ${PANELS_PANELDEBUG})
+#source_group(Panels/PanelDebug/Notebook           FILES ${PANELS_PANELDEBUG_NOTEBOOK})
+#source_group(Panels/WindowCalculation             FILES ${PANELS_WINDOWCALCULATION})
+#source_group(Settings                             FILES ${SETTINGS})
+#source_group(SoftTests                            FILES ${SOFTTESTS})
+#source_group(Storage                              FILES ${STORAGE})
+#source_group(System                               FILES ${SYSTEM})
+#source_group(Utils                                FILES ${UTILS})
+#source_group(Windows                              FILES ${WINDOWS})
+#source_group(Plugs/Arm64                          FILES ${PLUGS_ARM64})
+#source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
 
 add_executable(${PROJECT_NAME}
-    ${DOC}
     ${RESOURCES}
     ${SRC}
-    ${COMMUNICATOR}
-    ${COMMUNICATOR_COMPORT}
-    ${COMMUNICATOR_GPIO}
-    ${COMMUNICATOR_SPI}
-    ${COMMUNICATOR_UART}
-    ${CONTROLS}
-    ${DATA}
-    ${DISPLAY}
-    ${DISPLAY_GRAPHICS}
-    ${DISPLAY_GRID}
-    ${IPPP}
-    ${IPPP_EMULATOR}
-    ${IPPP_KEYBOARD}
-    ${IPPP_REAL}
-    ${IPPP_SCPI}
-    ${IPPP_TESTS}
-    ${PANELS}
-    ${PANELS_PANELCONFIG}
-    ${PANELS_PANELCONFIG_CALC}
-    ${PANELS_PANELCONFIG_SCHEME}
-    ${PANELS_PANELMENU}
-    ${PANELS_PANELMENU_SETUP}
-    ${PANELS_PANELMENU_SETUP_FP}
-    ${PANELS_PANELDEBUG}
-    ${PANELS_PANELDEBUG_NOTEBOOK}
-    ${PANELS_WINDOWCALCULATION}
-    ${SETTINGS}
-    ${SOFTTESTS}
-    ${STORAGE}
-    ${SYSTEM}
-    ${UTILS}
-    ${WINDOWS}
-    ${PLUGS_ARM64}
-    ${PLUGS_LINUX}
+#    ${COMMUNICATOR}
+#    ${COMMUNICATOR_COMPORT}
+#    ${COMMUNICATOR_GPIO}
+#    ${COMMUNICATOR_SPI}
+#    ${COMMUNICATOR_UART}
+#    ${CONTROLS}
+#    ${DATA}
+#    ${DISPLAY}
+#    ${DISPLAY_GRAPHICS}
+#    ${DISPLAY_GRID}
+#    ${IPPP}
+#    ${IPPP_EMULATOR}
+#    ${IPPP_KEYBOARD}
+#    ${IPPP_REAL}
+#    ${IPPP_SCPI}
+#    ${IPPP_TESTS}
+#    ${PANELS}
+#    ${PANELS_PANELCONFIG}
+#    ${PANELS_PANELCONFIG_CALC}
+#    ${PANELS_PANELCONFIG_SCHEME}
+#    ${PANELS_PANELMENU}
+#    ${PANELS_PANELMENU_SETUP}
+#    ${PANELS_PANELMENU_SETUP_FP}
+#    ${PANELS_PANELDEBUG}
+#    ${PANELS_PANELDEBUG_NOTEBOOK}
+#    ${PANELS_WINDOWCALCULATION}
+#    ${SETTINGS}
+#    ${SOFTTESTS}
+#    ${STORAGE}
+#    ${SYSTEM}
+#    ${UTILS}
+#    ${WINDOWS}
+#    ${PLUGS_ARM64}
+#    ${PLUGS_LINUX}
 )
 
 set_source_files_properties(
