@@ -1,7 +1,7 @@
 ﻿# 2023/07/04 15:47:47 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 project (Sunset)
 
-#set(CMAKE_UNITY_BUILD OFF)
+set(CMAKE_UNITY_BUILD OFF)
 
 set(CMAKE_UNITY_BUILD_BATCH_SIZE 20)
 
@@ -68,12 +68,12 @@ add_definitions(-DOPT_GENERIC)
 
 file(GLOB RESOURCES                     resources/*.*)
 file(GLOB SRC                           src/*.*)
-#file(GLOB COMMUNICATOR                  src/Communicator/*.*)
-#file(GLOB COMMUNICATOR_COMPORT          src/Communicator/ComPort/*.*)
-#file(GLOB COMMUNICATOR_GPIO             src/Communicator/GPIO/*.*)
-#file(GLOB COMMUNICATOR_SPI              src/Communicator/SPI/*.*)
-#file(GLOB COMMUNICATOR_UART             src/Communicator/UART/*.*)
-#file(GLOB CONTROLS                      src/Controls/*.*)
+file(GLOB COMMUNICATOR                  src/Communicator/*.*)
+file(GLOB COMMUNICATOR_COMPORT          src/Communicator/ComPort/*.*)
+file(GLOB COMMUNICATOR_GPIO             src/Communicator/GPIO/*.*)
+file(GLOB COMMUNICATOR_SPI              src/Communicator/SPI/*.*)
+file(GLOB COMMUNICATOR_UART             src/Communicator/UART/*.*)
+file(GLOB CONTROLS                      src/Controls/*.*)
 #file(GLOB DATA                          src/Data/*.*)
 #file(GLOB DISPLAY                       src/Display/*.*)
 #file(GLOB DISPLAY_GRAPHICS              src/Display/Graphics/*.*)
@@ -94,11 +94,11 @@ file(GLOB SRC                           src/*.*)
 #file(GLOB PANELS_PANELDEBUG             src/Panels/PanelDebug/*.*)
 #file(GLOB PANELS_PANELDEBUG_NOTEBOOK    src/Panels/PanelDebug/Notebook/*.*)
 #file(GLOB PANELS_WINDOWCALCULATION      src/Panels/WindowCalculation/*.*)
-#file(GLOB SETTINGS                      src/Settings/*.*)
-#file(GLOB SOFTTESTS                     src/SoftTests/*.*)
+file(GLOB SETTINGS                      src/Settings/*.*)
+file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 #file(GLOB STORAGE                       src/Storage/*.*)
 #file(GLOB SYSTEM                        src/System/*.*)
-#file(GLOB UTILS                         src/Utils/*.*)
+file(GLOB UTILS                         src/Utils/*.*)
 #file(GLOB WINDOWS                       src/Windows/*.*)
 
 if(WIN32)                                                           # Эти заглушки включаем для Windows
@@ -117,12 +117,12 @@ endif()
 
 source_group(Resources                            FILES ${RESOURCES})
 source_group(src                                  FILES ${SRC})
-#source_group(Communicator                         FILES ${COMMUNICATOR})
-#source_group(Communicator/ComPort                 FILES ${COMMUNICATOR_COMPORT})
-#source_group(Communicator/GPIO                    FILES ${COMMUNICATOR_GPIO})
-#source_group(Communicator/SPI                     FILES ${COMMUNICATOR_SPI})
-#source_group(Communicator/UART                    FILES ${COMMUNICATOR_UART})
-#source_group(Controls                             FILES ${CONTROLS})
+source_group(Communicator                         FILES ${COMMUNICATOR})
+source_group(Communicator/ComPort                 FILES ${COMMUNICATOR_COMPORT})
+source_group(Communicator/GPIO                    FILES ${COMMUNICATOR_GPIO})
+source_group(Communicator/SPI                     FILES ${COMMUNICATOR_SPI})
+source_group(Communicator/UART                    FILES ${COMMUNICATOR_UART})
+source_group(Controls                             FILES ${CONTROLS})
 #source_group(Data                                 FILES ${DATA})
 #source_group(Display                              FILES ${DISPLAY})
 #source_group(Display/Graphics                     FILES ${DISPLAY_GRAPHICS})
@@ -143,11 +143,11 @@ source_group(src                                  FILES ${SRC})
 #source_group(Panels/PanelDebug                    FILES ${PANELS_PANELDEBUG})
 #source_group(Panels/PanelDebug/Notebook           FILES ${PANELS_PANELDEBUG_NOTEBOOK})
 #source_group(Panels/WindowCalculation             FILES ${PANELS_WINDOWCALCULATION})
-#source_group(Settings                             FILES ${SETTINGS})
-#source_group(SoftTests                            FILES ${SOFTTESTS})
+source_group(Settings                             FILES ${SETTINGS})
+source_group(SoftTests                            FILES ${SOFTTESTS})
 #source_group(Storage                              FILES ${STORAGE})
 #source_group(System                               FILES ${SYSTEM})
-#source_group(Utils                                FILES ${UTILS})
+source_group(Utils                                FILES ${UTILS})
 #source_group(Windows                              FILES ${WINDOWS})
 source_group(Plugs/Arm64                          FILES ${PLUGS_ARM64})
 source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
@@ -155,12 +155,12 @@ source_group(Plugs/linux                          FILES ${PLUGS_LINUX})
 add_executable(${PROJECT_NAME}
     ${RESOURCES}
     ${SRC}
-#    ${COMMUNICATOR}
-#    ${COMMUNICATOR_COMPORT}
-#    ${COMMUNICATOR_GPIO}
-#    ${COMMUNICATOR_SPI}
-#    ${COMMUNICATOR_UART}
-#    ${CONTROLS}
+    ${COMMUNICATOR}
+    ${COMMUNICATOR_COMPORT}
+    ${COMMUNICATOR_GPIO}
+    ${COMMUNICATOR_SPI}
+    ${COMMUNICATOR_UART}
+    ${CONTROLS}
 #    ${DATA}
 #    ${DISPLAY}
 #    ${DISPLAY_GRAPHICS}
@@ -181,11 +181,11 @@ add_executable(${PROJECT_NAME}
 #    ${PANELS_PANELDEBUG}
 #    ${PANELS_PANELDEBUG_NOTEBOOK}
 #    ${PANELS_WINDOWCALCULATION}
-#    ${SETTINGS}
-#    ${SOFTTESTS}
+    ${SETTINGS}
+    ${SOFTTESTS}
 #    ${STORAGE}
 #    ${SYSTEM}
-#    ${UTILS}
+    ${UTILS}
 #    ${WINDOWS}
     ${PLUGS_ARM64}
     ${PLUGS_LINUX}

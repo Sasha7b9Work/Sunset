@@ -1,7 +1,6 @@
 ﻿// 2023/08/10 13:15:12 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/Painter.h"
-#include "Controls/Buttons.h"
 
 
 class ButtonColor;

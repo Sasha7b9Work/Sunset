@@ -1,6 +1,5 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Panels/PanelMenu/PanelMenu.h"
 #include "Settings/Value.h"
 
 
@@ -42,7 +41,7 @@ public:
     static const int WIDTH3 = WIDTH - WIDTH_DRAW;   // Ширина последнего, третьего, столбика с панелями
 
     static const int HEIGHT_HI = 75;
-    static const int HEIGHT_DRAW = HEIGHT - HEIGHT_HI - PanelMenu::HEIGHT;
+    static const int HEIGHT_DRAW = HEIGHT - HEIGHT_HI;
 
     void OnQuit(wxCommandEvent &event);
     void OnAbout(wxCommandEvent &event);

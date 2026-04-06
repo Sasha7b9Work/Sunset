@@ -4,18 +4,11 @@
 #include "Utils/Configurator.h"
 #include "Settings/Settings.h"
 #include "MainWindow.h"
-#include "Windows/ConsoleRS232.h"
-#include "IPPP/Tests/Tests.h"
-#include "SoftTests/SoftTests.h"
 #include "Communicator/UART/UART.h"
 #include "Communicator/SPI/SPI.h"
 #include "Controls/AutoRebootDialog.h"
-#include "IPPP/Real/Chips.h"
-#include "Panels/PanelUpper.h"
-#include "Communicator/ComPort/ComPort.h"
+#include "SoftTests/SoftTests.h"
 #include "IPPP/I_IPPP.h"
-#include "IPPP/Real/RealIPPP.h"
-#include "IPPP/DeviceFactory.h"
 #include <cstdlib>
 
 
@@ -119,22 +112,12 @@ bool Application::OnInit()
     // we use a PNG image in our HTML page
     wxImage::AddHandler(new wxPNGHandler);
 
-    ConsoleRS232::Create();
-
-    Chip::Init();
-
-    auto device = DeviceFactory::CreateFromConfig();
-
-    I_IPPP::SetInstance(std::move(device));
-
     // create and show the main application window
     MainWindow *frame = new MainWindow(wxT("ИППП 4"));
 
     Bind(wxEVT_TIMER, &Application::OnTimer, this, timer.GetId());
 
     timer.SetOwner(this, timer.GetId());
-
-    Test::Load("example.tst");
 
     frame->Show();
 
@@ -176,7 +159,7 @@ bool Application::OnInit()
 
 #ifdef WIN32
 
-    ComPort::Connect(PanelUpper::self->GetNumPort());
+//    ComPort::Connect(PanelUpper::self->GetNumPort());
 
 #endif
 
