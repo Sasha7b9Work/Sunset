@@ -11,6 +11,7 @@
 #include "IPPP/I_IPPP.h"
 #include "IPPP/Real/Chips.h"
 #include "IPPP/DeviceFactory.h"
+#include "Windows/ConsoleRS232.h"
 #include <cstdlib>
 
 
@@ -113,6 +114,8 @@ bool Application::OnInit()
 
     // we use a PNG image in our HTML page
     wxImage::AddHandler(new wxPNGHandler);
+
+    ConsoleRS232::Create();
 
     Chip::Init();
 
@@ -234,19 +237,6 @@ void Application::OnButtonStart(bool /*press*/)
 void Application::OnButtonStop(bool /*press*/)
 {
 
-}
-
-
-void Application::SetMode(Mode mode)
-{
-    if ((int)mode == SET::GUI::mode_application->Get())
-    {
-        return;
-    }
-
-    SET::GUI::mode_application->Set((int)mode);
-
-    ReInit();
 }
 
 

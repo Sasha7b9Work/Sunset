@@ -10,6 +10,7 @@
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"
 #include "Display/Graphics/AutoCursors.h"
+#include "Panels/Panels.h"
 
 
 MainWindow *TheMainWindow = nullptr;
@@ -35,6 +36,14 @@ MainWindow::MainWindow(const wxString &title)
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
 
+    PanelBoard *board = new PanelBoard(this);
+
+    TheDisplay = new Display(this);
+
+    board->AddChild(TheDisplay);
+
+    sizer->Add(board);
+
     SetSizer(sizer);
 
     SetPosition();
@@ -57,8 +66,6 @@ MainWindow::MainWindow(const wxString &title)
     }
 
     new AutoCursors();
-
-    TheDisplay = new Display(this);
 
     SetMode(ModeMainWindow::Standard);
 }

@@ -27,8 +27,6 @@ namespace SET
         ValueInt         *size_point = nullptr;
         Value<wxString>  *current_panel = nullptr;
 
-        ValueInt         *mode_application = nullptr;
-
         void Load();
         void Save();
     }
@@ -81,8 +79,6 @@ void SET::Init()
 
     GUI::size_point = new ValueInt("size_point", 2);
     GUI::current_panel = new Value<wxString>{ "current_panel", "PanelChannelC" };
-
-    GUI::mode_application = new ValueInt("mode_application", (int)Application::Mode::Old);
 }
 
 
