@@ -1,5 +1,6 @@
 ﻿// 2025/8/9 09:54:44 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
+#include "Panels/Panels.h"
 #include "Panels/PanelScheme/PanelScheme.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
@@ -42,9 +43,6 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent)
     wxPanel::SetName("PanelScheme");
 
     ThePanelScheme = this;
-
-    wxPanel::SetSize({ MainWindow::WIDTH3, HEIGHT - BUTTON_HEIGHT });
-    wxPanel::SetPosition({ 0, BUTTON_HEIGHT });
 
     StaticBox *boxTest = new StaticBox(this, wxT("Тест"), { 0, SD::DSBY() }, { 100, 90 });
 
