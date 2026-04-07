@@ -28,6 +28,7 @@ PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent)
     Bind(wxEVT_LEAVE_WINDOW, &PanelDisplay::OnEventLeaveWindow, this);
     Bind(wxEVT_ENTER_WINDOW, &PanelDisplay::OnEventEnterWindow, this);
     Bind(wxEVT_BUTTON, &PanelDisplay::OnEventButton, this);
+    Bind(wxEVT_SIZE, &PanelDisplay::OnEventSize, this);
 
     int w = 25;
 
@@ -510,3 +511,9 @@ wxSize PanelDisplay::GetFullSize() const
 }
 
 
+void PanelDisplay::OnEventSize(wxSizeEvent &event)
+{
+    Refresh();
+
+    event.Skip();
+}

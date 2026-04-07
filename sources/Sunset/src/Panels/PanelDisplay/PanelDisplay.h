@@ -84,6 +84,8 @@ private:
     void OnEventEnterWindow(wxMouseEvent &);
     void OnEventButton(wxCommandEvent &);
 
+    void OnEventSize(wxSizeEvent &);
+
     wxSize GetSize() const;
     wxSize GetClientSize() const;
 };

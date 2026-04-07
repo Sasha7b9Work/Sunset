@@ -85,7 +85,9 @@ void PanelBoard::AddPanel(Panel *panel)
 
         // ★ НОВОЕ: автоматически добавляем кнопку в верхнюю ячейку
     wxString buttonLabel = wxString::Format("Panel %d", (int)m_contentPanels.size());
-    AddTopButton(buttonLabel, (wxObject *)panel); // сохраняем указатель на панель
+    AddTopButton(buttonLabel, (wxObject *)panel);
+
+    AddBottomButton(buttonLabel, (wxObject *)panel);
 
     // Если это первая панель - показываем её
     if (m_contentPanels.size() == 1)
@@ -140,6 +142,15 @@ void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
     btn->SetClientData(eventUserData);
     m_topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     m_topSizer->Layout();
+}
+
+void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
+{
+    wxButton *btn = new wxButton(static_cast<wxPanel *>(m_bottomSizer->GetContainingWindow()),
+        wxID_ANY, label);
+    btn->SetClientData(eventUserData);
+    m_bottomSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
+    m_bottomSizer->Layout();
 }
 
 

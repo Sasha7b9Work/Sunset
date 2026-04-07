@@ -57,7 +57,9 @@ MainWindow::MainWindow(const wxString &title)
         {
             SetClientSize({ WIDTH, HEIGHT });
 
+#ifndef WIN32
             SetWindowStyle(GetWindowStyle() & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX));
+#endif
         }
     }
 
