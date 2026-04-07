@@ -3,7 +3,7 @@
 #include "Controls/DraggedWindow.h"
 #include "Settings/Settings.h"
 #include "MainWindow.h"
-#include "Display/Graphics/AutoCursors.h"
+#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 
 
 DraggedWindow::DraggedWindow(const wxString &_title, const wxSize &_size)

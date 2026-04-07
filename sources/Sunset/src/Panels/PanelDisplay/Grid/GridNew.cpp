@@ -2,11 +2,11 @@
 #include "defines.h"
 #include "MainWindow.h"
 #include "Utils/Math.h"
-#include "Display/Graphics/GraphMeasure.h"
-#include "Display/Grid/GridNew.h"
-#include "Display/Display.h"
+#include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
+#include "Panels/PanelDisplay/Grid/GridNew.h"
+#include "Panels/PanelDisplay/PanelDisplay.h"
 #include "Settings/Settings.h"
-#include "Display/Graphics/AutoCursors.h"
+#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 
 
 GridNew::GridNew()
@@ -40,13 +40,13 @@ int GridNew::TopY() const
 
 int GridNew::CenterY() const
 {
-    return TheDisplay->GetDrawingSize().y / 2;
+    return ThePanelDisplay->GetDrawingSize().y / 2;
 }
 
 
 int GridNew::CenterX() const
 {
-    return TheDisplay->GetDrawingSize().x / 2;
+    return ThePanelDisplay->GetDrawingSize().x / 2;
 }
 
 
@@ -76,7 +76,7 @@ int GridNew::LengthAxisY() const
 
 void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
 {
-    wxSize size = TheDisplay->GetDrawingSize();
+    wxSize size = ThePanelDisplay->GetDrawingSize();
 
     const int x_left = LeftX();
     const int x_right = RightX();
@@ -169,14 +169,14 @@ void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
         entity->Draw();
     }
 
-    TheDisplay->SetColorPen(SET::GUI::color_background->Get());
+    ThePanelDisplay->SetColorPen(SET::GUI::color_background->Get());
 
-    TheDisplay->FillRectangle(0, 0, x_left - 1, TheDisplay->GetDrawingSize().y, SET::GUI::color_background->Get()); //-V807
-    TheDisplay->FillRectangle(x_left, 0, LengthAxisX(), y_top - 1, SET::GUI::color_background->Get());
-    TheDisplay->FillRectangle(x_right + 1, 0, TheDisplay->GetDrawingSize().x - x_right, TheDisplay->GetDrawingSize().y, SET::GUI::color_background->Get());
-    TheDisplay->FillRectangle(x_left, y_bottom + 1, LengthAxisX(), TheDisplay->GetDrawingSize().y - y_bottom, SET::GUI::color_background->Get());
+    ThePanelDisplay->FillRectangle(0, 0, x_left - 1, ThePanelDisplay->GetDrawingSize().y, SET::GUI::color_background->Get()); //-V807
+    ThePanelDisplay->FillRectangle(x_left, 0, LengthAxisX(), y_top - 1, SET::GUI::color_background->Get());
+    ThePanelDisplay->FillRectangle(x_right + 1, 0, ThePanelDisplay->GetDrawingSize().x - x_right, ThePanelDisplay->GetDrawingSize().y, SET::GUI::color_background->Get());
+    ThePanelDisplay->FillRectangle(x_left, y_bottom + 1, LengthAxisX(), ThePanelDisplay->GetDrawingSize().y - y_bottom, SET::GUI::color_background->Get());
 
-    if (!TheDisplay->mouse_is_pressed)
+    if (!ThePanelDisplay->mouse_is_pressed)
     {
         if (pos_mouse.y > TopY() &&
             pos_mouse.y < BottomY() &&
@@ -193,13 +193,13 @@ void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
 
 void GridNew::DrawLabelsOnAxis() const
 {
-    TheDisplay->SetColorPen(SET::GUI::color_font->Get());
+    ThePanelDisplay->SetColorPen(SET::GUI::color_font->Get());
 
     Text::SetFont();
 
     int d = 2;
 
-    wxSize size = TheDisplay->GetDrawingSize();
+    wxSize size = ThePanelDisplay->GetDrawingSize();
 
     {
         // Подписываем горизонтальную ось
@@ -330,7 +330,7 @@ void GridNew::RangeGridOnX(int delta)
         rangeX.Decrease();
     }
 
-    TheDisplay->Refresh();
+    ThePanelDisplay->Refresh();
 }
 
 
@@ -345,7 +345,7 @@ void GridNew::RangeGridOnY(int delta)
         rangeY.Decrease();
     }
 
-    TheDisplay->Refresh();
+    ThePanelDisplay->Refresh();
 }
 
 

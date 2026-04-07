@@ -6,11 +6,11 @@
 #include "Utils/Configurator.h"
 #include "Windows/ConsoleRS232.h"
 #include "MainWindow.h"
-#include "Display/Display.h"
+#include "Panels/PanelDisplay/PanelDisplay.h"
 #include "Panels/PanelScheme/PanelScheme.h"
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"
-#include "Display/Graphics/AutoCursors.h"
+#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 #include "Panels/Panels.h"
 
 
@@ -36,15 +36,10 @@ MainWindow::MainWindow(const wxString &title)
     TuneFont();
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
-
     PanelBoard *board = new PanelBoard(this);
-
-    board->AddPanel(new Display(this));
-
+    board->AddPanel(new PanelDisplay(this));
     board->AddPanel(new PanelScheme(this));
-
     sizer->Add(board);
-
     SetSizer(sizer);
 
     SetPosition();
@@ -220,9 +215,9 @@ void MainWindow::SetMode(ModeMainWindow::E mode)
 {
     ModeMainWindow::current = mode;
 
-    TheDisplay->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
+    ThePanelDisplay->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
 
-    TheDisplay->FullScreen(mode == ModeMainWindow::FullGraph);
+    ThePanelDisplay->FullScreen(mode == ModeMainWindow::FullGraph);
 
     wxFrame::Layout();
 }

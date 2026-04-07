@@ -1,15 +1,15 @@
 ﻿// 2022/10/28 23:17:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Display/Grid/Grid.h"
-#include "Display/PanelErrors.h"
-#include "Display/Graphics/GraphMeasure.h"
+#include "Panels/PanelDisplay/Grid/Grid.h"
+#include "Panels/PanelDisplay/PanelErrors.h"
+#include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
 #include "Panels/Panels.h"
 
 
 // Здесь отрисовывается график ну и кнопки разные
 
 
-class Display : public Panel
+struct PanelDisplay : public Panel
 {
     friend class Point;
     friend class Text;
@@ -22,7 +22,7 @@ class Display : public Panel
 
 public:
 
-    ~Display();
+    ~PanelDisplay();
 
     void SetColorBrush(const wxColor &);
     void SetColorPen(const wxColor &);
@@ -47,11 +47,9 @@ public:
 
     std::vector<GraphMeasure *> entities;    // Сущности для отрисовки
 
-    void ReInit();
-
 private:
 
-    Display(wxWindow *);
+    PanelDisplay(wxWindow *);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,

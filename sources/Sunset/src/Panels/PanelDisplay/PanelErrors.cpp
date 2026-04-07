@@ -1,8 +1,8 @@
 ﻿// 2025/09/01 22:59:47 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Display/PanelErrors.h"
+#include "Panels/PanelDisplay/PanelErrors.h"
 #include "MainWindow.h"
-#include "Display/Display.h"
+#include "Panels/PanelDisplay/PanelDisplay.h"
 #include "Utils/SystemDepend.h"
 
 
@@ -24,7 +24,7 @@ PanelErrors::PanelErrors(wxWindow *parent) :
     text_ctrl->SetDoubleBuffered(true);
 
     wxSize size_button{ 90, 22 };
-    btnCollapse = new wxButton(this, wxID_ANY, "Свернуть", { TheDisplay->GetFullSize().x - size_button.x - 10, SD::Y_SB(0) }, size_button);
+    btnCollapse = new wxButton(this, wxID_ANY, "Свернуть", { ThePanelDisplay->GetFullSize().x - size_button.x - 10, SD::Y_SB(0) }, size_button);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     sizer->Add(text_ctrl, 1, wxEXPAND | wxALL, 0);
@@ -58,7 +58,7 @@ void PanelErrors::ReInit()
 {
     wxSize size = GetSize();
 
-    size.x = TheDisplay->GetFullSize().x;
+    size.x = ThePanelDisplay->GetFullSize().x;
 
     SetSize(size);                                                  // Корректируем размер под размер дисплея
 }

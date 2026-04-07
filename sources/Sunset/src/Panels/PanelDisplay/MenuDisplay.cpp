@@ -1,11 +1,11 @@
 ﻿// 2026/03/13 16:31:27 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Display/MenuDisplay.h"
-#include "Display/Grid/Grid.h"
-#include "Display/Display.h"
+#include "Panels/PanelDisplay/MenuDisplay.h"
+#include "Panels/PanelDisplay/Grid/Grid.h"
+#include "Panels/PanelDisplay/PanelDisplay.h"
 #include "MainWindow.h"
 #include "Settings/Settings.h"
-#include "Display/Graphics/AutoCursors.h"
+#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 
 
 MenuDisplay::MenuDisplay() : wxMenu()
@@ -16,7 +16,7 @@ MenuDisplay::MenuDisplay() : wxMenu()
 
     wxMenuItem *item = AppendCheckItem(wxID_ANY, "Полный экран");
     Bind(wxEVT_MENU, &MenuDisplay::OnFullScreen, this, item->GetId());
-    Check(item->GetId(), TheDisplay->full_screen);
+    Check(item->GetId(), ThePanelDisplay->full_screen);
 
     AppendSeparator();
 
@@ -135,7 +135,7 @@ void MenuDisplay::OnFullScreen(wxCommandEvent &event)
 
     TheGrid->ResetCenter();
 
-    TheDisplay->Refresh();
+    ThePanelDisplay->Refresh();
 }
 
 
@@ -166,7 +166,7 @@ void MenuDisplay::OnColor(wxCommandEvent &event)
             wxColourData colourData;
             colourData.SetChooseFull(true);
 
-            wxColourDialog dialog(TheDisplay, &colourData);
+            wxColourDialog dialog(ThePanelDisplay, &colourData);
 
             dialog.SetTitle(wxString(wxT("Цвет ")) + title);
 
@@ -233,7 +233,7 @@ void MenuDisplay::OnSizePoint(wxCommandEvent &event)
 
         SET::GUI::size_point->Set(value);
 
-        TheDisplay->Refresh();
+        ThePanelDisplay->Refresh();
     }
 }
 
@@ -252,7 +252,7 @@ void MenuDisplay::OnResetGraphic(wxCommandEvent &)
 
 void MenuDisplay::OnColorCurve()
 {
-    for (auto elem : TheDisplay->entities)
+    for (auto elem : ThePanelDisplay->entities)
     {
         elem->SetColor(SET::GUI::color_curve->Get());
     }

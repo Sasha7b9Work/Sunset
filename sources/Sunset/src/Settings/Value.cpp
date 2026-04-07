@@ -2,7 +2,7 @@
 #include "defines.h"
 #include "Settings/Value.h"
 #include "Settings/Settings.h"
-#include "Display/Display.h"
+#include "Panels/PanelDisplay/PanelDisplay.h"
 
 
 ValueBool::ValueBool(const wxString &_key, const bool &_def) : Value<bool>(_key, _def)

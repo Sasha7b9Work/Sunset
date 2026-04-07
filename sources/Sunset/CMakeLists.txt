@@ -75,9 +75,6 @@ file(GLOB COMMUNICATOR_SPI              src/Communicator/SPI/*.*)
 file(GLOB COMMUNICATOR_UART             src/Communicator/UART/*.*)
 file(GLOB CONTROLS                      src/Controls/*.*)
 file(GLOB DATA                          src/Data/*.*)
-file(GLOB DISPLAY                       src/Display/*.*)
-file(GLOB DISPLAY_GRAPHICS              src/Display/Graphics/*.*)
-file(GLOB DISPLAY_GRID                  src/Display/Grid/*.*)
 file(GLOB IPPP                          src/IPPP/*.*)
 file(GLOB IPPP_EMULATOR                 src/IPPP/Emulator/*.*)
 file(GLOB IPPP_KEYBOARD                 src/IPPP/Keyboard/*.*)
@@ -85,7 +82,10 @@ file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
 file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
 file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
 file(GLOB PANELS                        src/Panels/*.*)
-file(GLOB PANELS_PANELSCHEME            src/Panels/PanelScheme/*.*)
+file(GLOB PANEL_DISPLAY                 src/Panels/PanelDisplay/*.*)
+file(GLOB PANEL_DISPLAY_GRAPHICS        src/Panels/PanelDisplay/Graphics/*.*)
+file(GLOB PANEL_DISPLAY_GRID            src/Panels/PanelDisplay/Grid/*.*)
+file(GLOB PANEL_SCHEME                  src/Panels/PanelScheme/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
@@ -107,34 +107,34 @@ else()
     endif()
 endif()
 
-source_group(Resources            FILES ${RESOURCES})
-source_group(src                  FILES ${SRC})
-source_group(Communicator         FILES ${COMMUNICATOR})
-source_group(Communicator/ComPort FILES ${COMMUNICATOR_COMPORT})
-source_group(Communicator/GPIO    FILES ${COMMUNICATOR_GPIO})
-source_group(Communicator/SPI     FILES ${COMMUNICATOR_SPI})
-source_group(Communicator/UART    FILES ${COMMUNICATOR_UART})
-source_group(Controls             FILES ${CONTROLS})
-source_group(Data                 FILES ${DATA})
-source_group(Display              FILES ${DISPLAY})
-source_group(Display/Graphics     FILES ${DISPLAY_GRAPHICS})
-source_group(Display/Grid         FILES ${DISPLAY_GRID})
-source_group(IPPP                 FILES ${IPPP})
-source_group(IPPP/Emulator        FILES ${IPPP_EMULATOR})
-source_group(IPPP/Keyboard        FILES ${IPPP_KEYBOARD})
-source_group(IPPP/Real            FILES ${IPPP_REAL})
-source_group(IPPP/SCPI            FILES ${IPPP_SCPI})
-source_group(IPPP/Tests           FILES ${IPPP_TESTS})
-source_group(Panels               FILES ${PANELS})
-source_group(Panels/PanelScheme   FILES ${PANELS_PANELSCHEME})
-source_group(Settings             FILES ${SETTINGS})
-source_group(SoftTests            FILES ${SOFTTESTS})
-source_group(Storage              FILES ${STORAGE})
-source_group(System               FILES ${SYSTEM})
-source_group(Utils                FILES ${UTILS})
-source_group(Windows              FILES ${WINDOWS})
-source_group(Plugs/Arm64          FILES ${PLUGS_ARM64})
-source_group(Plugs/linux          FILES ${PLUGS_LINUX})
+source_group(Resources                    FILES ${RESOURCES})
+source_group(src                          FILES ${SRC})
+source_group(Communicator                 FILES ${COMMUNICATOR})
+source_group(Communicator/ComPort         FILES ${COMMUNICATOR_COMPORT})
+source_group(Communicator/GPIO            FILES ${COMMUNICATOR_GPIO})
+source_group(Communicator/SPI             FILES ${COMMUNICATOR_SPI})
+source_group(Communicator/UART            FILES ${COMMUNICATOR_UART})
+source_group(Controls                     FILES ${CONTROLS})
+source_group(Data                         FILES ${DATA})
+source_group(IPPP                         FILES ${IPPP})
+source_group(IPPP/Emulator                FILES ${IPPP_EMULATOR})
+source_group(IPPP/Keyboard                FILES ${IPPP_KEYBOARD})
+source_group(IPPP/Real                    FILES ${IPPP_REAL})
+source_group(IPPP/SCPI                    FILES ${IPPP_SCPI})
+source_group(IPPP/Tests                   FILES ${IPPP_TESTS})
+source_group(Panels                       FILES ${PANELS})
+source_group(Panels/PanelDisplay          FILES ${PANEL_DISPLAY})
+source_group(Panels/PanelDisplay/Graphics FILES ${PANEL_DISPLAY_GRAPHICS})
+source_group(Panels/PanelDisplay/Grid     FILES ${PANEL_DISPLAY_GRID})
+source_group(Panels/PanelScheme           FILES ${PANEL_SCHEME})
+source_group(Settings                     FILES ${SETTINGS})
+source_group(SoftTests                    FILES ${SOFTTESTS})
+source_group(Storage                      FILES ${STORAGE})
+source_group(System                       FILES ${SYSTEM})
+source_group(Utils                        FILES ${UTILS})
+source_group(Windows                      FILES ${WINDOWS})
+source_group(Plugs/Arm64                  FILES ${PLUGS_ARM64})
+source_group(Plugs/linux                  FILES ${PLUGS_LINUX})
 
 add_executable(${PROJECT_NAME}
     ${RESOURCES}
@@ -146,9 +146,6 @@ add_executable(${PROJECT_NAME}
     ${COMMUNICATOR_UART}
     ${CONTROLS}
     ${DATA}
-    ${DISPLAY}
-    ${DISPLAY_GRAPHICS}
-    ${DISPLAY_GRID}
     ${IPPP}
     ${IPPP_EMULATOR}
     ${IPPP_KEYBOARD}
@@ -156,7 +153,10 @@ add_executable(${PROJECT_NAME}
     ${IPPP_SCPI}
     ${IPPP_TESTS}
     ${PANELS}
-    ${PANELS_PANELSCHEME}
+    ${PANEL_DISPLAY}
+    ${PANEL_DISPLAY_GRAPHICS}
+    ${PANEL_DISPLAY_GRID}
+    ${PANEL_SCHEME}
     ${SETTINGS}
     ${SOFTTESTS}
     ${STORAGE}
@@ -232,4 +232,5 @@ else()
             $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
     )
 endif()
+
 

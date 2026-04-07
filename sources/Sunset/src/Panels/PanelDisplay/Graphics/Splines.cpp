@@ -1,6 +1,6 @@
 ﻿// 2026/03/14 01:12:43 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Display/Graphics/Splines.h"
+#include "Panels/PanelDisplay/Graphics/Splines.h"
 
 
 // Реализация CubicSpline
