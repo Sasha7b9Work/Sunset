@@ -85,6 +85,7 @@ file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
 file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
 file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
 file(GLOB PANELS                        src/Panels/*.*)
+file(GLOB PANELS_PANELSCHEME            src/Panels/PanelScheme/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
@@ -125,6 +126,7 @@ source_group(IPPP/Real            FILES ${IPPP_REAL})
 source_group(IPPP/SCPI            FILES ${IPPP_SCPI})
 source_group(IPPP/Tests           FILES ${IPPP_TESTS})
 source_group(Panels               FILES ${PANELS})
+source_group(Panels/PanelScheme   FILES ${PANELS_PANELSCHEME})
 source_group(Settings             FILES ${SETTINGS})
 source_group(SoftTests            FILES ${SOFTTESTS})
 source_group(Storage              FILES ${STORAGE})
@@ -154,6 +156,7 @@ add_executable(${PROJECT_NAME}
     ${IPPP_SCPI}
     ${IPPP_TESTS}
     ${PANELS}
+    ${PANELS_PANELSCHEME}
     ${SETTINGS}
     ${SOFTTESTS}
     ${STORAGE}

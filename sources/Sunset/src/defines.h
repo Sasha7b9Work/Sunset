@@ -95,6 +95,7 @@ typedef signed char        int8;
 static const int BUTTON_WIDTH = 165;
 static const int BUTTON_HEIGHT = 25;
 static const int TEXTCNTRL_HEIGHT = 21;
+static const int WIDTH_COMBO = 180;
 
 union BitSet128
 {
