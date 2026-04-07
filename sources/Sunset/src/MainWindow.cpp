@@ -38,8 +38,8 @@ MainWindow::MainWindow(const wxString &title)
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     PanelBoard *board = new PanelBoard(this);
     board->AddPanel(new PanelDisplay(this));
-    board->AddPanel(new PanelScheme(this));
-    sizer->Add(board);
+//    board->AddPanel(new PanelScheme(this));
+    sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
 
     SetPosition();
