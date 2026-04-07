@@ -80,7 +80,8 @@ void PanelDisplay::Init()
     int width = full_screen ? MainWindow::WIDTH : MainWindow::WIDTH_DRAW;
     int height = full_screen ? MainWindow::HEIGHT : MainWindow::HEIGHT_DRAW;
 
-    wxPanel::SetSize({ width, height });
+    Panel::SetMinSize({ width, height });
+    Panel::SetSize({ width, height });
 
     wxPanel::SetPosition({ 0, full_screen ? 0 : MainWindow::HEIGHT_HI });
 
@@ -105,7 +106,7 @@ void PanelDisplay::Init()
 
     panel_errors->ReInit();
 
-    wxPanel::Layout();
+    Panel::Layout();
 
     GraphMeasure::CreateForEmulator(entities);
 }
