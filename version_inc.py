@@ -37,4 +37,4 @@ def ProcessFile(name_file):
                 file.write(line)
             file.close()
 
-ProcessFile("sources/Linia2/src/version.cpp")
+ProcessFile("sources/Sunset/src/version.cpp")
