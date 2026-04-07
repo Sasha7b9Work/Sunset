@@ -77,7 +77,7 @@ void PanelBoard::AddPanel(Panel *panel)
     panel->Hide();
 
     // Добавляем в sizer
-    m_centerSizer->Add(panel, 1, wxEXPAND);
+    m_centerSizer->Add(panel, 0, wxALIGN_CENTER);
 
     // Сохраняем в список
     m_contentPanels.push_back(panel);
