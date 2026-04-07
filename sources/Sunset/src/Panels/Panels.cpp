@@ -3,6 +3,12 @@
 #include "Panels/Panels.h"
 
 
+wxBEGIN_EVENT_TABLE(PanelBoard, wxPanel)
+    EVT_BUTTON(wxID_ANY, PanelBoard::OnTopButtonClicked)
+    EVT_BUTTON(wxID_ANY, PanelBoard::OnBottomButtonClicked)
+wxEND_EVENT_TABLE()
+
+
 PanelBoard::PanelBoard(wxWindow *parent) :
     wxPanel(parent)
 {
@@ -31,6 +37,31 @@ PanelBoard::PanelBoard(wxWindow *parent) :
     m_mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL, 5);
 
     SetSizer(m_mainSizer);
+}
+
+
+void PanelBoard::OnTopButtonClicked(wxCommandEvent &event)
+{
+    wxButton *btn = dynamic_cast<wxButton *>(event.GetEventObject());
+    if (btn)
+    {
+        wxPanel *panelToShow = (wxPanel *)btn->GetClientData();
+        if (panelToShow)
+        {
+            ShowPanel(panelToShow);
+        }
+    }
+}
+
+void PanelBoard::OnBottomButtonClicked(wxCommandEvent &event)
+{
+    wxButton *btn = dynamic_cast<wxButton *>(event.GetEventObject());
+    if (btn)
+    {
+        // Логика для кнопок нижней панели
+
+        event.Skip();
+    }
 }
 
 

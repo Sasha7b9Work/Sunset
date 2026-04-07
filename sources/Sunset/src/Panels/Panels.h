@@ -33,6 +33,12 @@ private:
 
     // Добавить кнопку в верхнюю панель
     void AddTopButton(const wxString &label, wxObject *eventUserData = nullptr);
+
+    void OnTopButtonClicked(wxCommandEvent &);
+
+    void OnBottomButtonClicked(wxCommandEvent &);
+
+    wxDECLARE_EVENT_TABLE();
 };
 
 
