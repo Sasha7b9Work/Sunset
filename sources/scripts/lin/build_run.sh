@@ -3,6 +3,6 @@
 #set -e
 
 ./build.sh
-kill -9 $(pidof Linia2)
+kill -9 $(pidof Sunset)
 
 #./start_x.sh
