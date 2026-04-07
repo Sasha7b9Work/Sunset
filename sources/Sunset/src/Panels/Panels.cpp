@@ -17,6 +17,8 @@ PanelBoard::PanelBoard(wxWindow *parent) :
 
     // === Верхняя область с кнопками ===
     wxPanel *topPanel = new wxPanel(this, wxID_ANY);
+    topPanel->SetMinSize(wxSize(-1, 30));
+    topPanel->SetMaxSize(wxSize(-1, 30));
     m_topSizer = new wxBoxSizer(wxHORIZONTAL);
     topPanel->SetSizer(m_topSizer);
 
@@ -27,14 +29,16 @@ PanelBoard::PanelBoard(wxWindow *parent) :
 
     // === Нижняя область с кнопками ===
     wxPanel *bottomPanel = new wxPanel(this, wxID_ANY);
+    bottomPanel->SetMinSize(wxSize(-1, 30));
+    bottomPanel->SetMaxSize(wxSize(-1, 30));
     m_bottomSizer = new wxBoxSizer(wxHORIZONTAL);
     bottomPanel->SetSizer(m_bottomSizer);
 
     // Добавляем все области в главный sizer
     // Пропорции: 0 (минимальный размер), 1 (растягивается), 0 (минимальный размер)
-    m_mainSizer->Add(topPanel, 0, wxEXPAND | wxALL, 1);
-    m_mainSizer->Add(m_centerContainer, 1, wxEXPAND | wxALL, 1);
-    m_mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL, 1);
+    m_mainSizer->Add(topPanel, 0, wxEXPAND | wxALL);
+    m_mainSizer->Add(m_centerContainer, 1, wxEXPAND | wxALL);
+    m_mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL);
 
     SetSizer(m_mainSizer);
 }
