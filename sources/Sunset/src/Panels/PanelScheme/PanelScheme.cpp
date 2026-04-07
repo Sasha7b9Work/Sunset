@@ -189,16 +189,16 @@ void PanelScheme::OnEventComboBox(wxCommandEvent &event)
         if (id == comboCategory->GetId())
         {
             {                                                                                               // Суффикс канала C
-                char suffix_c = 'a';
-
-                if (Category::IsBCE())
-                {
-                    suffix_c = 'c';
-                }
-                else if (Category::IsGDS())
-                {
-                    suffix_c = 'd';
-                }
+//                char suffix_c = 'a';
+//
+//                if (Category::IsBCE())
+//                {
+//                    suffix_c = 'c';
+//                }
+//                else if (Category::IsGDS())
+//                {
+//                    suffix_c = 'd';
+//                }
             }
 
             {                                                                                               // Суффикс канала B
