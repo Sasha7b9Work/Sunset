@@ -14,8 +14,7 @@
 Display *TheDisplay = nullptr;
 
 
-Display::Display(wxWindow *parent) :
-    wxPanel(parent, wxID_ANY, { 0, MainWindow::HEIGHT_HI }, { MainWindow::WIDTH_DRAW, MainWindow::HEIGHT_DRAW})
+Display::Display(wxWindow *parent) : Panel(parent)
 {
     TheDisplay = this;
 

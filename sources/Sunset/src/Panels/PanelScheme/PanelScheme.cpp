@@ -37,8 +37,7 @@ FullJack::FullJack(Chan::E ch, wxWindow *parent, const wxPoint &position, pchar 
 }
 
 
-PanelScheme::PanelScheme(wxPanel *parent, const int x, int w, int h) :
-    wxPanel(parent)
+PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent)
 {
     wxPanel::SetName("PanelScheme");
 
@@ -47,7 +46,7 @@ PanelScheme::PanelScheme(wxPanel *parent, const int x, int w, int h) :
     wxPanel::SetSize({ MainWindow::WIDTH3, HEIGHT - BUTTON_HEIGHT });
     wxPanel::SetPosition({ 0, BUTTON_HEIGHT });
 
-    StaticBox *boxTest = new StaticBox(this, wxT("Тест"), { x, SD::DSBY() }, { w, 90 });
+    StaticBox *boxTest = new StaticBox(this, wxT("Тест"), { 0, SD::DSBY() }, { 100, 90 });
 
     {
         wxArrayString choices;
@@ -64,8 +63,8 @@ PanelScheme::PanelScheme(wxPanel *parent, const int x, int w, int h) :
     boxTest->SetFont(StaticBox::TitleFont());
 
     StaticBox *boxCommutation = new StaticBox(this, wxT("Коммутация"),
-        { x, boxTest->GetPosition().y + boxTest->GetSize().y + SD::DSBY() },
-        { w, h - boxTest->GetPosition().y - boxTest->GetSize().y - SD::DSBY() });
+        { 0, boxTest->GetPosition().y + boxTest->GetSize().y + SD::DSBY() },
+        { 100, 50 - boxTest->GetPosition().y - boxTest->GetSize().y - SD::DSBY() });
 
     {
         wxArrayString choices;

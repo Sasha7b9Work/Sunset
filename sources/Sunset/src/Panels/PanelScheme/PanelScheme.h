@@ -47,7 +47,7 @@ private:
 };
 
 
-class PanelScheme : public wxPanel
+struct PanelScheme : public Panel
 {
     const int HEIGHT = 500;
 
@@ -56,7 +56,7 @@ class PanelScheme : public wxPanel
 
 public:
 
-    PanelScheme(wxPanel *parent, const int x, int w, int h);
+    PanelScheme(wxWindow *);
 
     void Pack();
     void Unpack();

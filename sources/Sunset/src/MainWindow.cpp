@@ -7,6 +7,7 @@
 #include "Windows/ConsoleRS232.h"
 #include "MainWindow.h"
 #include "Display/Display.h"
+#include "Panels/PanelScheme/PanelScheme.h"
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"
 #include "Display/Graphics/AutoCursors.h"
@@ -38,9 +39,9 @@ MainWindow::MainWindow(const wxString &title)
 
     PanelBoard *board = new PanelBoard(this);
 
-    TheDisplay = new Display(this);
+    board->AddPanel(new Display(this));
 
-    board->AddChild(TheDisplay);
+    board->AddPanel(new PanelScheme(this));
 
     sizer->Add(board);
 

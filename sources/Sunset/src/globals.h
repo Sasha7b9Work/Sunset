@@ -11,10 +11,13 @@ class MainWindow;
 class NotebookDebug;
 class WindowCursors;
 
+struct PanelScheme;
+
 extern Application   *TheApp;
 extern AutoCursors   *TheAutoCursors;
 extern DialogTest    *TheDialogTest;
 extern Display       *TheDisplay;
+extern PanelScheme   *ThePanelScheme;
 extern IGrid         *TheGrid;
 extern MainWindow    *TheMainWindow;
 extern NotebookDebug *TheNotebookDebug;

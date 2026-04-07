@@ -2,15 +2,20 @@
 #pragma once
 
 
+struct Panel;
+
+
 // Это место, где будут храниться панели
 struct PanelBoard : public wxPanel
 {
     PanelBoard(wxWindow *);
+
+    void AddPanel(Panel *);
 };
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
 struct Panel : public wxPanel
 {
-    Panel(wxWindow *, int x, int y, int w, int h);
+    Panel(wxWindow *);
 };

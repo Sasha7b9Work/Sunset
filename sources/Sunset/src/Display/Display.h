@@ -3,12 +3,13 @@
 #include "Display/Grid/Grid.h"
 #include "Display/PanelErrors.h"
 #include "Display/Graphics/GraphMeasure.h"
+#include "Panels/Panels.h"
 
 
 // Здесь отрисовывается график ну и кнопки разные
 
 
-class Display : public wxPanel
+class Display : public Panel
 {
     friend class Point;
     friend class Text;
@@ -50,7 +51,7 @@ public:
 
 private:
 
-    Display(wxWindow *parent);
+    Display(wxWindow *);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,
