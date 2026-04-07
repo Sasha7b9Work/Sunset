@@ -32,9 +32,9 @@ PanelBoard::PanelBoard(wxWindow *parent) :
 
     // Добавляем все области в главный sizer
     // Пропорции: 0 (минимальный размер), 1 (растягивается), 0 (минимальный размер)
-    m_mainSizer->Add(topPanel, 0, wxEXPAND | wxALL, 5);
-    m_mainSizer->Add(m_centerContainer, 1, wxEXPAND | wxALL, 5);
-    m_mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL, 5);
+    m_mainSizer->Add(topPanel, 0, wxEXPAND | wxALL, 1);
+    m_mainSizer->Add(m_centerContainer, 1, wxEXPAND | wxALL, 1);
+    m_mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL, 1);
 
     SetSizer(m_mainSizer);
 }
@@ -96,6 +96,14 @@ void PanelBoard::AddPanel(Panel *panel)
     }
 
     m_centerSizer->Layout();
+
+    wxSize newSize = m_centerContainer->GetSize();
+    panel->SetSize(newSize);
+
+    // Отправляем событие изменения размера панели
+    wxSizeEvent sizeEvent(newSize, panel->GetId());
+    sizeEvent.SetEventObject(panel);
+    panel->GetEventHandler()->ProcessEvent(sizeEvent);
 }
 
 

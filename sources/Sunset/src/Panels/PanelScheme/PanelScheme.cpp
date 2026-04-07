@@ -157,6 +157,11 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent)
 
     Bind(wxEVT_BUTTON, &PanelScheme::OnEventButton, this);
     Bind(wxEVT_COMBOBOX, &PanelScheme::OnEventComboBox, this);
+
+    wxSize size{ 400, 600 };
+    Panel::SetMinSize(size);
+    Panel::SetSize(size);
+    Panel::Layout();
 }
 
 
