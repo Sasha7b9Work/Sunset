@@ -1,8 +1,8 @@
 ﻿// 2026/3/15 19:49:01 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
-#include "Panels/PanelDisplay/Grid/GridNew.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/Graphics/AutoCursors.h"
+#include "Panels/PanelMeasures/Grid/GridNew.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
 #include "Utils/FinderMinMax.h"

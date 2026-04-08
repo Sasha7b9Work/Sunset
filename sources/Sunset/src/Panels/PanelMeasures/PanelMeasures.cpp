@@ -1,33 +1,33 @@
 ﻿// 2022/10/28 23:17:06 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "MainWindow.h"
 #include "MainWindow.h"
-#include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
-#include "Panels/PanelDisplay/MenuDisplay.h"
-#include "Panels/PanelDisplay/Graphics/Splines.h"
+#include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
+#include "Panels/PanelMeasures/MenuDisplay.h"
+#include "Panels/PanelMeasures/Graphics/Splines.h"
 #include "Settings/Settings.h"
 #include "Utils/Timer.h"
-#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
+#include "Panels/PanelMeasures/Graphics/AutoCursors.h"
 
 
-PanelDisplay *ThePanelMeasures = nullptr;
+PanelMeasures *ThePanelMeasures = nullptr;
 
 
-PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent, "Измерение")
+PanelMeasures::PanelMeasures(wxWindow *parent) : Panel(parent, "Измерение")
 {
     ThePanelMeasures = this;
 
     wxPanel::SetDoubleBuffered(true);
-    Bind(wxEVT_PAINT, &PanelDisplay::OnEventPaint, this);
-    Bind(wxEVT_LEFT_DOWN, &PanelDisplay::OnEventMouseDown, this);
-    Bind(wxEVT_LEFT_UP, &PanelDisplay::OnEventMouseUp, this);
-    Bind(wxEVT_MOTION, &PanelDisplay::OnEventMouseMove, this);
-    Bind(wxEVT_MOUSEWHEEL, &PanelDisplay::OnEventMouseWheel, this);
-    Bind(wxEVT_RIGHT_DOWN, &PanelDisplay::OnEventRightClick, this);
-    Bind(wxEVT_LEAVE_WINDOW, &PanelDisplay::OnEventLeaveWindow, this);
-    Bind(wxEVT_ENTER_WINDOW, &PanelDisplay::OnEventEnterWindow, this);
-    Bind(wxEVT_BUTTON, &PanelDisplay::OnEventButton, this);
+    Bind(wxEVT_PAINT, &PanelMeasures::OnEventPaint, this);
+    Bind(wxEVT_LEFT_DOWN, &PanelMeasures::OnEventMouseDown, this);
+    Bind(wxEVT_LEFT_UP, &PanelMeasures::OnEventMouseUp, this);
+    Bind(wxEVT_MOTION, &PanelMeasures::OnEventMouseMove, this);
+    Bind(wxEVT_MOUSEWHEEL, &PanelMeasures::OnEventMouseWheel, this);
+    Bind(wxEVT_RIGHT_DOWN, &PanelMeasures::OnEventRightClick, this);
+    Bind(wxEVT_LEAVE_WINDOW, &PanelMeasures::OnEventLeaveWindow, this);
+    Bind(wxEVT_ENTER_WINDOW, &PanelMeasures::OnEventEnterWindow, this);
+    Bind(wxEVT_BUTTON, &PanelMeasures::OnEventButton, this);
 
     int w = 25;
 
@@ -53,7 +53,7 @@ PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent, "Измерение
 }
 
 
-PanelDisplay::~PanelDisplay()
+PanelMeasures::~PanelMeasures()
 {
     SAFE_DELETE(bitmap);
     SAFE_DELETE(TheGrid);
@@ -61,7 +61,7 @@ PanelDisplay::~PanelDisplay()
 }
 
 
-void PanelDisplay::FullScreen(bool full)
+void PanelMeasures::FullScreen(bool full)
 {
     if (!IsShown())
     {
@@ -72,7 +72,7 @@ void PanelDisplay::FullScreen(bool full)
 }
 
 
-void PanelDisplay::CallbackOnEventSize()
+void PanelMeasures::CallbackOnEventSize()
 {
     const wxSize size = GetParent()->GetSize();
 
@@ -111,7 +111,7 @@ void PanelDisplay::CallbackOnEventSize()
 }
 
 
-void PanelDisplay::OnEventMouseDown(wxMouseEvent &event)
+void PanelMeasures::OnEventMouseDown(wxMouseEvent &event)
 {
     pos_mouse_down = event.GetPosition();
 
@@ -125,7 +125,7 @@ void PanelDisplay::OnEventMouseDown(wxMouseEvent &event)
 }
 
 
-void PanelDisplay::OnEventLeaveWindow(wxMouseEvent &event)
+void PanelMeasures::OnEventLeaveWindow(wxMouseEvent &event)
 {
     if (mouse_is_pressed)
     {
@@ -144,7 +144,7 @@ void PanelDisplay::OnEventLeaveWindow(wxMouseEvent &event)
 }
 
 
-void PanelDisplay::OnEventEnterWindow(wxMouseEvent &event)
+void PanelMeasures::OnEventEnterWindow(wxMouseEvent &event)
 {
     TheAutoCursors->Allow();
 
@@ -152,7 +152,7 @@ void PanelDisplay::OnEventEnterWindow(wxMouseEvent &event)
 }
 
 
-void PanelDisplay::OnEventMouseUp(wxMouseEvent &)
+void PanelMeasures::OnEventMouseUp(wxMouseEvent &)
 {
     mouse_is_pressed = false;
 
@@ -164,7 +164,7 @@ void PanelDisplay::OnEventMouseUp(wxMouseEvent &)
 }
 
 
-void PanelDisplay::OnEventMouseMove(wxMouseEvent &event)
+void PanelMeasures::OnEventMouseMove(wxMouseEvent &event)
 {
     wxPoint position = event.GetPosition();
 
@@ -197,7 +197,7 @@ void PanelDisplay::OnEventMouseMove(wxMouseEvent &event)
 }
 
 
-void PanelDisplay::OnEventMouseWheel(wxMouseEvent &event)
+void PanelMeasures::OnEventMouseWheel(wxMouseEvent &event)
 {
     if (event.GetModifiers() == wxMOD_CONTROL)
     {
@@ -213,7 +213,7 @@ void PanelDisplay::OnEventMouseWheel(wxMouseEvent &event)
 }
 
 
-void PanelDisplay::OnEventButton(wxCommandEvent &event)
+void PanelMeasures::OnEventButton(wxCommandEvent &event)
 {
     int id = event.GetId();
 
@@ -241,7 +241,7 @@ void PanelDisplay::OnEventButton(wxCommandEvent &event)
 }
 
 
-void PanelDisplay::BeginPaint()
+void PanelMeasures::BeginPaint()
 {
     dc.SelectObject(*bitmap);
     gc = wxGraphicsContext::Create(dc);
@@ -249,13 +249,13 @@ void PanelDisplay::BeginPaint()
 }
 
 
-void PanelDisplay::EndPaint()
+void PanelMeasures::EndPaint()
 {
     dc.SelectObject(wxNullBitmap);
 }
 
 
-void PanelDisplay::OnEventPaint(wxPaintEvent &)
+void PanelMeasures::OnEventPaint(wxPaintEvent &)
 {
     BeginPaint();
 
@@ -344,7 +344,7 @@ void Text::DrawAboutCenterLeft(int x, int y, bool fillBackground) const
 }
 
 
-void PanelDisplay::FillRectangle(int x, int y, int width, int height, const wxColor &_color)
+void PanelMeasures::FillRectangle(int x, int y, int width, int height, const wxColor &_color)
 {
     SetColorBrush(_color);
     gc->DrawRectangle(x, y, width, height);
@@ -463,7 +463,7 @@ void Spline::Draw(const std::vector<wxPoint> &points, bool smooth, bool draw_poi
 }
 
 
-void PanelDisplay::OnEventRightClick(wxMouseEvent &)
+void PanelMeasures::OnEventRightClick(wxMouseEvent &)
 {
     MenuDisplay menu;
 
@@ -471,7 +471,7 @@ void PanelDisplay::OnEventRightClick(wxMouseEvent &)
 }
 
 
-void PanelDisplay::SetColorBrush(const wxColor &_color)
+void PanelMeasures::SetColorBrush(const wxColor &_color)
 {
     color_brush = _color;
 
@@ -479,7 +479,7 @@ void PanelDisplay::SetColorBrush(const wxColor &_color)
 }
 
 
-void PanelDisplay::SetColorPen(const wxColor &_color)
+void PanelMeasures::SetColorPen(const wxColor &_color)
 {
     color_pen = _color;
 
@@ -487,25 +487,25 @@ void PanelDisplay::SetColorPen(const wxColor &_color)
 }
 
 
-void PanelDisplay::LoadColors()
+void PanelMeasures::LoadColors()
 {
     ThePanelMeasures->gc->SetPen(color_pen);
     ThePanelMeasures->gc->SetBrush(color_brush);
 }
 
 
-void PanelDisplay::OnEventCnangeMeasuredElement()
+void PanelMeasures::OnEventCnangeMeasuredElement()
 {
 }
 
 
-wxSize PanelDisplay::GetDrawingSize() const
+wxSize PanelMeasures::GetDrawingSize() const
 {
     return wxPanel::GetClientSize();
 }
 
 
-wxSize PanelDisplay::GetFullSize() const
+wxSize PanelMeasures::GetFullSize() const
 {
     return wxPanel::GetSize();
 }

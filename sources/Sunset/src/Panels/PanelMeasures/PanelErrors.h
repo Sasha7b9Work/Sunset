@@ -17,7 +17,7 @@ struct Error
 
 class PanelErrors : public wxPanel
 {
-    friend struct PanelDisplay;
+    friend struct PanelMeasures;
 
 public:
 

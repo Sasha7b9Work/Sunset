@@ -84,9 +84,9 @@ file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
 file(GLOB PANELS                        src/Panels/*.*)
 file(GLOB PANEL_DEBUG                   src/Panels/PanelDebug/*.*)
 file(GLOB PANEL_DEBUG_NOTEBOOK          src/Panels/PanelDebug/Notebook/*.*)
-file(GLOB PANEL_DISPLAY                 src/Panels/PanelDisplay/*.*)
-file(GLOB PANEL_DISPLAY_GRAPHICS        src/Panels/PanelDisplay/Graphics/*.*)
-file(GLOB PANEL_DISPLAY_GRID            src/Panels/PanelDisplay/Grid/*.*)
+file(GLOB PANEL_MEAS                    src/Panels/PanelMeasures/*.*)
+file(GLOB PANEL_MEAS_GRAPHICS           src/Panels/PanelMeasures/Graphics/*.*)
+file(GLOB PANEL_MEAS_GRID               src/Panels/PanelMeasures/Grid/*.*)
 file(GLOB PANEL_SCHEME                  src/Panels/PanelScheme/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
@@ -127,9 +127,9 @@ source_group(IPPP/Tests                   FILES ${IPPP_TESTS})
 source_group(Panels                       FILES ${PANELS})
 source_group(Panels/PanelDebug            FILES ${PANEL_DEBUG})
 source_group(Panels/PanelDebug/Notebook   FILES ${PANEL_DEBUG_NOTEBOOK})
-source_group(Panels/PanelDisplay          FILES ${PANEL_DISPLAY})
-source_group(Panels/PanelDisplay/Graphics FILES ${PANEL_DISPLAY_GRAPHICS})
-source_group(Panels/PanelDisplay/Grid     FILES ${PANEL_DISPLAY_GRID})
+source_group(Panels/PanelMeas             FILES ${PANEL_MEAS})
+source_group(Panels/PanelMeas/Graphics    FILES ${PANEL_MEAS_GRAPHICS})
+source_group(Panels/PanelMeas/Grid        FILES ${PANEL_MEAS_GRID})
 source_group(Panels/PanelScheme           FILES ${PANEL_SCHEME})
 source_group(Settings                     FILES ${SETTINGS})
 source_group(SoftTests                    FILES ${SOFTTESTS})
@@ -159,9 +159,9 @@ add_executable(${PROJECT_NAME}
     ${PANELS}
     ${PANEL_DEBUG}
     ${PANEL_DEBUG_NOTEBOOK}
-    ${PANEL_DISPLAY}
-    ${PANEL_DISPLAY_GRAPHICS}
-    ${PANEL_DISPLAY_GRID}
+    ${PANEL_MEAS}
+    ${PANEL_MEAS_GRAPHICS}
+    ${PANEL_MEAS_GRID}
     ${PANEL_SCHEME}
     ${SETTINGS}
     ${SOFTTESTS}

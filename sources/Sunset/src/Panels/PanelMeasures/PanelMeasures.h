@@ -1,15 +1,15 @@
 ﻿// 2022/10/28 23:17:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Panels/PanelDisplay/Grid/Grid.h"
-#include "Panels/PanelDisplay/PanelErrors.h"
-#include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
+#include "Panels/PanelMeasures/Grid/Grid.h"
+#include "Panels/PanelMeasures/PanelErrors.h"
+#include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
 #include "Panels/Panels.h"
 
 
 // Здесь отрисовывается график ну и кнопки разные
 
 
-struct PanelDisplay : public Panel
+struct PanelMeasures : public Panel
 {
     friend class Point;
     friend class Text;
@@ -22,7 +22,7 @@ struct PanelDisplay : public Panel
 
 public:
 
-    ~PanelDisplay();
+    ~PanelMeasures();
 
     void SetColorBrush(const wxColor &);
     void SetColorPen(const wxColor &);
@@ -49,7 +49,7 @@ public:
 
 private:
 
-    PanelDisplay(wxWindow *);
+    PanelMeasures(wxWindow *);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,

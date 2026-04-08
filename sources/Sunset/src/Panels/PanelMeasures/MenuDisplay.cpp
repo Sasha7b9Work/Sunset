@@ -1,11 +1,11 @@
 ﻿// 2026/03/13 16:31:27 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/MenuDisplay.h"
-#include "Panels/PanelDisplay/Grid/Grid.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/MenuDisplay.h"
+#include "Panels/PanelMeasures/Grid/Grid.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "MainWindow.h"
 #include "Settings/Settings.h"
-#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
+#include "Panels/PanelMeasures/Graphics/AutoCursors.h"
 
 
 MenuDisplay::MenuDisplay() : wxMenu()

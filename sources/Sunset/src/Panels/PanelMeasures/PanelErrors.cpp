@@ -1,8 +1,8 @@
 ﻿// 2025/09/01 22:59:47 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/PanelErrors.h"
+#include "Panels/PanelMeasures/PanelErrors.h"
 #include "MainWindow.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Utils/SystemDepend.h"
 
 

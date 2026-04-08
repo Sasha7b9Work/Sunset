@@ -1,7 +1,7 @@
 ﻿// 2025/7/14 17:22:25 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Settings/Settings.h"
 
 

@@ -6,12 +6,12 @@
 #include "Utils/Configurator.h"
 #include "Windows/ConsoleRS232.h"
 #include "MainWindow.h"
-#include "Panels/PanelDisplay/PanelMeasures.h"
+#include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Panels/PanelScheme/PanelScheme.h"
 #include "Panels/PanelDebug/PanelDebug.h"
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"
-#include "Panels/PanelDisplay/Graphics/AutoCursors.h"
+#include "Panels/PanelMeasures/Graphics/AutoCursors.h"
 #include "Panels/Panels.h"
 
 
@@ -39,7 +39,7 @@ MainWindow::MainWindow(const wxString &title)
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     PanelBoard *board = new PanelBoard(this);
-    board->AddPanel(new PanelDisplay(this));
+    board->AddPanel(new PanelMeasures(this));
     board->AddPanel(new PanelScheme(this));
     sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
