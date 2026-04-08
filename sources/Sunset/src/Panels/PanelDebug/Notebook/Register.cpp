@@ -71,7 +71,8 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     SetNamesBits(names);
 
     timerAutoSend.SetOwner(this, timerAutoSend.GetId());
-    timerAutoSend.Bind(wxEVT_TIMER, &Register::OnEventTimerAutoSend, this);
+
+    Bind(wxEVT_TIMER, &Register::OnEventTimerAutoSend, this);
 }
 
 

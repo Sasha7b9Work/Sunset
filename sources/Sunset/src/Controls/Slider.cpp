@@ -47,9 +47,6 @@ SliderInt::SliderInt(wxWindow *parent, const wxPoint &position, int width, int _
     btnLess->Bind(wxEVT_LEFT_DOWN, &SliderInt::OnEventMouseDown, this);
 //    btnMore->Bind(wxEVT_LEFT_UP, &SliderInt::OnEventMouseUp, this);
 //    btnLess->Bind(wxEVT_LEFT_UP, &SliderInt::OnEventMouseUp, this);
-
-//    timer_less.Bind(wxEVT_TIMER, &SliderInt::OnEventTimer, this);
-//    timer_more.Bind(wxEVT_TIMER, &SliderInt::OnEventTimer, this);
 }
 
 
@@ -216,8 +213,8 @@ SliderFloat::SliderFloat(wxWindow *parent, const wxPoint &position, int width, c
     btnMore->Bind(wxEVT_LEFT_UP, &SliderFloat::OnEventMouseUp, this);
     btnLess->Bind(wxEVT_LEFT_UP, &SliderFloat::OnEventMouseUp, this);
 
-    timer_less.Bind(wxEVT_TIMER, &SliderFloat::OnEventTimer, this);
-    timer_more.Bind(wxEVT_TIMER, &SliderFloat::OnEventTimer, this);
+    Bind(wxEVT_TIMER, &SliderFloat::OnEventTimer, this);
+    Bind(wxEVT_TIMER, &SliderFloat::OnEventTimer, this);
 }
 
 

@@ -37,12 +37,13 @@ public:
 
         // Настройка таймера
         m_timer = new wxTimer(this, wxID_ANY);
-        m_timer->Bind(wxEVT_TIMER, &AutoRebootDialog::OnTimer, this);
         m_timer->Start(1000); // Таймер срабатывает каждую секунду
 
         // Привязка событий кнопок
         m_okButton->Bind(wxEVT_BUTTON, &AutoRebootDialog::OnOk, this);
         m_cancelButton->Bind(wxEVT_BUTTON, &AutoRebootDialog::OnCancel, this);
+
+        Bind(wxEVT_TIMER, &AutoRebootDialog::OnTimer, this);
     }
 
     ~AutoRebootDialog()
