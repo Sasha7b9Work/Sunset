@@ -15,6 +15,8 @@
 #include "Panels/Panels.h"
 #include "Panels/PanelArchive/PanelArchive.h"
 #include "Panels/PanelReports/PanelReports.h"
+#include "Panels/PanelSettings/PanelSettings.h"
+#include "Panels/PanelTables/PanelTables.h"
 
 
 MainWindow *TheMainWindow = nullptr;
@@ -44,7 +46,9 @@ MainWindow::MainWindow(const wxString &title)
     board->AddPanel(new PanelMeasures(this));
     board->AddPanel(new PanelTests(this));
     board->AddPanel(new PanelReports(this));
+    board->AddPanel(new PanelTables(this));
     board->AddPanel(new PanelArchive(this));
+    board->AddPanel(new PanelSettings(this));
     board->AddPanel(new PanelDebug(this));
     sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);

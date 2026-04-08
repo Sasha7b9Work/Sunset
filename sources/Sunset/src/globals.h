@@ -23,6 +23,8 @@ struct PanelDebug;
 struct PanelMeasures;
 struct PanelReports;
 struct PanelRight;
+struct PanelSettings;
+struct PanelTables;
 struct PanelTests;
 
 extern PanelArchive  *ThePanelArchive;
@@ -30,4 +32,6 @@ extern PanelDebug    *ThePanelDebug;
 extern PanelMeasures *ThePanelMeasures;
 extern PanelReports  *ThePanelReports;
 extern PanelRight    *ThePanelRight;
+extern PanelSettings *ThePanelSettings;
+extern PanelTables   *ThePanelTables;
 extern PanelTests    *ThePanelTests;
