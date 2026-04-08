@@ -52,12 +52,6 @@ void PainterRegister::SetPositionAnimationWidget()
 }
 
 
-void PainterRegister::EnableAutoSendAnimation(bool _enable)
-{
-    animation->wxWindowBase::Enable(_enable);
-}
-
-
 int PainterRegister::BitX(int num_bit, int all_bits) const
 {
     int rigth = 40 + all_bits * W_B;

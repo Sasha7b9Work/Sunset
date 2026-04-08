@@ -305,7 +305,7 @@ void Register::SetActiveAcross(bool active, wxWindow *_wnd)
 
     TheNotebookDebug->EnableSwitching(active);
 
-    painter->EnableAutoSendAnimation(!active);
+    painter->animation->EnableRepeat(!active);
 }
 
 

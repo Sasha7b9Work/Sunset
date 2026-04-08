@@ -51,3 +51,9 @@ void AnimatedImpulse::FuncDraw()
         _dc.DrawLine(x + 10, y0, GetSize().x, y0);
     }
 }
+
+
+void AnimatedImpulse::EnableRepeat(bool enable)
+{
+    wxWindowBase::Enable(enable);
+}

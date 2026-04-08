@@ -13,6 +13,9 @@ public:
 
     AnimatedImpulse(wxWindow *, const wxColor &background);
 
+    void EnableRepeat(bool);
+    void EnableOnce();
+
 private:
 
     virtual void FuncDraw() override;
