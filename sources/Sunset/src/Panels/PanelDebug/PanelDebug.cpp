@@ -15,13 +15,13 @@ PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, _("Отладка"))
 
     new NotebookDebug(this);
 
-    new PanelRight(this);
+    panelRigth = new PanelRight(this);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
 
     sizer->Add(TheNotebookDebug, 1, wxEXPAND);
 
-    sizer->Add(ThePanelRight, 0, wxEXPAND);
+    sizer->Add(panelRigth, 0, wxEXPAND);
 
     SetSizer(sizer);
 

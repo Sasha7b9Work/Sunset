@@ -45,8 +45,8 @@ MainWindow::MainWindow(const wxString &title)
     PanelBoard *board = new PanelBoard(this);
     board->AddPanel(new PanelMeasures(this));
     board->AddPanel(new PanelTests(this));
-    board->AddPanel(new PanelReports(this));
     board->AddPanel(new PanelTables(this));
+    board->AddPanel(new PanelReports(this));
     board->AddPanel(new PanelArchive(this));
     board->AddPanel(new PanelSettings(this));
     board->AddPanel(new PanelDebug(this));
