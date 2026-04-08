@@ -14,6 +14,7 @@
 #include "Panels/PanelMeasures/Graphics/AutoCursors.h"
 #include "Panels/Panels.h"
 #include "Panels/PanelArchive/PanelArchive.h"
+#include "Panels/PanelReports/PanelReports.h"
 
 
 MainWindow *TheMainWindow = nullptr;
@@ -42,6 +43,7 @@ MainWindow::MainWindow(const wxString &title)
     PanelBoard *board = new PanelBoard(this);
     board->AddPanel(new PanelMeasures(this));
     board->AddPanel(new PanelTests(this));
+    board->AddPanel(new PanelReports(this));
     board->AddPanel(new PanelArchive(this));
     board->AddPanel(new PanelDebug(this));
     sizer->Add(board, 1, wxEXPAND);

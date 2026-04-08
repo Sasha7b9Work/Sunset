@@ -21,11 +21,13 @@ extern WindowCursors *TheWindowCursors;     // Настройки курсоро
 struct PanelArchive;
 struct PanelDebug;
 struct PanelMeasures;
+struct PanelReports;
 struct PanelRight;
 struct PanelTests;
 
 extern PanelArchive  *ThePanelArchive;
 extern PanelDebug    *ThePanelDebug;
 extern PanelMeasures *ThePanelMeasures;
+extern PanelReports  *ThePanelReports;
 extern PanelRight    *ThePanelRight;
 extern PanelTests    *ThePanelTests;
