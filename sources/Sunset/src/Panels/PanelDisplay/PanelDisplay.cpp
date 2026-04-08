@@ -77,20 +77,25 @@ void PanelDisplay::FullScreen(bool full)
 
 void PanelDisplay::Init()
 {
-    wxSize size = GetParent()->GetSize();
+    const wxSize size = GetParent()->GetSize();
+
+    if (size == wxPanel::GetSize())
+    {
+        return;
+    }
 
     Panel::SetMinSize(size);
     Panel::SetSize(size);
 
     SAFE_DELETE(bitmap);
 
-    bitmap = new wxBitmap(wxPanel::GetSize().x, wxPanel::GetSize().y);
+    bitmap = new wxBitmap(size.x, size.y);
 
     IGrid::Create();
 
     int w = btnHelp->GetSize().x;
     int d = 10;
-    int x0 = wxPanel::GetSize().x - d - btnHelp->GetSize().x;
+    int x0 = size.x - d - btnHelp->GetSize().x;
     int y0 = d;
 
     btnHelp->SetPosition({ x0, y0 });
@@ -511,7 +516,7 @@ wxSize PanelDisplay::GetFullSize() const
 
 void PanelDisplay::OnEventSize(wxSizeEvent &event)
 {
-//    Init();
+    Init();
 
     Refresh();
 
