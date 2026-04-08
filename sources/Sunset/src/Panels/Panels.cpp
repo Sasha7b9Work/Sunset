@@ -19,9 +19,17 @@ const wxString &Panel::GetPanelName() const
 
 void Panel::OnEventSize(wxSizeEvent &event)
 {
-    CallbackOnEventSize();
+    const wxSize size = GetParent()->GetSize();
 
-    Refresh();
+    if (size.x && size.y)
+    {
+        if (size != prev_size)
+        {
+            prev_size = size;
+            CallbackOnEventSize();
+            Refresh();
+        }
+    }
 
     event.Skip();
 }

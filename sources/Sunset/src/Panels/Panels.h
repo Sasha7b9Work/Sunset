@@ -20,6 +20,7 @@ protected:
 private:
 
     wxString name;
+    wxSize prev_size{ -1, -1 };             // Здесь храним размер, обработанный в предыдущем событии wxEVT_SIZE
 
     void OnEventSize(wxSizeEvent &);
 };

@@ -64,7 +64,6 @@ private:
     wxMemoryDC dc;                          // А здесь хранится то, что нарисовано, пока не будет вызвано событие wxEVT_PAINT
     wxColor color_pen;
     wxColor color_brush;
-    wxSize prev_size{ -1, -1 };             // Здесь храним размер, обработанный в предыдущем событии wxEVT_SIZE
 
     // Координаты мыши при нажатии кнопки
     wxPoint pos_mouse_down;
