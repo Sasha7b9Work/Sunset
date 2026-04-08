@@ -80,7 +80,6 @@ void PanelBoard::AddPanel(Panel *panel)
     panels.push_back(panel);
 
     AddTopButton(panel->GetPanelName(), (wxObject *)panel);
-    AddBottomButton(panel->GetPanelName(), (wxObject *)panel);
 
     // Если это первая панель - показываем её
     if (panels.size() == 1)
@@ -149,16 +148,6 @@ void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
     topSizer->Layout();
     buttons.push_back(btn);
 }
-
-void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
-{
-    ToggleButton *btn = new ToggleButton(static_cast<wxPanel *>(bottomSizer->GetContainingWindow()), label);
-    btn->SetClientData(eventUserData);
-    bottomSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
-    bottomSizer->Layout();
-    buttons.push_back(btn);
-}
-
 
 Panel::Panel(wxWindow *parent, const wxString &_name) :
     wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),

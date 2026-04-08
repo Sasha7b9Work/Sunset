@@ -35,9 +35,6 @@ private:
     // Добавить кнопку в верхнюю панель
     void AddTopButton(const wxString &label, wxObject *eventUserData = nullptr);
 
-    // Добавить кнопку в нижнюю панель
-    void AddBottomButton(const wxString &label, wxObject *eventUserData = nullptr);
-
     void OnEventButtonToggle(wxCommandEvent &);
 };
 
