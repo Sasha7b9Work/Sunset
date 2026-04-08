@@ -19,15 +19,19 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    btnStart = new Button{ this, "Старт", { 10, SD::Y_SB(60) }, size_button };
+    int y = 20;
+
+    btnStart = new Button{ this, L("Старт"), { 10, SD::Y_SB(y) }, size_button };
     btnStart->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
     btnStart->SetToolTip(L("Запуск развёртки"));
 
-    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(60)}, size_button };
+    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(y)}, size_button };
 
     txtPeriodScan->SetToolTip(L("Период запуска развёртки в миллисекундах"));
 
-    btnStop = new Button{ this, "Стоп", {10, SD::Y_SB(90)}, size_button };
+    y += 30;
+
+    btnStop = new Button{ this, L("Стоп"), {10, SD::Y_SB(y)}, size_button };
     btnStop->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
     btnStop->SetToolTip(L("Останов развёртки"));
 
@@ -35,7 +39,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     for (int i = 0; i < 5; i++)
     {
-        data[i] = new ControlDataFPGA(this, { 10, 130 + i * 95 });
+        data[i] = new ControlDataFPGA(this, { 10, 100 + i * 95 });
     }
 
     data[4]->SetMax((1 << 8) - 1);
