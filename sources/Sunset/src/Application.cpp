@@ -126,9 +126,8 @@ bool Application::OnInit()
     // create and show the main application window
     new MainWindow(wxT("ИППП 4"));
 
-    Bind(wxEVT_TIMER, &Application::OnTimer, this, timer.GetId());
-
     timer.SetOwner(this, timer.GetId());
+    timer.Bind(wxEVT_TIMER, &Application::OnTimer, this, timer.GetId());
 
     if (!UART::IsAvailability())
     {

@@ -22,10 +22,10 @@ SpinBox::SpinBox(wxWindow *parent, const wxPoint &position, const wxSize &size, 
     wxSize size_button{ width_btn, 11 };
 
     btnMore = new wxButton(this, wxID_ANY, ".", { size_text.x, 0 }, size_button);
+    btnMore->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 
     btnLess = new wxButton(this, wxID_ANY, ".", { size_text.x, size_button.y }, size_button);
-
-    Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
+    btnLess->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 }
 
 

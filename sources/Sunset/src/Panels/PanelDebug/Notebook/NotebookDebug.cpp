@@ -1,7 +1,6 @@
 ﻿// 2025/6/3 14:06:23 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/PanelDebug/Notebook/NotebookDebug.h"
-#include "Panels/PanelDebug/Notebook/PageOrangePi.h"
 #include "Panels/PanelDebug/Notebook/PageFPGA.h"
 #include "Panels/PanelDebug/Notebook/PageSource3kV.h"
 #include "Panels/PanelDebug/Notebook/PageCommutator.h"

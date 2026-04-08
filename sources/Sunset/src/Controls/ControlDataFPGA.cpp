@@ -23,14 +23,11 @@ ControlDataFPGA::ControlDataFPGA(wxWindow *parent, const wxPoint &position) :
     painter->SetPosition({ 0, 0 });
 
     btnScale = new wxToggleButton(painter, wxID_ANY, "S", { size.x - 17, 0 }, { 17, 17 });
+    btnScale->Bind(wxEVT_TOGGLEBUTTON, &ControlDataFPGA::OnEventToggleButon, this);
 
     btnScale->SetToolTip("Изменение масштаба - автоматический или постоянный");
 
     SetMax((1 << 18) - 1);
-
-    Draw();
-
-    Bind(wxEVT_TOGGLEBUTTON, &ControlDataFPGA::OnEventToggleButon, this);
 }
 
 

@@ -33,8 +33,8 @@ MainWindow::MainWindow(const wxString &title)
     Bind(wxEVT_MENU, &MainWindow::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MainWindow::OnQuit, this, wxID_EXIT);
     Bind(wxEVT_MAXIMIZE, &MainWindow::OnEventMaximize, this);
-
     Bind(wxEVT_CLOSE_WINDOW, &MainWindow::OnEventCloseWindow, this);
+
     TuneFont();
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
