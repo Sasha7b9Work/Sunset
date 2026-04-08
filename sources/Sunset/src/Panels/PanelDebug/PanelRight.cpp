@@ -13,32 +13,25 @@
 PanelRight *ThePanelRight = nullptr;
 
 
-PanelRight::PanelRight(wxWindow *parent) :
-    wxPanel(parent)
+PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 {
     ThePanelRight = this;
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    btnReturn = new Button(this, wxT("Закрыть"), { 125, SD::Y_SB(20) }, size_button);
-
-    btnReturn->SetToolTip(wxT("Возврат в главную панель"));
-
     btnStart = new Button{ this, "Старт", { 10, SD::Y_SB(60) }, size_button };
-
-    btnStart->SetToolTip(wxT("Запуск развёртки"));
+    btnStart->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
+    btnStart->SetToolTip(L("Запуск развёртки"));
 
     txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(60)}, size_button };
 
-    txtPeriodScan->SetToolTip(wxT("Период запуска развёртки в миллисекундах"));
+    txtPeriodScan->SetToolTip(L("Период запуска развёртки в миллисекундах"));
 
     btnStop = new Button{ this, "Стоп", {10, SD::Y_SB(90)}, size_button };
-
-    btnStop->SetToolTip(wxT("Останов развёртки"));
+    btnStop->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
+    btnStop->SetToolTip(L("Останов развёртки"));
 
     btnStop->Enable(false);
-
-    Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
 
     for (int i = 0; i < 5; i++)
     {
@@ -94,11 +87,7 @@ void PanelRight::OnEventButton(wxCommandEvent &event)
 {
     int id = event.GetId();
 
-    if (id == btnReturn->GetId())
-    {
-        TheMainWindow->SetMode(ModeMainWindow::Standard);
-    }
-    else if (id == btnStart->GetId())
+    if (id == btnStart->GetId())
     {
         wxString str_value = txtPeriodScan->GetValue();
         int int_value = 0;

@@ -54,7 +54,7 @@ void PageChip::OnRightClick(wxMouseEvent &event)
 {
     wxMenu menu;
 
-    itemReturn = menu.Append(wxID_ANY, "Закрыть");
+    itemReturn = menu.Append(wxID_ANY, L("Закрыть"));
 
     Bind(wxEVT_MENU, &PageChip::OnMenuEvent, this);
 
