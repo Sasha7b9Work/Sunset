@@ -9,8 +9,7 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(wxWindow *parent) :
-    Panel(parent, 0, 0, MainWindow::WIDTH, MainWindow::HEIGHT)
+PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, _("Отладка"))
 {
     ThePanelDebug = this;
 

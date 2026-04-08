@@ -18,9 +18,12 @@ extern MainWindow    *TheMainWindow;
 extern NotebookDebug *TheNotebookDebug;
 extern WindowCursors *TheWindowCursors;     // Настройки курсоров
 
-
 struct PanelDisplay;
 struct PanelScheme;
+struct PanelRight;
+struct PanelDebug;
 
 extern PanelDisplay *ThePanelDisplay;
 extern PanelScheme  *ThePanelScheme;
+extern PanelRight   *ThePanelRight;
+extern PanelDebug   *ThePanelDebug;

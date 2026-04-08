@@ -82,6 +82,8 @@ file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
 file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
 file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
 file(GLOB PANELS                        src/Panels/*.*)
+file(GLOB PANEL_DEBUG                   src/Panels/PanelDebug/*.*)
+file(GLOB PANEL_DEBUG_NOTEBOOK          src/Panels/PanelDebug/Notebook/*.*)
 file(GLOB PANEL_DISPLAY                 src/Panels/PanelDisplay/*.*)
 file(GLOB PANEL_DISPLAY_GRAPHICS        src/Panels/PanelDisplay/Graphics/*.*)
 file(GLOB PANEL_DISPLAY_GRID            src/Panels/PanelDisplay/Grid/*.*)
@@ -123,6 +125,8 @@ source_group(IPPP/Real                    FILES ${IPPP_REAL})
 source_group(IPPP/SCPI                    FILES ${IPPP_SCPI})
 source_group(IPPP/Tests                   FILES ${IPPP_TESTS})
 source_group(Panels                       FILES ${PANELS})
+source_group(Panels/PanelDebug            FILES ${PANEL_DEBUG})
+source_group(Panels/PanelDebug/Notebook   FILES ${PANEL_DEBUG_NOTEBOOK})
 source_group(Panels/PanelDisplay          FILES ${PANEL_DISPLAY})
 source_group(Panels/PanelDisplay/Graphics FILES ${PANEL_DISPLAY_GRAPHICS})
 source_group(Panels/PanelDisplay/Grid     FILES ${PANEL_DISPLAY_GRID})
@@ -153,6 +157,8 @@ add_executable(${PROJECT_NAME}
     ${IPPP_SCPI}
     ${IPPP_TESTS}
     ${PANELS}
+    ${PANEL_DEBUG}
+    ${PANEL_DEBUG_NOTEBOOK}
     ${PANEL_DISPLAY}
     ${PANEL_DISPLAY_GRAPHICS}
     ${PANEL_DISPLAY_GRID}
