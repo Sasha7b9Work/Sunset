@@ -23,7 +23,6 @@ private:
 
     wxBoxSizer *mainSizer = nullptr;        // Вертикальный главный sizer
     wxBoxSizer *topSizer = nullptr;         // Горизонтальный sizer для верхних кнопок
-    wxBoxSizer *bottomSizer = nullptr;      // Горизонтальный sizer для нижних кнопок
 
     wxPanel *centerContainer = nullptr;     // Контейнер для центральной области
     wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
