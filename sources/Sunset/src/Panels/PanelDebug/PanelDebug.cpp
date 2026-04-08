@@ -58,3 +58,9 @@ void PanelDebug::Pack()
 {
     TheNotebookDebug->Pack();
 }
+
+
+void PanelDebug::CallbackOnEventSize()
+{
+
+}

@@ -14,4 +14,8 @@ struct PanelDebug : public Panel
     void Unpack();
 
     void Pack();
+
+private:
+
+    virtual void CallbackOnEventSize() override;
 };

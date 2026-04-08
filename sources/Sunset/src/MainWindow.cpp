@@ -41,6 +41,7 @@ MainWindow::MainWindow(const wxString &title)
     PanelBoard *board = new PanelBoard(this);
     board->AddPanel(new PanelMeasures(this));
     board->AddPanel(new PanelScheme(this));
+    board->AddPanel(new PanelDebug(this));
     sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
 
