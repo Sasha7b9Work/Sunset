@@ -45,11 +45,7 @@ PanelMeasures::PanelMeasures(wxWindow *parent) : Panel(parent, L("Измерен
 
     panel_errors = new PanelErrors(this);
 
-//    new PanelTable(this);
-
-//    PanelTable::self->Hide();
-
-//    Init();
+    GraphMeasure::CreateForEmulator(entities);
 }
 
 
@@ -106,8 +102,6 @@ void PanelMeasures::CallbackOnEventSize()
     panel_errors->ReInit();
 
     Layout();
-
-    GraphMeasure::CreateForEmulator(entities);
 }
 
 
