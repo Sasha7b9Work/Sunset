@@ -39,9 +39,6 @@ private:
     void AddBottomButton(const wxString &label, wxObject *eventUserData = nullptr);
 
     void OnEventButtonToggle(wxCommandEvent &);
-
-    // Перевести все кнопки в положение "Отжато", кроме
-    void AllButtonsUntoggleAcross(ToggleButton *across);
 };
 
 

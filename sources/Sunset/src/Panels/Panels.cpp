@@ -53,25 +53,11 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
             return;
         }
 
-        AllButtonsUntoggleAcross(btn);
-
         wxPanel *panel = (wxPanel *)btn->GetClientData();
 
         if (panel)
         {
             ShowPanel(panel);
-        }
-    }
-}
-
-
-void PanelBoard::AllButtonsUntoggleAcross(ToggleButton *across)
-{
-    for (ToggleButton *btn : buttons)
-    {
-        if (btn != across)
-        {
-            btn->SetValue(false);
         }
     }
 }
@@ -141,6 +127,11 @@ void PanelBoard::ShowPanel(wxPanel *panel)
     centerSizer->Layout();
     centerContainer->Layout();
     Layout();
+
+    for (auto btn : buttons)
+    {
+        btn->SetValue(btn->GetClientData() == panel);
+    }
 
 //    // Отправляем событие об изменении панели
 //    wxCommandEvent event(wxEVT_BUTTON, GetId());
