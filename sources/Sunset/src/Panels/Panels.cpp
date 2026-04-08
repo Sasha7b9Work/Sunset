@@ -77,12 +77,10 @@ void PanelBoard::AddPanel(Panel *panel)
     // Добавляем в sizer
     centerSizer->Add(panel, 0, wxALIGN_CENTER);
 
-    panels.push_back(panel);
-
-    AddTopButton(panel->GetPanelName(), (wxObject *)panel);
+    AddTopButton(panel);
 
     // Если это первая панель - показываем её
-    if (panels.size() == 1)
+    if (buttons.size() == 1)
     {
         ShowPanel(0);
     }
@@ -101,12 +99,14 @@ void PanelBoard::AddPanel(Panel *panel)
 
 void PanelBoard::ShowPanel(int index)
 {
-    if (index < 0 || index >= static_cast<int>(panels.size()))
+    if (index < 0 || index >= static_cast<int>(buttons.size()))
     {
         return;
     }
 
-    ShowPanel(panels[(size_t)index]);
+    Panel *panel = (Panel *)buttons[(size_t)index]->GetClientData();
+
+    ShowPanel(panel);
 }
 
 
@@ -140,10 +140,10 @@ void PanelBoard::ShowPanel(Panel *panel)
 }
 
 
-void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
+void PanelBoard::AddTopButton(Panel *panel)
 {
-    ToggleButton *btn = new ToggleButton(static_cast<wxPanel *>(topSizer->GetContainingWindow()),  label);
-    btn->SetClientData(eventUserData);
+    ToggleButton *btn = new ToggleButton((wxPanel *)topSizer->GetContainingWindow(),  panel->GetPanelName());
+    btn->SetClientData((wxObject *)panel);
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
     buttons.push_back(btn);

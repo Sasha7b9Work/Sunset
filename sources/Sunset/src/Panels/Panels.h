@@ -28,12 +28,11 @@ private:
     wxPanel *centerContainer = nullptr;     // Контейнер для центральной области
     wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
 
-    std::vector<Panel *> panels;            // Все добавленные панели
-    std::vector<ToggleButton *> buttons;    // Соотвествующие им кнопки
+    std::vector<ToggleButton *> buttons;    // Кнопки, соотвествующие панелям
     Panel *currentPanel = nullptr;          // Текущая активная панель
 
     // Добавить кнопку в верхнюю панель
-    void AddTopButton(const wxString &label, wxObject *eventUserData = nullptr);
+    void AddTopButton(Panel *);
 
     void OnEventButtonToggle(wxCommandEvent &);
 };
