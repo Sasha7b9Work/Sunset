@@ -12,13 +12,11 @@ PageSource50V *PageSource50V::self = nullptr;
 
 
 PageSource50V::PageSource50V(wxNotebook *parent) :
-    PageChip(parent, "Источник 50 В")
+    PageChip(parent, L("Источник 50 В"))
 {
     self = this;
 
-    RegAD5443 *regDAC7 = new RegAD5443(this, dacs[6], "");
-
-    regDAC7->Disable();
+    RegAD5443 *regDAC7 = new RegAD5443(this, dacs[6], L("Управление с Orange Pi"));
 
     AppendRegister(regDAC7);
 }
