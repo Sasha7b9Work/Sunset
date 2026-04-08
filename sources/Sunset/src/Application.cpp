@@ -124,13 +124,11 @@ bool Application::OnInit()
     I_IPPP::SetInstance(std::move(device));
 
     // create and show the main application window
-    MainWindow *frame = new MainWindow(wxT("ИППП 4"));
+    new MainWindow(wxT("ИППП 4"));
 
     Bind(wxEVT_TIMER, &Application::OnTimer, this, timer.GetId());
 
     timer.SetOwner(this, timer.GetId());
-
-    frame->Show();
 
     if (!UART::IsAvailability())
     {
@@ -138,7 +136,7 @@ bool Application::OnInit()
 
         LOG_ERROR(message.c_str().AsChar());
 
-        AutoRebootDialog dialog(frame, message, 10, []
+        AutoRebootDialog dialog(TheMainWindow, message, 10, []
             {
                 IGNORE_RESULT(std::system("shutdown -r now"));
             });
@@ -152,7 +150,7 @@ bool Application::OnInit()
 
         LOG_ERROR(message.c_str().AsChar());
 
-        AutoRebootDialog dialog(frame, message, 10, []
+        AutoRebootDialog dialog(TheMainWindow, message, 10, []
             {
                 IGNORE_RESULT(std::system("shutdown -r now"));
             });
@@ -178,6 +176,13 @@ bool Application::OnInit()
     {
         TheMainWindow->SetMode(ModeMainWindow::Debug);
     }
+
+    if (!GF::IsBoardPCM())
+    {
+        TheMainWindow->Maximize(true);
+    }
+
+    TheMainWindow->Show();
 
     return true;
 }

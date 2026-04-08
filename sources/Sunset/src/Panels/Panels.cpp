@@ -178,5 +178,7 @@ void Panel::OnEventSize(wxSizeEvent &event)
 {
     CallbackOnEventSize();
 
+    Refresh();
+
     event.Skip();
 }
