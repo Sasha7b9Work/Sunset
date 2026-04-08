@@ -46,11 +46,11 @@ void ControlDataFPGA::SetMax(int _max)
 {
     max = _max;
 
-    float scale = (float)_max / (float)MAX_NUMBER_POINTS;
+    float scale = (float)_max / (float)(MAX_NUMBER_POINTS - 1);
 
     for (int i = 0; i < MAX_NUMBER_POINTS; i++)
     {
-        data[i] = (int)(scale * (float)i);
+        data[i] = (int)(scale * (float)i + 0.5f);
     }
 
     Draw();
