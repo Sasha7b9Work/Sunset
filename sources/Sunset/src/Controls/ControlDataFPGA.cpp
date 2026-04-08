@@ -22,12 +22,12 @@ ControlDataFPGA::ControlDataFPGA(wxWindow *parent, const wxPoint &position) :
 
     painter->SetPosition({ 0, 0 });
 
-    btnScale = new wxToggleButton(painter, wxID_ANY, "S", { size.x - 17, 0 }, { 17, 17 });
+    btnScale = new ToggleButton(painter, "S", { size.x - 17, 0 }, { 17, 17 });
     btnScale->Bind(wxEVT_TOGGLEBUTTON, &ControlDataFPGA::OnEventToggleButon, this);
 
-    btnScale->SetToolTip("Изменение масштаба - автоматический или постоянный");
+    btnScale->SetToolTip(L("Изменение масштаба - автоматический или постоянный"));
 
-    SetMax((1 << 18) - 1);
+    SetMax((1 << 16) - 1);
 }
 
 
@@ -48,7 +48,7 @@ void ControlDataFPGA::SetMax(int _max)
 
     for (int i = 0; i < MAX_NUMBER_POINTS; i++)
     {
-        data[i] = _max / 2;
+        data[i] = (i < _max)? i : (_max / 2);
     }
 
     Draw();

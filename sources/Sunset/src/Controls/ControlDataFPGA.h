@@ -28,7 +28,7 @@ public:
 private:
 
     PainterDataFPGA *painter = nullptr;
-    wxToggleButton *btnScale = nullptr;
+    ToggleButton *btnScale = nullptr;
     int max = (1 << 18) - 1;
     int data[MAX_NUMBER_POINTS];
 
