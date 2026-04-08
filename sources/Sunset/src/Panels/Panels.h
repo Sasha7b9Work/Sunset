@@ -20,16 +20,15 @@ struct PanelBoard : public wxPanel
 
 private:
 
-    wxBoxSizer *m_mainSizer = nullptr;      // Вертикальный главный sizer
-    wxBoxSizer *m_topSizer = nullptr;       // Горизонтальный sizer для верхних кнопок
-    wxBoxSizer *m_bottomSizer = nullptr;    // Горизонтальный sizer для нижних кнопок
+    wxBoxSizer *mainSizer = nullptr;        // Вертикальный главный sizer
+    wxBoxSizer *topSizer = nullptr;         // Горизонтальный sizer для верхних кнопок
+    wxBoxSizer *bottomSizer = nullptr;      // Горизонтальный sizer для нижних кнопок
 
-    wxPanel *m_centerContainer = nullptr;   // Контейнер для центральной области
-    wxBoxSizer *m_centerSizer = nullptr;    // Sizer для центрального контейнера
+    wxPanel *centerContainer = nullptr;     // Контейнер для центральной области
+    wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
 
-    std::vector<wxPanel *> m_contentPanels; // Все добавленные панели
-    std::vector<wxString> m_panelNames;     // Имена панелей (для отладки)
-    wxPanel *m_currentPanel = nullptr;      // Текущая активная панель
+    std::vector<Panel *> panels;            // Все добавленные панели
+    wxPanel *currentPanel = nullptr;        // Текущая активная панель
 
     // Добавить кнопку в верхнюю панель
     void AddTopButton(const wxString &label, wxObject *eventUserData = nullptr);
