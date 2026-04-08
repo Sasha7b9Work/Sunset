@@ -70,8 +70,6 @@ void PanelDisplay::FullScreen(bool full)
     }
 
     full_screen = full;
-
-    Init();
 }
 
 
@@ -79,13 +77,13 @@ void PanelDisplay::Init()
 {
     const wxSize size = GetParent()->GetSize();
 
-    if (size == wxPanel::GetSize())
+    if (size == GetSize())
     {
         return;
     }
 
-    Panel::SetMinSize(size);
-    Panel::SetSize(size);
+    SetMinSize(size);
+    SetSize(size);
 
     SAFE_DELETE(bitmap);
 
@@ -108,7 +106,7 @@ void PanelDisplay::Init()
 
     panel_errors->ReInit();
 
-    Panel::Layout();
+    Layout();
 
     GraphMeasure::CreateForEmulator(entities);
 }
