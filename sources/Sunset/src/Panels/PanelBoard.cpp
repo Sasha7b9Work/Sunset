@@ -67,7 +67,7 @@ void PanelBoard::AddPanel(Panel *panel)
     panel->Hide();
 
     // Добавляем в sizer
-    centerSizer->Add(panel, 0, wxALIGN_CENTER);
+    centerSizer->Add(panel, 0, wxALIGN_TOP | wxALIGN_LEFT);
 
     AddTopButton(panel);
 
