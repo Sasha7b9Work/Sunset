@@ -17,7 +17,7 @@ struct PanelBoard : public wxPanel
     void ShowPanel(int index);
 
     // Переключиться на панель по указателю
-    void ShowPanel(wxPanel *panel);
+    void ShowPanel(Panel *panel);
 
 private:
 
@@ -30,7 +30,7 @@ private:
 
     std::vector<Panel *> panels;            // Все добавленные панели
     std::vector<ToggleButton *> buttons;    // Соотвествующие им кнопки
-    wxPanel *currentPanel = nullptr;        // Текущая активная панель
+    Panel *currentPanel = nullptr;          // Текущая активная панель
 
     // Добавить кнопку в верхнюю панель
     void AddTopButton(const wxString &label, wxObject *eventUserData = nullptr);

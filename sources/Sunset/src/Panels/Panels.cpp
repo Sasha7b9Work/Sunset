@@ -53,7 +53,7 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
             return;
         }
 
-        wxPanel *panel = (wxPanel *)btn->GetClientData();
+        Panel *panel = (Panel *)btn->GetClientData();
 
         if (panel)
         {
@@ -110,7 +110,7 @@ void PanelBoard::ShowPanel(int index)
 }
 
 
-void PanelBoard::ShowPanel(wxPanel *panel)
+void PanelBoard::ShowPanel(Panel *panel)
 {
     // Скрываем текущую панель
     if (currentPanel)
