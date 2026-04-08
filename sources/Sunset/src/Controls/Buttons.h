@@ -10,6 +10,12 @@ struct Button : public wxButton
 };
 
 
+struct ToggleButton : public wxToggleButton
+{
+    ToggleButton(wxWindow *, const wxString &, const wxPoint & = wxDefaultPosition, const wxSize & = wxDefaultSize, int flags = 0);
+};
+
+
 class ButtonBitmap : public wxBitmapButton
 {
 public:
