@@ -72,10 +72,17 @@ void PanelMeasures::CallbackOnEventSize()
 {
     const wxSize size = GetParent()->GetSize();
 
-    if (size == GetSize())
+    if (size.x == 0 || size.y == 0)
     {
         return;
     }
+
+    if (size == prev_size)
+    {
+        return;
+    }
+
+    prev_size = size;
 
     SetMinSize(size);
     SetSize(size);
@@ -85,6 +92,8 @@ void PanelMeasures::CallbackOnEventSize()
     bitmap = new wxBitmap(size.x, size.y);
 
     IGrid::Create();
+
+    Layout();
 
     int w = btnHelp->GetSize().x;
     int d = 10;
@@ -98,6 +107,9 @@ void PanelMeasures::CallbackOnEventSize()
 
     btnLessY->SetPosition({ x0, y0 + 2 * (w + d) });
     btnMoreY->SetPosition({ x0, y0 + w + d });
+
+    Refresh();
+    Update();
 
     panel_errors->ReInit();
 
