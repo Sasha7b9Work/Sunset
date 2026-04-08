@@ -17,6 +17,7 @@
 #include "Panels/PanelReports/PanelReports.h"
 #include "Panels/PanelSettings/PanelSettings.h"
 #include "Panels/PanelTables/PanelTables.h"
+#include "Panels/PanelBoard.h"
 
 
 MainWindow *TheMainWindow = nullptr;
