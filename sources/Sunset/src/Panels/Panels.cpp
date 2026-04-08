@@ -1,7 +1,6 @@
 // 2026/04/07 09:07:30 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/Panels.h"
-#include "Controls/Buttons.h"
 
 
 PanelBoard::PanelBoard(wxWindow *parent) :
@@ -44,12 +43,35 @@ PanelBoard::PanelBoard(wxWindow *parent) :
 void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 {
     ToggleButton *btn = (ToggleButton *)event.GetEventObject();
+
     if (btn)
     {
-        wxPanel *panelToShow = (wxPanel *)btn->GetClientData();
-        if (panelToShow)
+        if (event.GetInt() == 0)
         {
-            ShowPanel(panelToShow);
+            btn->SetValue(true);
+
+            return;
+        }
+
+        AllButtonsUntoggleAcross(btn);
+
+        wxPanel *panel = (wxPanel *)btn->GetClientData();
+
+        if (panel)
+        {
+            ShowPanel(panel);
+        }
+    }
+}
+
+
+void PanelBoard::AllButtonsUntoggleAcross(ToggleButton *across)
+{
+    for (ToggleButton *btn : buttons)
+    {
+        if (btn != across)
+        {
+            btn->SetValue(false);
         }
     }
 }
@@ -134,6 +156,7 @@ void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
     btn->SetClientData(eventUserData);
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
+    buttons.push_back(btn);
 }
 
 void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
@@ -142,6 +165,7 @@ void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
     btn->SetClientData(eventUserData);
     bottomSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     bottomSizer->Layout();
+    buttons.push_back(btn);
 }
 
 

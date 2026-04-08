@@ -1,5 +1,6 @@
 // 2025/6/1 16:29:04 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Controls/Buttons.h"
 
 
 struct Panel;
@@ -28,6 +29,7 @@ private:
     wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
 
     std::vector<Panel *> panels;            // Все добавленные панели
+    std::vector<ToggleButton *> buttons;    // Соотвествующие им кнопки
     wxPanel *currentPanel = nullptr;        // Текущая активная панель
 
     // Добавить кнопку в верхнюю панель
@@ -37,6 +39,9 @@ private:
     void AddBottomButton(const wxString &label, wxObject *eventUserData = nullptr);
 
     void OnEventButtonToggle(wxCommandEvent &);
+
+    // Перевести все кнопки в положение "Отжато", кроме
+    void AllButtonsUntoggleAcross(ToggleButton *across);
 };
 
 
