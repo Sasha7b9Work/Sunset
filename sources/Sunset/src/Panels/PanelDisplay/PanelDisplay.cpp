@@ -77,13 +77,10 @@ void PanelDisplay::FullScreen(bool full)
 
 void PanelDisplay::Init()
 {
-    int width = full_screen ? MainWindow::WIDTH : MainWindow::WIDTH_DRAW;
-    int height = full_screen ? MainWindow::HEIGHT : MainWindow::HEIGHT_DRAW;
+    wxSize size = GetParent()->GetSize();
 
-    Panel::SetMinSize({ width, height });
-    Panel::SetSize({ width, height });
-
-    wxPanel::SetPosition({ 0, full_screen ? 0 : MainWindow::HEIGHT_HI });
+    Panel::SetMinSize(size);
+    Panel::SetSize(size);
 
     SAFE_DELETE(bitmap);
 
@@ -514,6 +511,8 @@ wxSize PanelDisplay::GetFullSize() const
 
 void PanelDisplay::OnEventSize(wxSizeEvent &event)
 {
+//    Init();
+
     Refresh();
 
     event.Skip();
