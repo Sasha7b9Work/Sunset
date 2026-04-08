@@ -39,7 +39,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     for (int i = 0; i < 5; i++)
     {
-        data[i] = new ControlDataFPGA(this, { 10, 90 + i * 95 });
+        data[i] = new ControlDataFPGA(this, { 10, 80 + i * 95 });
     }
 
     data[4]->SetMax((1 << 8) - 1);
