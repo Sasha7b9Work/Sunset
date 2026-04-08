@@ -1,6 +1,7 @@
 // 2026/04/07 09:07:30 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/Panels.h"
+#include "Controls/Buttons.h"
 
 
 wxBEGIN_EVENT_TABLE(PanelBoard, wxPanel)
@@ -146,8 +147,7 @@ void PanelBoard::ShowPanel(wxPanel *panel)
 
 void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
 {
-    wxButton *btn = new wxButton(static_cast<wxPanel *>(m_topSizer->GetContainingWindow()),
-        wxID_ANY, label);
+    Button *btn = new Button(static_cast<wxPanel *>(m_topSizer->GetContainingWindow()),  label);
     btn->SetClientData(eventUserData);
     m_topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     m_topSizer->Layout();
