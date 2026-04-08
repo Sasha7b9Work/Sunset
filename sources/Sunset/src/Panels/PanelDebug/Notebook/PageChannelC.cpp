@@ -14,12 +14,12 @@ PageChannelC *PageChannelC::self = nullptr;
 
 
 PageChannelC::PageChannelC(wxNotebook *parent) :
-    PageChip(parent, L("Канал C"))
+    PageChip(parent, L("Формирователь"))
 {
     self = this;
 
     {
-        RegAD5443 *dac1 = new RegAD5443(this, dacs[1], "Измеритель");
+        RegAD5443 *dac1 = new RegAD5443(this, dacs[1], L("Измеритель"));
 
         AppendRegister(dac1);
     }
@@ -72,7 +72,7 @@ PageChannelC::PageChannelC(wxNotebook *parent) :
     }
 
     {
-        RegAD5443 *dac0 = new RegAD5443(this, dacs[0], "Формирователь");
+        RegAD5443 *dac0 = new RegAD5443(this, dacs[0], L("Формирователь. Управление с Orange Pi"));
 
         AppendRegister(dac0);
     }
