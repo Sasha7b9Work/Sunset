@@ -22,5 +22,6 @@ private:
 
     TimeMeterMS meter;
     int x = 0;
+    bool repeat = false;            // Если true, то повторяем анимацию
     wxColor color_background;
 };
