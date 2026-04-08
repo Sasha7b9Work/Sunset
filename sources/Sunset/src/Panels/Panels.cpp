@@ -35,8 +35,6 @@ PanelBoard::PanelBoard(wxWindow *parent) :
     mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL);
 
     SetSizer(mainSizer);
-
-    Bind(wxEVT_TOGGLEBUTTON, &PanelBoard::OnEventButtonToggle, this);
 }
 
 
@@ -146,6 +144,7 @@ void PanelBoard::AddTopButton(Panel *panel)
 {
     ToggleButton *btn = new ToggleButton((wxPanel *)topSizer->GetContainingWindow(),  panel->GetPanelName());
     btn->SetClientData((wxObject *)panel);
+    btn->Bind(wxEVT_TOGGLEBUTTON, &PanelBoard::OnEventButtonToggle, this);
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
     buttons.push_back(btn);
