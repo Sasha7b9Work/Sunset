@@ -20,13 +20,13 @@ NotebookDebug::NotebookDebug(wxWindow *parent) :
     TheNotebookDebug = this;
 
     AppendNewPage(new PageFPGA(this));
-    AppendNewPage(new PageCommutator(this));
-    AppendNewPage(new PageSource3kV(this));
     AppendNewPage(new PageChannelC(this));
+    AppendNewPage(new PageMeasCurrent(this));
     AppendNewPage(new PageChannelB(this));
     AppendNewPage(new PageChannelS(this));
-    AppendNewPage(new PageMeasCurrent(this));
+    AppendNewPage(new PageSource3kV(this));
     AppendNewPage(new PageSource50V(this));
+    AppendNewPage(new PageCommutator(this));
 
     wxWindowBase::Layout();
 
