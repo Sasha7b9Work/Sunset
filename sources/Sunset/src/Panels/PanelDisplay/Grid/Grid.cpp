@@ -5,7 +5,7 @@
 #include "Panels/PanelDisplay/Graphics/GraphMeasure.h"
 #include "Panels/PanelDisplay/Grid/Grid.h"
 #include "Panels/PanelDisplay/Grid/GridNew.h"
-#include "Panels/PanelDisplay/PanelDisplay.h"
+#include "Panels/PanelDisplay/PanelMeasures.h"
 #include "Settings/Settings.h"
 #include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 

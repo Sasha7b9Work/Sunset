@@ -2,7 +2,7 @@
 #include "defines.h"
 #include "Panels/PanelDisplay/PanelErrors.h"
 #include "MainWindow.h"
-#include "Panels/PanelDisplay/PanelDisplay.h"
+#include "Panels/PanelDisplay/PanelMeasures.h"
 #include "Utils/SystemDepend.h"
 
 

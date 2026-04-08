@@ -1,6 +1,6 @@
 ﻿// 2022/10/28 23:17:06 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelDisplay/PanelDisplay.h"
+#include "Panels/PanelDisplay/PanelMeasures.h"
 #include "MainWindow.h"
 #include "MainWindow.h"
 #include "Panels/PanelDisplay/Graphics/GraphMeasure.h"

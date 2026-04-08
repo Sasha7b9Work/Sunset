@@ -2,7 +2,7 @@
 #include "defines.h"
 #include "Panels/PanelDisplay/Graphics/AutoCursors.h"
 #include "Panels/PanelDisplay/Grid/GridNew.h"
-#include "Panels/PanelDisplay/PanelDisplay.h"
+#include "Panels/PanelDisplay/PanelMeasures.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
 #include "Utils/FinderMinMax.h"

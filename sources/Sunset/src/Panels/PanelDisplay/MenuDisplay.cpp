@@ -2,7 +2,7 @@
 #include "defines.h"
 #include "Panels/PanelDisplay/MenuDisplay.h"
 #include "Panels/PanelDisplay/Grid/Grid.h"
-#include "Panels/PanelDisplay/PanelDisplay.h"
+#include "Panels/PanelDisplay/PanelMeasures.h"
 #include "MainWindow.h"
 #include "Settings/Settings.h"
 #include "Panels/PanelDisplay/Graphics/AutoCursors.h"
