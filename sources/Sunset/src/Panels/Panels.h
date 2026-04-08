@@ -47,5 +47,11 @@ private:
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
 struct Panel : public wxPanel
 {
-    Panel(wxWindow *);
+    Panel(wxWindow *, const wxString &);
+
+    const wxString &GetPanelName() const;
+
+private:
+
+    wxString name;
 };

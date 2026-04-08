@@ -38,7 +38,7 @@ FullJack::FullJack(Chan::E ch, wxWindow *parent, const wxPoint &position, pchar 
 }
 
 
-PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent)
+PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 {
     wxPanel::SetName("PanelScheme");
 

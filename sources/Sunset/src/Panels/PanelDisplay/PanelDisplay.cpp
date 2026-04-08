@@ -14,7 +14,7 @@
 PanelDisplay *ThePanelDisplay = nullptr;
 
 
-PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent)
+PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent, "Измерение")
 {
     ThePanelDisplay = this;
 

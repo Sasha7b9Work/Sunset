@@ -87,11 +87,8 @@ void PanelBoard::AddPanel(Panel *panel)
     m_contentPanels.push_back(panel);
 //    m_panelNames.push_back(name);
 
-        // ★ НОВОЕ: автоматически добавляем кнопку в верхнюю ячейку
-    wxString buttonLabel = wxString::Format("Panel %d", (int)m_contentPanels.size());
-    AddTopButton(buttonLabel, (wxObject *)panel);
-
-    AddBottomButton(buttonLabel, (wxObject *)panel);
+    AddTopButton(panel->GetPanelName(), (wxObject *)panel);
+    AddBottomButton(panel->GetPanelName(), (wxObject *)panel);
 
     // Если это первая панель - показываем её
     if (m_contentPanels.size() == 1)
@@ -166,7 +163,14 @@ void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
 }
 
 
-Panel::Panel(wxWindow *parent) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER)
+Panel::Panel(wxWindow *parent, const wxString &_name) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
+    name(_name)
 {
+}
+
+
+const wxString &Panel::GetPanelName() const
+{
+    return name;
 }
