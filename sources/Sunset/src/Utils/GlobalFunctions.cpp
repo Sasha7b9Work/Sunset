@@ -156,7 +156,7 @@ wxPoint GF::GetCoordCenter(const wxSize &size)
 
 wxString GF::DirForModFiles()
 {
-    wxString path = wxGetCwd() + wxT("/mod");
+    wxString path = wxGetCwd() + L("/mod");
 
     wxString normalizedPath = wxFileName::DirName(path).GetFullPath();
 

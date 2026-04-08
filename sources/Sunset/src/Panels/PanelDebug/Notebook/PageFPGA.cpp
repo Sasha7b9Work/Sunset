@@ -20,7 +20,7 @@ PageFPGA::PageFPGA(wxNotebook *parent) :
         std::vector<StructDescription> desc0; //-V827
 
         std::vector<StructDescription::CommandStruct> commandsScan; //-V827 //-V826
-        commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0000, wxT("Выключена")});
+        commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0000, L("Выключена")});
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0001, "SIN+" });
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0010, "SIN-" });
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0011, "AC" });
@@ -29,19 +29,19 @@ PageFPGA::PageFPGA(wxNotebook *parent) :
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0110, "IMP+" });
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b0111, "IMP-" });
         commandsScan.emplace_back(StructDescription::CommandStruct{ 0b1000, "IMP-CVC" });
-        desc0.emplace_back(StructDescription{ 0, 4, wxT("разв"), wxT("развёртка"), { true, commandsScan } });
+        desc0.emplace_back(StructDescription{ 0, 4, L("разв"), L("развёртка"), { true, commandsScan } });
 
         std::vector<StructDescription::CommandStruct> commandsTypeElem; //-V826
-        commandsTypeElem.emplace_back(StructDescription::CommandStruct{ 0, wxT("Диод") });
-        commandsTypeElem.emplace_back(StructDescription::CommandStruct{ 1, wxT("Транзистор") });
-        desc0.emplace_back(StructDescription{ 4, 1, "з", wxT("запуск"), { true, commandsTypeElem } });
+        commandsTypeElem.emplace_back(StructDescription::CommandStruct{ 0, L("Диод") });
+        commandsTypeElem.emplace_back(StructDescription::CommandStruct{ 1, L("Транзистор") });
+        desc0.emplace_back(StructDescription{ 4, 1, "з", L("запуск"), { true, commandsTypeElem } });
 
         std::vector<StructDescription::CommandStruct> commandsCurvers; //-V827 //-V826
         for (int i = 0; i < 16; i++)
         {
             commandsCurvers.emplace_back(StructDescription::CommandStruct{ (uint16)i, String("%d", i).c_str() });
         }
-        desc0.emplace_back(StructDescription{ 5, 4, wxT("к"), wxT("количество кривых ВАХ для DC+, DC-"), { true, commandsCurvers } });
+        desc0.emplace_back(StructDescription{ 5, 4, L("к"), L("количество кривых ВАХ для DC+, DC-"), { true, commandsCurvers } });
 
         fpga0->SetDescriptionBits(0, desc0);
 

@@ -23,7 +23,7 @@ ConsoleRS232::ConsoleRS232(wxFrame *parent) : wxFrame(parent, wxID_ANY, "ИПП�
     line = new wxTextCtrl(this, ID_LINE, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
     line->SetFocus();
 
-    wxFont font(11, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Courier New"));
+    wxFont font(11, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, L("Courier New"));
     line->SetFont(font);
     text->SetFont(font);
 

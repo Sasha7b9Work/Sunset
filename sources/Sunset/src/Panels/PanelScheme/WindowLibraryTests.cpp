@@ -108,7 +108,7 @@ void WindowLibraryTests::SetAutoSizeColumns()
 
 void WindowLibraryTests::Fill()
 {
-    AppendLine("1", "IdVd_IRF840.tst", wxT("Выходная характеристика"));
+    AppendLine("1", "IdVd_IRF840.tst", L("Выходная характеристика"));
 }
 
 

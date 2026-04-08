@@ -124,13 +124,13 @@ bool Application::OnInit()
     I_IPPP::SetInstance(std::move(device));
 
     // create and show the main application window
-    new MainWindow(wxT("ИППП 4"));
+    new MainWindow(L("ИППП 4"));
 
     timer.SetOwner(this, timer.GetId());
 
     if (!UART::IsAvailability())
     {
-        wxString message = wxString::Format(wxT("Устройство UART %s не обнаружено."), UART_DEVICE);
+        wxString message = wxString::Format(L("Устройство UART %s не обнаружено."), UART_DEVICE);
 
         LOG_ERROR(message.c_str().AsChar());
 
@@ -144,7 +144,7 @@ bool Application::OnInit()
 
     if (!SPI::IsAvailability())
     {
-        wxString message = wxString::Format(wxT("Устройство SPI %s не обнаружено."), SPI_DEVICE);
+        wxString message = wxString::Format(L("Устройство SPI %s не обнаружено."), SPI_DEVICE);
 
         LOG_ERROR(message.c_str().AsChar());
 
@@ -161,7 +161,7 @@ bool Application::OnInit()
     if (!SoftTests::RunAll())
     {
         wxMessageBox(wxString::Format(_("Во время выполнения тестов произошли ошибки.\n") +
-            _("Дополнительная информация в файле %s."), Log::FileName().c_str().AsChar()), wxT("Ошибка"), wxOK | wxCENTRE | wxICON_ERROR);
+            _("Дополнительная информация в файле %s."), Log::FileName().c_str().AsChar()), L("Ошибка"), wxOK | wxCENTRE | wxICON_ERROR);
     }
 
 #ifdef WIN32

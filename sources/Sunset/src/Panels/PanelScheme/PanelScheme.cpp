@@ -44,7 +44,7 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 
     ThePanelScheme = this;
 
-    StaticBox *boxTest = new StaticBox(this, wxT("Тест"), { 0, SD::DSBY() }, { 100, 90 });
+    StaticBox *boxTest = new StaticBox(this, L("Тест"), { 0, SD::DSBY() }, { 100, 90 });
 
     {
         wxArrayString choices;
@@ -53,14 +53,14 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 
         comboTest = new ButtonsCombo(boxTest, "", SD::XY0(), 100, choices, choices, 1, "comboTest");
 
-        btnLoad = new wxButton(boxTest, wxID_ANY, wxT("Загрузить"), { 6, SD::Y_SB(50) }, { 100, 30 });
+        btnLoad = new wxButton(boxTest, wxID_ANY, L("Загрузить"), { 6, SD::Y_SB(50) }, { 100, 30 });
 
         btnLoad->Hide();
     }
 
     boxTest->SetFont(StaticBox::TitleFont());
 
-    StaticBox *boxCommutation = new StaticBox(this, wxT("Коммутация"),
+    StaticBox *boxCommutation = new StaticBox(this, L("Коммутация"),
         { 0, boxTest->GetPosition().y + boxTest->GetSize().y + SD::DSBY() },
         { 100, 50 - boxTest->GetPosition().y - boxTest->GetSize().y - SD::DSBY() });
 
@@ -71,7 +71,7 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 
         int y = 20;
 
-        comboCommutation = new ButtonsCombo(boxCommutation, wxT("Тип"), { SD::XY0() }, WIDTH_COMBO, choices, choices, 1, "comboCommutation");
+        comboCommutation = new ButtonsCombo(boxCommutation, L("Тип"), { SD::XY0() }, WIDTH_COMBO, choices, choices, 1, "comboCommutation");
 
         choices.clear();
         choices.Add(wxT("канал C"));
@@ -117,18 +117,18 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 
             wxArrayString tooltips =
             {
-                wxT("Биполярный NPN-транзистор (трёхполюсный)"),
-                wxT("Биполярный PNP-транзистор (трёхполюсный)"),
-                wxT("Полевой или МОП транзистор NMOS (трёхполюсный)"),
-                wxT("Полевой или МОП транзистор PMOS (трёхполюсный)"),
-                wxT("Биполярный NPN-транзистор (четырёхполюсный)"),
-                wxT("Биполярный PNP-транзистор (четырёхполюсный)"),
-                wxT("Полевой или МОП транзистор NMOS (четырёхполюсный)"),
-                wxT("Полевой или МОП транзистор PMOS (четырёхполюсный)"),
-                wxT("Диод"),
-                wxT("Тиристор"),
-                wxT("Резистор"),
-                wxT("Конденсатор")
+                L("Биполярный NPN-транзистор (трёхполюсный)"),
+                L("Биполярный PNP-транзистор (трёхполюсный)"),
+                L("Полевой или МОП транзистор NMOS (трёхполюсный)"),
+                L("Полевой или МОП транзистор PMOS (трёхполюсный)"),
+                L("Биполярный NPN-транзистор (четырёхполюсный)"),
+                L("Биполярный PNP-транзистор (четырёхполюсный)"),
+                L("Полевой или МОП транзистор NMOS (четырёхполюсный)"),
+                L("Полевой или МОП транзистор PMOS (четырёхполюсный)"),
+                L("Диод"),
+                L("Тиристор"),
+                L("Резистор"),
+                L("Конденсатор")
             };
 
             comboCategory = new BmpButtonsCombo(painter, "Категория", { 50, 28 }, { 55, 65 }, files, tooltips, 0, 4, "comboCategory");

@@ -9,7 +9,7 @@ class PageChip : public wxPanel
 {
 public:
 
-    PageChip(wxNotebook *parent, const wxString &title);
+    PageChip(wxNotebook *, const wxString &title);
 
     void AppendRegister(Register *);
 

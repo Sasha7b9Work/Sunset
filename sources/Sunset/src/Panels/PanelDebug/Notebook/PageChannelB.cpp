@@ -154,7 +154,7 @@ PageChannelB::PageChannelB(wxNotebook *parent) :
                 modeU_4V.state.emplace_back(StateBit{ 17, true });
                 modesU.emplace_back(modeU_4V);
 
-                reg3->AppendModes(wxT("Источник напряжения"), modesU);
+                reg3->AppendModes(L("Источник напряжения"), modesU);
             }
 
             {
@@ -250,7 +250,7 @@ PageChannelB::PageChannelB(wxNotebook *parent) :
                 modeI_20nA.state.emplace_back(StateBit{ 17, false });
                 modesI.emplace_back(modeI_20nA);
 
-                reg3->AppendModes(wxT("Источник тока"), modesI);
+                reg3->AppendModes(L("Источник тока"), modesI);
             }
         }
 
