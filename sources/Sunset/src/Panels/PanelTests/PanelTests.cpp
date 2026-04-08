@@ -13,7 +13,7 @@
 #include "Panels/PanelTests/WindowLibraryTests.h"
 
 
-PanelScheme *ThePanelScheme = nullptr;
+PanelTests *ThePanelTests = nullptr;
 
 
 ComboJack::ComboJack(Chan::E ch, wxWindow *parent, const wxString &title, const wxPoint &pos, int width, const wxArrayString &labels) :
@@ -39,11 +39,11 @@ FullJack::FullJack(Chan::E ch, wxWindow *parent, const wxPoint &position, pchar 
 }
 
 
-PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
+PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 {
-    wxPanel::SetName("PanelScheme");
+    wxPanel::SetName("PanelTests");
 
-    ThePanelScheme = this;
+    ThePanelTests = this;
 
     StaticBox *boxTest = new StaticBox(this, L("Тест"), { 0, SD::DSBY() }, { 100, 90 });
 
@@ -137,9 +137,9 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
             comboCategory->Show(false);
         }
 
-        painter->Bind(wxEVT_ENTER_WINDOW, &PanelScheme::OnEventMouseEnter, this);
-        painter->Bind(wxEVT_LEAVE_WINDOW, &PanelScheme::OnEventMouseLeave, this);
-        painter->Bind(wxEVT_MOTION, &PanelScheme::OnEventMouseMove, this);
+        painter->Bind(wxEVT_ENTER_WINDOW, &PanelTests::OnEventMouseEnter, this);
+        painter->Bind(wxEVT_LEAVE_WINDOW, &PanelTests::OnEventMouseLeave, this);
+        painter->Bind(wxEVT_MOTION, &PanelTests::OnEventMouseMove, this);
 
         int width = 45;
 
@@ -156,8 +156,8 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 
     BuildPanel();
 
-    Bind(wxEVT_BUTTON, &PanelScheme::OnEventButton, this);
-    Bind(wxEVT_COMBOBOX, &PanelScheme::OnEventComboBox, this);
+    Bind(wxEVT_BUTTON, &PanelTests::OnEventButton, this);
+    Bind(wxEVT_COMBOBOX, &PanelTests::OnEventComboBox, this);
 
     wxSize size{ 400, 600 };
     Panel::SetMinSize(size);
@@ -166,7 +166,7 @@ PanelScheme::PanelScheme(wxWindow *parent) : Panel(parent, "Модель")
 }
 
 
-void PanelScheme::OnEventButton(wxCommandEvent &event)
+void PanelTests::OnEventButton(wxCommandEvent &event)
 {
     int id = event.GetId();
 
@@ -177,7 +177,7 @@ void PanelScheme::OnEventButton(wxCommandEvent &event)
 }
 
 
-void PanelScheme::OnEventComboBox(wxCommandEvent &event)
+void PanelTests::OnEventComboBox(wxCommandEvent &event)
 {
     int id = event.GetId();
 
@@ -219,7 +219,7 @@ void PanelScheme::OnEventComboBox(wxCommandEvent &event)
 }
 
 
-void PanelScheme::UpdateSuffixGenerator(ButtonsCombo *combo, char suffix)
+void PanelTests::UpdateSuffixGenerator(ButtonsCombo *combo, char suffix)
 {
     const wxArrayString &old_choices = combo->GetChoices();
 
@@ -243,7 +243,7 @@ void PanelScheme::UpdateSuffixGenerator(ButtonsCombo *combo, char suffix)
 }
 
 
-void PanelScheme::BuildPanel()
+void PanelTests::BuildPanel()
 {
 //    ThePanelConfig->btnChannelB->Enable(ThePanelChannelB->IsEnabled());
 //    ThePanelConfig->btnChannelS->Enable(ThePanelChannelS->IsEnabled());
@@ -365,7 +365,7 @@ void ComboJack::SetVisibility()
 }
 
 
-void PanelScheme::Pack()
+void PanelTests::Pack()
 {
     comboCategory->Pack();
     comboCommutation->Pack();
@@ -377,7 +377,7 @@ void PanelScheme::Pack()
 }
 
 
-void PanelScheme::Unpack()
+void PanelTests::Unpack()
 {
     comboCategory->Unpack();
     wxYield();
@@ -391,13 +391,13 @@ void PanelScheme::Unpack()
 }
 
 
-void PanelScheme::OnEventMouseEnter(wxMouseEvent &)
+void PanelTests::OnEventMouseEnter(wxMouseEvent &)
 {
 
 }
 
 
-void PanelScheme::OnEventMouseLeave(wxMouseEvent &event)
+void PanelTests::OnEventMouseLeave(wxMouseEvent &event)
 {
     wxRect rect = comboCategory->GetRect();
 
@@ -410,7 +410,7 @@ void PanelScheme::OnEventMouseLeave(wxMouseEvent &event)
 }
 
 
-void PanelScheme::OnEventMouseMove(wxMouseEvent &event)
+void PanelTests::OnEventMouseMove(wxMouseEvent &event)
 {
     wxRect rect = comboCategory->GetRect();
 
@@ -427,7 +427,7 @@ void PanelScheme::OnEventMouseMove(wxMouseEvent &event)
 }
 
 
-void PanelScheme::CallbackOnEventSize()
+void PanelTests::CallbackOnEventSize()
 {
 
 }

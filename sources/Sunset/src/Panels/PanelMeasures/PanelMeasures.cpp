@@ -14,7 +14,7 @@
 PanelMeasures *ThePanelMeasures = nullptr;
 
 
-PanelMeasures::PanelMeasures(wxWindow *parent) : Panel(parent, "Измерение")
+PanelMeasures::PanelMeasures(wxWindow *parent) : Panel(parent, L("Измерения"))
 {
     ThePanelMeasures = this;
 

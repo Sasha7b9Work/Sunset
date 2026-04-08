@@ -19,11 +19,11 @@ extern NotebookDebug *TheNotebookDebug;
 extern WindowCursors *TheWindowCursors;     // Настройки курсоров
 
 struct PanelMeasures;
-struct PanelScheme;
+struct PanelTests;
 struct PanelRight;
 struct PanelDebug;
 
 extern PanelMeasures *ThePanelMeasures;
-extern PanelScheme  *ThePanelScheme;
-extern PanelRight   *ThePanelRight;
-extern PanelDebug   *ThePanelDebug;
+extern PanelTests    *ThePanelTests;
+extern PanelRight    *ThePanelRight;
+extern PanelDebug    *ThePanelDebug;

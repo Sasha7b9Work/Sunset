@@ -47,7 +47,7 @@ private:
 };
 
 
-struct PanelScheme : public Panel
+struct PanelTests : public Panel
 {
     const int HEIGHT = 500;
 
@@ -56,7 +56,7 @@ struct PanelScheme : public Panel
 
 public:
 
-    PanelScheme(wxWindow *);
+    PanelTests(wxWindow *);
 
     void Pack();
     void Unpack();
