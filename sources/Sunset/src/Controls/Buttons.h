@@ -16,10 +16,8 @@ struct ToggleButton : public wxToggleButton
 };
 
 
-class ButtonBitmap : public wxBitmapButton
+struct ButtonBitmap : public wxBitmapButton
 {
-public:
-
     ButtonBitmap(wxWindow *parent, const wxPoint &pos, const wxSize &, const wxString &file_bimap, const wxString &name);
 
     void SetFileBitmap(const wxString &file_bitmap);
@@ -31,10 +29,8 @@ private:
 
 
 // На кнопке при нажатиях переключаются картинки
-class ButtonBitmapChoice : public ButtonBitmap
+struct ButtonBitmapChoice : public ButtonBitmap
 {
-public:
-
     ButtonBitmapChoice(wxWindow *parent, const wxPoint &pos, const wxSize &, const wxArrayString &files, const wxString &name);
 
     void SetCurrentValue(int);
@@ -52,9 +48,8 @@ private:
 
 
 // Событие от кнопки ButtonBitmapChoice
-class ButtonBitmapChoiceEvent : public wxCommandEvent
+struct ButtonBitmapChoiceEvent : public wxCommandEvent
 {
-public:
     ButtonBitmapChoiceEvent(wxEventType eventType, int id) : wxCommandEvent(eventType, id) { }
     ButtonBitmapChoiceEvent(const ButtonBitmapChoiceEvent &other) : wxCommandEvent(other) { }
 
