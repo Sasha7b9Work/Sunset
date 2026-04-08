@@ -39,7 +39,6 @@ void AnimatedImpulse::FuncDraw()
 
         _dc.SetPen(*wxBLACK_PEN);
 
-
         int y = 1;
 
         int y0 = GetSize().y - 2;
@@ -49,6 +48,12 @@ void AnimatedImpulse::FuncDraw()
         _dc.DrawLine(x, y, x + 10, y);
         _dc.DrawLine(x + 10, y, x + 10, y0);
         _dc.DrawLine(x + 10, y0, GetSize().x, y0);
+
+        if (!repeat && (x + 10 > GetSize().x))
+        {
+            EnableRepeat(false);
+        }
+
     }
 }
 
