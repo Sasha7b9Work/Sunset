@@ -16,7 +16,7 @@ MenuDisplay::MenuDisplay() : wxMenu()
 
     wxMenuItem *item = AppendCheckItem(wxID_ANY, "Полный экран");
     Bind(wxEVT_MENU, &MenuDisplay::OnFullScreen, this, item->GetId());
-    Check(item->GetId(), ThePanelDisplay->full_screen);
+    Check(item->GetId(), ThePanelMeasures->full_screen);
 
     AppendSeparator();
 
@@ -135,7 +135,7 @@ void MenuDisplay::OnFullScreen(wxCommandEvent &event)
 
     TheGrid->ResetCenter();
 
-    ThePanelDisplay->Refresh();
+    ThePanelMeasures->Refresh();
 }
 
 
@@ -166,7 +166,7 @@ void MenuDisplay::OnColor(wxCommandEvent &event)
             wxColourData colourData;
             colourData.SetChooseFull(true);
 
-            wxColourDialog dialog(ThePanelDisplay, &colourData);
+            wxColourDialog dialog(ThePanelMeasures, &colourData);
 
             dialog.SetTitle(wxString(wxT("Цвет ")) + title);
 
@@ -233,7 +233,7 @@ void MenuDisplay::OnSizePoint(wxCommandEvent &event)
 
         SET::GUI::size_point->Set(value);
 
-        ThePanelDisplay->Refresh();
+        ThePanelMeasures->Refresh();
     }
 }
 
@@ -252,7 +252,7 @@ void MenuDisplay::OnResetGraphic(wxCommandEvent &)
 
 void MenuDisplay::OnColorCurve()
 {
-    for (auto elem : ThePanelDisplay->entities)
+    for (auto elem : ThePanelMeasures->entities)
     {
         elem->SetColor(SET::GUI::color_curve->Get());
     }

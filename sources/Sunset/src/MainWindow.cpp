@@ -231,9 +231,9 @@ void MainWindow::SetMode(ModeMainWindow::E mode)
 {
     ModeMainWindow::current = mode;
 
-    ThePanelDisplay->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
+    ThePanelMeasures->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
 
-    ThePanelDisplay->FullScreen(mode == ModeMainWindow::FullGraph);
+    ThePanelMeasures->FullScreen(mode == ModeMainWindow::FullGraph);
 
     wxFrame::Layout();
 }

@@ -40,13 +40,13 @@ int GridNew::TopY() const
 
 int GridNew::CenterY() const
 {
-    return ThePanelDisplay->GetDrawingSize().y / 2;
+    return ThePanelMeasures->GetDrawingSize().y / 2;
 }
 
 
 int GridNew::CenterX() const
 {
-    return ThePanelDisplay->GetDrawingSize().x / 2;
+    return ThePanelMeasures->GetDrawingSize().x / 2;
 }
 
 
@@ -76,7 +76,7 @@ int GridNew::LengthAxisY() const
 
 void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
 {
-    wxSize size = ThePanelDisplay->GetDrawingSize();
+    wxSize size = ThePanelMeasures->GetDrawingSize();
 
     const int x_left = LeftX();
     const int x_right = RightX();
@@ -169,14 +169,14 @@ void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
         entity->Draw();
     }
 
-    ThePanelDisplay->SetColorPen(SET::GUI::color_background->Get());
+    ThePanelMeasures->SetColorPen(SET::GUI::color_background->Get());
 
-    ThePanelDisplay->FillRectangle(0, 0, x_left - 1, ThePanelDisplay->GetDrawingSize().y, SET::GUI::color_background->Get()); //-V807
-    ThePanelDisplay->FillRectangle(x_left, 0, LengthAxisX(), y_top - 1, SET::GUI::color_background->Get());
-    ThePanelDisplay->FillRectangle(x_right + 1, 0, ThePanelDisplay->GetDrawingSize().x - x_right, ThePanelDisplay->GetDrawingSize().y, SET::GUI::color_background->Get());
-    ThePanelDisplay->FillRectangle(x_left, y_bottom + 1, LengthAxisX(), ThePanelDisplay->GetDrawingSize().y - y_bottom, SET::GUI::color_background->Get());
+    ThePanelMeasures->FillRectangle(0, 0, x_left - 1, ThePanelMeasures->GetDrawingSize().y, SET::GUI::color_background->Get()); //-V807
+    ThePanelMeasures->FillRectangle(x_left, 0, LengthAxisX(), y_top - 1, SET::GUI::color_background->Get());
+    ThePanelMeasures->FillRectangle(x_right + 1, 0, ThePanelMeasures->GetDrawingSize().x - x_right, ThePanelMeasures->GetDrawingSize().y, SET::GUI::color_background->Get());
+    ThePanelMeasures->FillRectangle(x_left, y_bottom + 1, LengthAxisX(), ThePanelMeasures->GetDrawingSize().y - y_bottom, SET::GUI::color_background->Get());
 
-    if (!ThePanelDisplay->mouse_is_pressed)
+    if (!ThePanelMeasures->mouse_is_pressed)
     {
         if (pos_mouse.y > TopY() &&
             pos_mouse.y < BottomY() &&
@@ -193,13 +193,13 @@ void GridNew::Draw(const std::vector<GraphMeasure *> &entities)
 
 void GridNew::DrawLabelsOnAxis() const
 {
-    ThePanelDisplay->SetColorPen(SET::GUI::color_font->Get());
+    ThePanelMeasures->SetColorPen(SET::GUI::color_font->Get());
 
     Text::SetFont();
 
     int d = 2;
 
-    wxSize size = ThePanelDisplay->GetDrawingSize();
+    wxSize size = ThePanelMeasures->GetDrawingSize();
 
     {
         // Подписываем горизонтальную ось
@@ -330,7 +330,7 @@ void GridNew::RangeGridOnX(int delta)
         rangeX.Decrease();
     }
 
-    ThePanelDisplay->Refresh();
+    ThePanelMeasures->Refresh();
 }
 
 
@@ -345,7 +345,7 @@ void GridNew::RangeGridOnY(int delta)
         rangeY.Decrease();
     }
 
-    ThePanelDisplay->Refresh();
+    ThePanelMeasures->Refresh();
 }
 
 

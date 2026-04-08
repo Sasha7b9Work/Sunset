@@ -23,7 +23,7 @@ struct PanelScheme;
 struct PanelRight;
 struct PanelDebug;
 
-extern PanelDisplay *ThePanelDisplay;
+extern PanelDisplay *ThePanelMeasures;
 extern PanelScheme  *ThePanelScheme;
 extern PanelRight   *ThePanelRight;
 extern PanelDebug   *ThePanelDebug;
