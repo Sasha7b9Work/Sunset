@@ -132,6 +132,8 @@ static pString DIRECT_PROMT = "<- ";
 
 #define SAFE_DELETE(ptr)  do { delete ptr; ptr = nullptr; } while(0)
 
+#define L(x) _(x)
+
 // Яркость элементов управления
 #ifdef WIN32
     #define LIGHTNESS 300

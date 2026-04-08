@@ -49,17 +49,19 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
         if (event.GetInt() == 0)
         {
             btn->SetValue(true);
-
-            return;
         }
-
-        Panel *panel = (Panel *)btn->GetClientData();
-
-        if (panel)
+        else
         {
-            ShowPanel(panel);
+            Panel *panel = (Panel *)btn->GetClientData();
+
+            if (panel)
+            {
+                ShowPanel(panel);
+            }
         }
     }
+
+    event.Skip();
 }
 
 

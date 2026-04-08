@@ -24,7 +24,7 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 {
     wxWindowBase::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 
-    wxPanel::SetName("Register");
+    wxPanel::SetName(L("Register"));
 
     new wxStaticText(this, wxID_ANY, _title + " " + chip->GetNameDevice() + (_functional.IsEmpty() ? wxString("") : (wxString(" : ") + _functional)), {10, 10});
 
@@ -32,13 +32,13 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 
     int x = 690;
 
-    btnSend = new Button(this, wxT("Записать"), { x, 0 }, size_button);
+    btnSend = new Button(this, L("Записать"), { x, 0 }, size_button);
 
     windows.push_back(btnSend);
 
     x -= size_button.x + 5;
 
-    btnAutoSend = new ToggleButton(this, wxT("Автозапись"), { x, 0 }, size_button);
+    btnAutoSend = new ToggleButton(this, L("Автозапись"), { x, 0 }, size_button);
 
     windows.push_back(btnAutoSend);
 
