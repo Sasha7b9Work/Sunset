@@ -50,7 +50,14 @@ struct Panel : public wxPanel
 
     const wxString &GetPanelName() const;
 
+protected:
+
+    // Эта функция будет вызываться при наступлении события wxEVT_SIZE
+    virtual void CallbackOnEventSize() = 0;
+
 private:
 
     wxString name;
+
+    void OnEventSize(wxSizeEvent &);
 };

@@ -75,6 +75,9 @@ private:
 
     PainterScheme *painter = nullptr;                 // Здесь будет нарисована схема
 
+
+    virtual void CallbackOnEventSize() override;
+
     void OnEventButton(wxCommandEvent &);
     void OnEventComboBox(wxCommandEvent &);
     void OnEventMouseEnter(wxMouseEvent &);

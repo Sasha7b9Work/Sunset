@@ -64,6 +64,7 @@ private:
     ValuePoint position{ "gui_position", { 100, 100 } };
 
     void OnEventKeyHook(wxKeyEvent &);
+    void OnEventMaximize(wxMaximizeEvent &);
 
     // Настроить шрифт
     void TuneFont();

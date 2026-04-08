@@ -424,3 +424,9 @@ void PanelScheme::OnEventMouseMove(wxMouseEvent &event)
         comboCategory->Hide();
     }
 }
+
+
+void PanelScheme::CallbackOnEventSize()
+{
+
+}

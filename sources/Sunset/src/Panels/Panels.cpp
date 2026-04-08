@@ -164,10 +164,19 @@ Panel::Panel(wxWindow *parent, const wxString &_name) :
     wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
     name(_name)
 {
+    Bind(wxEVT_SIZE, &Panel::OnEventSize, this);
 }
 
 
 const wxString &Panel::GetPanelName() const
 {
     return name;
+}
+
+
+void Panel::OnEventSize(wxSizeEvent &event)
+{
+    CallbackOnEventSize();
+
+    event.Skip();
 }

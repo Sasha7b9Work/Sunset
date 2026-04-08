@@ -31,6 +31,7 @@ MainWindow::MainWindow(const wxString &title)
 
     Bind(wxEVT_MENU, &MainWindow::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MainWindow::OnQuit, this, wxID_EXIT);
+    Bind(wxEVT_MAXIMIZE, &MainWindow::OnEventMaximize, this);
 
     Bind(wxEVT_CLOSE_WINDOW, &MainWindow::OnEventCloseWindow, this);
     TuneFont();
@@ -84,6 +85,18 @@ void MainWindow::OnEventKeyHook(wxKeyEvent &event)
             ConsoleRS232::self->Show(!ConsoleRS232::self->IsShown());
         }
     }
+
+    event.Skip();
+}
+
+
+void MainWindow::OnEventMaximize(wxMaximizeEvent &event)
+{
+    // Без этого первая максимизация окна приложения не отрабатывает на элементах сайзера
+
+    Layout();
+    GetSizer()->Layout();
+    Refresh();
 
     event.Skip();
 }

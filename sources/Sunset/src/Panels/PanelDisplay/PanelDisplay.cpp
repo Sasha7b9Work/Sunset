@@ -28,7 +28,6 @@ PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent, "Измерение
     Bind(wxEVT_LEAVE_WINDOW, &PanelDisplay::OnEventLeaveWindow, this);
     Bind(wxEVT_ENTER_WINDOW, &PanelDisplay::OnEventEnterWindow, this);
     Bind(wxEVT_BUTTON, &PanelDisplay::OnEventButton, this);
-    Bind(wxEVT_SIZE, &PanelDisplay::OnEventSize, this);
 
     int w = 25;
 
@@ -50,7 +49,7 @@ PanelDisplay::PanelDisplay(wxWindow *parent) : Panel(parent, "Измерение
 
 //    PanelTable::self->Hide();
 
-    Init();
+//    Init();
 }
 
 
@@ -73,7 +72,7 @@ void PanelDisplay::FullScreen(bool full)
 }
 
 
-void PanelDisplay::Init()
+void PanelDisplay::CallbackOnEventSize()
 {
     const wxSize size = GetParent()->GetSize();
 
@@ -509,14 +508,4 @@ wxSize PanelDisplay::GetDrawingSize() const
 wxSize PanelDisplay::GetFullSize() const
 {
     return wxPanel::GetSize();
-}
-
-
-void PanelDisplay::OnEventSize(wxSizeEvent &event)
-{
-    Init();
-
-    Refresh();
-
-    event.Skip();
 }
