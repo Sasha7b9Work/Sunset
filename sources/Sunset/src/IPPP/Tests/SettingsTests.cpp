@@ -159,7 +159,7 @@ void StateJack::PrepareArray(wxArrayString &arr, E v1, E v2, E v3, E v4)
 
 Category::E Category::Current()
 {
-    return Category::Count;
+    return Category::BCE_N;
 }
 
 

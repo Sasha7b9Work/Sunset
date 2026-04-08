@@ -33,5 +33,9 @@ void PainterScheme::DrawElement()
         "sch/capasitor.bmp"
     };
 
-    DrawBitmap(50, 33, Bitmap::Get(files[Category::Current()]).GetBitmap(), {241, 241, 241});
+    Category::E current = Category::Current();
+
+    Bitmap &bmp = Bitmap::Get(files[current]);
+
+    DrawBitmap(50, 33, bmp.GetBitmap(), {241, 241, 241});
 }
