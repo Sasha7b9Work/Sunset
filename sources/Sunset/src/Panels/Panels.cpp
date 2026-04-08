@@ -4,12 +4,6 @@
 #include "Controls/Buttons.h"
 
 
-wxBEGIN_EVENT_TABLE(PanelBoard, wxPanel)
-    EVT_BUTTON(wxID_ANY, PanelBoard::OnTopButtonClicked)
-    EVT_BUTTON(wxID_ANY, PanelBoard::OnBottomButtonClicked)
-wxEND_EVENT_TABLE()
-
-
 PanelBoard::PanelBoard(wxWindow *parent) :
     wxPanel(parent)
 {
@@ -42,12 +36,14 @@ PanelBoard::PanelBoard(wxWindow *parent) :
     mainSizer->Add(bottomPanel, 0, wxEXPAND | wxALL);
 
     SetSizer(mainSizer);
+
+    Bind(wxEVT_TOGGLEBUTTON, &PanelBoard::OnEventButtonToggle, this);
 }
 
 
-void PanelBoard::OnTopButtonClicked(wxCommandEvent &event)
+void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 {
-    wxButton *btn = dynamic_cast<wxButton *>(event.GetEventObject());
+    ToggleButton *btn = (ToggleButton *)event.GetEventObject();
     if (btn)
     {
         wxPanel *panelToShow = (wxPanel *)btn->GetClientData();
@@ -55,17 +51,6 @@ void PanelBoard::OnTopButtonClicked(wxCommandEvent &event)
         {
             ShowPanel(panelToShow);
         }
-    }
-}
-
-void PanelBoard::OnBottomButtonClicked(wxCommandEvent &event)
-{
-    wxButton *btn = dynamic_cast<wxButton *>(event.GetEventObject());
-    if (btn)
-    {
-        // Логика для кнопок нижней панели
-
-        event.Skip();
     }
 }
 
@@ -145,7 +130,7 @@ void PanelBoard::ShowPanel(wxPanel *panel)
 
 void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
 {
-    Button *btn = new Button(static_cast<wxPanel *>(topSizer->GetContainingWindow()),  label);
+    ToggleButton *btn = new ToggleButton(static_cast<wxPanel *>(topSizer->GetContainingWindow()),  label);
     btn->SetClientData(eventUserData);
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
@@ -153,7 +138,7 @@ void PanelBoard::AddTopButton(const wxString &label, wxObject *eventUserData)
 
 void PanelBoard::AddBottomButton(const wxString &label, wxObject *eventUserData)
 {
-    Button *btn = new Button(static_cast<wxPanel *>(bottomSizer->GetContainingWindow()), label);
+    ToggleButton *btn = new ToggleButton(static_cast<wxPanel *>(bottomSizer->GetContainingWindow()), label);
     btn->SetClientData(eventUserData);
     bottomSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     bottomSizer->Layout();
