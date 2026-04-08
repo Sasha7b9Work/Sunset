@@ -7,7 +7,7 @@
 #include "Windows/ConsoleRS232.h"
 #include "MainWindow.h"
 #include "Panels/PanelMeasures/PanelMeasures.h"
-#include "Panels/PanelScheme/PanelScheme.h"
+#include "Panels/PanelTests/PanelTests.h"
 #include "Panels/PanelDebug/PanelDebug.h"
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"

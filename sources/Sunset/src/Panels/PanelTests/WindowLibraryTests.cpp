@@ -1,6 +1,6 @@
 ﻿// 2025/7/24 22:48:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelScheme/WindowLibraryTests.h"
+#include "Panels/PanelTests/WindowLibraryTests.h"
 #include "Utils/SystemDepend.h"
 #include "Controls/Dialog.h"
 #include "Controls/StaticBox.h"

@@ -1,15 +1,16 @@
 ﻿// 2025/8/9 09:54:44 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/Panels.h"
-#include "Panels/PanelScheme/PanelScheme.h"
+#include "Panels/PanelTests/PanelTests.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
-#include "Panels/PanelScheme/WindowLibraryTests.h"
+#include "Panels/PanelTests/PainterScheme.h"
 #include "Controls/Bitmap.h"
 #include "IPPP/Tests/Tests.h"
 #include "Controls/StaticBox.h"
 #include "Utils/Configurator.h"
 #include "System/Events.h"
+#include "Panels/PanelTests/WindowLibraryTests.h"
 
 
 PanelScheme *ThePanelScheme = nullptr;

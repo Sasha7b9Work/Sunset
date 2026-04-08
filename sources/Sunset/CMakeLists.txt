@@ -87,7 +87,7 @@ file(GLOB PANEL_DEBUG_NOTEBOOK          src/Panels/PanelDebug/Notebook/*.*)
 file(GLOB PANEL_MEAS                    src/Panels/PanelMeasures/*.*)
 file(GLOB PANEL_MEAS_GRAPHICS           src/Panels/PanelMeasures/Graphics/*.*)
 file(GLOB PANEL_MEAS_GRID               src/Panels/PanelMeasures/Grid/*.*)
-file(GLOB PANEL_SCHEME                  src/Panels/PanelScheme/*.*)
+file(GLOB PANEL_TESTS                   src/Panels/PanelTests/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
@@ -130,7 +130,7 @@ source_group(Panels/PanelDebug/Notebook    FILES ${PANEL_DEBUG_NOTEBOOK})
 source_group(Panels/PanelMeasures          FILES ${PANEL_MEAS})
 source_group(Panels/PanelMeasures/Graphics FILES ${PANEL_MEAS_GRAPHICS})
 source_group(Panels/PanelMeasures/Grid     FILES ${PANEL_MEAS_GRID})
-source_group(Panels/PanelScheme            FILES ${PANEL_SCHEME})
+source_group(Panels/PanelTests             FILES ${PANEL_TESTS})
 source_group(Settings                      FILES ${SETTINGS})
 source_group(SoftTests                     FILES ${SOFTTESTS})
 source_group(Storage                       FILES ${STORAGE})
@@ -162,7 +162,7 @@ add_executable(${PROJECT_NAME}
     ${PANEL_MEAS}
     ${PANEL_MEAS_GRAPHICS}
     ${PANEL_MEAS_GRID}
-    ${PANEL_SCHEME}
+    ${PANEL_TESTS}
     ${SETTINGS}
     ${SOFTTESTS}
     ${STORAGE}
@@ -238,3 +238,4 @@ else()
             $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
     )
 endif()
+
