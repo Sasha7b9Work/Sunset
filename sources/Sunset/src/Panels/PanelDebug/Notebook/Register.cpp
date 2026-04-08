@@ -33,12 +33,14 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     int x = 690;
 
     btnSend = new Button(this, L("Записать"), { x, 0 }, size_button);
+    btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
 
     windows.push_back(btnSend);
 
     x -= size_button.x + 5;
 
     btnAutoSend = new ToggleButton(this, L("Автозапись"), { x, 0 }, size_button);
+    btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
 
     windows.push_back(btnAutoSend);
 
@@ -68,11 +70,8 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 
     SetNamesBits(names);
 
-    Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
-    Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
-    Bind(wxEVT_TIMER, &Register::OnEventTimerAutoSend, this);
-
     timerAutoSend.SetOwner(this, timerAutoSend.GetId());
+    timerAutoSend.Bind(wxEVT_TIMER, &Register::OnEventTimerAutoSend, this);
 }
 
 
