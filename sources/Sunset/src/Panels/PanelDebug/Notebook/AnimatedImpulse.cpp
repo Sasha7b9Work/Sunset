@@ -26,7 +26,7 @@ void AnimatedImpulse::FuncDraw()
     {
         if (meter.ElapsedMS() > 10)
         {
-            x += (int)(2.0f * ((float)meter.ElapsedMS() / 10.0f));
+            x += (int)(2.0f * ((float)meter.ElapsedMS() / (repeat ? 10.0f : 2.5f)));
             if (x > GetSize().x)
             {
                 x = 0;
