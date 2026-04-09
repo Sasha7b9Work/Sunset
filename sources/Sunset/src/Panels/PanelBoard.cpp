@@ -67,6 +67,18 @@ void PanelBoard::SetCurrentPanel(Panel *panel)
     currentPanel = panel;
     currentPanel->Show();
 
+    // === КРИТИЧЕСКИ ВАЖНО: принудительно обновляем размер ===
+    wxSize containerSize = centerContainer->GetSize();
+    if (containerSize.x > 0 && containerSize.y > 0)
+    {
+        currentPanel->SetSize(containerSize);
+
+        // Отправляем событие размера для инициализации содержимого
+        wxSizeEvent sizeEvent(containerSize, currentPanel->GetId());
+        sizeEvent.SetEventObject(currentPanel);
+        currentPanel->GetEventHandler()->ProcessEvent(sizeEvent);
+    }
+
     // Обновляем макет
     centerSizer->Layout();
     centerContainer->Layout();
@@ -77,16 +89,9 @@ void PanelBoard::SetCurrentPanel(Panel *panel)
         btn->SetValue(btn->GetClientData() == panel);
     }
 
-    bool showed[10];
-
-    for (uint i = 0; i < buttons.size(); i++)
-    {
-        Panel *pnl = (Panel *)buttons[i]->GetClientData();
-
-        showed[i] = pnl->IsShown();
-    }
-
-    int i = 0;
+//    // Принудительная перерисовка
+//    currentPanel->Refresh();
+//    currentPanel->Update();
 }
 
 
@@ -105,11 +110,6 @@ void PanelBoard::AddPanel(Panel *panel)
 
     wxSize newSize = centerContainer->GetSize();
     panel->SetSize(newSize);
-
-    // Отправляем событие изменения размера панели
-    wxSizeEvent sizeEvent(newSize, panel->GetId());
-    sizeEvent.SetEventObject(panel);
-    panel->GetEventHandler()->ProcessEvent(sizeEvent);
 }
 
 
