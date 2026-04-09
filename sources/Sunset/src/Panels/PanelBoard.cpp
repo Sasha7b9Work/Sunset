@@ -55,6 +55,42 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 }
 
 
+void PanelBoard::SetCurrentPanel(Panel *panel)
+{
+    // Скрываем текущую панель
+    if (currentPanel)
+    {
+        currentPanel->Hide();
+    }
+
+    // Показываем новую панель
+    currentPanel = panel;
+    currentPanel->Show();
+
+    // Обновляем макет
+    centerSizer->Layout();
+    centerContainer->Layout();
+    Layout();
+
+    for (auto btn : buttons)
+    {
+        btn->SetValue(btn->GetClientData() == panel);
+    }
+
+    bool showed[10];
+
+    for (uint i = 0; i < buttons.size(); i++)
+    {
+        Panel *pnl = (Panel *)buttons[i]->GetClientData();
+
+        showed[i] = pnl->IsShown();
+    }
+
+    int i = 0;
+}
+
+
+
 void PanelBoard::AddPanel(Panel *panel)
 {
     // Изначально все панели скрыты
@@ -87,36 +123,6 @@ void PanelBoard::SetCurrentPanelIndex(int index)
     Panel *panel = (Panel *)buttons[(size_t)index]->GetClientData();
 
     SetCurrentPanel(panel);
-}
-
-
-void PanelBoard::SetCurrentPanel(Panel *panel)
-{
-    // Скрываем текущую панель
-    if (currentPanel)
-    {
-        currentPanel->Hide();
-    }
-
-    // Показываем новую панель
-    currentPanel = panel;
-    currentPanel->Show();
-
-    // Обновляем макет
-    centerSizer->Layout();
-    centerContainer->Layout();
-    Layout();
-
-    for (auto btn : buttons)
-    {
-        btn->SetValue(btn->GetClientData() == panel);
-    }
-
-    //    // Отправляем событие об изменении панели
-    //    wxCommandEvent event(wxEVT_BUTTON, GetId());
-    //    event.SetEventObject(this);
-    //    event.SetInt(GetPanelIndex(m_currentPanel));
-    //    GetEventHandler()->ProcessEvent(event);
 }
 
 

@@ -51,10 +51,11 @@ MainWindow::MainWindow(const wxString &title)
     main_board->AddPanel(new PanelSettings(main_board->GetCenterContainer()));
     main_board->AddPanel(new PanelDebug(main_board->GetCenterContainer()));
 
-    main_board->SetCurrentPanelIndex(SET::GUI::current_panel->Get());
-
     sizer->Add(main_board, 1, wxEXPAND);
     SetSizer(sizer);
+
+    main_board->SetCurrentPanelIndex(0);
+    main_board->SetCurrentPanelIndex(6);
 
     SetPosition();
 
