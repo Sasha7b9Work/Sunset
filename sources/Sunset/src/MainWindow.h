@@ -1,6 +1,7 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Settings/Value.h"
+#include "Panels/PanelBoard.h"
 
 
 struct ModeMainWindow
@@ -62,6 +63,8 @@ private:
     wxToolBar *toolBar = nullptr;
 
     ValuePoint position{ "gui_position", { 100, 100 } };
+
+    PanelBoard *main_board = nullptr;
 
     void OnEventKeyHook(wxKeyEvent &);
     void OnEventMaximize(wxMaximizeEvent &);

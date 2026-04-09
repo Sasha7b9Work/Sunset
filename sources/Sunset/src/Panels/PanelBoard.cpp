@@ -46,7 +46,7 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 
             if (panel)
             {
-                ShowPanel(panel);
+                SetCurrentPanel(panel);
             }
         }
     }
@@ -57,12 +57,6 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 
 void PanelBoard::AddPanel(Panel *panel)
 {
-    // Отключаем родителя у панели (если был)
-    if (panel->GetParent() != centerContainer)
-    {
-        panel->Reparent(centerContainer);
-    }
-
     // Изначально все панели скрыты
     panel->Hide();
 
@@ -70,12 +64,6 @@ void PanelBoard::AddPanel(Panel *panel)
     centerSizer->Add(panel, 0, wxALIGN_TOP | wxALIGN_LEFT);
 
     AddTopButton(panel);
-
-    // Если это первая панель - показываем её
-    if (buttons.size() == 1)
-    {
-        ShowPanel(0);
-    }
 
     centerSizer->Layout();
 
@@ -89,7 +77,7 @@ void PanelBoard::AddPanel(Panel *panel)
 }
 
 
-void PanelBoard::ShowPanel(int index)
+void PanelBoard::SetCurrentPanelIndex(int index)
 {
     if (index < 0 || index >= static_cast<int>(buttons.size()))
     {
@@ -98,11 +86,11 @@ void PanelBoard::ShowPanel(int index)
 
     Panel *panel = (Panel *)buttons[(size_t)index]->GetClientData();
 
-    ShowPanel(panel);
+    SetCurrentPanel(panel);
 }
 
 
-void PanelBoard::ShowPanel(Panel *panel)
+void PanelBoard::SetCurrentPanel(Panel *panel)
 {
     // Скрываем текущую панель
     if (currentPanel)
@@ -140,4 +128,24 @@ void PanelBoard::AddTopButton(Panel *panel)
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
     buttons.push_back(btn);
+}
+
+
+int PanelBoard::GetCurrentPanelIndex() const
+{
+    return GetPanelIndex(currentPanel);
+}
+
+
+int PanelBoard::GetPanelIndex(Panel *panel) const
+{
+    for (uint i = 0; i < buttons.size(); i++)
+    {
+        if (buttons[i]->GetClientData() == panel)
+        {
+            return (int)i;
+        }
+    }
+
+    return 0;
 }

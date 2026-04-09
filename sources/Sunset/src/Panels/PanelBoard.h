@@ -11,10 +11,14 @@ struct PanelBoard : public wxPanel
     void AddPanel(Panel *);
 
     // Переключиться на панель по индексу
-    void ShowPanel(int index);
+    void SetCurrentPanelIndex(int index);
 
-    // Переключиться на панель по указателю
-    void ShowPanel(Panel *panel);
+    wxPanel *GetCenterContainer() const
+    {
+        return centerContainer;
+    }
+
+    int GetCurrentPanelIndex() const;
 
 private:
 
@@ -31,4 +35,9 @@ private:
     void AddTopButton(Panel *);
 
     void OnEventButtonToggle(wxCommandEvent &);
+
+    // Переключиться на панель по указателю
+    void SetCurrentPanel(Panel *);
+
+    int GetPanelIndex(Panel *) const;
 };
