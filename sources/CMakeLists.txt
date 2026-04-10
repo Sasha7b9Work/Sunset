@@ -55,8 +55,3 @@ endif()
 
 
 add_subdirectory(Sunset)
-
-if(WIN32)
-    add_subdirectory(Device)
-endif()
-
