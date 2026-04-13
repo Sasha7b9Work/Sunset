@@ -32,7 +32,32 @@ NotebookDebug::NotebookDebug(wxWindow *parent) :
 
     Bind(wxEVT_NOTEBOOK_PAGE_CHANGING, &NotebookDebug::OnEventPageChanged, this);
 
+    Bind(wxEVT_SET_CURSOR, &NotebookDebug::OnEventSetCursor, this);
+
     SetMaxSize({ 812, -1 });
+}
+
+
+void NotebookDebug::OnEventSetCursor(wxSetCursorEvent &event)
+{
+    // Получаем позицию мыши в клиентских координатах
+    wxPoint mousePos = event.GetX() > -1 ? wxPoint(event.GetX(), event.GetY()) : ScreenToClient(wxGetMousePosition());
+
+    // Определяем, над какой вкладкой находится мышь
+    int tabIdx = HitTest(mousePos);
+
+    // Если мышь над областью вкладок, а не над клиентской областью
+    if (tabIdx != wxNOT_FOUND)
+    {
+        // Устанавливаем курсор-руку
+        event.SetCursor(wxCursor(wxCURSOR_HAND));
+    }
+    else
+    {
+        // Если мышь не над вкладкой, передаем событие дальше,
+        // чтобы система могла установить курсор по умолчанию.
+        event.Skip();
+    }
 }
 
 

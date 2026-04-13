@@ -27,4 +27,6 @@ private:
     void AppendNewPage(wxPanel *);
 
     void OnEventPageChanged(wxBookCtrlEvent &);
+
+    void OnEventSetCursor(wxSetCursorEvent &);
 };
