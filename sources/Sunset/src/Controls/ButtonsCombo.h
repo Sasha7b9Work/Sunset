@@ -4,10 +4,10 @@
 
 
 // Кнопка с рисунком на ней
-class DrawingButton : public wxButton
+class DrawingButton : public Button
 {
 public:
-    DrawingButton(wxWindow *parent, int id, const wxString &, const wxPoint &, const wxSize &, const wxString &name_file = "");
+    DrawingButton(wxWindow *, const wxString &, const wxPoint &, const wxSize &, const wxString &name_file = "");
 
 private:
 

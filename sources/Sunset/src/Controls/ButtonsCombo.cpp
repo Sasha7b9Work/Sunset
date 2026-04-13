@@ -7,8 +7,8 @@
 #include "Utils/Configurator.h"
 
 
-DrawingButton::DrawingButton(wxWindow *parent, int id, const wxString &label, const wxPoint &position, const wxSize &size, const wxString &_name_file) :
-    wxButton(parent, id, label, position, size),
+DrawingButton::DrawingButton(wxWindow *parent, const wxString &label, const wxPoint &position, const wxSize &size, const wxString &_name_file) :
+    Button(parent, label, position, size),
     file_name(_name_file)
 {
     wxButton::SetBackgroundStyle(wxBG_STYLE_PAINT); // Для избежания мерцания
@@ -155,7 +155,7 @@ private:
 
 ButtonsCombo::ButtonsCombo(wxWindow *parent, const wxString &_title, const wxPoint &pos, int width,
     const wxArrayString &_labels, const wxArrayString &_tooltips, int _buttons_in_row, const wxString &name, Type::E type) :
-    DrawingButton(parent, wxID_ANY, _labels[0], pos, { width, TEXTCNTRL_HEIGHT + 3 }, (type == Type::Bitmap) ? _title : wxString("")),
+    DrawingButton(parent, _labels[0], pos, { width, TEXTCNTRL_HEIGHT + 3 }, (type == Type::Bitmap) ? _title : wxString("")),
     current_choice(0)
 {
     colorBackground = DrawingButton::GetBackgroundColour();
