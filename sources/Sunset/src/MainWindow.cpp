@@ -54,9 +54,8 @@ MainWindow::MainWindow(const wxString &title)
     sizer->Add(main_board, 1, wxEXPAND);
     SetSizer(sizer);
 
-    Пробуем разобраться, почему когда отладочная панель нулевая, 6-я включается.
-        А есил нулевая - измерения, то 6-я не включается
-//    main_board->SetCurrentPanelIndex(0);
+    main_board->SetCurrentPanelIndex(0);
+    main_board->SetCurrentPanelIndex(6);
     main_board->SetCurrentPanelIndex(0);
 
     SetPosition();
