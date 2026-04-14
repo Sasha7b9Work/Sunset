@@ -39,15 +39,17 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 
     // Кнопки справа
     wxSize size_button{ 90, 25 };
-    btnSend = new Button(this, L("Записать"), size_button);
-    btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
-    windows.push_back(btnSend);
-    topSizer->Add(btnSend, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 5);
 
     btnAutoSend = new ToggleButton(this, L("Автозапись"), size_button);
     btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
     windows.push_back(btnAutoSend);
     topSizer->Add(btnAutoSend, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 10);
+
+    btnSend = new Button(this, L("Записать"), size_button);
+    btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
+    windows.push_back(btnSend);
+    topSizer->Add(btnSend, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 5);
+
 
     mainSizer->Add(topSizer, 0, wxEXPAND | wxTOP, 10);
 
