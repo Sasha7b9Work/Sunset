@@ -25,7 +25,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
     btnStart->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
     btnStart->SetToolTip(L("Запуск развёртки"));
 
-    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(y)}, size_button };
+    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", wxDefaultPosition, size_button };
 
     txtPeriodScan->SetToolTip(L("Период запуска развёртки в миллисекундах"));
 

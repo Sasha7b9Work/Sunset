@@ -62,13 +62,9 @@ WindowLibraryTests::WindowLibraryTests() :
         StaticBox *box2 = new StaticBox(rightPanel, "Тест", { 0, box1->GetPosition().y + box1->GetSize().y + 5 }, { size.x - 20, 145 });
 
         {
-            int y0 = 25;
-
-            int dy = 40;
-
-            new wxButton(box2, wxID_ANY, "Загрузить", { 10, SD::Y_SB(y0) }, { 100, BUTTON_HEIGHT });
-            new wxButton(box2, wxID_ANY, "Удалить", { 10, SD::Y_SB(y0 + dy) }, { 100, BUTTON_HEIGHT });
-            new wxButton(box2, wxID_ANY, "Удалить все", { 10, SD::Y_SB(y0 + dy * 2) }, { 100, BUTTON_HEIGHT });
+            new wxButton(box2, wxID_ANY, "Загрузить", wxDefaultPosition, { 100, BUTTON_HEIGHT });
+            new wxButton(box2, wxID_ANY, "Удалить", wxDefaultPosition, { 100, BUTTON_HEIGHT });
+            new wxButton(box2, wxID_ANY, "Удалить все", wxDefaultPosition, { 100, BUTTON_HEIGHT });
         }
     }
 

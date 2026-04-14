@@ -54,7 +54,7 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
         comboTest = new ButtonsCombo(boxTest, "", 100, choices, choices, 1, "comboTest");
 
-        btnLoad = new wxButton(boxTest, wxID_ANY, L("Загрузить"), { 6, SD::Y_SB(50) }, { 100, 30 });
+        btnLoad = new wxButton(boxTest, wxID_ANY, L("Загрузить"), wxDefaultPosition, { 100, 30 });
 
         btnLoad->Hide();
     }

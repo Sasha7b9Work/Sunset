@@ -10,9 +10,6 @@ namespace SD
     // Координаты первого элемента в комбобоксе
     wxPoint XY0();
 
-    //  Static Box
-    int Y_SB(int);
-
     // Размеры - dimensions
     namespace D
     {

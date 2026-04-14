@@ -15,9 +15,9 @@ public:
 
 protected:
 
-    int CreateRadioButton(wxWindow *, int x, int y, wxRadioButton **, const wxString &);
+    int CreateRadioButton(wxWindow *, int y, wxRadioButton **, const wxString &);
 
-    int CreateLabelGroup(wxWindow *, int x, int y, const wxString &);
+    int CreateLabelGroup(wxWindow *, int y, const wxString &);
 
 private:
 

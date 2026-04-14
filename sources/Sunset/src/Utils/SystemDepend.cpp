@@ -113,16 +113,6 @@ wxSize SD::D::ColorDialog::Size()
 }
 
 
-int SD::Y_SB(int y)
-{
-#ifdef WIN32
-    return y;
-#else
-    return y - 20;
-#endif
-}
-
-
 wxPoint SD::XY0()
 {
 #ifdef WIN32
