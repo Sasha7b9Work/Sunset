@@ -14,7 +14,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_panel, const wxPoi
 
     for (int i = 0; i < panel->chip->BitDepth(); i++)
     {
-        panel->chboxes[(uint)i] = new CheckBoxBit(this, { W_B, W_B });
+        panel->chboxes[(uint)i] = new CheckBoxBit(this, { BitX(i, panel->chip->BitDepth()), W_B + 1 }, { W_B, W_B });
     }
 
     Bind(wxEVT_PAINT, &PainterRegister::OnEventPaint, this);
@@ -49,6 +49,12 @@ void PainterRegister::SetPositionAnimationWidget()
     pos.x -= AnimatedImpulse::WIDTH + 5;
     pos.y -= AnimatedImpulse::HEIGHT + 5;
     animation->SetPosition(pos);
+}
+
+
+void PainterRegister::EnableAutoSendAnimation(bool _enable)
+{
+    animation->wxWindowBase::Enable(_enable);
 }
 
 

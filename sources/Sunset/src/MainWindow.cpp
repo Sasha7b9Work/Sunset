@@ -49,7 +49,7 @@ MainWindow::MainWindow(const wxString &title)
 //    main_board->AddPanel(new PanelReports(main_board->GetCenterContainer()));
 //    main_board->AddPanel(new PanelArchive(main_board->GetCenterContainer()));
 //    main_board->AddPanel(new PanelSettings(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelMeasures(main_board->GetCenterContainer()));
+//    main_board->AddPanel(new PanelMeasures(main_board->GetCenterContainer()));
 
     sizer->Add(main_board, 1, wxEXPAND);
     SetSizer(sizer);

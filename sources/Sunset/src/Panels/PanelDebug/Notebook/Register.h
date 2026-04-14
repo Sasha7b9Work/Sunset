@@ -14,7 +14,7 @@
 class CheckBoxBit : public Painter
 {
 public:
-    CheckBoxBit(wxWindow *, const wxSize &);
+    CheckBoxBit(wxWindow *, const wxPoint &, const wxSize &);
 
     void SetValue(bool);
 
@@ -111,9 +111,6 @@ public:
     }
 
 protected:
-    wxBoxSizer *mainSizer = nullptr;
-    wxBoxSizer *topSizer = nullptr;
-    wxBoxSizer *contentSizer = nullptr;
 
     Chip *chip = nullptr;
     PainterRegister *painter = nullptr;
