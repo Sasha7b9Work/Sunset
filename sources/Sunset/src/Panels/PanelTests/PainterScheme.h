@@ -6,8 +6,8 @@
 class PainterScheme : public Painter
 {
 public:
-    PainterScheme(wxWindow *parent, const wxPoint &pos, const wxSize &size, const wxColor &_colorBackground) :
-        Painter(parent, pos, size),
+    PainterScheme(wxWindow *parent, const wxSize &size, const wxColor &_colorBackground) :
+        Painter(parent, size),
         colorBackground(_colorBackground)
     {
     }

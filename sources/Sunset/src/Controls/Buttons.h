@@ -6,19 +6,19 @@
 
 struct Button : public wxButton
 {
-    Button(wxWindow *, const wxString &, const wxPoint & = wxDefaultPosition, const wxSize & = wxDefaultSize, int flags = 0);
+    Button(wxWindow *, const wxString &, const wxSize & = wxDefaultSize, int flags = 0);
 };
 
 
 struct ToggleButton : public wxToggleButton
 {
-    ToggleButton(wxWindow *, const wxString &, const wxPoint & = wxDefaultPosition, const wxSize & = wxDefaultSize, int flags = 0);
+    ToggleButton(wxWindow *, const wxString &, const wxSize & = wxDefaultSize, int flags = 0);
 };
 
 
 struct ButtonBitmap : public wxBitmapButton
 {
-    ButtonBitmap(wxWindow *parent, const wxPoint &pos, const wxSize &, const wxString &file_bimap, const wxString &name);
+    ButtonBitmap(wxWindow *parent, const wxSize &, const wxString &file_bimap, const wxString &name);
 
     void SetFileBitmap(const wxString &file_bitmap);
 
@@ -31,7 +31,7 @@ private:
 // На кнопке при нажатиях переключаются картинки
 struct ButtonBitmapChoice : public ButtonBitmap
 {
-    ButtonBitmapChoice(wxWindow *parent, const wxPoint &pos, const wxSize &, const wxArrayString &files, const wxString &name);
+    ButtonBitmapChoice(wxWindow *parent, const wxSize &, const wxArrayString &files, const wxString &name);
 
     void SetCurrentValue(int);
 

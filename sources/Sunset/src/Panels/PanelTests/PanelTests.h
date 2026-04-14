@@ -11,7 +11,7 @@
 class ComboJack : public ButtonsCombo
 {
 public:
-    ComboJack(Chan::E, wxWindow *parent, const wxString &title, const wxPoint &pos, int width, const wxArrayString &labels);
+    ComboJack(Chan::E, wxWindow *parent, const wxString &title, int width, const wxArrayString &labels);
     // Настроить текущее состояние в зависимости от текущих установок
     void TuneState();
 private:
@@ -29,7 +29,7 @@ private:
 class FullJack : public wxPanel
 {
 public:
-    FullJack(Chan::E, wxWindow *parent, const wxPoint &position, pchar file_jack_bmp, const wxArrayString * = nullptr);
+    FullJack(Chan::E, wxWindow *parent, pchar file_jack_bmp, const wxArrayString * = nullptr);
     // Настроить текущее состояние в зависимости от текущих установок
     void TuneState();
 

@@ -11,22 +11,22 @@
 wxDEFINE_EVENT(EVT_BUTTON_BITMAP_CHOICE, ButtonBitmapChoiceEvent);
 
 
-Button::Button(wxWindow *parent, const wxString &label, const wxPoint &pos, const wxSize &size, int flags) :
-    wxButton(parent, wxID_ANY, label, pos, size, flags)
+Button::Button(wxWindow *parent, const wxString &label, const wxSize &size, int flags) :
+    wxButton(parent, wxID_ANY, label, wxDefaultPosition, size, flags)
 {
     SetCursor(wxCursor(wxCURSOR_HAND));
 }
 
 
-ToggleButton::ToggleButton(wxWindow *parent, const wxString &label, const wxPoint &pos, const wxSize &size, int flags) :
-    wxToggleButton(parent, wxID_ANY, label, pos, size, flags)
+ToggleButton::ToggleButton(wxWindow *parent, const wxString &label, const wxSize &size, int flags) :
+    wxToggleButton(parent, wxID_ANY, label, wxDefaultPosition, size, flags)
 {
     SetCursor(wxCursor(wxCURSOR_HAND));
 }
 
 
-ButtonBitmap::ButtonBitmap(wxWindow *parent, const wxPoint &pos, const wxSize &size, const wxString &file_bitmap, const wxString &name) :
-    wxBitmapButton(parent, wxID_ANY, wxNullBitmap, pos, size, wxBU_EXACTFIT)
+ButtonBitmap::ButtonBitmap(wxWindow *parent, const wxSize &size, const wxString &file_bitmap, const wxString &name) :
+    wxBitmapButton(parent, wxID_ANY, wxNullBitmap, wxDefaultPosition, size, wxBU_EXACTFIT)
 {
     wxBitmapButton::SetName(parent->GetName() + "_" + name);
 
@@ -57,8 +57,8 @@ void ButtonBitmap::SetFileBitmap(const wxString &file_bitmap)
 }
 
 
-ButtonBitmapChoice::ButtonBitmapChoice(wxWindow *parent, const wxPoint &pos, const wxSize &size, const wxArrayString &_files, const wxString &_name) :
-    ButtonBitmap(parent, pos, size, _files[0], _name),
+ButtonBitmapChoice::ButtonBitmapChoice(wxWindow *parent, const wxSize &size, const wxArrayString &_files, const wxString &_name) :
+    ButtonBitmap(parent, size, _files[0], _name),
     files(_files)
 {
     Bind(wxEVT_BUTTON, &ButtonBitmapChoice::OnEventButton, this);

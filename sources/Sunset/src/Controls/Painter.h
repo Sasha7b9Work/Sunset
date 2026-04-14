@@ -10,7 +10,7 @@ class Painter : public wxPanel
 {
 public:
 
-    Painter(wxWindow *parent, const wxPoint &position, const wxSize &size);
+    Painter(wxWindow *parent, const wxSize &size);
 
     virtual void OnPaint(wxPaintEvent &);
 
@@ -38,7 +38,7 @@ class PainterRect : public wxPanel
 {
 public:
 
-    PainterRect(wxWindow *parent, const wxPoint &position, const wxSize &size);
+    PainterRect(wxWindow *parent, const wxSize &size);
 
     virtual void OnPaint(wxPaintEvent &);
 
@@ -59,7 +59,7 @@ class PainterBMP : public wxPanel
 public:
 
     // Если transparentColour != nullptr, то пиксели данного цвета будут прозрачными
-    PainterBMP(wxWindow *, const wxPoint &, const wxSize &, const wxString &file_name, const wxColour &alpha = wxNullColour);
+    PainterBMP(wxWindow *, const wxSize &, const wxString &file_name, const wxColour &alpha = wxNullColour);
 
 private:
 
@@ -73,7 +73,7 @@ class PainterAnimated : public Painter
 {
 public:
 
-    PainterAnimated(wxWindow *parent, const wxPoint &position, const wxSize &);
+    PainterAnimated(wxWindow *parent, const wxSize &);
 
 private:
 

@@ -7,8 +7,8 @@
 #include "Utils/Configurator.h"
 
 
-DrawingButton::DrawingButton(wxWindow *parent, const wxString &label, const wxPoint &position, const wxSize &size, const wxString &_name_file) :
-    Button(parent, label, position, size),
+DrawingButton::DrawingButton(wxWindow *parent, const wxString &label, const wxSize &size, const wxString &_name_file) :
+    Button(parent, label, size),
     file_name(_name_file)
 {
     wxButton::SetBackgroundStyle(wxBG_STYLE_PAINT); // Для избежания мерцания
@@ -153,9 +153,9 @@ private:
 
 
 
-ButtonsCombo::ButtonsCombo(wxWindow *parent, const wxString &_title, const wxPoint &pos, int width,
+ButtonsCombo::ButtonsCombo(wxWindow *parent, const wxString &_title, int width,
     const wxArrayString &_labels, const wxArrayString &_tooltips, int _buttons_in_row, const wxString &name, Type::E type) :
-    DrawingButton(parent, _labels[0], pos, { width, TEXTCNTRL_HEIGHT + 3 }, (type == Type::Bitmap) ? _title : wxString("")),
+    DrawingButton(parent, _labels[0], { width, TEXTCNTRL_HEIGHT + 3 }, (type == Type::Bitmap) ? _title : wxString("")),
     current_choice(0)
 {
     colorBackground = DrawingButton::GetBackgroundColour();
@@ -423,9 +423,9 @@ void ButtonsCombo::SetExtendedLabel(const wxString &start, int num_spaces, const
 }
 
 
-ButtonsComboRange::ButtonsComboRange(wxWindow *parent, const wxString &title, const wxPoint &pos, int width, const wxArrayString &labels,
+ButtonsComboRange::ButtonsComboRange(wxWindow *parent, const wxString &title, int width, const wxArrayString &labels,
     const wxArrayString &tooltips, const wxString &name) :
-    ButtonsCombo(parent, title, pos, width, labels, tooltips, 3, name, ButtonsCombo::Type::Text)
+    ButtonsCombo(parent, title, width, labels, tooltips, 3, name, ButtonsCombo::Type::Text)
 {
     ButtonsCombo::insert_empty = true;
 

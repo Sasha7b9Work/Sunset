@@ -18,7 +18,7 @@ public:
 
     const wxSize SIZE{ 185, 85 };
 
-    ControlDataFPGA(wxWindow *, const wxPoint &);
+    ControlDataFPGA(wxWindow *);
 
     void SetMax(int);
 

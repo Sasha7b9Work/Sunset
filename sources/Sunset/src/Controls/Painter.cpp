@@ -4,8 +4,8 @@
 #include "Settings/Color.h"
 
 
-Painter::Painter(wxWindow *parent, const wxPoint &position, const wxSize &_size) :
-    wxPanel(parent, wxID_ANY, position, _size),
+Painter::Painter(wxWindow *parent, const wxSize &_size) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, _size),
     size(_size)
 {
     wxPanel::SetSize(size);
@@ -114,8 +114,8 @@ void Painter::OnPaint(wxPaintEvent &)
 }
 
 
-PainterRect::PainterRect(wxWindow *parent, const wxPoint &position, const wxSize &size) :
-    wxPanel(parent, wxID_ANY, position, size)
+PainterRect::PainterRect(wxWindow *parent, const wxSize &size) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, size)
 {
     wxPanel::SetSize(size);
     wxPanel::SetDoubleBuffered(true);
@@ -153,8 +153,8 @@ void PainterRect::SetColor(const Color &_color)
 }
 
 
-PainterBMP::PainterBMP(wxWindow *parent, const wxPoint &position, const wxSize &size, const wxString &file_name, const wxColour &alpha) :
-    wxPanel(parent, wxID_ANY, position, size)
+PainterBMP::PainterBMP(wxWindow *parent, const wxSize &size, const wxString &file_name, const wxColour &alpha) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, size)
 {
     bitmap = Bitmap::Get(file_name);
 
@@ -193,8 +193,8 @@ void PainterBMP::OnEventPaint(wxPaintEvent &)
 }
 
 
-PainterAnimated::PainterAnimated(wxWindow *parent, const wxPoint &position, const wxSize &size) :
-    Painter(parent, position, size)
+PainterAnimated::PainterAnimated(wxWindow *parent, const wxSize &size) :
+    Painter(parent, size)
 {
     timer.SetOwner(this, timer.GetId());
 

@@ -7,7 +7,7 @@
 class DrawingButton : public Button
 {
 public:
-    DrawingButton(wxWindow *, const wxString &, const wxPoint &, const wxSize &, const wxString &name_file = "");
+    DrawingButton(wxWindow *, const wxString &, const wxSize &, const wxString &name_file = "");
 
 private:
 
@@ -33,7 +33,7 @@ public:
         };
     };
 
-    explicit ButtonsCombo(wxWindow *parent, const wxString &title, const wxPoint &pos, int width,
+    explicit ButtonsCombo(wxWindow *parent, const wxString &title, int width,
         const wxArrayString &labels,
         const wxArrayString &tooltips,
         int buttons_in_row,                     // В каждом ряду будет расположено столько кнопок
@@ -93,7 +93,7 @@ class ButtonsComboRange : public ButtonsCombo
 {
 public:
 
-    ButtonsComboRange(wxWindow *parent, const wxString &title, const wxPoint &pos, int width,
+    ButtonsComboRange(wxWindow *parent, const wxString &title, int width,
         const wxArrayString &labels,
         const wxArrayString &tooltips,
         const wxString &name);

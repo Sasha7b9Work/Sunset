@@ -21,7 +21,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     int y = 20;
 
-    btnStart = new Button{ this, L("Старт"), { 10, SD::Y_SB(y) }, size_button };
+    btnStart = new Button{ this, L("Старт"), size_button };
     btnStart->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
     btnStart->SetToolTip(L("Запуск развёртки"));
 
@@ -31,7 +31,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     y += 30;
 
-    btnStop = new Button{ this, L("Стоп"), {10, SD::Y_SB(y)}, size_button };
+    btnStop = new Button{ this, L("Стоп"), size_button };
     btnStop->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
     btnStop->SetToolTip(L("Останов развёртки"));
 
@@ -39,7 +39,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     for (int i = 0; i < 5; i++)
     {
-        data[i] = new ControlDataFPGA(this, { 10, 80 + i * 95 });
+        data[i] = new ControlDataFPGA(this);
     }
 
     data[4]->SetMax((1 << 8) - 1);

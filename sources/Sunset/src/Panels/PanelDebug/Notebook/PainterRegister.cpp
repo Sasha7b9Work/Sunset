@@ -14,7 +14,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_panel, const wxPoi
 
     for (int i = 0; i < panel->chip->BitDepth(); i++)
     {
-        panel->chboxes[(uint)i] = new CheckBoxBit(this, { BitX(i, panel->chip->BitDepth()), W_B + 1 }, { W_B, W_B });
+        panel->chboxes[(uint)i] = new CheckBoxBit(this, { W_B, W_B });
     }
 
     Bind(wxEVT_PAINT, &PainterRegister::OnEventPaint, this);

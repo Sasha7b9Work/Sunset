@@ -16,25 +16,25 @@
 PanelTests *ThePanelTests = nullptr;
 
 
-ComboJack::ComboJack(Chan::E ch, wxWindow *parent, const wxString &title, const wxPoint &pos, int width, const wxArrayString &labels) :
-    ButtonsCombo(parent, title, pos, width, labels, labels, 1, parent->GetName() + wxString::Format("_comboJack%d", (int)ch)),
+ComboJack::ComboJack(Chan::E ch, wxWindow *parent, const wxString &title, int width, const wxArrayString &labels) :
+    ButtonsCombo(parent, title, width, labels, labels, 1, parent->GetName() + wxString::Format("_comboJack%d", (int)ch)),
     channel(ch)
 {
 
 }
 
 
-FullJack::FullJack(Chan::E ch, wxWindow *parent, const wxPoint &position, pchar file_jack_bmp, const wxArrayString *choices) :
-    wxPanel(parent, wxID_ANY, position, { 180, 30 }),
+FullJack::FullJack(Chan::E ch, wxWindow *parent, pchar file_jack_bmp, const wxArrayString *choices) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, { 180, 30 }),
     channel(ch)
 {
     wxPanel::SetName(parent->GetName() + wxString::Format("_fullJack%d", (int)ch));
 
-    painterBMP = new PainterBMP(this, { 10, 0 }, wxDefaultSize, file_jack_bmp, { 241, 241, 241 });
+    painterBMP = new PainterBMP(this, wxDefaultSize, file_jack_bmp, { 241, 241, 241 });
 
     if (choices)
     {
-        combo = new ButtonsCombo(this, "", { 60, 0 }, WIDTH_COMBO - 60, *choices, *choices, 1, "");
+        combo = new ButtonsCombo(this, "", WIDTH_COMBO - 60, *choices, *choices, 1, "");
     }
 }
 
@@ -52,7 +52,7 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
         choices.Add("IdVd");
         choices.Add("_USER");
 
-        comboTest = new ButtonsCombo(boxTest, "", SD::XY0(), 100, choices, choices, 1, "comboTest");
+        comboTest = new ButtonsCombo(boxTest, "", 100, choices, choices, 1, "comboTest");
 
         btnLoad = new wxButton(boxTest, wxID_ANY, L("Загрузить"), { 6, SD::Y_SB(50) }, { 100, 30 });
 
@@ -72,7 +72,7 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
         int y = 20;
 
-        comboCommutation = new ButtonsCombo(boxCommutation, L("Тип"), { SD::XY0() }, WIDTH_COMBO, choices, choices, 1, "comboCommutation");
+        comboCommutation = new ButtonsCombo(boxCommutation, L("Тип"), WIDTH_COMBO, choices, choices, 1, "comboCommutation");
 
         choices.clear();
         choices.Add(wxT("канал C"));
@@ -80,21 +80,21 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
         y += 40;
 
-        jacks[Chan::_C] = new FullJack(Chan::_C, boxCommutation, {10, SD::Y_SB(y)}, "sch/jacks/jack_C.bmp", &choices);
+        jacks[Chan::_C] = new FullJack(Chan::_C, boxCommutation, "sch/jacks/jack_C.bmp", &choices);
 
         int dy = 35;
 
         y += dy;
 
-        jacks[Chan::_B] = new FullJack(Chan::_B, boxCommutation, {10, SD::Y_SB(y)}, "sch/jacks/jack_B.bmp", &choices);
+        jacks[Chan::_B] = new FullJack(Chan::_B, boxCommutation, "sch/jacks/jack_B.bmp", &choices);
 
         y += dy;
 
-        jacks[Chan::_S] = new FullJack(Chan::_S, boxCommutation, {10, SD::Y_SB(y)}, "sch/jacks/jack_S.bmp", &choices);
+        jacks[Chan::_S] = new FullJack(Chan::_S, boxCommutation, "sch/jacks/jack_S.bmp", &choices);
 
         y += dy;
 
-        jacks[Chan::_E] = new FullJack(Chan::_E, boxCommutation, {10, SD::Y_SB(y)}, "sch/jacks/jack_E.bmp");
+        jacks[Chan::_E] = new FullJack(Chan::_E, boxCommutation, "sch/jacks/jack_E.bmp");
 
         choices.clear();
         choices.Add(wxT("C"));
@@ -103,10 +103,8 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
         y = 53;
         dy = 52;
-        int x0 = 3;
-        int dx = 57;
 
-        painter = new PainterScheme(boxCommutation, { 15, SD::Y_SB(220) }, { 170, 130 }, boxCommutation->GetBackgroundColour());
+        painter = new PainterScheme(boxCommutation, { 170, 130 }, boxCommutation->GetBackgroundColour());
 
         {
             wxArrayString files;
@@ -132,7 +130,7 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
                 L("Конденсатор")
             };
 
-            comboCategory = new BmpButtonsCombo(painter, "Категория", { 50, 28 }, { 55, 65 }, files, tooltips, 0, 4, "comboCategory");
+            comboCategory = new BmpButtonsCombo(painter, "Категория", { 55, 65 }, files, tooltips, 0, 4, "comboCategory");
 
             comboCategory->Show(false);
         }
@@ -143,13 +141,13 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
         int width = 45;
 
-        combos[Chan::_C] = new ComboJack(Chan::_C, painter, "", {x0 + dx, y - dy}, width, choices);
+        combos[Chan::_C] = new ComboJack(Chan::_C, painter, "", width, choices);
 
-        combos[Chan::_B] = new ComboJack(Chan::_B, painter, "", {x0, y}, width, choices);
+        combos[Chan::_B] = new ComboJack(Chan::_B, painter, "", width, choices);
 
-        combos[Chan::_E] = new ComboJack(Chan::_E, painter, "", {x0 + dx, y + dy}, width, choices);
+        combos[Chan::_E] = new ComboJack(Chan::_E, painter, "", width, choices);
 
-        combos[Chan::_S] = new ComboJack(Chan::_S, painter, "", {x0 + 2 * dx, y}, width, choices);
+        combos[Chan::_S] = new ComboJack(Chan::_S, painter, "", width, choices);
     }
 
     boxCommutation->SetFont(StaticBox::TitleFont());

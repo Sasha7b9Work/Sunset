@@ -32,14 +32,14 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 
     int x = 690;
 
-    btnSend = new Button(this, L("Записать"), { x, 0 }, size_button);
+    btnSend = new Button(this, L("Записать"), size_button);
     btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
 
     windows.push_back(btnSend);
 
     x -= size_button.x + 5;
 
-    btnAutoSend = new ToggleButton(this, L("Автозапись"), { x, 0 }, size_button);
+    btnAutoSend = new ToggleButton(this, L("Автозапись"), size_button);
     btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
 
     windows.push_back(btnAutoSend);
@@ -127,7 +127,7 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 
     if (index == 0)
     {
-        bool need_dec = NeedTextCtrlDEC();
+//        bool need_dec = NeedTextCtrlDEC();
 
         for (auto &elem : desc[0])
         {
@@ -149,9 +149,9 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 
             if (elem.field.commands.size())
             {
-                int num_bit = elem.first_bit + elem.num_bits - 1;
+//                int num_bit = elem.first_bit + elem.num_bits - 1;
 
-                int x = painter->BitX(num_bit, chip->BitDepth()) + 1;
+//                int x = painter->BitX(num_bit, chip->BitDepth()) + 1;
 
                 wxArrayString names;
                 for (auto &com : elem.field.commands)
@@ -165,10 +165,7 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
                     tooltips.push_back(com.CreateTooltip(elem));
                 }
 
-                int y = (PainterRegister::W_B + 1) * (need_dec ? 4 : 3) - 1;
-
                 elem.field.combo = new CommandsCombo(painter, elem.hint,
-                    { x, y },
                     PainterRegister::W_B * elem.num_bits - 1, names, tooltips, "Register");
 
                 elem.field.combo->left_align = true;
@@ -201,7 +198,7 @@ void Register::CreateControlMode(int i)
         tooltips.push_back(mode.hint);
     }
 
-    combo_modes[i] = new CommandsCombo(painter, title_modes[i], { x, y + 25 }, 250, names, tooltips, title_modes[i]);
+    combo_modes[i] = new CommandsCombo(painter, title_modes[i], 250, names, tooltips, title_modes[i]);
 
     combo_modes[i]->Bind(wxEVT_COMBOBOX, &Register::OnEventComboMode, this);
 }
@@ -692,8 +689,8 @@ uint Register::GetValueFromBits(int first_bit, int num_bits) const
 }
 
 
-CheckBoxBit::CheckBoxBit(wxWindow *parent, const wxPoint &pos, const wxSize &size) :
-    Painter(parent, pos, size)
+CheckBoxBit::CheckBoxBit(wxWindow *parent, const wxSize &size) :
+    Painter(parent, size)
 {
     SetCursor(wxCursor(wxCURSOR_HAND));
 
