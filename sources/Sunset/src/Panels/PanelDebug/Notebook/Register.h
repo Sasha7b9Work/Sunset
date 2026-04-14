@@ -111,6 +111,9 @@ public:
     }
 
 protected:
+    wxBoxSizer *mainSizer = nullptr;
+    wxBoxSizer *topSizer = nullptr;
+    wxBoxSizer *contentSizer = nullptr;
 
     Chip *chip = nullptr;
     PainterRegister *painter = nullptr;
