@@ -12,7 +12,7 @@ public:
 };
 
 
-class ControlDataFPGA : private wxPanel
+class ControlDataFPGA : public wxPanel
 {
 public:
 
