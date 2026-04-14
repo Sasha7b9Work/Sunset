@@ -6,7 +6,7 @@ class SliderInt : public wxPanel
 {
 public:
 
-    SliderInt(wxWindow *parent, const wxPoint &position, int width, int min, int max, const wxString &name);
+    SliderInt(wxWindow *parent, int width, int min, int max, const wxString &name);
 
     void Pack();
     void Unpack();
@@ -39,7 +39,7 @@ class SliderFloat : public wxPanel
 {
 public:
 
-    SliderFloat(wxWindow *parent, const wxPoint &position, int width, const wxString &name);
+    SliderFloat(wxWindow *parent, int width, const wxString &name);
 
     void SetRange(double min, double max, const wxString &units, int digits_after_point);
 
@@ -80,7 +80,7 @@ class SliderFloatPercents : public SliderFloat
 {
 public:
 
-    SliderFloatPercents(wxWindow *parent, const wxPoint &position, int width, int min_percents, int max_percents, const wxString &name);
+    SliderFloatPercents(wxWindow *parent, int width, int min_percents, int max_percents, const wxString &name);
 
     virtual void CalculateValue() override;
 
@@ -99,8 +99,8 @@ class SliderFloatOffset : public SliderFloatPercents
 {
 public:
 
-    SliderFloatOffset(wxWindow *parent, const wxPoint &position, int width, const wxString &name) :
-        SliderFloatPercents(parent, position, width, 0, 100, name) { }
+    SliderFloatOffset(wxWindow *parent, int width, const wxString &name) :
+        SliderFloatPercents(parent, width, 0, 100, name) { }
 
     void CalculateAndSetRange(const wxString &range, double multiplier);
 };
@@ -110,8 +110,8 @@ class SliderFloatLimit : public SliderFloatPercents
 {
 public:
 
-    SliderFloatLimit(wxWindow *parent, const wxPoint &position, int width, const wxString &name) :
-        SliderFloatPercents(parent, position, width, 10, 110, name) { }
+    SliderFloatLimit(wxWindow *parent, int width, const wxString &name) :
+        SliderFloatPercents(parent, width, 10, 110, name) { }
 
     void CalculateAndSetRange(const wxString &range);
 };

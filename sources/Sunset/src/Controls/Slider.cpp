@@ -5,8 +5,8 @@
 #include "Utils/Configurator.h"
 
 
-SliderInt::SliderInt(wxWindow *parent, const wxPoint &position, int width, int _min, int _max, const wxString &_name) :
-    wxPanel(parent, wxID_ANY, position, { width + 5, TEXTCNTRL_HEIGHT + 5 + 5 }),
+SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxString &_name) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, { width + 5, TEXTCNTRL_HEIGHT + 5 + 5 }),
     min(_min),
     max(_max)
 {
@@ -184,8 +184,8 @@ void SliderFloat::SetIntValue(int value)
 }
 
 
-SliderFloat::SliderFloat(wxWindow *parent, const wxPoint &position, int width, const wxString &name) :
-    wxPanel(parent, wxID_ANY, position, { width, TEXTCNTRL_HEIGHT + 5 + 5 })
+SliderFloat::SliderFloat(wxWindow *parent, int width, const wxString &name) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, { width, TEXTCNTRL_HEIGHT + 5 + 5 })
 {
     wxPanel::SetName(parent->GetName() + "_" + name);
 
@@ -386,12 +386,12 @@ void SliderFloat::OnEventTimer(wxTimerEvent &event)
 }
 
 
-SliderFloatPercents::SliderFloatPercents(wxWindow *parent, const wxPoint &position, int width, int _min_percents, int _max_percents, const wxString &name) :
-    SliderFloat(parent, position, width, name),
+SliderFloatPercents::SliderFloatPercents(wxWindow *parent, int width, int _min_percents, int _max_percents, const wxString &name) :
+    SliderFloat(parent, width, name),
     min_percents(_min_percents),
     max_percents(_max_percents)
 {
     text->SetPosition({0, 0});
 
-    textPercents = new wxStaticText(this, wxID_ANY, "0", { 0, 15 }, { 50, TEXTCNTRL_HEIGHT - 5 });
+    textPercents = new wxStaticText(this, wxID_ANY, "0", wxDefaultPosition, { 50, TEXTCNTRL_HEIGHT - 5 });
 }

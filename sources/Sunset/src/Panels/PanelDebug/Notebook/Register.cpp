@@ -566,7 +566,7 @@ RegDAC::RegDAC(wxWindow *parent, pchar _title, Chip *_chip, const wxString &_fun
 
     knob->Bind(wxEVT_SLIDER, &RegDAC::OnEventKnob, this);
 
-    slider = new SliderInt(painter, { painter->BitX(chip->BitDepth() - 5, chip->BitDepth()) + 3, 75 }, (chip->BitDepth() - 4) * 20, 0, 100, "");
+    slider = new SliderInt(painter, (chip->BitDepth() - 4) * 20, 0, 100, "");
 
     slider->Bind(wxEVT_SLIDER, &RegDAC::OnEventSlider, this);
 }
