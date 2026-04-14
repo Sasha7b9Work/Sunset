@@ -63,6 +63,12 @@ void NotebookDebug::OnEventSetCursor(wxSetCursorEvent &event)
 
 void NotebookDebug::AppendNewPage(wxPanel *page)
 {
+    wxString name = page->GetName();
+    if (name.IsEmpty())
+    {
+        name = wxString::Format("Page_%d", GetPageCount());
+    }
+
     wxNotebook::AddPage(page, page->GetName());
 }
 
