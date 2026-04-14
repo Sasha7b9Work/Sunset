@@ -12,7 +12,7 @@ PainterDataFPGA::PainterDataFPGA(wxWindow *parent, const wxSize &size) :
 ControlDataFPGA::ControlDataFPGA(wxWindow *parent) :
     wxPanel(parent, wxID_ANY, wxDefaultPosition, SIZE, wxBORDER_SIMPLE)
 {
-    SetSize(SIZE);
+//    SetSize(SIZE);
 
     wxSize size{ SIZE };
     size.x -= 2;
@@ -20,7 +20,7 @@ ControlDataFPGA::ControlDataFPGA(wxWindow *parent) :
 
     painter = new PainterDataFPGA(this, size);
 
-    painter->SetPosition({ 0, 0 });
+//    painter->SetPosition({ 0, 0 });
 
     btnScale = new ToggleButton(painter, "S", { 17, 17 });
     btnScale->Bind(wxEVT_TOGGLEBUTTON, &ControlDataFPGA::OnEventToggleButon, this);

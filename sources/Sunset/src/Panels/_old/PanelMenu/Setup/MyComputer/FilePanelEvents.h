@@ -1,4 +1,0 @@
-#pragma once
-
-wxDECLARE_EVENT(wxEVT_FILEPANEL_STATUS, wxCommandEvent);
-wxDECLARE_EVENT(wxEVT_FILEPANEL_ACTIVATED, wxCommandEvent);

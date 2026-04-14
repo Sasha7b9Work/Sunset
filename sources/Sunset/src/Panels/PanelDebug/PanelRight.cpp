@@ -55,17 +55,17 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
 
     // Горизонтальный сайзер для пяти ControlDataFPGA (можно разместить в несколько строк, если нужно)
     // Здесь они идут в одной горизонтальной линии (если не помещаются, можно обернуть в wxWrapSizer)
-    wxBoxSizer *dataSizer = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer *dataSizer = new wxBoxSizer(wxVERTICAL);
     for (int i = 0; i < 5; i++)
     {
-        dataSizer->Add((wxWindow *)data[i], 1, wxALL | wxEXPAND, 5);
+        dataSizer->Add((wxWindow *)data[i], 0, wxALL, 5);
     }
 
     wxSize size{ 250, -1 };
     SetMinSize(size);
     SetMaxSize(size);
 
-    mainSizer->Add(dataSizer, 1, wxEXPAND | wxALL, 5);
+    mainSizer->Add(dataSizer, 1, wxALL, 5);
 
     SetSizer(mainSizer);
     Layout();

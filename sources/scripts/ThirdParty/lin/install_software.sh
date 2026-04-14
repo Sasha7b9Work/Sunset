@@ -10,3 +10,4 @@ apt-get install libnotify-dev -y
 sudo apt install libglu1-mesa-dev freeglut3-dev -y
 # Для сборки deb-пакета
 sudo apt-get install -y dh-make devscripts dpkg debconf debhelper lintian 
+sudo apt-get install libwayland-dev wayland-protocols
