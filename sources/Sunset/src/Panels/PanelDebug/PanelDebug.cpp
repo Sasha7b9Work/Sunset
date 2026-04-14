@@ -26,7 +26,6 @@ PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, _("Отладка"))
     Panel::SetSizer(sizer);
 
     Panel::Layout();
-    Panel::Fit();
 
     Unpack();
 }

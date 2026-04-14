@@ -67,18 +67,6 @@ void PanelBoard::SetCurrentPanel(Panel *panel)
     currentPanel = panel;
     currentPanel->Show();
 
-    // === КРИТИЧЕСКИ ВАЖНО: принудительно обновляем размер ===
-    wxSize containerSize = centerContainer->GetSize();
-    if (containerSize.x > 0 && containerSize.y > 0)
-    {
-        currentPanel->SetSize(containerSize);
-
-        // Отправляем событие размера для инициализации содержимого
-        wxSizeEvent sizeEvent(containerSize, currentPanel->GetId());
-        sizeEvent.SetEventObject(currentPanel);
-        currentPanel->GetEventHandler()->ProcessEvent(sizeEvent);
-    }
-
     // Обновляем макет
     centerSizer->Layout();
     centerContainer->Layout();
@@ -102,7 +90,7 @@ void PanelBoard::AddPanel(Panel *panel)
     panel->Hide();
 
     // Добавляем в sizer
-    centerSizer->Add(panel, 0, wxALIGN_TOP | wxALIGN_LEFT);
+    centerSizer->Add(panel, 1, wxEXPAND | wxALL, 0);
 
     AddTopButton(panel);
 

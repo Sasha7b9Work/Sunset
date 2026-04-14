@@ -60,10 +60,14 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
     {
         dataSizer->Add((wxWindow *)data[i], 1, wxALL | wxEXPAND, 5);
     }
+
+    wxSize size{ 250, -1 };
+    SetMinSize(size);
+    SetMaxSize(size);
+
     mainSizer->Add(dataSizer, 1, wxEXPAND | wxALL, 5);
 
     SetSizer(mainSizer);
-    Fit();
     Layout();
 }
 
