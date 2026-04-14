@@ -21,12 +21,12 @@ PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, _("Отладка"))
 
     sizer->Add(TheNotebookDebug, 1, wxEXPAND);
 
-    sizer->Add(panelRigth, 0, wxEXPAND);
+    sizer->Add(panelRigth, 0, wxEXPAND | wxALL, 0);
 
-    SetSizer(sizer);
+    Panel::SetSizer(sizer);
 
-    wxPanel::Layout();
-    wxPanel::Fit();
+    Panel::Layout();
+    Panel::Fit();
 
     Unpack();
 }
@@ -36,7 +36,7 @@ bool PanelDebug::Show(bool show)
 {
     show ? TheNotebookDebug->Init() : TheNotebookDebug->DeInit();
 
-    return wxPanel::Show(show);
+    return Panel::Show(show);
 }
 
 

@@ -58,7 +58,7 @@ PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
     wxBoxSizer *dataSizer = new wxBoxSizer(wxHORIZONTAL);
     for (int i = 0; i < 5; i++)
     {
-        dataSizer->Add(data[i], 1, wxALL | wxEXPAND, 5);
+        dataSizer->Add((wxWindow *)data[i], 1, wxALL | wxEXPAND, 5);
     }
     mainSizer->Add(dataSizer, 1, wxEXPAND | wxALL, 5);
 
