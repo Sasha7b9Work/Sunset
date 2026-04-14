@@ -9,6 +9,9 @@ PageChip::PageChip(wxNotebook *parent, const wxString &title) :
 {
     wxPanel::SetName(title);
 
+    wxBoxSizer *mainSizer = new wxBoxSizer(wxVERTICAL);
+    SetSizer(mainSizer);
+
     wxPanel::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 
     Bind(wxEVT_RIGHT_DOWN, &PageChip::OnRightClick, this);
@@ -17,16 +20,11 @@ PageChip::PageChip(wxNotebook *parent, const wxString &title) :
 
 void PageChip::AppendRegister(Register *reg)
 {
-    int y = 0;
+    // Добавить в сайзер, а не позиционировать вручную
+    GetSizer()->Add(reg, 0, wxEXPAND | wxALL, 5);
 
-    if (registers.size())
-    {
-        y = registers[registers.size() - 1]->GetPosition().y + registers[registers.size() - 1]->GetSize().y - 1;
-    }
-
-    reg->SetPosition({ 0, y });
-
-    registers.push_back(reg);
+    GetSizer()->Layout();
+    Layout();
 }
 
 
