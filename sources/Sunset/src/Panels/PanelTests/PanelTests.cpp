@@ -45,7 +45,7 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
 
     ThePanelTests = this;
 
-    StaticBox *boxTest = new StaticBox(this, L("Тест"), { 0, SD::DSBY() }, { 100, 90 });
+    StaticBox *boxTest = new StaticBox(this, L("Тест"), { 100, 90 });
 
     {
         wxArrayString choices;
@@ -62,7 +62,6 @@ PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
     boxTest->SetFont(StaticBox::TitleFont());
 
     StaticBox *boxCommutation = new StaticBox(this, L("Коммутация"),
-        { 0, boxTest->GetPosition().y + boxTest->GetSize().y + SD::DSBY() },
         { 100, 50 - boxTest->GetPosition().y - boxTest->GetSize().y - SD::DSBY() });
 
     {

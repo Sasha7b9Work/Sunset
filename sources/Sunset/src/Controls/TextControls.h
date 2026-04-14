@@ -7,7 +7,7 @@ class TextCtrlNumber : public wxTextCtrl
 {
 public:
 
-    TextCtrlNumber(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, int min, int max);
+    TextCtrlNumber(wxWindow *, int, const wxString &, const wxSize &, int min, int max);
 
 private:
 

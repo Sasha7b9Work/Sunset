@@ -128,20 +128,11 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 
     if (index == 0)
     {
-//        bool need_dec = NeedTextCtrlDEC();
-
         for (auto &elem : desc[0])
         {
             if (elem.field.need_text_ctrl_dec)
             {
-                int num_bit = elem.first_bit + elem.num_bits - 1;
-
-                int x = painter->BitX(num_bit, chip->BitDepth());
-
-                int num_y = elem.desc[0] ? 3 : 2;
-
                 elem.field.text_ctrl_dec = new TextCtrlNumber(painter, wxID_ANY, "",
-                    { x, (PainterRegister::W_B + 1) * num_y },
                     { PainterRegister::W_B * elem.num_bits + 1, 20 },
                     0, (1 << elem.num_bits) - 1);
 
@@ -150,10 +141,6 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 
             if (elem.field.commands.size())
             {
-//                int num_bit = elem.first_bit + elem.num_bits - 1;
-
-//                int x = painter->BitX(num_bit, chip->BitDepth()) + 1;
-
                 wxArrayString names;
                 for (auto &com : elem.field.commands)
                 {

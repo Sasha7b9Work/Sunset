@@ -5,8 +5,8 @@
 class StaticBox : public wxStaticBox
 {
 public:
-    StaticBox(wxWindow *parent, const wxString &title, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize) :
-        wxStaticBox(parent, wxID_ANY, title, pos, size, wxBORDER_NONE)
+    StaticBox(wxWindow *parent, const wxString &title, const wxSize &size = wxDefaultSize) :
+        wxStaticBox(parent, wxID_ANY, title, wxDefaultPosition, size, wxBORDER_NONE)
     {
         wxStaticBox::SetName(parent->GetName());
 

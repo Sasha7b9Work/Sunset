@@ -3,8 +3,8 @@
 #include "Controls/SpinBox.h"
 
 
-SpinBox::SpinBox(wxWindow *parent, const wxPoint &position, const wxSize &size, int _min, int _max) :
-    wxPanel(parent, wxID_ANY, position, size),
+SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, size),
     min(_min),
     max(_max)
 {

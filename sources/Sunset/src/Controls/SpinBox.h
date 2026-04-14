@@ -11,7 +11,7 @@ class SpinBox : public wxPanel
 {
 public:
 
-    SpinBox(wxWindow *parent, const wxPoint &, const wxSize &, int min, int max);
+    SpinBox(wxWindow *parent, const wxSize &, int min, int max);
 
     int GetValue() const;
 

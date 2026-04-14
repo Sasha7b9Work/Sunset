@@ -3,8 +3,8 @@
 #include "Controls/StaticBoxCustom.h"
 
 
-StaticBoxCustom::StaticBoxCustom(wxWindow *parent, const wxString &title, const wxPoint &position, const wxSize &size, std::vector<std::unique_ptr<DescriptionControl>> &controls) :
-    StaticBox(parent, title, position, size)
+StaticBoxCustom::StaticBoxCustom(wxWindow *parent, const wxString &title, const wxSize &size, std::vector<std::unique_ptr<DescriptionControl>> &controls) :
+    StaticBox(parent, title, size)
 {
     for (auto &desc : controls)
     {

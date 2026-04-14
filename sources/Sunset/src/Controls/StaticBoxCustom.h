@@ -8,5 +8,5 @@ class StaticBoxCustom : public StaticBox
 {
 public:
 
-    StaticBoxCustom(wxWindow *, const wxString &, const wxPoint &, const wxSize &, std::vector<std::unique_ptr<DescriptionControl>> &);
+    StaticBoxCustom(wxWindow *, const wxString &, const wxSize &, std::vector<std::unique_ptr<DescriptionControl>> &);
 };
