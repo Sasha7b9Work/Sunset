@@ -8,6 +8,6 @@ sudo apt-get install libsdl2-2.0-0 -y
 sudo apt-get install libsdl2-dev -y
 apt-get install libnotify-dev -y
 sudo apt install libglu1-mesa-dev freeglut3-dev -y
+sudo apt-get install libwayland-dev wayland-protocols
 # Для сборки deb-пакета
 sudo apt-get install -y dh-make devscripts dpkg debconf debhelper lintian 
-sudo apt-get install libwayland-dev wayland-protocols
