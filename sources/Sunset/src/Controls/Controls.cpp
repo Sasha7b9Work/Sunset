@@ -5,5 +5,5 @@
 
 void DescRadioButton::Create(wxWindow *parent)
 {
-    *pointer = new wxRadioButton(parent, wxID_ANY, name, position, wxDefaultSize, flags);
+    *pointer = new wxRadioButton(parent, wxID_ANY, name, wxDefaultPosition, wxDefaultSize, flags);
 }
