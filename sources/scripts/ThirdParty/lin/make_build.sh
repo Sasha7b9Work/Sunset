@@ -2,7 +2,7 @@
 
 rm -R -f ./../../../generated/wxWidgets
 
-cmake ../../../ThirdParty/wxWidgets/CMakeLists.txt -B../../../generated/wxWidgets -G "CodeBlocks - Unix Makefiles" -DwxUSE_GTK=ON  -DwxUSE_WAYLAND=OFF -DwxBUILD_SAMPLES=OFF -DwxBUILD_SHARED=OFF -DwxBUILD_STRIPPED_RELEASE=ON -DCMAKE_CXX_FLAGS_INIT="-pipe" -DCMAKE_C_FLAGS_INIT="-pipe"
+cmake ../../../ThirdParty/wxWidgets/CMakeLists.txt -B../../../generated/wxWidgets -G "CodeBlocks - Unix Makefiles" -DwxUSE_GTK=ON   -DCMAKE_DISABLE_FIND_PACKAGE_Wayland=ON -DCMAKE_DISABLE_FIND_PACKAGE_WaylandScanner=ON -DCMAKE_DISABLE_FIND_PACKAGE_WaylandProtocols=ON -DwxBUILD_SAMPLES=OFF -DwxBUILD_SHARED=OFF -DwxBUILD_STRIPPED_RELEASE=ON -DCMAKE_CXX_FLAGS_INIT="-pipe" -DCMAKE_C_FLAGS_INIT="-pipe"
 
 cd ../../../generated/wxWidgets/
 cmake --build . -- -j$(nproc)
