@@ -17,12 +17,11 @@ struct DescriptionControl
 struct DescRadioButton : public DescriptionControl
 {
     wxString name;
-    wxPoint position;
     int flags;
 
-    DescRadioButton(wxRadioButton **_pointer, const wxString &_name, const wxPoint &_position, int _flags = 0) :
+    DescRadioButton(wxRadioButton **_pointer, const wxString &_name, int _flags = 0) :
         DescriptionControl((void **)_pointer),
-        name(_name), position(_position), flags(_flags) { }
+        name(_name), flags(_flags) { }
 
     virtual void Create(wxWindow *) override;
 };
