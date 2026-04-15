@@ -33,6 +33,7 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     int x = 690;
 
     btnSend = new Button(this, wxT("Записать"), size_button);
+    btnSend->SetToolTip(L("Однократная засылка в регистр"));
     btnSend->SetPosition({ x, 0 });
     btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
 
@@ -41,6 +42,7 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     x -= size_button.x + 5;
 
     btnAutoSend = new ToggleButton(this, wxT("Автозапись"), size_button);
+    btnAutoSend->SetToolTip(L("Автоматическая засылка в регистр 1 раз в секунду"));
     btnAutoSend->SetPosition({ x, 0 });
     btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
 

@@ -55,8 +55,6 @@ MainWindow::MainWindow(const wxString &title)
     SetSizer(sizer);
 
     main_board->SetCurrentPanelIndex(0);
-//    main_board->SetCurrentPanelIndex(6);
-//    main_board->SetCurrentPanelIndex(0);
 
     SetPosition();
 
