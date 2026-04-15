@@ -9,23 +9,24 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, _("Отладка"))
+PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, L("Отладка"))
 {
     ThePanelDebug = this;
 
     new NotebookDebug(this);
 
-    panelRigth = new PanelRight(this);
+    new PanelRight(this);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
 
     sizer->Add(TheNotebookDebug, 1, wxEXPAND);
 
-    sizer->Add(panelRigth, 0, wxEXPAND | wxALL, 0);
+    sizer->Add(ThePanelRight, 0, wxEXPAND);
 
-    Panel::SetSizer(sizer);
+    SetSizer(sizer);
 
-    Panel::Layout();
+    wxPanel::Layout();
+    wxPanel::Fit();
 
     Unpack();
 }
@@ -35,7 +36,7 @@ bool PanelDebug::Show(bool show)
 {
     show ? TheNotebookDebug->Init() : TheNotebookDebug->DeInit();
 
-    return Panel::Show(show);
+    return wxPanel::Show(show);
 }
 
 
@@ -56,10 +57,4 @@ void PanelDebug::Unpack()
 void PanelDebug::Pack()
 {
     TheNotebookDebug->Pack();
-}
-
-
-void PanelDebug::CallbackOnEventSize()
-{
-
 }

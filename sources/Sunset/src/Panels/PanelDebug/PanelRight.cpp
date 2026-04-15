@@ -51,7 +51,7 @@ PanelRight::PanelRight(wxWindow *parent) :
 
     data[4]->SetMax((1 << 8) - 1);
 
-    Fit();
+//    Fit();
     Layout();
 }
 

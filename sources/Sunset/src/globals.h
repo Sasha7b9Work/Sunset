@@ -25,6 +25,7 @@ struct PanelReports;
 struct PanelSettings;
 struct PanelTables;
 struct PanelTests;
+struct PanelRight;
 
 extern PanelArchive  *ThePanelArchive;
 extern PanelDebug    *ThePanelDebug;
@@ -33,3 +34,4 @@ extern PanelReports  *ThePanelReports;
 extern PanelSettings *ThePanelSettings;
 extern PanelTables   *ThePanelTables;
 extern PanelTests    *ThePanelTests;
+extern PanelRight    *ThePanelRight;
