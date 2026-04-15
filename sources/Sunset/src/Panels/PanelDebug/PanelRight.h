@@ -4,8 +4,10 @@
 #include "Controls/Buttons.h"
 
 
-struct PanelRight : public wxPanel
+class PanelRight : public wxPanel
 {
+public:
+
     PanelRight(wxWindow *);
 
     ControlDataFPGA *data[5];           // Отображение данных, считанных c платы контроллера
@@ -14,6 +16,7 @@ struct PanelRight : public wxPanel
 
 private:
 
+    Button *btnReturn = nullptr;      // Выход в основную панель
     Button *btnStart = nullptr;       // Запуск развёртки
     Button *btnStop = nullptr;        // Останов развёртки
 

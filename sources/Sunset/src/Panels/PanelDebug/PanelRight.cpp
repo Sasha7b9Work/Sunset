@@ -13,61 +13,45 @@
 PanelRight *ThePanelRight = nullptr;
 
 
-PanelRight::PanelRight(wxWindow *parent) : wxPanel(parent)
+PanelRight::PanelRight(wxWindow *parent) :
+    wxPanel(parent)
 {
     ThePanelRight = this;
 
-    SetWindowStyle(wxBORDER_SIMPLE);
-
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    // Создание элементов управления
-    btnStart = new Button{ this, L("Старт"), size_button };
-    btnStart->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
-    btnStart->SetToolTip(L("Запуск развёртки"));
+    btnReturn = new Button(this, wxT("Закрыть"), size_button);
+    btnReturn->SetPosition({ 125, SD::Y_SB(20) });
 
-    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", wxDefaultPosition, size_button };
-    txtPeriodScan->SetToolTip(L("Период запуска развёртки в миллисекундах"));
+    btnReturn->SetToolTip(wxT("Возврат в главную панель"));
 
-    btnStop = new Button{ this, L("Стоп"), size_button };
-    btnStop->Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
-    btnStop->SetToolTip(L("Останов развёртки"));
+    btnStart = new Button{ this, "Старт", size_button };
+    btnStart->SetPosition({ 10, SD::Y_SB(60) });
+
+    btnStart->SetToolTip(wxT("Запуск развёртки"));
+
+    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(60)}, size_button };
+
+    txtPeriodScan->SetToolTip(wxT("Период запуска развёртки в миллисекундах"));
+
+    btnStop = new Button{ this, "Стоп", size_button };
+    btnStop->SetPosition({ 10, SD::Y_SB(90) });
+
+    btnStop->SetToolTip(wxT("Останов развёртки"));
+
     btnStop->Enable(false);
 
-    // Создание пяти ControlDataFPGA
+    Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
+
     for (int i = 0; i < 5; i++)
     {
         data[i] = new ControlDataFPGA(this);
+        data[i]->SetPosition({ 10, 130 + i * 95 });
     }
+
     data[4]->SetMax((1 << 8) - 1);
 
-    // Основной вертикальный сайзер
-    wxBoxSizer *mainSizer = new wxBoxSizer(wxVERTICAL);
-
-    // Горизонтальный сайзер для верхней строки (btnStart и txtPeriodScan)
-    wxBoxSizer *topLineSizer = new wxBoxSizer(wxHORIZONTAL);
-    topLineSizer->Add(btnStart, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
-    topLineSizer->Add(txtPeriodScan, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
-    mainSizer->Add(topLineSizer, 0, wxALIGN_LEFT | wxTOP | wxLEFT, 10);
-
-    // Кнопка btnStop — под btnStart (с небольшим отступом слева, чтобы визуально выровнять с btnStart)
-    mainSizer->Add(btnStop, 0, wxALIGN_LEFT | wxLEFT, 15);
-
-    // Горизонтальный сайзер для пяти ControlDataFPGA (можно разместить в несколько строк, если нужно)
-    // Здесь они идут в одной горизонтальной линии (если не помещаются, можно обернуть в wxWrapSizer)
-    wxBoxSizer *dataSizer = new wxBoxSizer(wxVERTICAL);
-    for (int i = 0; i < 5; i++)
-    {
-        dataSizer->Add((wxWindow *)data[i], 0, wxALL, 5);
-    }
-
-    wxSize size{ 250, -1 };
-    SetMinSize(size);
-    SetMaxSize(size);
-
-    mainSizer->Add(dataSizer, 1, wxALL, 5);
-
-    SetSizer(mainSizer);
+    Fit();
     Layout();
 }
 
@@ -114,7 +98,11 @@ void PanelRight::OnEventButton(wxCommandEvent &event)
 {
     int id = event.GetId();
 
-    if (id == btnStart->GetId())
+    if (id == btnReturn->GetId())
+    {
+        TheMainWindow->SetMode(ModeMainWindow::Standard);
+    }
+    else if (id == btnStart->GetId())
     {
         wxString str_value = txtPeriodScan->GetValue();
         int int_value = 0;
