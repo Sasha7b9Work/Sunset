@@ -30,7 +30,7 @@ FullJack::FullJack(Chan::E ch, wxWindow *parent, pchar file_jack_bmp, const wxAr
 {
     wxPanel::SetName(parent->GetName() + wxString::Format("_fullJack%d", (int)ch));
 
-    painterBMP = new PainterBMP(this, wxDefaultSize, file_jack_bmp, { 241, 241, 241 });
+    painterBMP = new PainterBMP(this, wxDefaultPosition, wxDefaultSize, file_jack_bmp, { 241, 241, 241 });
 
     if (choices)
     {

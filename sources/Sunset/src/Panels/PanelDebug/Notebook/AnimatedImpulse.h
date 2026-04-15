@@ -13,15 +13,11 @@ public:
 
     AnimatedImpulse(wxWindow *, const wxColor &background);
 
-    void EnableRepeat(bool);
-    void EnableOnce();
-
 private:
 
     virtual void FuncDraw() override;
 
     TimeMeterMS meter;
     int x = 0;
-    bool repeat = false;            // Если true, то повторяем анимацию
     wxColor color_background;
 };

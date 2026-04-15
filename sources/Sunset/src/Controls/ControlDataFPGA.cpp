@@ -4,7 +4,7 @@
 
 
 PainterDataFPGA::PainterDataFPGA(wxWindow *parent, const wxSize &size) :
-    Painter(parent, size)
+    Painter(parent, wxDefaultPosition, size)
 {
 }
 
