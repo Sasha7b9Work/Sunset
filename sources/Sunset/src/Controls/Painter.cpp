@@ -200,8 +200,6 @@ PainterAnimated::PainterAnimated(wxWindow *parent, const wxPoint &position, cons
 
     Bind(wxEVT_TIMER, &PainterAnimated::OnEventTimer, this);
     Bind(wxEVT_PAINT, &PainterAnimated::OnEventPaint, this);
-
-    timer.Start(10);
 }
 
 

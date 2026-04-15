@@ -13,11 +13,20 @@ public:
 
     AnimatedImpulse(wxWindow *, const wxColor &background);
 
+    // Анимировать единожды
+    void RunOnce();
+
+    // Анимировать постоянно
+    void RunPeriodic();
+
+    void Stop();
+
 private:
 
     virtual void FuncDraw() override;
 
     TimeMeterMS meter;
     int x = 0;
+    bool periodic = false;
     wxColor color_background;
 };

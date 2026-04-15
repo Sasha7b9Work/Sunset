@@ -75,9 +75,11 @@ public:
 
     PainterAnimated(wxWindow *parent, const wxPoint &position, const wxSize &);
 
-private:
+protected:
 
     wxTimer timer;
+
+private:
 
     void OnEventPaint(wxPaintEvent &);
     void OnEventTimer(wxTimerEvent &);

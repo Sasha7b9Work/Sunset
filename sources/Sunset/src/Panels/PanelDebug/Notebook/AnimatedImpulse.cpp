@@ -26,9 +26,13 @@ void AnimatedImpulse::FuncDraw()
     {
         if (meter.ElapsedMS() > 10)
         {
-            x += (int)(2.0f * ((float)meter.ElapsedMS() / 10.0f));
+            x += (int)((periodic ? 2.0f : 5.0f) * ((float)meter.ElapsedMS() / 10.0f));
             if (x > GetSize().x)
             {
+                if (!periodic)
+                {
+                    Stop();
+                }
                 x = 0;
             }
 
@@ -50,4 +54,29 @@ void AnimatedImpulse::FuncDraw()
         _dc.DrawLine(x + 10, y, x + 10, y0);
         _dc.DrawLine(x + 10, y0, GetSize().x, y0);
     }
+}
+
+
+void AnimatedImpulse::RunOnce()
+{
+    meter.Reset();
+    x = 0;
+    timer.Start(10);
+    periodic = false;
+    Enable();
+}
+
+
+void AnimatedImpulse::RunPeriodic()
+{
+    RunOnce();
+    periodic = true;
+}
+
+
+void AnimatedImpulse::Stop()
+{
+    timer.Stop();
+    Refresh();
+    Enable(false);
 }
