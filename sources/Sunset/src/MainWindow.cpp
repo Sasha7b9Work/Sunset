@@ -44,12 +44,12 @@ MainWindow::MainWindow(const wxString &title)
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     main_board = new PanelBoard(this);
     main_board->AddPanel(new PanelDebug(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelTests(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelTables(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelReports(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelArchive(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelSettings(main_board->GetCenterContainer()));
-//    main_board->AddPanel(new PanelMeasures(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelMeasures(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelTests(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelTables(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelReports(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelArchive(main_board->GetCenterContainer()));
+    main_board->AddPanel(new PanelSettings(main_board->GetCenterContainer()));
 
     sizer->Add(main_board, 1, wxEXPAND);
     SetSizer(sizer);
