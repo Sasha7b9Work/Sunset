@@ -9,6 +9,9 @@
 #include "Panels/PanelDebug/Notebook/NotebookDebug.h"
 #include "Panels/PanelDebug/Notebook/PageChip.h"
 #include "Controls/Knob.h"
+#pragma warning(push, 0)
+#include <wx/stattext.h>
+#pragma warning(pop)
 
 
 // Функции для комбобоксов выбора режимов

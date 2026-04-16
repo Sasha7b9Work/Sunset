@@ -2,6 +2,11 @@
 #include "defines.h"
 #include "Controls/Dialog.h"
 #include "Utils/SystemDepend.h"
+#pragma warning(push, 0)
+#include <wx/stattext.h>
+#include <wx/radiobut.h>
+#pragma warning(pop)
+
 
 Dialog::Dialog(const wxString &_title, const wxPoint &_pos, const wxSize &_size) :
     DraggedDialog(_title, _size)
