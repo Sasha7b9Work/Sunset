@@ -20,11 +20,6 @@ PanelRight::PanelRight(wxWindow *parent) :
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    btnReturn = new Button(this, wxT("Закрыть"), size_button);
-    btnReturn->SetPosition({ 125, SD::Y_SB(20) });
-
-    btnReturn->SetToolTip(wxT("Возврат в главную панель"));
-
     btnStart = new Button{ this, "Старт", size_button };
     btnStart->SetPosition({ 10, SD::Y_SB(60) });
 
@@ -98,11 +93,7 @@ void PanelRight::OnEventButton(wxCommandEvent &event)
 {
     int id = event.GetId();
 
-    if (id == btnReturn->GetId())
-    {
-        TheMainWindow->SetMode(ModeMainWindow::Standard);
-    }
-    else if (id == btnStart->GetId())
+    if (id == btnStart->GetId())
     {
         wxString str_value = txtPeriodScan->GetValue();
         int int_value = 0;

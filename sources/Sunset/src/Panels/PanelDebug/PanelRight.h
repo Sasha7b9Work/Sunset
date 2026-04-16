@@ -14,7 +14,6 @@ struct PanelRight : public wxPanel
 
 private:
 
-    Button *btnReturn = nullptr;      // Выход в основную панель
     Button *btnStart = nullptr;       // Запуск развёртки
     Button *btnStop = nullptr;        // Останов развёртки
 
