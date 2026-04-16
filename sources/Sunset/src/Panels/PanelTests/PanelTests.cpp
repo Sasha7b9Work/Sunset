@@ -4,39 +4,14 @@
 #include "Panels/PanelTests/PanelTests.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
-#include "Panels/PanelTests/PainterScheme.h"
 #include "Controls/Bitmap.h"
 #include "IPPP/Tests/Tests.h"
 #include "Controls/StaticBox.h"
 #include "Utils/Configurator.h"
 #include "System/Events.h"
-#include "Panels/PanelTests/WindowLibraryTests.h"
 
 
 PanelTests *ThePanelTests = nullptr;
-
-
-ComboJack::ComboJack(Chan::E ch, wxWindow *parent, const wxString &title, int width, const wxArrayString &labels) :
-    ButtonsCombo(parent, title, width, labels, labels, 1, parent->GetName() + wxString::Format("_comboJack%d", (int)ch)),
-    channel(ch)
-{
-
-}
-
-
-FullJack::FullJack(Chan::E ch, wxWindow *parent, pchar file_jack_bmp, const wxArrayString *choices) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, { 180, 30 }),
-    channel(ch)
-{
-    wxPanel::SetName(parent->GetName() + wxString::Format("_fullJack%d", (int)ch));
-
-    painterBMP = new PainterBMP(this, wxDefaultPosition, wxDefaultSize, file_jack_bmp, { 241, 241, 241 });
-
-    if (choices)
-    {
-        combo = new ButtonsCombo(this, "", WIDTH_COMBO - 60, *choices, *choices, 1, "");
-    }
-}
 
 
 PanelTests::PanelTests(PanelBoard *board) : Panel(board, L("Тесты"))
@@ -53,7 +28,6 @@ void PanelTests::OnEventButton(wxCommandEvent &event)
 
     if (id == btnLoad->GetId())
     {
-        WindowLibraryTests().ShowOnWindow(btnLoad);
     }
 }
 
@@ -126,123 +100,6 @@ void PanelTests::UpdateSuffixGenerator(ButtonsCombo *combo, char suffix)
 
 void PanelTests::BuildPanel()
 {
-//    ThePanelConfig->btnChannelB->Enable(ThePanelChannelB->IsEnabled());
-//    ThePanelConfig->btnChannelS->Enable(ThePanelChannelS->IsEnabled());
-
-    for (auto _jack : jacks)
-    {
-        _jack->TuneState();
-    }
-
-    for (auto _combo : combos)
-    {
-        _combo->TuneState();
-    }
-
-    painter->Build();
-}
-
-
-void ComboJack::TuneState()
-{
-    SetChoices();
-
-    SetVisibility();
-
-    Enable(!TypeCommutation::IsInternal());
-}
-
-
-void FullJack::TuneState()
-{
-    SetChoices();
-
-    SetVisibility();
-
-    if (combo)
-    {
-        combo->Enable(TypeCommutation::IsInternal());
-    }
-}
-
-
-void ComboJack::SetChoices()
-{
-    Category::E cat = Category::Current();
-
-    wxArrayString choices;
-
-    if (cat == Category::Diod)
-    {
-        StateJack::PrepareArray(choices, StateJack::_C, StateJack::_E);
-        ButtonsCombo::SetChoices(choices, choices);
-        SetChoice(StateJack::_C);
-    }
-    else
-    {
-        StateJack::PrepareArray(choices, StateJack::_C, StateJack::_B, StateJack::_E, StateJack::Break);
-        ButtonsCombo::SetChoices(choices, choices);
-        SetChoice(StateJack::_C);
-    }
-}
-
-
-void FullJack::SetChoices()
-{
-    Category::E cat = Category::Current();
-
-    if (channel == Chan::_C)
-    {
-        if (cat == Category::Diod)
-        {
-            wxArrayString choices;
-            StateJack::PrepareArray(choices, StateJack::Break, StateJack::_C);
-            combo->SetChoices(choices, choices);
-            SetChoice(StateJack::_C);
-        }
-    }
-}
-
-
-void FullJack::Pack()
-{
-    if (combo)
-    {
-        Config::Write(GetName(), combo->GetCurrentString());
-    }
-}
-
-
-void FullJack::Unpack()
-{
-    if (combo)
-    {
-        combo->SetCurrentString(Config::ReadString(GetName()));
-    }
-}
-
-
-void FullJack::SetChoice(StateJack::E state)
-{
-    combo->SetCurrentString(StateJack::NameHardware(state));
-}
-
-
-void ComboJack::SetChoice(StateJack::E state)
-{
-    ButtonsCombo::SetCurrentString(StateJack::NameHardware(state));
-}
-
-
-void FullJack::SetVisibility()
-{
-    Show(Chan(channel).IsVisible());
-}
-
-
-void ComboJack::SetVisibility()
-{
-    Show(Chan(channel).IsVisible());
 }
 
 
@@ -252,8 +109,6 @@ void PanelTests::Pack()
     comboCommutation->Pack();
     for (int i = 0; i < Chan::Count; i++)
     {
-        combos[i]->Pack();
-        jacks[i]->Pack();
     }
 }
 
@@ -266,8 +121,6 @@ void PanelTests::Unpack()
     wxYield();
     for (int i = 0; i < Chan::Count; i++)
     {
-        combos[i]->Unpack();
-        jacks[i]->Unpack();
     }
 }
 
