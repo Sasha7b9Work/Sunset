@@ -54,7 +54,13 @@ MainWindow::MainWindow(const wxString &title)
     sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
 
+    wxYield();
+    board->SetCurrentPanelIndex(2);
+    wxYield();
+    board->SetCurrentPanelIndex(1);
+    wxYield();
     board->SetCurrentPanelIndex(0);
+    wxYield();
 
     SetPosition();
 

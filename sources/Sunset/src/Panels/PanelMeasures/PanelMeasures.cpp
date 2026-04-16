@@ -70,12 +70,11 @@ void PanelMeasures::FullScreen(bool full)
 
 void PanelMeasures::CallbackOnEventSize()
 {
-    const wxSize size = GetParent()->GetSize();
-
-    SetMinSize(size);
-    SetSize(size);
+    Panel::CallbackOnEventSize();
 
     SAFE_DELETE(bitmap);
+
+    const wxSize size = GetParent()->GetSize();
 
     bitmap = new wxBitmap(size.x, size.y);
 

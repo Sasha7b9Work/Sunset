@@ -111,6 +111,11 @@ void PanelBoard::SetCurrentPanelIndex(int index)
     Panel *panel = (Panel *)buttons[(size_t)index]->GetClientData();
 
     SetCurrentPanel(panel);
+
+    wxCommandEvent event;
+    event.SetEventObject(buttons[(uint64)index]);
+    event.SetInt(1);
+    OnEventButtonToggle(event);
 }
 
 

@@ -34,3 +34,14 @@ void Panel::OnEventSize(wxSizeEvent &event)
 
     event.Skip();
 }
+
+
+void Panel::CallbackOnEventSize()
+{
+    const wxSize size = GetParent()->GetSize();
+
+    SetMinSize(size);
+    SetSize(size);
+
+    Refresh();
+}
