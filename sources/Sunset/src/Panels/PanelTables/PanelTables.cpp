@@ -6,7 +6,7 @@
 PanelTables *ThePanelTables = nullptr;
 
 
-PanelTables::PanelTables(wxWindow *parent) : Panel(parent, L("Таблицы"))
+PanelTables::PanelTables(PanelBoard *board) : Panel(board, L("Таблицы"))
 {
     ThePanelTables = this;
 }

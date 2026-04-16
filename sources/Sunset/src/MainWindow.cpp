@@ -42,19 +42,19 @@ MainWindow::MainWindow(const wxString &title)
     TuneFont();
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
-    main_board = new PanelBoard(this);
-    main_board->AddPanel(new PanelDebug(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelMeasures(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelTests(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelTables(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelReports(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelArchive(main_board->GetCenterContainer()));
-    main_board->AddPanel(new PanelSettings(main_board->GetCenterContainer()));
+    board = new PanelBoard(this);
+    board->AddPanel(new PanelDebug(board));
+    board->AddPanel(new PanelMeasures(board));
+    board->AddPanel(new PanelTests(board));
+    board->AddPanel(new PanelTables(board));
+    board->AddPanel(new PanelReports(board));
+    board->AddPanel(new PanelArchive(board));
+    board->AddPanel(new PanelSettings(board));
 
-    sizer->Add(main_board, 1, wxEXPAND);
+    sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
 
-    main_board->SetCurrentPanelIndex(0);
+    board->SetCurrentPanelIndex(0);
 
     SetPosition();
 
@@ -194,7 +194,7 @@ void MainWindow::OnEventCloseWindow(wxCloseEvent &event)
 {
     Test::Save("example.tst");
 
-    SET::GUI::current_panel->Set(main_board->GetCurrentPanelIndex());
+    SET::GUI::current_panel->Set(board->GetCurrentPanelIndex());
 
     if (ConsoleRS232::self)
     {

@@ -6,7 +6,7 @@
 PanelSettings *ThePanelSettings = nullptr;
 
 
-PanelSettings::PanelSettings(wxWindow *parent) : Panel(parent, L("Настройки"))
+PanelSettings::PanelSettings(PanelBoard *board) : Panel(board, L("Настройки"))
 {
     ThePanelSettings = this;
 }

@@ -39,7 +39,7 @@ FullJack::FullJack(Chan::E ch, wxWindow *parent, pchar file_jack_bmp, const wxAr
 }
 
 
-PanelTests::PanelTests(wxWindow *parent) : Panel(parent, L("Тесты"))
+PanelTests::PanelTests(PanelBoard *board) : Panel(board, L("Тесты"))
 {
     wxPanel::SetName("PanelTests");
 

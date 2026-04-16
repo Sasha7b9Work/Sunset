@@ -3,9 +3,12 @@
 #include "Panels/Panels.h"
 
 
+struct PanelBoard;
+
+
 struct PanelArchive : public Panel
 {
-    PanelArchive(wxWindow *);
+    PanelArchive(PanelBoard *);
 
 private:
 

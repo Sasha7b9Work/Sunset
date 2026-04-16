@@ -6,8 +6,10 @@
 #include "Panels/Panels.h"
 
 
-// Здесь отрисовывается график ну и кнопки разные
+struct PanelBoard;
 
+
+// Здесь отрисовывается график ну и кнопки разные
 
 struct PanelMeasures : public Panel
 {
@@ -49,7 +51,7 @@ public:
 
 private:
 
-    PanelMeasures(wxWindow *);
+    PanelMeasures(PanelBoard *);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,

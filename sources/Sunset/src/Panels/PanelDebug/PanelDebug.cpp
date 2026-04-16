@@ -9,7 +9,7 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(wxWindow *parent) : Panel(parent, L("Отладка"))
+PanelDebug::PanelDebug(PanelBoard *board) : Panel(board, L("Отладка"))
 {
     ThePanelDebug = this;
 

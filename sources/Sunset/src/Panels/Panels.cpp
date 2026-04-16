@@ -1,10 +1,11 @@
 // 2026/04/07 09:07:30 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/Panels.h"
+#include "Panels/PanelBoard.h"
 
 
-Panel::Panel(wxWindow *parent, const wxString &_name) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
+Panel::Panel(PanelBoard *board, const wxString &_name) :
+    wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
     name(_name)
 {
     Bind(wxEVT_SIZE, &Panel::OnEventSize, this);

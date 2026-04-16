@@ -3,9 +3,12 @@
 #include "Panels/Panels.h"
 
 
+struct PanelBoard;
+
+
 struct PanelDebug : public Panel
 {
-    PanelDebug(wxWindow *parent);
+    PanelDebug(PanelBoard *);
 
     virtual bool Show(bool) override;
 

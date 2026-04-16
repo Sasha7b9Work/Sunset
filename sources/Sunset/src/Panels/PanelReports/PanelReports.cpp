@@ -6,7 +6,7 @@
 PanelReports *ThePanelReports = nullptr;
 
 
-PanelReports::PanelReports(wxWindow *parent) : Panel(parent, L("Отчёты"))
+PanelReports::PanelReports(PanelBoard *board) : Panel(board, L("Отчёты"))
 {
     ThePanelReports = this;
 }

@@ -6,7 +6,7 @@
 PanelArchive *ThePanelArchive = nullptr;
 
 
-PanelArchive::PanelArchive(wxWindow *parent) : Panel(parent, L("Архив"))
+PanelArchive::PanelArchive(PanelBoard *board) : Panel(board, L("Архив"))
 {
     ThePanelArchive = this;
 }

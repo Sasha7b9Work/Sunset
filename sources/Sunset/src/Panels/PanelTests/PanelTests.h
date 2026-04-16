@@ -7,6 +7,9 @@
 #include "IPPP/Tests/SettingsTests.h"
 
 
+struct PanelBoard;
+
+
 // Отображается на отрисованной схеме
 class ComboJack : public ButtonsCombo
 {
@@ -57,7 +60,7 @@ struct PanelTests : public Panel
 
 public:
 
-    PanelTests(wxWindow *);
+    PanelTests(PanelBoard *);
 
     void Pack();
     void Unpack();
