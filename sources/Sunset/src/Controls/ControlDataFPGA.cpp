@@ -1,6 +1,9 @@
 ﻿// 2026/04/01 14:24:03 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/ControlDataFPGA.h"
+#pragma warning(push, 0)
+#include <wx/graphics.h>
+#pragma warning(pop)
 
 
 PainterDataFPGA::PainterDataFPGA(wxWindow *parent, const wxSize &size) :

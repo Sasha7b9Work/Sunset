@@ -2,6 +2,9 @@
 #include "defines.h"
 #include "Panels/PanelDebug/Notebook/PainterRegister.h"
 #include "Panels/PanelDebug/Notebook/Register.h"
+#pragma warning(push, 0)
+#include <wx/graphics.h>
+#pragma warning(pop)
 
 
 PainterRegister::PainterRegister(wxWindow *parent, Register *_panel, const wxPoint &position) :

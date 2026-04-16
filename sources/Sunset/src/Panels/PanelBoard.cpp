@@ -1,6 +1,9 @@
 // 2026/04/08 15:31:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Panels/PanelBoard.h"
+#pragma warning(push, 0)
+#include <wx/sizer.h>
+#pragma warning(pop)
 
 
 PanelBoard::PanelBoard(wxWindow *parent) :

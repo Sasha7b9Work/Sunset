@@ -4,6 +4,9 @@
 #include "MainWindow.h"
 #include "Panels/PanelDebug/Notebook/NotebookDebug.h"
 #include "Panels/PanelDebug/PanelRight.h"
+#pragma warning(push, 0)
+#include <wx/sizer.h>
+#pragma warning(pop)
 
 
 PanelDebug *ThePanelDebug = nullptr;

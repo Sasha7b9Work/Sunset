@@ -1,6 +1,9 @@
 ﻿// (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Utils/String.h"
+#pragma warning(push, 0)
+#include <wx/tokenzr.h>
+#pragma warning(pop)
 
 
 struct Parameter

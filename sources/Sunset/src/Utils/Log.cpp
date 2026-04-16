@@ -3,6 +3,9 @@
 #include "Utils/Log.h"
 #include "Utils/StringUtils.h"
 #include "Windows/ConsoleRS232.h"
+#pragma warning(push, 0)
+#include <wx/textfile.h>
+#pragma warning(pop)
 
 
 namespace Log

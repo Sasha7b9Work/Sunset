@@ -2,6 +2,9 @@
 #include "defines.h"
 #include "Controls/Painter.h"
 #include "Settings/Color.h"
+#pragma warning(push, 0)
+#include <wx/graphics.h>
+#pragma warning(pop)
 
 
 Painter::Painter(wxWindow *parent, const wxPoint &position, const wxSize &_size) :

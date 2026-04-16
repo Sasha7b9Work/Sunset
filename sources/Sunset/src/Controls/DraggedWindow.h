@@ -1,6 +1,9 @@
 ﻿// 2026/3/16 21:09:30 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Settings/Value.h"
+#pragma warning(push, 0)
+#include <wx/frame.h>
+#pragma warning(pop)
 
 
 // Окно, которое можно передвигать мышью

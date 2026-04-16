@@ -1,6 +1,9 @@
 ﻿// 2025/08/10 13:41:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/Bitmap.h"
+#pragma warning(push, 0)
+#include <wx/filename.h>
+#pragma warning(pop)
 
 
 std::map<wxString, Bitmap> Bitmap::bitmaps;

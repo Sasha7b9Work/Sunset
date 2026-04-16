@@ -1,6 +1,9 @@
 ﻿// 2025/6/3 14:02:10 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Panels/PanelDebug/Notebook/Register.h"
+#pragma warning(push, 0)
+#include <wx/notebook.h>
+#pragma warning(pop)
 
 
 // Это панель для засылки данных в регистры микросхем типа AD

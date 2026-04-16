@@ -1,5 +1,8 @@
 ﻿// 2026/03/14 01:12:30 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/graphics.h>
+#pragma warning(pop)
 
 
 // Класс для интерполяции кубическими сплайнами

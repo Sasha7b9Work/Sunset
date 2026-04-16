@@ -2,6 +2,9 @@
 #pragma once
 #include "Settings/Value.h"
 #include "Panels/PanelBoard.h"
+#pragma warning(push, 0)
+#include <wx/frame.h>
+#pragma warning(pop)
 
 
 struct ModeMainWindow

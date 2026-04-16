@@ -5,6 +5,7 @@
 #pragma warning(push, 0)
 #include <wx/button.h>
 #include <wx/bmpbuttn.h>
+#include <wx/tglbtn.h>
 #pragma warning(pop)
 
 

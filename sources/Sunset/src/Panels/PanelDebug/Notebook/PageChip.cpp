@@ -2,7 +2,10 @@
 #include "defines.h"
 #include "Panels/PanelDebug/Notebook/PageChip.h"
 #include "MainWindow.h"
-
+#pragma warning(push, 0)
+#include <wx/sizer.h>
+#include <wx/menu.h>
+#pragma warning(pop)
 
 PageChip::PageChip(wxNotebook *parent, const wxString &title) :
     wxPanel(parent)

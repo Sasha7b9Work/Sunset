@@ -1,6 +1,10 @@
 ﻿// 2023/08/11 17:01:17 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Utils/Configurator.h"
+#pragma warning(push, 0)
+#include <wx/config.h>
+#include <wx/fileconf.h>
+#pragma warning(pop)
 
 
 namespace Config

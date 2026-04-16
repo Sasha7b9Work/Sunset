@@ -17,7 +17,9 @@
 #include "Panels/PanelReports/PanelReports.h"
 #include "Panels/PanelSettings/PanelSettings.h"
 #include "Panels/PanelTables/PanelTables.h"
-
+#pragma warning(push, 0)
+#include <wx/sizer.h>
+#pragma warning(pop)
 
 MainWindow *TheMainWindow = nullptr;
 

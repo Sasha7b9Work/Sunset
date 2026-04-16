@@ -3,6 +3,9 @@
 #include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
 #include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Settings/Settings.h"
+#pragma warning(push, 0)
+#include <wx/graphics.h>
+#pragma warning(pop)
 
 
 void GraphMeasure::AppendPoint(const wxPoint2DDouble &point)
