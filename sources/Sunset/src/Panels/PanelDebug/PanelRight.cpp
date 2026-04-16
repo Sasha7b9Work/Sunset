@@ -20,7 +20,7 @@ PanelRight::PanelRight(wxWindow *parent) :
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    int y = 20;
+    int y = 30;
 
     btnStart = new Button{ this, "Старт", size_button };
     btnStart->SetPosition({ 10, SD::Y_SB(y) });
@@ -42,7 +42,7 @@ PanelRight::PanelRight(wxWindow *parent) :
 
     Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
 
-    y += 30;
+    y += 20;
 
     for (int i = 0; i < 5; i++)
     {
