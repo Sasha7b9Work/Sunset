@@ -27,21 +27,16 @@ void Panel::OnEventSize(wxSizeEvent &event)
         if (size != prev_size)
         {
             prev_size = size;
+
+            SetMinSize(size);
+            SetSize(size);
+
+            Refresh();
+
             CallbackOnEventSize();
             Refresh();
         }
     }
 
     event.Skip();
-}
-
-
-void Panel::CallbackOnEventSize()
-{
-    const wxSize size = GetParent()->GetSize();
-
-    SetMinSize(size);
-    SetSize(size);
-
-    Refresh();
 }

@@ -18,7 +18,7 @@ struct Panel : public wxPanel
 protected:
 
     // Эта функция будет вызываться при наступлении события wxEVT_SIZE
-    virtual void CallbackOnEventSize();
+    virtual void CallbackOnEventSize() = 0;
 
 private:
 
