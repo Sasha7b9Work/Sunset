@@ -2,6 +2,10 @@
 #pragma once
 #include "Controls/Painter.h"
 #include "Controls/Bitmap.h"
+#pragma warning(push, 0)
+#include <wx/button.h>
+#include <wx/bmpbuttn.h>
+#pragma warning(pop)
 
 
 struct Button : public wxButton

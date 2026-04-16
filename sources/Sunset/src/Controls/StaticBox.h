@@ -1,5 +1,8 @@
 // 2025/8/20 19:59:36 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/statbox.h>
+#pragma warning(pop)
 
 
 class StaticBox : public wxStaticBox

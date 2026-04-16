@@ -3,6 +3,9 @@
 #include "Utils/Configurator.h"
 #include "Utils/GlobalFunctions.h"
 #include "Controls/Buttons.h"
+#pragma warning(push, 0)
+#include <wx/checkbox.h>
+#pragma warning(pop)
 
 
 template<class T>

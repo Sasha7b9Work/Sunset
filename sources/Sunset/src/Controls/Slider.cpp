@@ -3,6 +3,10 @@
 #include "Controls/Slider.h"
 #include "Utils/GlobalFunctions.h"
 #include "Utils/Configurator.h"
+#pragma warning(push, 0)
+#include <wx/slider.h>
+#include <wx/stattext.h>
+#pragma warning(pop)
 
 
 SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxString &_name) :

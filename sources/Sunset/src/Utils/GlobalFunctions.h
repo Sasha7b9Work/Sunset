@@ -2,6 +2,11 @@
 #pragma once
 #include "Controls/Buttons.h"
 #include "Controls/ButtonsCombo.h"
+#pragma warning(push, 0)
+#pragma warning(pop)
+
+
+class wxRadioButton;
 
 
 #define FIND_CHECKBUTTON(id)  GF::FindCheckButton(this, (id))

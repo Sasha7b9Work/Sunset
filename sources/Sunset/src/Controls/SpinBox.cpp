@@ -1,6 +1,9 @@
 ﻿// 2025/7/23 14:20:52 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/SpinBox.h"
+#pragma warning(push, 0)
+#include <wx/button.h>
+#pragma warning(pop)
 
 
 SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :

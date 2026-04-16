@@ -1,5 +1,9 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/app.h>
+#pragma warning(pop)
+
 
 
 class Application : public wxApp

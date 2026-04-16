@@ -2,6 +2,9 @@
 #include "defines.h"
 #include "Utils/GlobalFunctions.h"
 #include "MainWindow.h"
+#pragma warning(push, 0)
+#include <wx/stattext.h>
+#pragma warning(pop)
 
 
 void GF::HorizontalAlignCenter(wxStaticText *label , wxWindow *border)
