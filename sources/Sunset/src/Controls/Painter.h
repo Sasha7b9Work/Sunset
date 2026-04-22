@@ -1,6 +1,9 @@
 ﻿// 2023/09/02 18:48:55 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/Bitmap.h"
+#pragma warning(push, 0)
+#include <wx/timer.h>
+#pragma warning(pop)
 
 
 struct Color;
