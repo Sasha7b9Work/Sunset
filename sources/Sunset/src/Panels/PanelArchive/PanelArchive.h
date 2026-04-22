@@ -3,11 +3,13 @@
 #include "Panels/Panels.h"
 
 
-struct PanelBoard;
+class PanelBoard;
 
 
-struct PanelArchive : public Panel
+class PanelArchive : public Panel
 {
+public:
+
     PanelArchive(PanelBoard *, PanelArchive *&);
 
 private:

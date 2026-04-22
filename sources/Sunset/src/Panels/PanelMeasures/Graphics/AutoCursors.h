@@ -3,9 +3,11 @@
 #include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
 
 
-struct AutoCursors
+class AutoCursors
 {
     friend class MainWindow;
+
+public:
 
     void Draw(const std::vector<GraphMeasure *> &);
 

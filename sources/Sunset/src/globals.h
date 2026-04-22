@@ -3,7 +3,7 @@
 
 
 class Application;
-struct AutoCursors;
+class AutoCursors;
 class DialogTest;
 class IGrid;
 class MainWindow;
@@ -18,14 +18,14 @@ extern MainWindow    *TheMainWindow;
 extern NotebookDebug *TheNotebookDebug;
 extern WindowCursors *TheWindowCursors;     // Настройки курсоров
 
-struct PanelArchive;
-struct PanelDebug;
-struct PanelMeasures;
-struct PanelReports;
-struct PanelSettings;
-struct PanelTables;
-struct PanelTests;
-struct PanelRight;
+class PanelArchive;
+class PanelDebug;
+class PanelMeasures;
+class PanelReports;
+class PanelSettings;
+class PanelTables;
+class PanelTests;
+class PanelRight;
 
 extern PanelArchive  *ThePanelArchive;
 extern PanelDebug    *ThePanelDebug;

@@ -4,8 +4,10 @@
 #include "Controls/Buttons.h"
 
 
-struct PanelRight : public wxPanel
+class PanelRight : public wxPanel
 {
+public:
+
     PanelRight(wxWindow *);
 
     ControlDataFPGA *data[5];           // Отображение данных, считанных c платы контроллера

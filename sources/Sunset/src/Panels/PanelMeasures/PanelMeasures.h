@@ -6,12 +6,12 @@
 #include "Panels/Panels.h"
 
 
-struct PanelBoard;
+class PanelBoard;
 
 
 // Здесь отрисовывается график ну и кнопки разные
 
-struct PanelMeasures : public Panel
+class PanelMeasures : public Panel
 {
     friend class Point;
     friend class Text;

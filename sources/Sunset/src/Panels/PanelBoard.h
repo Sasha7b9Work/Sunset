@@ -4,8 +4,10 @@
 
 
 // Это место, где будут храниться панели
-struct PanelBoard : public wxPanel
+class PanelBoard : public wxPanel
 {
+public:
+
     PanelBoard(wxWindow *);
 
     void AddPanel(Panel *);

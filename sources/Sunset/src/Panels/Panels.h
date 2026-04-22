@@ -3,13 +3,15 @@
 #include "Controls/Buttons.h"
 
 
-struct PanelBoard;
+class PanelBoard;
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
-struct Panel : public wxPanel
+class Panel : public wxPanel
 {
-    friend struct PanelBoard;
+    friend class PanelBoard;
+
+public:
 
     Panel(PanelBoard *, const wxString &);
 

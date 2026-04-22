@@ -3,11 +3,13 @@
 #include "Panels/Panels.h"
 
 
-struct PanelBoard;
+class PanelBoard;
 
 
-struct PanelDebug : public Panel
+class PanelDebug : public Panel
 {
+public:
+
     PanelDebug(PanelBoard *, PanelDebug *&);
 
     virtual bool Show(bool) override;

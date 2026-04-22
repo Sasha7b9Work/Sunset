@@ -6,12 +6,14 @@
 #include "IPPP/Tests/SettingsTests.h"
 
 
-struct PanelBoard;
+class PanelBoard;
 class Splitter;
 
 
-struct PanelTests : public Panel
+class PanelTests : public Panel
 {
+public:
+
     PanelTests(PanelBoard *, PanelTests *&);
 
 private:
