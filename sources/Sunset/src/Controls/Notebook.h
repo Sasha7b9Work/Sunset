@@ -3,6 +3,7 @@
 
 
 class ToggleButton;
+class Notebook;
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
