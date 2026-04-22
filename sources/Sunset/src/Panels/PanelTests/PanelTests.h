@@ -7,6 +7,7 @@
 
 
 struct PanelBoard;
+class Splitter;
 
 
 struct PanelTests : public Panel
@@ -15,8 +16,8 @@ struct PanelTests : public Panel
 
 private:
 
-    wxSplitterWindow *mainSplitter = nullptr;      // Главный сплиттер (лево/право)
-    wxSplitterWindow *leftSplitter = nullptr;      // Левый сплиттер (верх/низ)
+    Splitter *hor_splitter = nullptr;      // Этот сплиттер в горизонтальной плоскости
+    Splitter *vert_splitter = nullptr;      // Левый сплиттер (верх/низ)
 
     wxPanel *panelLeftTop = nullptr;
     wxPanel *panelLeftBottom = nullptr;
