@@ -15,7 +15,8 @@
 PanelTests *ThePanelTests = nullptr;
 
 
-PanelTests::PanelTests(Notebook *board, PanelTests *&self) : Panel(board, L("Тесты"))
+PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
+    PageNotebook(board, L("Тесты"))
 {
     self = this;
 

@@ -8,7 +8,7 @@
 
 // Здесь отрисовывается график ну и кнопки разные
 
-class PanelMeasures : public Panel
+class PanelMeasures : public PageNotebook
 {
     friend class Point;
     friend class Text;

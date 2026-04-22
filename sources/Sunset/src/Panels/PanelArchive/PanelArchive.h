@@ -3,7 +3,7 @@
 #include "Controls/Notebook.h"
 
 
-class PanelArchive : public Panel
+class PanelArchive : public PageNotebook
 {
 public:
 

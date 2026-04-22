@@ -6,7 +6,7 @@
 PanelArchive *ThePanelArchive = nullptr;
 
 
-PanelArchive::PanelArchive(Notebook *board, PanelArchive *&self) : Panel(board, L("Архив"))
+PanelArchive::PanelArchive(Notebook *board, PanelArchive *&self) : PageNotebook(board, L("Архив"))
 {
     self = this;
 }

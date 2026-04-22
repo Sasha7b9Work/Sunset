@@ -7,21 +7,21 @@
 #pragma warning(pop)
 
 
-Panel::Panel(Notebook *board, const wxString &_name) :
+PageNotebook::PageNotebook(Notebook *board, const wxString &_name) :
     wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
     name(_name)
 {
-    Bind(wxEVT_SIZE, &Panel::OnEventSize, this);
+    Bind(wxEVT_SIZE, &PageNotebook::OnEventSize, this);
 }
 
 
-const wxString &Panel::GetPanelName() const
+const wxString &PageNotebook::GetPanelName() const
 {
     return name;
 }
 
 
-void Panel::OnEventSize(wxSizeEvent &event)
+void PageNotebook::OnEventSize(wxSizeEvent &event)
 {
     const wxSize size = GetParent()->GetSize();
 
@@ -84,7 +84,7 @@ void Notebook::OnEventButtonToggle(wxCommandEvent &event)
         }
         else
         {
-            Panel *panel = (Panel *)btn->GetClientData();
+            PageNotebook *panel = (PageNotebook *)btn->GetClientData();
 
             if (panel)
             {
@@ -97,7 +97,7 @@ void Notebook::OnEventButtonToggle(wxCommandEvent &event)
 }
 
 
-void Notebook::SetCurrentPanel(Panel *panel)
+void Notebook::SetCurrentPanel(PageNotebook *panel)
 {
     // Скрываем текущую панель
     if (currentPanel)
@@ -126,7 +126,7 @@ void Notebook::SetCurrentPanel(Panel *panel)
 
 
 
-void Notebook::AddPanel(Panel *panel)
+void Notebook::AddPanel(PageNotebook *panel)
 {
     // Изначально все панели скрыты
     panel->Hide();
@@ -150,7 +150,7 @@ void Notebook::SetCurrentPanelIndex(int index)
         return;
     }
 
-    Panel *panel = (Panel *)buttons[(size_t)index]->GetClientData();
+    PageNotebook *panel = (PageNotebook *)buttons[(size_t)index]->GetClientData();
 
     SetCurrentPanel(panel);
 
@@ -161,7 +161,7 @@ void Notebook::SetCurrentPanelIndex(int index)
 }
 
 
-void Notebook::AddTopButton(Panel *panel)
+void Notebook::AddTopButton(PageNotebook *panel)
 {
     ToggleButton *btn = new ToggleButton((wxPanel *)topSizer->GetContainingWindow(), panel->GetPanelName());
     btn->SetClientData((wxObject *)panel);
@@ -178,7 +178,7 @@ int Notebook::GetCurrentPanelIndex() const
 }
 
 
-int Notebook::GetPanelIndex(Panel *panel) const
+int Notebook::GetPanelIndex(PageNotebook *panel) const
 {
     for (uint i = 0; i < buttons.size(); i++)
     {

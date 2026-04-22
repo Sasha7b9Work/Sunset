@@ -9,7 +9,7 @@
 class Splitter;
 
 
-class PanelTests : public Panel
+class PanelTests : public PageNotebook
 {
 public:
 

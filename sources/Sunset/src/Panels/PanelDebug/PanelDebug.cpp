@@ -12,7 +12,7 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(Notebook *board, PanelDebug *&self) : Panel(board, L("Отладка"))
+PanelDebug::PanelDebug(Notebook *board, PanelDebug *&self) : PageNotebook(board, L("Отладка"))
 {
     self = this;
 
@@ -24,7 +24,7 @@ PanelDebug::PanelDebug(Notebook *board, PanelDebug *&self) : Panel(board, L("О�
 
     SetSizer(sizer);
 
-    Panel::Layout();
+    PageNotebook::Layout();
 
     Unpack();
 }

@@ -6,13 +6,13 @@ class ToggleButton;
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
-class Panel : public wxPanel
+class PageNotebook : public wxPanel
 {
     friend class Notebook;
 
 public:
 
-    Panel(Notebook *, const wxString &);
+    PageNotebook(Notebook *, const wxString &);
 
     const wxString &GetPanelName() const;
 
@@ -36,7 +36,7 @@ public:
 
     Notebook(wxWindow *);
 
-    void AddPanel(Panel *);
+    void AddPanel(PageNotebook *);
 
     // Переключиться на панель по индексу
     void SetCurrentPanelIndex(int index);
@@ -57,15 +57,15 @@ private:
     wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
 
     std::vector<ToggleButton *> buttons;    // Кнопки, соотвествующие панелям
-    Panel *currentPanel = nullptr;          // Текущая активная панель
+    PageNotebook *currentPanel = nullptr;   // Текущая активная панель
 
     // Добавить кнопку в верхнюю панель
-    void AddTopButton(Panel *);
+    void AddTopButton(PageNotebook *);
 
     void OnEventButtonToggle(wxCommandEvent &);
 
     // Переключиться на панель по указателю
-    void SetCurrentPanel(Panel *);
+    void SetCurrentPanel(PageNotebook *);
 
-    int GetPanelIndex(Panel *) const;
+    int GetPanelIndex(PageNotebook *) const;
 };
