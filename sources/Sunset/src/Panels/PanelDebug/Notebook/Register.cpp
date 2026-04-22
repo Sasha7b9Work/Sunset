@@ -11,6 +11,7 @@
 #include "Controls/Knob.h"
 #pragma warning(push, 0)
 #include <wx/stattext.h>
+#include <wx/graphics.h>
 #pragma warning(pop)
 
 

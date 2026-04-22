@@ -6,6 +6,10 @@
 #include "MainWindow.h"
 #include "Settings/Settings.h"
 #include "Panels/PanelMeasures/Graphics/AutoCursors.h"
+#pragma warning(push, 0)
+#include <wx/colourdata.h>
+#include <wx/colordlg.h>
+#pragma warning(pop)
 
 
 MenuDisplay::MenuDisplay() : wxMenu()

@@ -5,6 +5,7 @@
 #include "Windows/ConsoleRS232.h"
 #pragma warning(push, 0)
 #include <wx/textfile.h>
+#include <wx/filename.h>
 #pragma warning(pop)
 
 

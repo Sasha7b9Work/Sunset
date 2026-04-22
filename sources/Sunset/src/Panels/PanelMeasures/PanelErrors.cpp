@@ -4,6 +4,9 @@
 #include "MainWindow.h"
 #include "Panels/PanelMeasures/PanelMeasures.h"
 #include "Utils/SystemDepend.h"
+#pragma warning(push, 0)
+#include <wx/sizer.h>
+#pragma warning(pop)
 
 
 PanelErrors *ThePanelErrors = nullptr;
