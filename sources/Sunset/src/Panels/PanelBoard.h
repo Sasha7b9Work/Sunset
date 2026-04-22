@@ -3,12 +3,11 @@
 #include "Panels/Panels.h"
 
 
-// Это место, где будут храниться панели
-class PanelBoard : public wxPanel
+class Notebook : public wxPanel
 {
 public:
 
-    PanelBoard(wxWindow *);
+    Notebook(wxWindow *);
 
     void AddPanel(Panel *);
 

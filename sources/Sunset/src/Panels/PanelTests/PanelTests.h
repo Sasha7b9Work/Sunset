@@ -6,7 +6,7 @@
 #include "IPPP/Tests/SettingsTests.h"
 
 
-class PanelBoard;
+class Notebook;
 class Splitter;
 
 
@@ -14,7 +14,7 @@ class PanelTests : public Panel
 {
 public:
 
-    PanelTests(PanelBoard *, PanelTests *&);
+    PanelTests(Notebook *, PanelTests *&);
 
 private:
 

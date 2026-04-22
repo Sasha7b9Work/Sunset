@@ -3,14 +3,14 @@
 #include "Panels/Panels.h"
 
 
-class PanelBoard;
+class Notebook;
 
 
 class PanelDebug : public Panel
 {
 public:
 
-    PanelDebug(PanelBoard *, PanelDebug *&);
+    PanelDebug(Notebook *, PanelDebug *&);
 
     virtual bool Show(bool) override;
 

@@ -12,7 +12,7 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(PanelBoard *board, PanelDebug *&self) : Panel(board, L("Отладка"))
+PanelDebug::PanelDebug(Notebook *board, PanelDebug *&self) : Panel(board, L("Отладка"))
 {
     self = this;
 

@@ -6,7 +6,7 @@
 #pragma warning(pop)
 
 
-PanelBoard::PanelBoard(wxWindow *parent) :
+Notebook::Notebook(wxWindow *parent) :
     wxPanel(parent)
 {
     // Создаём главный вертикальный sizer
@@ -33,7 +33,7 @@ PanelBoard::PanelBoard(wxWindow *parent) :
 }
 
 
-void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
+void Notebook::OnEventButtonToggle(wxCommandEvent &event)
 {
     ToggleButton *btn = (ToggleButton *)event.GetEventObject();
 
@@ -58,7 +58,7 @@ void PanelBoard::OnEventButtonToggle(wxCommandEvent &event)
 }
 
 
-void PanelBoard::SetCurrentPanel(Panel *panel)
+void Notebook::SetCurrentPanel(Panel *panel)
 {
     // Скрываем текущую панель
     if (currentPanel)
@@ -87,7 +87,7 @@ void PanelBoard::SetCurrentPanel(Panel *panel)
 
 
 
-void PanelBoard::AddPanel(Panel *panel)
+void Notebook::AddPanel(Panel *panel)
 {
     // Изначально все панели скрыты
     panel->Hide();
@@ -104,7 +104,7 @@ void PanelBoard::AddPanel(Panel *panel)
 }
 
 
-void PanelBoard::SetCurrentPanelIndex(int index)
+void Notebook::SetCurrentPanelIndex(int index)
 {
     if (index < 0 || index >= static_cast<int>(buttons.size()))
     {
@@ -122,24 +122,24 @@ void PanelBoard::SetCurrentPanelIndex(int index)
 }
 
 
-void PanelBoard::AddTopButton(Panel *panel)
+void Notebook::AddTopButton(Panel *panel)
 {
     ToggleButton *btn = new ToggleButton((wxPanel *)topSizer->GetContainingWindow(), panel->GetPanelName());
     btn->SetClientData((wxObject *)panel);
-    btn->Bind(wxEVT_TOGGLEBUTTON, &PanelBoard::OnEventButtonToggle, this);
+    btn->Bind(wxEVT_TOGGLEBUTTON, &Notebook::OnEventButtonToggle, this);
     topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
     topSizer->Layout();
     buttons.push_back(btn);
 }
 
 
-int PanelBoard::GetCurrentPanelIndex() const
+int Notebook::GetCurrentPanelIndex() const
 {
     return GetPanelIndex(currentPanel);
 }
 
 
-int PanelBoard::GetPanelIndex(Panel *panel) const
+int Notebook::GetPanelIndex(Panel *panel) const
 {
     for (uint i = 0; i < buttons.size(); i++)
     {

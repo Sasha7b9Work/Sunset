@@ -45,7 +45,7 @@ MainWindow::MainWindow(const wxString &title)
     TuneFont();
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
-    board = new PanelBoard(this);
+    board = new Notebook(this);
     board->AddPanel(new PanelDebug(board, ThePanelDebug));
     board->AddPanel(new PanelMeasures(board, ThePanelMeasures));
     board->AddPanel(new PanelTests(board, ThePanelTests));

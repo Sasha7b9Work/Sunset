@@ -4,7 +4,7 @@
 #include "Panels/PanelBoard.h"
 
 
-Panel::Panel(PanelBoard *board, const wxString &_name) :
+Panel::Panel(Notebook *board, const wxString &_name) :
     wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
     name(_name)
 {

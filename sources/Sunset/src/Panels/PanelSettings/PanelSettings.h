@@ -3,14 +3,14 @@
 #include "Panels/Panels.h"
 
 
-class PanelBoard;
+class Notebook;
 
 
 class PanelSettings : public Panel
 {
 public:
 
-    PanelSettings(PanelBoard *, PanelSettings *&);
+    PanelSettings(Notebook *, PanelSettings *&);
 
 private:
 

@@ -6,7 +6,7 @@
 PanelTables *ThePanelTables = nullptr;
 
 
-PanelTables::PanelTables(PanelBoard *board, PanelTables *&self) : Panel(board, L("Таблицы"))
+PanelTables::PanelTables(Notebook *board, PanelTables *&self) : Panel(board, L("Таблицы"))
 {
     self = this;
 }

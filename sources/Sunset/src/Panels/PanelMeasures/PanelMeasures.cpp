@@ -14,7 +14,7 @@
 PanelMeasures *ThePanelMeasures = nullptr;
 
 
-PanelMeasures::PanelMeasures(PanelBoard *board, PanelMeasures *&self) : Panel(board, L("Измерения"))
+PanelMeasures::PanelMeasures(Notebook *board, PanelMeasures *&self) : Panel(board, L("Измерения"))
 {
     self = this;
 

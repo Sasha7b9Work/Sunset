@@ -67,7 +67,7 @@ private:
 
     ValuePoint position{ "gui_position", { 100, 100 } };
 
-    PanelBoard *board = nullptr;
+    Notebook *board = nullptr;
 
     void OnEventKeyHook(wxKeyEvent &);
     void OnEventMaximize(wxMaximizeEvent &);

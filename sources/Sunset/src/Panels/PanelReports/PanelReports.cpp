@@ -6,7 +6,7 @@
 PanelReports *ThePanelReports = nullptr;
 
 
-PanelReports::PanelReports(PanelBoard *board, PanelReports *&self) : Panel(board, L("Отчёты"))
+PanelReports::PanelReports(Notebook *board, PanelReports *&self) : Panel(board, L("Отчёты"))
 {
     self = this;
 }

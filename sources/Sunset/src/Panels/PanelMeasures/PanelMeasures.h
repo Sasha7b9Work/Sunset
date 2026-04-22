@@ -6,7 +6,7 @@
 #include "Panels/Panels.h"
 
 
-class PanelBoard;
+class Notebook;
 
 
 // Здесь отрисовывается график ну и кнопки разные
@@ -51,7 +51,7 @@ public:
 
 private:
 
-    PanelMeasures(PanelBoard *, PanelMeasures *&);
+    PanelMeasures(Notebook *, PanelMeasures *&);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,
