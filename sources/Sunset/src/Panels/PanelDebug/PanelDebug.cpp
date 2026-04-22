@@ -12,9 +12,9 @@
 PanelDebug *ThePanelDebug = nullptr;
 
 
-PanelDebug::PanelDebug(PanelBoard *board) : Panel(board, L("Отладка"))
+PanelDebug::PanelDebug(PanelBoard *board, PanelDebug *&self) : Panel(board, L("Отладка"))
 {
-    ThePanelDebug = this;
+    self = this;
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
 

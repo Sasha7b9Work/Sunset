@@ -6,9 +6,9 @@
 PanelSettings *ThePanelSettings = nullptr;
 
 
-PanelSettings::PanelSettings(PanelBoard *board) : Panel(board, L("Настройки"))
+PanelSettings::PanelSettings(PanelBoard *board, PanelSettings *&self) : Panel(board, L("Настройки"))
 {
-    ThePanelSettings = this;
+    self = this;
 }
 
 

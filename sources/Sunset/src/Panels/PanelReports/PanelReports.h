@@ -8,7 +8,7 @@ struct PanelBoard;
 
 struct PanelReports : public Panel
 {
-    PanelReports(PanelBoard *);
+    PanelReports(PanelBoard *, PanelReports *&);
 
 private:
 

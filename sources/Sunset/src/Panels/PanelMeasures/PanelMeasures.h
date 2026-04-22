@@ -51,7 +51,7 @@ public:
 
 private:
 
-    PanelMeasures(PanelBoard *);
+    PanelMeasures(PanelBoard *, PanelMeasures *&);
 
     wxButton *btnHelp = nullptr,
         *btnLessX = nullptr,

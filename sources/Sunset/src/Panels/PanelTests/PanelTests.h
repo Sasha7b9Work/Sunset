@@ -11,39 +11,17 @@ struct PanelBoard;
 
 struct PanelTests : public Panel
 {
-    const int HEIGHT = 500;
-
-    friend struct Category;
-    friend struct TypeCommutation;
-
-public:
-
-    PanelTests(PanelBoard *);
-
-    void Pack();
-    void Unpack();
+    PanelTests(PanelBoard *, PanelTests *&);
 
 private:
 
-    wxButton *btnLoad = nullptr;
+    wxSplitterWindow *mainSplitter = nullptr;      // Главный сплиттер (лево/право)
+    wxSplitterWindow *leftSplitter = nullptr;      // Левый сплиттер (верх/низ)
 
-    ButtonsCombo *comboTest = nullptr,
-        *comboCommutation = nullptr;
-
-    BmpButtonsCombo *comboCategory = nullptr;
+    wxPanel *panelLeftTop = nullptr;
+    wxPanel *panelLeftBottom = nullptr;
+    wxPanel *panelRight = nullptr;
 
     virtual void CallbackOnEventSize() override;
-
-    void OnEventButton(wxCommandEvent &);
-    void OnEventComboBox(wxCommandEvent &);
-    void OnEventMouseEnter(wxMouseEvent &);
-    void OnEventMouseLeave(wxMouseEvent &);
-    void OnEventMouseMove(wxMouseEvent &);
-
-    // Нарисовать схему в соответствии с установками
-    void BuildPanel();
-
-    // Обновить обозначение типа генерируемой величины в соответствии с выбраной категорией
-    void UpdateSuffixGenerator(ButtonsCombo *, char suffix);
 };
  

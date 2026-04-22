@@ -6,9 +6,9 @@
 PanelArchive *ThePanelArchive = nullptr;
 
 
-PanelArchive::PanelArchive(PanelBoard *board) : Panel(board, L("Архив"))
+PanelArchive::PanelArchive(PanelBoard *board, PanelArchive *&self) : Panel(board, L("Архив"))
 {
-    ThePanelArchive = this;
+    self = this;
 }
 
 

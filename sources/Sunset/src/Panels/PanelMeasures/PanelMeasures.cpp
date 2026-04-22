@@ -14,9 +14,9 @@
 PanelMeasures *ThePanelMeasures = nullptr;
 
 
-PanelMeasures::PanelMeasures(PanelBoard *board) : Panel(board, L("Измерения"))
+PanelMeasures::PanelMeasures(PanelBoard *board, PanelMeasures *&self) : Panel(board, L("Измерения"))
 {
-    ThePanelMeasures = this;
+    self = this;
 
     wxPanel::SetDoubleBuffered(true);
     Bind(wxEVT_PAINT, &PanelMeasures::OnEventPaint, this);

@@ -8,7 +8,7 @@ struct PanelBoard;
 
 struct PanelDebug : public Panel
 {
-    PanelDebug(PanelBoard *);
+    PanelDebug(PanelBoard *, PanelDebug *&);
 
     virtual bool Show(bool) override;
 

@@ -46,13 +46,13 @@ MainWindow::MainWindow(const wxString &title)
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     board = new PanelBoard(this);
-    board->AddPanel(new PanelDebug(board));
-    board->AddPanel(new PanelMeasures(board));
-    board->AddPanel(new PanelTests(board));
-    board->AddPanel(new PanelTables(board));
-    board->AddPanel(new PanelReports(board));
-    board->AddPanel(new PanelArchive(board));
-    board->AddPanel(new PanelSettings(board));
+    board->AddPanel(new PanelDebug(board, ThePanelDebug));
+    board->AddPanel(new PanelMeasures(board, ThePanelMeasures));
+    board->AddPanel(new PanelTests(board, ThePanelTests));
+    board->AddPanel(new PanelTables(board, ThePanelTables));
+    board->AddPanel(new PanelReports(board, ThePanelReports));
+    board->AddPanel(new PanelArchive(board, ThePanelArchive));
+    board->AddPanel(new PanelSettings(board, ThePanelSettings));
 
     sizer->Add(board, 1, wxEXPAND);
     SetSizer(sizer);
