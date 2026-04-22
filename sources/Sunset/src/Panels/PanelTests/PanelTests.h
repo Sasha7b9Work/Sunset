@@ -2,11 +2,10 @@
 #pragma once
 #include "Controls/ButtonsCombo.h"
 #include "Controls/BmpButtonsCombo.h"
-#include "Panels/Panels.h"
+#include "Controls/Notebook.h"
 #include "IPPP/Tests/SettingsTests.h"
 
 
-class Notebook;
 class Splitter;
 
 

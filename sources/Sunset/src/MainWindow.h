@@ -1,10 +1,12 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Settings/Value.h"
-#include "Panels/PanelBoard.h"
 #pragma warning(push, 0)
 #include <wx/frame.h>
 #pragma warning(pop)
+
+
+class Notebook;
 
 
 struct ModeMainWindow

@@ -12,11 +12,11 @@
 #include "Controls/Dialog.h"
 #include "IPPP/Tests/Tests.h"
 #include "Panels/PanelMeasures/Graphics/AutoCursors.h"
-#include "Panels/Panels.h"
 #include "Panels/PanelArchive/PanelArchive.h"
 #include "Panels/PanelReports/PanelReports.h"
 #include "Panels/PanelSettings/PanelSettings.h"
 #include "Panels/PanelTables/PanelTables.h"
+#include "Controls/Notebook.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>
 #include <wx/statline.h>

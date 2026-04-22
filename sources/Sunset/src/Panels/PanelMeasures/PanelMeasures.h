@@ -3,10 +3,7 @@
 #include "Panels/PanelMeasures/Grid/Grid.h"
 #include "Panels/PanelMeasures/PanelErrors.h"
 #include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
-#include "Panels/Panels.h"
-
-
-class Notebook;
+#include "Controls/Notebook.h"
 
 
 // Здесь отрисовывается график ну и кнопки разные

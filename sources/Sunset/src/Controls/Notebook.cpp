@@ -1,9 +1,48 @@
 // 2026/04/08 15:31:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/PanelBoard.h"
+#include "Controls/Notebook.h"
+#include "Controls/Buttons.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>
 #pragma warning(pop)
+
+
+Panel::Panel(Notebook *board, const wxString &_name) :
+    wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
+    name(_name)
+{
+    Bind(wxEVT_SIZE, &Panel::OnEventSize, this);
+}
+
+
+const wxString &Panel::GetPanelName() const
+{
+    return name;
+}
+
+
+void Panel::OnEventSize(wxSizeEvent &event)
+{
+    const wxSize size = GetParent()->GetSize();
+
+    if (size.x && size.y)
+    {
+        if (size != prev_size)
+        {
+            prev_size = size;
+
+            SetMinSize(size);
+            SetSize(size);
+
+            Refresh();
+
+            CallbackOnEventSize();
+            Refresh();
+        }
+    }
+
+    event.Skip();
+}
 
 
 Notebook::Notebook(wxWindow *parent) :

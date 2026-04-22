@@ -1,6 +1,6 @@
 ﻿// 2025/8/9 09:54:44 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Panels/Panels.h"
+#include "Controls/Notebook.h"
 #include "Panels/PanelTests/PanelTests.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
