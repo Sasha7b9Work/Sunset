@@ -5,6 +5,9 @@
 #include "Controls/StaticBox.h"
 #include "Utils/Configurator.h"
 #include "Settings/Settings.h"
+#pragma warning(push, 0)
+#include <wx/settings.h>
+#pragma warning(pop)
 
 
 class BmpButtonPopup : public wxPopupTransientWindow
