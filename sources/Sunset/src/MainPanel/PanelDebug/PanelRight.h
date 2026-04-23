@@ -9,7 +9,7 @@ class PanelRight : public Panel
 {
 public:
 
-    PanelRight(wxWindow *);
+    PanelRight(wxWindow *, PanelRight *&);
 
     ControlDataFPGA *data[5];           // Отображение данных, считанных c платы контроллера
 

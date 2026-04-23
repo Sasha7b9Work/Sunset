@@ -13,10 +13,10 @@
 PanelRight *ThePanelRight = nullptr;
 
 
-PanelRight::PanelRight(wxWindow *parent) :
+PanelRight::PanelRight(wxWindow *parent, PanelRight *&self) :
     Panel(parent)
 {
-    ThePanelRight = this;
+    self = this;
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
