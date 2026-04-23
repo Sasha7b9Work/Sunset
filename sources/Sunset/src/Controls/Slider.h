@@ -7,6 +7,7 @@
 
 
 class wxSlider;
+class Button;
 
 
 class SliderInt : public Panel
@@ -28,8 +29,8 @@ private:
 
     wxStaticText *text = nullptr;
     wxSlider     *slider = nullptr;
-    wxButton     *btnMore = nullptr;
-    wxButton     *btnLess = nullptr;
+    Button       *btnMore = nullptr;
+    Button       *btnLess = nullptr;
 
     wxTimer timer_less;
     wxTimer timer_more;
