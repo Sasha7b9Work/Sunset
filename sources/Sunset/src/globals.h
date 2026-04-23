@@ -4,7 +4,6 @@
 
 class Application;
 class AutoCursors;
-class DialogTest;
 class IGrid;
 class MainWindow;
 class NotebookDebug;
@@ -12,7 +11,6 @@ class WindowCursors;
 
 extern Application   *TheApp;
 extern AutoCursors   *TheAutoCursors;
-extern DialogTest    *TheDialogTest;
 extern IGrid         *TheGrid;
 extern MainWindow    *TheMainWindow;
 extern NotebookDebug *TheNotebookDebug;

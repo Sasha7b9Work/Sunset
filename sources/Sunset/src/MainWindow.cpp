@@ -80,7 +80,7 @@ MainWindow::MainWindow(const wxString &title)
         }
     }
 
-    new AutoCursors();
+    new AutoCursors(TheAutoCursors);
 
     SetMode(ModeMainWindow::Standard);
 }

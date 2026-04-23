@@ -23,5 +23,5 @@ private:
 
     bool is_allowed = true;
 
-    AutoCursors();
+    AutoCursors(AutoCursors *&);
 };

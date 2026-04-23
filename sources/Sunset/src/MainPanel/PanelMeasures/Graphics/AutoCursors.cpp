@@ -2,7 +2,6 @@
 #include "defines.h"
 #include "MainPanel/PanelMeasures/Graphics/AutoCursors.h"
 #include "MainPanel/PanelMeasures/Grid/Grid.h"
-//#include "Panels/PanelMeasures/Grid/GridNew.h"
 #include "MainPanel/PanelMeasures/PanelMeasures.h"
 #include "Settings/Settings.h"
 #include "Utils/Math.h"
@@ -12,9 +11,9 @@
 AutoCursors *TheAutoCursors = nullptr;
 
 
-AutoCursors::AutoCursors()
+AutoCursors::AutoCursors(AutoCursors *&self)
 {
-    TheAutoCursors = this;
+    self = this;
 }
 
 
