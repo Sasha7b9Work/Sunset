@@ -52,5 +52,4 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
 
 void PanelTests::CallbackOnEventSize()
 {
-    int i = 0;
 }

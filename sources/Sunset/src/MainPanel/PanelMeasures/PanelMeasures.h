@@ -1,12 +1,10 @@
 ﻿// 2022/10/28 23:17:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-//#include "Panels/PanelMeasures/Grid/Grid.h"
-//#include "Panels/PanelMeasures/PanelErrors.h"
-//#include "Panels/PanelMeasures/Graphics/GraphMeasure.h"
 #include "Controls/Notebook.h"
 
 
 class PanelErrors;
+class GraphMeasure;
 
 
 // Здесь отрисовывается график ну и кнопки разные
