@@ -1,5 +1,6 @@
 // 2026/04/08 15:30:46 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Controls/Panel.h"
 
 
 class ToggleButton;
@@ -7,7 +8,7 @@ class Notebook;
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard
-class PageNotebook : public wxPanel
+class PageNotebook : public Panel
 {
     friend class Notebook;
 

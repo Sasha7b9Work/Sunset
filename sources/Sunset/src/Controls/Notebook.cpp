@@ -8,7 +8,8 @@
 
 
 PageNotebook::PageNotebook(Notebook *board, const wxString &_name) :
-    wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
+//    wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
+    Panel(board->GetCenterContainer()),
     name(_name)
 {
     Bind(wxEVT_SIZE, &PageNotebook::OnEventSize, this);
