@@ -16,10 +16,10 @@
 NotebookDebug *TheNotebookDebug = nullptr;
 
 
-NotebookDebug::NotebookDebug(wxWindow *parent) :
+NotebookDebug::NotebookDebug(wxWindow *parent, NotebookDebug *&self) :
     wxNotebook(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBK_TOP)
 {
-    TheNotebookDebug = this;
+    self = this;
 
     AppendNewPage(new PageFPGA(this));
     AppendNewPage(new PageChannelC(this));
