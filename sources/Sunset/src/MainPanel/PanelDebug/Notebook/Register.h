@@ -6,6 +6,7 @@
 #include "IPPP/Real/Chips.h"
 #include "Controls/Knob.h"
 #include "Controls/Slider.h"
+#include "Controls/Panel.h"
 
 
 class CommandsCombo;
@@ -79,7 +80,7 @@ struct ModeDescripion
 
 // Визуальное представление регистра
 
-class Register : public wxPanel
+class Register : public Panel
 {
     friend class PainterRegister;
 

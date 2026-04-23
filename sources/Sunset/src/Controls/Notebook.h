@@ -32,7 +32,7 @@ private:
 };
 
 
-class Notebook : public wxPanel
+class Notebook : public Panel
 {
 public:
 

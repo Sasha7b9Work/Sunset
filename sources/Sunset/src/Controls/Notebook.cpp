@@ -8,7 +8,6 @@
 
 
 PageNotebook::PageNotebook(Notebook *board, const wxString &_name) :
-//    wxPanel(board->GetCenterContainer(), wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxSUNKEN_BORDER),
     Panel(board->GetCenterContainer()),
     name(_name)
 {
@@ -47,7 +46,7 @@ void PageNotebook::OnEventSize(wxSizeEvent &event)
 
 
 Notebook::Notebook(wxWindow *parent) :
-    wxPanel(parent)
+    Panel(parent)
 {
     // Создаём главный вертикальный sizer
     mainSizer = new wxBoxSizer(wxVERTICAL);

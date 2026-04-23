@@ -24,12 +24,14 @@ namespace ComboRange
 
 
 Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const wxString &_functional) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, { WIDTH, HEIGHT }, wxTAB_TRAVERSAL | wxSIMPLE_BORDER),
+    Panel(parent),
     chip(_chip)
 {
+    Panel::SetSize({ WIDTH, HEIGHT });
+
     wxWindowBase::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 
-    wxPanel::SetName("Register");
+    Panel::SetName("Register");
 
     new wxStaticText(this, wxID_ANY, _title + " " + chip->GetNameDevice() + (_functional.IsEmpty() ? wxString("") : (wxString(" : ") + _functional)), {10, 10});
 

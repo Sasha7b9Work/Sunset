@@ -1,5 +1,6 @@
 // 2025/09/01 23:00:10 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Controls/Panel.h"
 
 
 struct Error
@@ -15,7 +16,7 @@ struct Error
 };
 
 
-class PanelErrors : public wxPanel
+class PanelErrors : public Panel
 {
     friend class PanelMeasures;
 

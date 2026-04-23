@@ -10,11 +10,13 @@
 
 
 SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxString &_name) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, { width + 5, TEXTCNTRL_HEIGHT + 5 + 5 }),
+    Panel(parent),
     min(_min),
     max(_max)
 {
-    wxPanel::SetName(parent->GetName() + "_" + _name);
+    Panel::SetSize({ width + 5, TEXTCNTRL_HEIGHT + 5 + 5 });
+
+    Panel::SetName(parent->GetName() + "_" + _name);
 
     int w1 = 20;
     int w2 = 17;

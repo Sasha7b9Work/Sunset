@@ -1,6 +1,7 @@
 ﻿// 2023/09/02 18:48:55 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/Bitmap.h"
+#include "Controls/Panel.h"
 #pragma warning(push, 0)
 #include <wx/timer.h>
 #pragma warning(pop)
@@ -9,7 +10,7 @@
 struct Color;
 
 
-class Painter : public wxPanel
+class Painter : public Panel
 {
 public:
 
@@ -37,7 +38,7 @@ protected:
 
 
 // Тупо заливает на себе прямоугольник
-class PainterRect : public wxPanel
+class PainterRect : public Panel
 {
 public:
 
@@ -57,7 +58,7 @@ private:
 
 
 // Отображает BMP
-class PainterBMP : public wxPanel
+class PainterBMP : public Panel
 {
 public:
 

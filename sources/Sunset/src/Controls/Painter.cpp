@@ -8,11 +8,12 @@
 
 
 Painter::Painter(wxWindow *parent, const wxPoint &position, const wxSize &_size) :
-    wxPanel(parent, wxID_ANY, position, _size),
+    Panel(parent),
     size(_size)
 {
-    wxPanel::SetSize(size);
-    wxPanel::SetDoubleBuffered(true);
+    Panel::SetSize(size);
+    Panel::SetDoubleBuffered(true);
+    Panel::SetPosition(position);
 
     Bind(wxEVT_PAINT, &Painter::OnPaint, this);
 
@@ -118,10 +119,11 @@ void Painter::OnPaint(wxPaintEvent &)
 
 
 PainterRect::PainterRect(wxWindow *parent, const wxPoint &position, const wxSize &size) :
-    wxPanel(parent, wxID_ANY, position, size)
+    Panel(parent)
 {
-    wxPanel::SetSize(size);
-    wxPanel::SetDoubleBuffered(true);
+    Panel::SetSize(size);
+    Panel::SetPosition(position);
+    Panel::SetDoubleBuffered(true);
     Bind(wxEVT_PAINT, &PainterRect::OnPaint, this);
 
     color = wxColour(255U, 0, 0);
@@ -157,8 +159,11 @@ void PainterRect::SetColor(const Color &_color)
 
 
 PainterBMP::PainterBMP(wxWindow *parent, const wxPoint &position, const wxSize &size, const wxString &file_name, const wxColour &alpha) :
-    wxPanel(parent, wxID_ANY, position, size)
+    Panel(parent)
 {
+    Panel::SetPosition(position);
+    Panel::SetSize(size);
+
     bitmap = Bitmap::Get(file_name);
 
     if (bitmap.GetBitmap().IsOk())
@@ -181,7 +186,7 @@ PainterBMP::PainterBMP(wxWindow *parent, const wxPoint &position, const wxSize &
         Bind(wxEVT_PAINT, &PainterBMP::OnEventPaint, this);
     }
 
-    wxPanel::Refresh();
+    Panel::Refresh();
 }
 
 

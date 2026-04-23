@@ -13,11 +13,11 @@ PanelErrors *ThePanelErrors = nullptr;
 
 
 PanelErrors::PanelErrors(wxWindow *parent) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, { MainWindow::WIDTH_DRAW, 100 })
+    Panel(parent)
 {
     ThePanelErrors = this;
 
-    //    wxPanel *panel = new wxPanel(this);
+    Panel::SetSize({ MainWindow::WIDTH_DRAW, 100 });
 
     text_ctrl = new wxTextCtrl(this, wxID_ANY, wxEmptyString, { 0, 0 }, { MainWindow::WIDTH_DRAW, 90 },
         wxTE_MULTILINE | wxTE_READONLY | wxNO_BORDER | wxVSCROLL | wxTE_RICH);
