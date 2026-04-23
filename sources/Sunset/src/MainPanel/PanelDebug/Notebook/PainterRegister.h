@@ -1,21 +1,21 @@
 ﻿// 2025/6/4 15:46:57 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/Painter.h"
-//#include "Panels/PanelDebug/Notebook/AnimatedImpulse.h"
+#include "Controls/Panel.h"
 
 
 class Register;
 class AnimatedImpulse;
 
 
-class PainterRegister : public wxPanel
+class PainterRegister : public Panel
 {
 public:
 
     // Ширина бита
     static const int W_B = 20;
 
-    PainterRegister(wxWindow *parent, Register *panel, const wxPoint &position);
+    PainterRegister(wxWindow *, Register *, const wxPoint &position);
 
     wxFont GetDefaultFont(int size = -1);
 

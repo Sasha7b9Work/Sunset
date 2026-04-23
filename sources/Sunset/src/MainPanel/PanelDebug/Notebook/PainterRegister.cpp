@@ -9,10 +9,13 @@
 
 
 PainterRegister::PainterRegister(wxWindow *parent, Register *_panel, const wxPoint &position) :
-    wxPanel(parent, wxID_ANY, position, { 750, 110 }),
+    Panel(parent),
     panel(_panel)
 {
-    wxWindowBase::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
+    Panel::SetPosition(position);
+    Panel::SetSize({ 750, 110 });
+
+    Panel::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
 
     panel->chboxes.resize((uint)_panel->chip->BitDepth() );
 
