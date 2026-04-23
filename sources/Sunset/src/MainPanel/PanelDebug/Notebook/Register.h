@@ -1,9 +1,7 @@
 ﻿// 2025/6/4 10:25:39 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/ButtonsCombo.h"
-//#include "Panels/PanelDebug/Notebook/PainterRegister.h"
 #include "Controls/TextControls.h"
-//#include "Panels/PanelDebug/Notebook/CommandsCombo.h"
 #include "Controls/Painter.h"
 #include "IPPP/Real/Chips.h"
 #include "Controls/Knob.h"
@@ -11,6 +9,7 @@
 
 
 class CommandsCombo;
+class PainterRegister;
 
 
 // Квадратик с 0 или 1, на который щёлкают ЛКМ и он изменяет своё состояние
