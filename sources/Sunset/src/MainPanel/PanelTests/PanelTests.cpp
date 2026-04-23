@@ -30,13 +30,10 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
     vert_splitter->SetMinimumPaneSize(50);
 
     panelLeftTop = new Panel(vert_splitter);
-    panelLeftTop->SetBackgroundColour(wxColour(240, 240, 250));
 
     panelLeftBottom = new Panel(vert_splitter);
-    panelLeftBottom->SetBackgroundColour(wxColour(250, 240, 240));
 
     panelRight = new Panel(hor_splitter);
-    panelRight->SetBackgroundColour(wxColour(240, 250, 240));
 
     vert_splitter->SplitHorizontally(panelLeftTop, panelLeftBottom, 200);
 

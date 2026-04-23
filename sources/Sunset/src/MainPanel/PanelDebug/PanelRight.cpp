@@ -14,7 +14,7 @@ PanelRight *ThePanelRight = nullptr;
 
 
 PanelRight::PanelRight(wxWindow *parent) :
-    wxPanel(parent)
+    Panel(parent)
 {
     ThePanelRight = this;
 

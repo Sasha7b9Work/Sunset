@@ -2,9 +2,10 @@
 #pragma once
 #include "Controls/ControlDataFPGA.h"
 #include "Controls/Buttons.h"
+#include "Controls/Panel.h"
 
 
-class PanelRight : public wxPanel
+class PanelRight : public Panel
 {
 public:
 
