@@ -28,10 +28,10 @@ MainWindow *TheMainWindow = nullptr;
 ModeMainWindow::E ModeMainWindow::current = ModeMainWindow::Standard;
 
 
-MainWindow::MainWindow(const wxString &title)
+MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     : wxFrame((wxFrame *)NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize)
 {
-    TheMainWindow = this;
+    self = this;
 
 #ifdef WIN32
     SetIcon(wxICON(MAIN_ICON));

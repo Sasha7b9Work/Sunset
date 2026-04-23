@@ -63,7 +63,7 @@ public:
 
 private:
 
-    MainWindow(const wxString &title);
+    MainWindow(MainWindow *&, const wxString &title);
 
     wxToolBar *toolBar = nullptr;
 

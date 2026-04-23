@@ -124,7 +124,7 @@ bool Application::OnInit()
     I_IPPP::SetInstance(std::move(device));
 
     // create and show the main application window
-    new MainWindow(L("ИППП 4"));
+    new MainWindow(TheMainWindow, L("ИППП 4"));
 
     timer.SetOwner(this, timer.GetId());
 
