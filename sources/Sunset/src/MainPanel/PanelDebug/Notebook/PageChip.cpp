@@ -9,14 +9,14 @@
 #pragma warning(pop)
 
 PageChip::PageChip(wxNotebook *parent, const wxString &title) :
-    wxPanel(parent)
+    Panel(parent)
 {
-    wxPanel::SetName(title);
+    Panel::SetName(title);
 
     wxBoxSizer *mainSizer = new wxBoxSizer(wxVERTICAL);
     SetSizer(mainSizer);
 
-    wxPanel::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
+    Panel::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 
     Bind(wxEVT_RIGHT_DOWN, &PageChip::OnRightClick, this);
 }

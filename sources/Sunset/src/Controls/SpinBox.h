@@ -1,5 +1,6 @@
 ﻿// 2025/7/23 14:18:36 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Controls/Panel.h"
 
 
 /*
@@ -7,7 +8,7 @@
 */
 
 
-class SpinBox : public wxPanel
+class SpinBox : public Panel
 {
 public:
 

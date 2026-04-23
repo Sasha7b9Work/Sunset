@@ -7,10 +7,12 @@
 
 
 SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, size),
+    Panel(parent),
     min(_min),
     max(_max)
 {
+    Panel::SetSize(size);
+
     const int width_btn = 15;
 
     wxSize size_text = size;

@@ -42,7 +42,7 @@ private:
 };
 
 
-class SliderFloat : public wxPanel
+class SliderFloat : public Panel
 {
 public:
 

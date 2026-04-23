@@ -191,9 +191,10 @@ void SliderFloat::SetIntValue(int value)
 
 
 SliderFloat::SliderFloat(wxWindow *parent, int width, const wxString &name) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, { width, TEXTCNTRL_HEIGHT + 5 + 5 })
+    Panel(parent)
 {
-    wxPanel::SetName(parent->GetName() + "_" + name);
+    Panel::SetSize({ width, TEXTCNTRL_HEIGHT + 5 + 5 });
+    Panel::SetName(parent->GetName() + "_" + name);
 
     int w1 = 50;
     int w2 = 17;

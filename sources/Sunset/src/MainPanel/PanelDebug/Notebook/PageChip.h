@@ -1,6 +1,6 @@
 ﻿// 2025/6/3 14:02:10 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-//#include "Panels/PanelDebug/Notebook/Register.h"
+#include "Controls/Panel.h"
 #pragma warning(push, 0)
 #include <wx/notebook.h>
 #pragma warning(pop)
@@ -11,7 +11,7 @@ class Register;
 
 // Это панель для засылки данных в регистры микросхем типа AD
 
-class PageChip : public wxPanel
+class PageChip : public Panel
 {
 public:
 
