@@ -35,8 +35,8 @@ PanelMeasures::PanelMeasures(Notebook *board, PanelMeasures *&self) : PageNotebo
 
     wxSize size{ w, w };
 
-#define CREATE_BUTTON(btn, txt)                                         \
-    btn = new wxButton(this, wxID_ANY, txt, wxDefaultPosition, size);   \
+#define CREATE_BUTTON(btn, txt)          \
+    btn = new Button(this, txt, size);   \
     buttons.push_back(btn);
 
     CREATE_BUTTON(btnHelp, "?")

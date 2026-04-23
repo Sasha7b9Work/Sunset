@@ -24,8 +24,8 @@ private:
     int max = 0;
 
     wxTextCtrl *text = nullptr;
-    wxButton *btnMore = nullptr;
-    wxButton *btnLess = nullptr;
+    Button *btnMore = nullptr;
+    Button *btnLess = nullptr;
 
     void OnEventButton(wxCommandEvent &);
 };

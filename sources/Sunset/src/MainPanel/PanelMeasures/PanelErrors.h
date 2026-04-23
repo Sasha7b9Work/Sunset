@@ -31,7 +31,7 @@ private:
 
     PanelErrors(wxWindow *);
 
-    wxButton *btnCollapse = nullptr;
+    Button *btnCollapse = nullptr;
 
     wxTextCtrl *text_ctrl = nullptr;
 

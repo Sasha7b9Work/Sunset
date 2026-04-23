@@ -27,7 +27,7 @@ PanelErrors::PanelErrors(wxWindow *parent) :
     text_ctrl->SetDoubleBuffered(true);
 
     wxSize size_button{ 90, 22 };
-    btnCollapse = new wxButton(this, wxID_ANY, "Свернуть", wxDefaultPosition, size_button);
+    btnCollapse = new Button(this, "Свернуть", size_button);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     sizer->Add(text_ctrl, 1, wxEXPAND | wxALL, 0);

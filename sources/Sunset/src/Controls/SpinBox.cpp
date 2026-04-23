@@ -1,6 +1,7 @@
 ﻿// 2025/7/23 14:20:52 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/SpinBox.h"
+#include "Controls/Buttons.h"
 #pragma warning(push, 0)
 #include <wx/button.h>
 #pragma warning(pop)
@@ -26,10 +27,13 @@ SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
 
     wxSize size_button{ width_btn, 11 };
 
-    btnMore = new wxButton(this, wxID_ANY, ".", { size_text.x, 0 }, size_button);
+    btnMore = new Button(this, ".", size_button);
+    btnMore->SetPosition({ size_text.x, 0 });
     btnMore->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 
-    btnLess = new wxButton(this, wxID_ANY, ".", { size_text.x, size_button.y }, size_button);
+    btnLess = new Button(this, ".", size_button);
+    btnLess->SetPosition({ size_text.x, size_button.y });
+
     btnLess->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 }
 

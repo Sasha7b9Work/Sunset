@@ -5,6 +5,7 @@
 
 class PanelErrors;
 class GraphMeasure;
+class Button;
 
 
 // Здесь отрисовывается график ну и кнопки разные
@@ -51,13 +52,13 @@ private:
 
     PanelMeasures(Notebook *, PanelMeasures *&);
 
-    wxButton *btnHelp = nullptr,
+    Button *btnHelp = nullptr,
         *btnLessX = nullptr,
         *btnMoreX = nullptr,
         *btnLessY = nullptr,
         *btnMoreY = nullptr;
 
-    std::vector<wxButton *> buttons;        // Здесь все кнопки, у которых нужно менять цвета
+    std::vector<Button *> buttons;        // Здесь все кнопки, у которых нужно менять цвета
 
     wxBitmap *bitmap = nullptr;
     wxGraphicsContext *gc = nullptr;        // Используется для рисования

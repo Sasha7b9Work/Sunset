@@ -211,9 +211,11 @@ SliderFloat::SliderFloat(wxWindow *parent, int width, const wxString &name) :
 
     int x = w1 + slider->GetSize().x;
 
-    btnMore = new wxButton(this, wxID_ANY, "", { x, 0 }, size_button);
+    btnMore = new Button(this, "", size_button);
+    btnMore->SetPosition({ x, 0 });
     btnMore->SetBackgroundColour(btnMore->GetBackgroundColour().ChangeLightness(LIGHTNESS));
-    btnLess = new wxButton(this, wxID_ANY, "", { x, size_button.y }, size_button);
+    btnLess = new Button(this, "", size_button);
+    btnLess->SetPosition({ x, size_button.y });
     btnLess->SetBackgroundColour(btnLess->GetBackgroundColour().ChangeLightness(LIGHTNESS));
 
     Bind(wxEVT_SLIDER, &SliderFloat::OnEventSlider, this);
