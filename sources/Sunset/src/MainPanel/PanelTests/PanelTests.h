@@ -7,6 +7,7 @@
 
 
 class Splitter;
+class Panel;
 
 
 class PanelTests : public PageNotebook
@@ -20,9 +21,9 @@ private:
     Splitter *hor_splitter = nullptr;      // Этот сплиттер в горизонтальной плоскости
     Splitter *vert_splitter = nullptr;      // Левый сплиттер (верх/низ)
 
-    wxPanel *panelLeftTop = nullptr;
-    wxPanel *panelLeftBottom = nullptr;
-    wxPanel *panelRight = nullptr;
+    Panel *panelLeftTop = nullptr;
+    Panel *panelLeftBottom = nullptr;
+    Panel *panelRight = nullptr;
 
     virtual void CallbackOnEventSize() override;
 };

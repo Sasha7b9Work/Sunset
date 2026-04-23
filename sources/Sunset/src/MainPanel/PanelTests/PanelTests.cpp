@@ -10,6 +10,7 @@
 #include "Utils/Configurator.h"
 #include "System/Events.h"
 #include "Controls/Splitter.h"
+#include "Controls/Panel.h"
 
 
 PanelTests *ThePanelTests = nullptr;
@@ -28,18 +29,18 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
     vert_splitter = new Splitter(hor_splitter, wxSP_3D | wxSP_LIVE_UPDATE);
     vert_splitter->SetMinimumPaneSize(50);
 
-    panelLeftTop = new wxPanel(vert_splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER);
+    panelLeftTop = new Panel(vert_splitter);
     panelLeftTop->SetBackgroundColour(wxColour(240, 240, 250));
 
-    panelLeftBottom = new wxPanel(vert_splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER);
+    panelLeftBottom = new Panel(vert_splitter);
     panelLeftBottom->SetBackgroundColour(wxColour(250, 240, 240));
 
-    panelRight = new wxPanel(hor_splitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSUNKEN_BORDER);
+    panelRight = new Panel(hor_splitter);
     panelRight->SetBackgroundColour(wxColour(240, 250, 240));
 
-    vert_splitter->SplitHorizontally(panelLeftTop, panelLeftBottom, 200);  // Начальная высота верхней панели = 200
+    vert_splitter->SplitHorizontally(panelLeftTop, panelLeftBottom, 200);
 
-    hor_splitter->SplitVertically(vert_splitter, panelRight, 400);  // Начальная ширина левой части = 400
+    hor_splitter->SplitVertically(vert_splitter, panelRight, 400);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
     sizer->Add(hor_splitter, 1, wxEXPAND);
@@ -51,5 +52,5 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
 
 void PanelTests::CallbackOnEventSize()
 {
-
+    int i = 0;
 }
