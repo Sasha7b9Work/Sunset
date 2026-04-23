@@ -7,14 +7,12 @@ class AutoCursors;
 class IGrid;
 class MainWindow;
 class NotebookDebug;
-class WindowCursors;
 
 extern Application   *TheApp;
 extern AutoCursors   *TheAutoCursors;
 extern IGrid         *TheGrid;
 extern MainWindow    *TheMainWindow;
 extern NotebookDebug *TheNotebookDebug;
-extern WindowCursors *TheWindowCursors;     // Настройки курсоров
 
 class PanelArchive;
 class PanelDebug;
