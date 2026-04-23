@@ -2,6 +2,7 @@
 #pragma once
 #pragma warning(push, 0)
 #include <wx/app.h>
+#include <wx/timer.h>
 #pragma warning(pop)
 
 
