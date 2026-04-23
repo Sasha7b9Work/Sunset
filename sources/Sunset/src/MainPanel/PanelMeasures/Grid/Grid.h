@@ -118,7 +118,7 @@ class Grid : public IGrid
 
 public:
 
-    Grid();
+    Grid(IGrid *&);
 
     void Draw(const std::vector<GraphMeasure *> &) override;
 

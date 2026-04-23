@@ -155,7 +155,7 @@ public:
 
 private:
 
-    GridNew();
+    GridNew(IGrid *&);
 
     wxPoint pos_mouse;
     Offset  offset;

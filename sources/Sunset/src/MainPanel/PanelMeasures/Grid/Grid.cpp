@@ -17,13 +17,15 @@ void IGrid::Create()
 {
     if (!TheGrid)
     {
-        TheGrid = new GridNew();
+        TheGrid = new GridNew(TheGrid);
     }
 }
 
 
-Grid::Grid()
+Grid::Grid(IGrid *&self)
 {
+    self = this;
+
     Reset();
 }
 

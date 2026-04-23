@@ -9,8 +9,10 @@
 #include "Settings/Settings.h"
 
 
-GridNew::GridNew()
+GridNew::GridNew(IGrid *&self)
 {
+    self = this;
+
     Reset();
 }
 
