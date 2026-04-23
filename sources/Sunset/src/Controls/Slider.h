@@ -2,6 +2,9 @@
 #pragma once
 
 
+class wxSlider;
+
+
 class SliderInt : public wxPanel
 {
 public:
