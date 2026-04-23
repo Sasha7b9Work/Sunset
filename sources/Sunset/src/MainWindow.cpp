@@ -45,25 +45,19 @@ MainWindow::MainWindow(const wxString &title)
     TuneFont();
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
-    board = new Notebook(this);
-    board->AddPanel(new PanelDebug(board, ThePanelDebug));
-    board->AddPanel(new PanelMeasures(board, ThePanelMeasures));
-    board->AddPanel(new PanelTests(board, ThePanelTests));
-    board->AddPanel(new PanelTables(board, ThePanelTables));
-    board->AddPanel(new PanelReports(board, ThePanelReports));
-    board->AddPanel(new PanelArchive(board, ThePanelArchive));
-    board->AddPanel(new PanelSettings(board, ThePanelSettings));
+    main_panel= new Notebook(this);
+    main_panel->AddPanel(new PanelDebug(main_panel, ThePanelDebug));
+    main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
+    main_panel->AddPanel(new PanelTests(main_panel, ThePanelTests));
+    main_panel->AddPanel(new PanelTables(main_panel, ThePanelTables));
+    main_panel->AddPanel(new PanelReports(main_panel, ThePanelReports));
+    main_panel->AddPanel(new PanelArchive(main_panel, ThePanelArchive));
+    main_panel->AddPanel(new PanelSettings(main_panel, ThePanelSettings));
 
-    sizer->Add(board, 1, wxEXPAND);
+    sizer->Add(main_panel, 1, wxEXPAND);
     SetSizer(sizer);
 
-//    wxYield();
-//    board->SetCurrentPanelIndex(2);
-//    wxYield();
-//    board->SetCurrentPanelIndex(1);
-//    wxYield();
-    board->SetCurrentPanelIndex(0);
-//    wxYield();
+    main_panel->SetCurrentPanelIndex(0);
 
     SetPosition();
 
@@ -203,7 +197,7 @@ void MainWindow::OnEventCloseWindow(wxCloseEvent &event)
 {
     Test::Save("example.tst");
 
-    SET::GUI::current_panel->Set(board->GetCurrentPanelIndex());
+    SET::GUI::current_panel->Set(main_panel->GetCurrentPanelIndex());
 
     if (ConsoleRS232::self)
     {
