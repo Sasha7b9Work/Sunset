@@ -232,7 +232,7 @@ void MainWindow::OnAbout(wxCommandEvent &WXUNUSED(event))
     topsizer->Add(new wxStaticLine(&dlg, wxID_ANY), 0, wxEXPAND | wxLEFT | wxRIGHT, 10);
 #endif // wxUSE_STATLINE
 
-    wxButton *bu1 = new wxButton(&dlg, wxID_OK, L("OK"));
+    Button *bu1 = new Button(&dlg, L("OK"));
     bu1->SetDefault();
 
     topsizer->Add(bu1, 0, wxALL | wxALIGN_RIGHT, 15);
