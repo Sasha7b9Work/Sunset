@@ -2,6 +2,7 @@
 #pragma once
 #include "Controls/Painter.h"
 #include "Controls/Buttons.h"
+#include "Controls/Panel.h"
 
 
 class PainterDataFPGA : public Painter
@@ -12,7 +13,7 @@ public:
 };
 
 
-class ControlDataFPGA : public wxPanel
+class ControlDataFPGA : public Panel
 {
 public:
 

@@ -13,7 +13,7 @@ PainterDataFPGA::PainterDataFPGA(wxWindow *parent, const wxSize &size) :
 
 
 ControlDataFPGA::ControlDataFPGA(wxWindow *parent) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, SIZE, wxBORDER_SIMPLE)
+    Panel(parent)
 {
     SetSize(SIZE);
 
