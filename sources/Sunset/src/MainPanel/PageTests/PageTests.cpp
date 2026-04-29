@@ -14,15 +14,15 @@
 #include "Controls/Panel.h"
 
 
-PanelTests *ThePanelTests = nullptr;
+PageTests *ThePageTests = nullptr;
 
 
-PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
+PageTests::PageTests(Notebook *board, PageTests *&global) :
     PageNotebook(board, L("Тесты"))
 {
-    self = this;
+    global = this;
 
-    wxPanel::SetName("PanelTests");
+    wxPanel::SetName("PageTests");
 
     hor_splitter = new Splitter(this, wxSP_3D | wxSP_LIVE_UPDATE);
     hor_splitter->SetMinimumPaneSize(50);  // Минимальный размер панели
@@ -48,6 +48,6 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
 }
 
 
-void PanelTests::CallbackOnEventSize()
+void PageTests::CallbackOnEventSize()
 {
 }

@@ -48,7 +48,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     main_panel= new Notebook(this);
     main_panel->AddPanel(new PanelDebug(main_panel, ThePanelDebug));
     main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
-    main_panel->AddPanel(new PanelTests(main_panel, ThePanelTests));
+    main_panel->AddPanel(new PageTests(main_panel, ThePageTests));
     main_panel->AddPanel(new PanelTables(main_panel, ThePanelTables));
     main_panel->AddPanel(new PanelReports(main_panel, ThePanelReports));
     main_panel->AddPanel(new PanelArchive(main_panel, ThePanelArchive));

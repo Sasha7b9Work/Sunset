@@ -11,11 +11,11 @@ class Panel;
 class PanelCategory;
 
 
-class PanelTests : public PageNotebook
+class PageTests : public PageNotebook
 {
 public:
 
-    PanelTests(Notebook *, PanelTests *&);
+    PageTests(Notebook *, PageTests *&);
 
 private:
 
