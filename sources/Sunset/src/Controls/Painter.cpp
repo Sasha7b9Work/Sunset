@@ -11,16 +11,17 @@ Painter::Painter(wxWindow *parent, const wxPoint &position, const wxSize &_size)
     Panel(parent),
     size(_size)
 {
-    Panel::SetSize(size);
+    Panel::SetMinSize(size);
+    Panel::SetMaxSize(size);
     Panel::SetDoubleBuffered(true);
     Panel::SetPosition(position);
 
-    Bind(wxEVT_PAINT, &Painter::OnPaint, this);
+    Panel::Bind(wxEVT_PAINT, &Painter::OnPaint, this);
 
     bitmap = new wxBitmap(size);
 
-    Fit();
-    Layout();
+    Panel::Fit();
+    Panel::Layout();
 }
 
 
@@ -121,10 +122,11 @@ void Painter::OnPaint(wxPaintEvent &)
 PainterRect::PainterRect(wxWindow *parent, const wxPoint &position, const wxSize &size) :
     Panel(parent)
 {
-    Panel::SetSize(size);
+    Panel::SetMinSize(size);
+    Panel::SetMaxSize(size);
     Panel::SetPosition(position);
     Panel::SetDoubleBuffered(true);
-    Bind(wxEVT_PAINT, &PainterRect::OnPaint, this);
+    Panel::Bind(wxEVT_PAINT, &PainterRect::OnPaint, this);
 
     color = wxColour(255U, 0, 0);
 }
