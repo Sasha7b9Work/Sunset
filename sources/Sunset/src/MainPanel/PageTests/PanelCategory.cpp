@@ -2,6 +2,7 @@
 #include "defines.h"
 #include "MainPanel/PageTests/PanelCategory.h"
 #include "Controls/Sizers.h"
+#include "Controls/CheckBox.h"
 #pragma warning(push, 0)
 #include <wx/checkbox.h>
 #pragma warning(pop)
@@ -18,7 +19,10 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(p
 
     for (int i = 0; i < 30; i++)
     {
-        main_sizer->Add(new wxCheckBox(this, wxID_ANY, wxString::Format("Category %d", i + 1)));
+        CheckBox *check_box = new CheckBox(this, wxString::Format("Category %d", i + 1));
+        check_box->SetMinSize({ 500, -1 });
+
+        main_sizer->Add(check_box);
     }
 
     main_sizer->AddStretchSpacer();
