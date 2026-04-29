@@ -8,4 +8,8 @@ class PanelLibrary : public Panel
 public:
 
     PanelLibrary(wxWindow *, PanelLibrary *&);
+
+private:
+
+
 };

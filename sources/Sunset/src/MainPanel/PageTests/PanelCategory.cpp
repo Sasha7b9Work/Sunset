@@ -1,6 +1,10 @@
 ﻿// 2026/04/29 11:34:17 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "MainPanel/PageTests/PanelCategory.h"
+#include "Controls/Sizers.h"
+#pragma warning(push, 0)
+#include <wx/checkbox.h>
+#pragma warning(pop)
 
 
 PanelCategory *ThePanelCategory = nullptr;
@@ -9,4 +13,16 @@ PanelCategory *ThePanelCategory = nullptr;
 PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(parent)
 {
     global = this;
+
+    SizerVert *main_sizer = new SizerVert();
+
+    for (int i = 0; i < 10; i++)
+    {
+        main_sizer->Add(new wxCheckBox(this, wxID_ANY, wxString::Format("Category %d", i + 1)));
+    }
+
+    main_sizer->AddStretchSpacer();
+
+    Panel::SetSizer(main_sizer);
+
 }
