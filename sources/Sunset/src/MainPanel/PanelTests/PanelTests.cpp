@@ -45,6 +45,9 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
 
     hor_splitter->SplitVertically(vert_splitter, panelRight, 400);
 
+    hor_splitter->UpdateSize();
+    vert_splitter->UpdateSize();
+
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
     sizer->Add(hor_splitter, 1, wxEXPAND);
     SetSizer(sizer);
