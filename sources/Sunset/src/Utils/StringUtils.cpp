@@ -149,11 +149,11 @@ void SU::SplitToParameters(pchar message, Parameters &parameters, pchar delimit)
 
 uint64 SU::UInt64FromHex(const wxString &value)
 {
-    uint64 result = 0;
+    unsigned long long result = 0;
 
     value.ToULongLong(&result, 16);
 
-    return result;
+    return (uint64)result;
 }
 
 
