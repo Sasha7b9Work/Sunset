@@ -9,5 +9,5 @@ class PanelCategory : public wxPanel
 {
 public:
 
-    PanelCategory(wxWindow *);
+    PanelCategory(wxWindow *, PanelCategory *&);
 };

@@ -91,7 +91,7 @@ file(GLOB PANEL_MEAS_GRID               src/MainPanel/PanelMeasures/Grid/*.*)
 file(GLOB PANEL_REPORTS                 src/MainPanel/PanelReports/*.*)
 file(GLOB PANEL_SETTINGS                src/MainPanel/PanelSettings/*.*)
 file(GLOB PANEL_TABLES                  src/MainPanel/PanelTables/*.*)
-file(GLOB PANEL_TESTS                   src/MainPanel/PanelTests/*.*)
+file(GLOB PAGE_TESTS                    src/MainPanel/PageTests/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
@@ -138,7 +138,7 @@ source_group(MainPanel/PanelMeasures/Grid     FILES ${PANEL_MEAS_GRID})
 source_group(MainPanel/PanelReports           FILES ${PANEL_REPORTS})
 source_group(MainPanel/PanelSettings          FILES ${PANEL_SETTINGS})
 source_group(MainPanel/PanelTables            FILES ${PANEL_TABLES})
-source_group(MainPanel/PanelTests             FILES ${PANEL_TESTS})
+source_group(MainPanel/PageTests              FILES ${PAGE_TESTS})
 source_group(Settings                         FILES ${SETTINGS})
 source_group(SoftTests                        FILES ${SOFTTESTS})
 source_group(Storage                          FILES ${STORAGE})
@@ -174,7 +174,7 @@ add_executable(${PROJECT_NAME}
     ${PANEL_REPORTS}
     ${PANEL_SETTINGS}
     ${PANEL_TABLES}
-    ${PANEL_TESTS}
+    ${PAGE_TESTS}
     ${SETTINGS}
     ${SOFTTESTS}
     ${STORAGE}

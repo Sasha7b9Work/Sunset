@@ -1,7 +1,8 @@
 ﻿// 2025/8/9 09:54:44 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/Notebook.h"
-#include "MainPanel/PanelTests/PanelTests.h"
+#include "MainPanel/PageTests/PageTests.h"
+#include "MainPanel/PageTests/PanelCategory.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
 #include "Controls/Bitmap.h"
@@ -29,13 +30,13 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
     vert_splitter = new Splitter(hor_splitter, wxSP_3D | wxSP_LIVE_UPDATE);
     vert_splitter->SetMinimumPaneSize(50);
 
-    panelLeftTop = new Panel(vert_splitter);
+    panel_category = new PanelCategory(vert_splitter, ThePanelCategory);
 
     panelLeftBottom = new Panel(vert_splitter);
 
     panelRight = new Panel(hor_splitter);
 
-    vert_splitter->SplitHorizontally(panelLeftTop, panelLeftBottom, 200);
+    vert_splitter->SplitHorizontally(panel_category, panelLeftBottom, 200);
 
     hor_splitter->SplitVertically(vert_splitter, panelRight, 400);
 

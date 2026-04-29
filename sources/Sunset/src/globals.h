@@ -21,6 +21,7 @@ class PanelReports;
 class PanelSettings;
 class PanelTables;
 class PanelTests;
+class PanelCategory;
 class PanelRight;
 
 extern PanelArchive  *ThePanelArchive;
@@ -30,4 +31,5 @@ extern PanelReports  *ThePanelReports;
 extern PanelSettings *ThePanelSettings;
 extern PanelTables   *ThePanelTables;
 extern PanelTests    *ThePanelTests;
+extern PanelCategory *ThePanelCategory;
 extern PanelRight    *ThePanelRight;
