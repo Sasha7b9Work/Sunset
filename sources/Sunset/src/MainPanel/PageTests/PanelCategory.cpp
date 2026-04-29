@@ -16,7 +16,7 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(p
 
     SizerVert *main_sizer = new SizerVert();
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 30; i++)
     {
         main_sizer->Add(new wxCheckBox(this, wxID_ANY, wxString::Format("Category %d", i + 1)));
     }
