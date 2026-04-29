@@ -31,8 +31,8 @@ void PageNotebook::OnEventSize(wxSizeEvent &event)
         {
             prev_size = size;
 
-            SetMinSize(size);
-            SetSize(size);
+//            SetMinSize(size);
+//            SetSize(size);
 
             Refresh();
 
