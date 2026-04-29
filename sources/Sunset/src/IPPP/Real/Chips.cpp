@@ -127,11 +127,11 @@ void Chip::WriteValue(uint value) const
         }
     }
 
-    IDevice::impl->SendCommand(":%s:WRITE %X", GetNameDevice().c_str().AsChar(), value);
+    IDevice::impl->SendCommand(":%s:WRITE %X", GetNameDevice().c_str().AsChar(), value); //-V111
 }
 
 
 void Chip::WriteWidthToDevice() const
 {
-    IDevice::impl->SendCommand(":%s:LENGTH %d", GetNameDevice().c_str().AsChar(), BitDepth());
+    IDevice::impl->SendCommand(":%s:LENGTH %d", GetNameDevice().c_str().AsChar(), BitDepth()); //-V111
 }

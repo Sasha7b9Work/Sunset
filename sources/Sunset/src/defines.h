@@ -80,16 +80,16 @@
 #pragma warning(pop)
 
 
-typedef const char *       pchar;
-typedef const char *const  pString;
-typedef unsigned char      uchar;
-typedef unsigned char      uint8;
-typedef unsigned short     uint16;
-typedef signed short       int16;
-typedef unsigned int       uint;
-typedef unsigned long long uint64;
-typedef signed long long   int64;
-typedef signed char        int8;
+typedef const char *      pchar;
+typedef const char *const pString;
+typedef uint8_t           uchar;
+typedef uint8_t           uint8;
+typedef uint16_t          uint16;
+typedef int16_t           int16;
+typedef uint32_t          uint;
+typedef uint64_t          uint64;
+typedef int64_t           int64;
+typedef int8_t            int8;
 
 
 static const int BUTTON_WIDTH = 165;

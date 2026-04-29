@@ -8,6 +8,7 @@
 
 class Splitter;
 class Panel;
+class PanelCategory;
 
 
 class PanelTests : public PageNotebook
@@ -21,7 +22,7 @@ private:
     Splitter *hor_splitter = nullptr;      // Этот сплиттер в горизонтальной плоскости
     Splitter *vert_splitter = nullptr;      // Левый сплиттер (верх/низ)
 
-    Panel *panelLeftTop = nullptr;
+    PanelCategory *panel_category = nullptr;
     Panel *panelLeftBottom = nullptr;
     Panel *panelRight = nullptr;
 

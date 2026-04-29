@@ -17,7 +17,7 @@ public:
 
     virtual void Shutdown() override;
 
-    virtual bool IsConnected() const;
+    virtual bool IsConnected() const override;
 
     virtual void SendCommand(pchar format, ...) const override;
 
