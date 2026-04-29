@@ -30,10 +30,13 @@ PanelTests::PanelTests(Notebook *board, PanelTests *&self) :
     vert_splitter->SetMinimumPaneSize(50);
 
     panelLeftTop = new Panel(vert_splitter);
+    panelLeftTop->SetWindowStyleFlag(wxSTATIC_BORDER);
 
     panelLeftBottom = new Panel(vert_splitter);
+    panelLeftBottom->SetWindowStyleFlag(wxSIMPLE_BORDER);
 
     panelRight = new Panel(hor_splitter);
+    panelRight->SetWindowStyleFlag(wxRAISED_BORDER);
 
     vert_splitter->SplitHorizontally(panelLeftTop, panelLeftBottom, 200);
 
