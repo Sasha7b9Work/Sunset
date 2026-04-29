@@ -4,7 +4,6 @@
 #include "MainWindow.h"
 #include "Utils/GlobalFunctions.h"
 #include "Controls/StaticBox.h"
-#include "Utils/Configurator.h"
 
 
 DrawingButton::DrawingButton(wxWindow *parent, const wxString &label, const wxSize &size, const wxString &_name_file) :

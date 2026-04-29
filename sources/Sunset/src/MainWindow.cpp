@@ -1,9 +1,7 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Application.h"
-#include "Utils/Configurator.h"
 #include "Settings/Settings.h"
-#include "Utils/Configurator.h"
 #include "Windows/ConsoleRS232.h"
 #include "MainWindow.h"
 #include "MainPanel/PanelMeasures/PanelMeasures.h"

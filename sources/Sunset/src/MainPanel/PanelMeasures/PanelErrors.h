@@ -3,6 +3,9 @@
 #include "Controls/Panel.h"
 
 
+class Button;
+
+
 struct Error
 {
     enum E

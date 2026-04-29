@@ -8,6 +8,9 @@
 */
 
 
+class Button;
+
+
 class SpinBox : public Panel
 {
 public:

@@ -10,7 +10,7 @@
 #include "MainPanel/PanelDebug/Notebook/PageMeasCurrent.h"
 #include "MainPanel/PanelDebug/Notebook/PageSource50V.h"
 #include "IPPP/Real/Chips.h"
-#include "Utils/Configurator.h"
+#include "Settings/Configurator.h"
 
 
 NotebookDebug *TheNotebookDebug = nullptr;

@@ -2,7 +2,6 @@
 #include "defines.h"
 #include "Utils/String.h"
 #include "Communicator/ComPort/ComPort.h"
-#include "Utils/Configurator.h"
 #include "Settings/Settings.h"
 #include "Windows/ConsoleRS232.h"
 

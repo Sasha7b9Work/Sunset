@@ -1,9 +1,13 @@
 ﻿// 2025/10/17 08:25:48 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Controls/Buttons.h"
 #pragma warning(push, 0)
 #include <wx/stattext.h>
 #include <wx/sizer.h>
 #pragma warning(pop)
+
+
+class Button;
 
 
 class AutoRebootDialog : public wxDialog

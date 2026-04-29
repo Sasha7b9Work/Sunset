@@ -10,7 +10,6 @@
 #include "Controls/Bitmap.h"
 #include "IPPP/Tests/Tests.h"
 #include "Controls/StaticBox.h"
-#include "Utils/Configurator.h"
 #include "System/Events.h"
 #include "Controls/Splitter.h"
 #include "Controls/Panel.h"
@@ -40,7 +39,7 @@ PageTests::PageTests(Notebook *board, PageTests *&global) :
 
     vert_splitter->SplitHorizontally(panel_category, panel_library, 200);
 
-    hor_splitter->SplitVertically(vert_splitter, panel_view_test, 400);
+    hor_splitter->SplitVertically(vert_splitter, panel_view_test, 200);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
     sizer->Add(hor_splitter, 1, wxEXPAND);
