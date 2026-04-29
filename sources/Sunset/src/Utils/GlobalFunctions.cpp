@@ -98,11 +98,11 @@ uint64 GF::UInt64FromTextCtrl(wxWindow *window, int id)
 
     wxString value = control->GetValue();
 
-    uint64 result = 0;
+    unsigned long long ull_result = 0;
 
-    value.ToULongLong(&result);
+    value.ToULongLong(&ull_result);
 
-    return result;
+    return (uint64)ull_result;
 }
 
 
