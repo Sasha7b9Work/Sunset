@@ -9,6 +9,8 @@
 class Splitter;
 class Panel;
 class PanelCategory;
+class PanelLibrary;
+class PanelViewTest;
 
 
 class PageTests : public PageNotebook
@@ -23,8 +25,8 @@ private:
     Splitter *vert_splitter = nullptr;      // Левый сплиттер (верх/низ)
 
     PanelCategory *panel_category = nullptr;
-    Panel *panelLeftBottom = nullptr;
-    Panel *panelRight = nullptr;
+    PanelLibrary  *panel_library = nullptr;
+    PanelViewTest *panel_view_test = nullptr;
 
     virtual void CallbackOnEventSize() override;
 };

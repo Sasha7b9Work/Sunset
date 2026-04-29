@@ -23,6 +23,8 @@ class PanelTables;
 
 class PageTests;
 class PanelCategory;
+class PanelLibrary;
+class PanelViewTest;
 
 class PanelRight;
 
@@ -35,5 +37,7 @@ extern PanelTables   *ThePanelTables;
 
 extern PageTests     *ThePageTests;
 extern PanelCategory *ThePanelCategory;
+extern PanelLibrary  *ThePanelLibrary;
+extern PanelViewTest *ThePanelViewTest;
 
 extern PanelRight    *ThePanelRight;

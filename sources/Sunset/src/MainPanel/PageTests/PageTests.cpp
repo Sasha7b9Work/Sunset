@@ -3,6 +3,8 @@
 #include "Controls/Notebook.h"
 #include "MainPanel/PageTests/PageTests.h"
 #include "MainPanel/PageTests/PanelCategory.h"
+#include "MainPanel/PageTests/PanelLibrary.h"
+#include "MainPanel/PageTests/PanelViewTest.h"
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
 #include "Controls/Bitmap.h"
@@ -32,13 +34,13 @@ PageTests::PageTests(Notebook *board, PageTests *&global) :
 
     panel_category = new PanelCategory(vert_splitter, ThePanelCategory);
 
-    panelLeftBottom = new Panel(vert_splitter);
+    panel_library = new PanelLibrary(vert_splitter, ThePanelLibrary);
 
-    panelRight = new Panel(hor_splitter);
+    panel_view_test = new PanelViewTest(hor_splitter, ThePanelViewTest);
 
-    vert_splitter->SplitHorizontally(panel_category, panelLeftBottom, 200);
+    vert_splitter->SplitHorizontally(panel_category, panel_library, 200);
 
-    hor_splitter->SplitVertically(vert_splitter, panelRight, 400);
+    hor_splitter->SplitVertically(vert_splitter, panel_view_test, 400);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
     sizer->Add(hor_splitter, 1, wxEXPAND);

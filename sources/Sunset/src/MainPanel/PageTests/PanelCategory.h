@@ -1,11 +1,9 @@
 ﻿// 2026/04/29 11:33:29 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#pragma warning(push, 0)
-#include <wx/panel.h>
-#pragma warning(pop)
+#include "Controls/Panel.h"
 
 
-class PanelCategory : public wxPanel
+class PanelCategory : public Panel
 {
 public:
 

@@ -6,7 +6,7 @@
 PanelCategory *ThePanelCategory = nullptr;
 
 
-PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : wxPanel(parent)
+PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(parent)
 {
     global = this;
 }
