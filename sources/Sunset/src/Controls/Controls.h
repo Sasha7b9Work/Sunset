@@ -15,16 +15,3 @@ struct DescriptionControl
 
     void **pointer = nullptr;                    // Здесь будет храниться указатель на контрол после создания
 };
-
-
-struct DescRadioButton : public DescriptionControl
-{
-    wxString name;
-    int flags;
-
-    DescRadioButton(wxRadioButton **_pointer, const wxString &_name, int _flags = 0) :
-        DescriptionControl((void **)_pointer),
-        name(_name), flags(_flags) { }
-
-    virtual void Create(wxWindow *) override;
-};
