@@ -1,6 +1,8 @@
 *~*
 archive.zip
 
+vcpkg_installed/*
+
 old/*
 sources/generated/*
 sources/installer/win/files/*
