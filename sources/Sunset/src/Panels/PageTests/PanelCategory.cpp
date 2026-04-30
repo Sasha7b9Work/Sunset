@@ -11,7 +11,7 @@
 PanelCategory *ThePanelCategory = nullptr;
 
 
-PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(parent)
+PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : ScrolledPanel(parent)
 {
     global = this;
 
@@ -20,13 +20,11 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Panel(p
     for (int i = 0; i < 30; i++)
     {
         CheckBox *check_box = new CheckBox(this, wxString::Format("Category %d", i + 1));
-        check_box->SetMinSize({ 500, -1 });
 
         main_sizer->Add(check_box);
     }
 
     main_sizer->AddStretchSpacer();
 
-    Panel::SetSizer(main_sizer);
-
+    ScrolledPanel::SetSizer(main_sizer);
 }

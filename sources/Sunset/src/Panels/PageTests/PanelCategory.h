@@ -3,7 +3,7 @@
 #include "Controls/Panel.h"
 
 
-class PanelCategory : public Panel
+class PanelCategory : public ScrolledPanel
 {
 public:
 
