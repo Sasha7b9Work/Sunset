@@ -1,6 +1,6 @@
 ﻿// 2023/08/09 13:34:49 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Controls/TextControls.h"
+#include "Controls/TextControl.h"
 #include "Settings/Settings.h"
 
 

@@ -1,7 +1,7 @@
 ﻿// 2024/02/03 12:50:14 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Utils/GlobalFunctions.h"
-#include "Controls/Buttons.h"
+#include "Controls/Button.h"
 #include "Settings/Configurator.h"
 #pragma warning(push, 0)
 #include <wx/checkbox.h>

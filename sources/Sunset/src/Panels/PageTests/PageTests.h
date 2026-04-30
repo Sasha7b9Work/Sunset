@@ -1,6 +1,6 @@
 ﻿// 2025/8/9 09:54:32 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Controls/ButtonsCombo.h"
+#include "Controls/ButtonCombo.h"
 #include "Controls/BmpButtonsCombo.h"
 #include "Controls/Notebook.h"
 #include "IPPP/Tests/SettingsTests.h"

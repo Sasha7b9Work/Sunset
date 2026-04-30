@@ -2,7 +2,7 @@
 #include "defines.h"
 #include "Panels/PanelDebug/Notebook/Register.h"
 #include "Panels/PanelDebug/Notebook/PainterRegister.h"
-#include "Controls/TextControls.h"
+#include "Controls/TextControl.h"
 #include "Utils/StringUtils.h"
 #include "Panels/PanelDebug/Notebook/CommandsCombo.h"
 #include "IPPP/IDevice.h"

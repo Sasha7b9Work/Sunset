@@ -1,7 +1,7 @@
 // 2026/04/03 11:45:44 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/StaticBox.h"
-#include "Controls/Controls.h"
+#include "Controls/Control.h"
 
 
 class StaticBoxCustom : public StaticBox

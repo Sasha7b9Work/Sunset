@@ -1,7 +1,7 @@
 ﻿// 2025/7/23 14:20:52 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/SpinBox.h"
-#include "Controls/Buttons.h"
+#include "Controls/Button.h"
 #pragma warning(push, 0)
 #include <wx/button.h>
 #pragma warning(pop)

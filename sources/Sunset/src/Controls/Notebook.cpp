@@ -1,7 +1,7 @@
 // 2026/04/08 15:31:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Controls/Notebook.h"
-#include "Controls/Buttons.h"
+#include "Controls/Button.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>
 #pragma warning(pop)

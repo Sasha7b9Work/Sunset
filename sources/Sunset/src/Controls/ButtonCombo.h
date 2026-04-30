@@ -1,6 +1,6 @@
 ﻿// 2025/8/9 11:41:23 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Controls/Buttons.h"
+#include "Controls/Button.h"
 
 
 // Кнопка с рисунком на ней

@@ -1,7 +1,7 @@
 ﻿// 2026/01/24 21:41:36 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/ControlDataFPGA.h"
-#include "Controls/Buttons.h"
+#include "Controls/Button.h"
 #include "Controls/Panel.h"
 
 
