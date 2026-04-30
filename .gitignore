@@ -19,3 +19,5 @@ sources/*uvgui*
 sources/Device/*uvgui*
 sources/Device/*uvoptx*
 sources/Device/RTE/*
+
+sources/Sunset/resources/resources.aps
