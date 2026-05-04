@@ -11,6 +11,7 @@ class wxWindow;
 class wxStaticText;
 class wxCheckBox;
 class wxTextCtrl;
+class wxSpinCtrl;
 
 
 #define FIND_CHECKBUTTON(id)  GF::FindCheckButton(this, (id))
