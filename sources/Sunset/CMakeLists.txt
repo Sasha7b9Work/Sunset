@@ -67,6 +67,8 @@ endif()
 
 add_definitions(-DOPT_GENERIC)
 
+set(RapidJSON_DIR "${CMAKE_CURRENT_LIST_DIR}/../../vcpkg_installed/x64-windows/share/rapidjson" CACHE PATH "Path to RapidJSON config")
+
 file(GLOB RESOURCES                     resources/*.*)
 file(GLOB SRC                           src/*.*)
 file(GLOB COMMUNICATOR                  src/Communicator/*.*)
@@ -149,6 +151,8 @@ source_group(Windows                          FILES ${WINDOWS})
 source_group(Plugs/Arm64                      FILES ${PLUGS_ARM64})
 source_group(Plugs/linux                      FILES ${PLUGS_LINUX})
 
+find_package(RapidJSON CONFIG REQUIRED)
+
 add_executable(${PROJECT_NAME}
     ${RESOURCES}
     ${SRC}
@@ -191,8 +195,10 @@ set_source_files_properties(
     PROPERTIES SKIP_UNITY_BUILD_INCLUSION ON
 )
 
+
 if(WIN32)
-    target_link_libraries(${PROJECT_NAME}
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        RapidJSON rapidjson
         wxbase33u
         wxmsw33u_core
         wxbase33u_net
