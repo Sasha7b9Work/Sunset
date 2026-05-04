@@ -5,6 +5,7 @@
 #include "Communicator/SPI/SPI.h"
 #include "Communicator/UART/UART.h"
 #include <cstdarg>
+#include <cstring>
 
 
 EmulatorDevice::~EmulatorDevice()
