@@ -1,6 +1,6 @@
 ﻿// 2025/09/11 14:47:46 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "IPPP/Tests/Ranges.h"
+#include "Settings/Tests/Ranges.h"
 
 
 struct CalK

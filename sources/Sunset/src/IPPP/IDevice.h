@@ -1,6 +1,6 @@
 #pragma once
-#include "IPPP/Tests/SettingsTests.h"
-#include "IPPP/Tests/Ranges.h"
+#include "Settings/Tests/SettingsTests.h"
+#include "Settings/Tests/Ranges.h"
 
 
 // Здесь идёт обмен с контроллером

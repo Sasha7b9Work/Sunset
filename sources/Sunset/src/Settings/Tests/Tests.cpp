@@ -1,6 +1,6 @@
 ﻿// 2025/08/19 14:10:57 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "IPPP/Tests/Tests.h"
+#include "Settings/Tests/Tests.h"
 #include "Settings/Configurator.h"
 
 

@@ -1,6 +1,6 @@
 ﻿// 2025/09/04 16:37:21 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "IPPP/Tests/SettingsTests.h"
+#include "Settings/Tests/SettingsTests.h"
 
 
 const Chan ChC(Chan::_C);

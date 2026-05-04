@@ -3,7 +3,7 @@
 #include "Controls/ButtonCombo.h"
 #include "Controls/BmpButtonsCombo.h"
 #include "Controls/Notebook.h"
-#include "IPPP/Tests/SettingsTests.h"
+#include "Settings/Tests/SettingsTests.h"
 
 
 class Splitter;

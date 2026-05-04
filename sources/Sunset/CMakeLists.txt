@@ -80,7 +80,6 @@ file(GLOB IPPP_EMULATOR                 src/IPPP/Emulator/*.*)
 file(GLOB IPPP_KEYBOARD                 src/IPPP/Keyboard/*.*)
 file(GLOB IPPP_REAL                     src/IPPP/Real/*.*)
 file(GLOB IPPP_SCPI                     src/IPPP/SCPI/*.*)
-file(GLOB IPPP_TESTS                    src/IPPP/Tests/*.*)
 file(GLOB MAIN_PANEL                    src/MainPanel/*.*)
 file(GLOB PANEL_ARCHIVE                 src/Panels/PanelArchive/*.*)
 file(GLOB PANEL_DEBUG                   src/Panels/PanelDebug/*.*)
@@ -93,6 +92,7 @@ file(GLOB PANEL_SETTINGS                src/Panels/PanelSettings/*.*)
 file(GLOB PANEL_TABLES                  src/Panels/PanelTables/*.*)
 file(GLOB PAGE_TESTS                    src/Panels/PageTests/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
+file(GLOB SETTINGS_TESTS                src/Settings/Tests/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
 file(GLOB SYSTEM                        src/System/*.*)
@@ -127,7 +127,6 @@ source_group(IPPP/Emulator                    FILES ${IPPP_EMULATOR})
 source_group(IPPP/Keyboard                    FILES ${IPPP_KEYBOARD})
 source_group(IPPP/Real                        FILES ${IPPP_REAL})
 source_group(IPPP/SCPI                        FILES ${IPPP_SCPI})
-source_group(IPPP/Tests                       FILES ${IPPP_TESTS})
 source_group(Panels                           FILES ${MAIN_PANEL})
 source_group(Panels/PanelArchive              FILES ${PANEL_ARCHIVE})
 source_group(Panels/PanelDebug                FILES ${PANEL_DEBUG})
@@ -140,6 +139,7 @@ source_group(Panels/PanelSettings             FILES ${PANEL_SETTINGS})
 source_group(Panels/PanelTables               FILES ${PANEL_TABLES})
 source_group(Panels/PageTests                 FILES ${PAGE_TESTS})
 source_group(Settings                         FILES ${SETTINGS})
+source_group(Settings/Tests                   FILES ${SETTINGS_TESTS})
 source_group(SoftTests                        FILES ${SOFTTESTS})
 source_group(Storage                          FILES ${STORAGE})
 source_group(System                           FILES ${SYSTEM})
@@ -163,7 +163,6 @@ add_executable(${PROJECT_NAME}
     ${IPPP_KEYBOARD}
     ${IPPP_REAL}
     ${IPPP_SCPI}
-    ${IPPP_TESTS}
     ${MAIN_PANEL}
     ${PANEL_ARCHIVE}
     ${PANEL_DEBUG}
@@ -176,6 +175,7 @@ add_executable(${PROJECT_NAME}
     ${PANEL_TABLES}
     ${PAGE_TESTS}
     ${SETTINGS}
+    ${SETTINGS_TESTS}
     ${SOFTTESTS}
     ${STORAGE}
     ${SYSTEM}

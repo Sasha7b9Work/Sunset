@@ -13,7 +13,7 @@
 #include "Panels/PanelSettings/PanelSettings.h"
 #include "Panels/PanelTables/PanelTables.h"
 #include "Controls/Dialog.h"
-#include "IPPP/Tests/Tests.h"
+#include "Settings/Tests/Tests.h"
 #include "Controls/Notebook.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>

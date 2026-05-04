@@ -8,7 +8,7 @@
 #include "MainWindow.h"
 #include "Utils/SystemDepend.h"
 #include "Controls/Bitmap.h"
-#include "IPPP/Tests/Tests.h"
+#include "Settings/Tests/Tests.h"
 #include "Controls/StaticBox.h"
 #include "System/Events.h"
 #include "Controls/Splitter.h"
