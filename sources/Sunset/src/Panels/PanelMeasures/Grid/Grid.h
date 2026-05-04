@@ -1,6 +1,9 @@
 ﻿// 2025/7/13 20:38:50 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "System/Events.h"
+#pragma warning(push, 0)
+#include <wx/geometry.h>
+#pragma warning(pop)
 
 
 class GraphMeasure;

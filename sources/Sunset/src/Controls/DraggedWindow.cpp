@@ -4,6 +4,9 @@
 #include "Settings/Settings.h"
 #include "MainWindow.h"
 #include "Panels/PanelMeasures/Graphics/AutoCursors.h"
+#pragma warning(push, 0)
+#include <wx/dcclient.h>
+#pragma warning(pop)
 
 
 DraggedWindow::DraggedWindow(const wxString &_title, const wxSize &_size)

@@ -2,6 +2,8 @@
 #pragma once
 #pragma warning(push, 0)
 #include <wx/graphics.h>
+#include <wx/brush.h>
+#include <wx/pen.h>
 #pragma warning(pop)
 
 

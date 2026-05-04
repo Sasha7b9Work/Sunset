@@ -6,6 +6,7 @@
 #include "Utils/SystemDepend.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>
+#include <wx/textctrl.h>
 #pragma warning(pop)
 
 

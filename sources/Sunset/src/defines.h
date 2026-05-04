@@ -1,45 +1,30 @@
 ﻿// 2023/07/04 17:46:31 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-
-
 #include "option.h"
 
-
+#define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
+
 #pragma warning (push, 0)
-//#include <wx/config.h>
-//#include <wx/wx.h>
-//#include <wx/spinctrl.h>
-//#include <wx/display.h>
-//#include <wx/tglbtn.h>
-//#include <wx/fileconf.h>
-//#include <wx/notebook.h>
-//#include <wx/listctrl.h>
-//#include <wx/statline.h>
-//#include <wx/textfile.h>
-//#include <wx/tokenzr.h>
-//#include <wx/graphics.h>
-//#include <wx/colordlg.h>
-//#include <wx/aui/aui.h>
+#include <wx/string.h>
+//#include <wx/grid.h>
+//#include <wx/popupwin.h>
+//#include <wx/scrolwin.h>
+//#include <wx/combo.h>
+//#include <wx/valnum.h>
+//#include <wx/datetime.h>
+//#include <wx/dirctrl.h>
+//#include <wx/dir.h>
+//#include <wx/rawbmp.h>
+//#include <wx/artprov.h>
+//#include <wx/evtloop.h>
+//#include <wx/uiaction.h>
+//#include <wx/wfstream.h>
+//#include <wx/dnd.h>
 //#include <wx/msgdlg.h>
-#include <wx/grid.h>
-#include <wx/popupwin.h>
-#include <wx/scrolwin.h>
-#include <wx/combo.h>
-#include <wx/valnum.h>
-#include <wx/datetime.h>
-#include <wx/dirctrl.h>
-#include <wx/dir.h>
-#include <wx/rawbmp.h>
-#include <wx/artprov.h>
-#include <wx/evtloop.h>
-#include <wx/uiaction.h>
-#include <wx/wfstream.h>
-#include <wx/dnd.h>
-#include <wx/msgdlg.h>
-#include <wx/splitter.h>
-#include <wx/progdlg.h>
-#include <wx/dcbuffer.h>
+//#include <wx/splitter.h>
+//#include <wx/progdlg.h>
+//#include <wx/dcbuffer.h>
 
 
 #include <algorithm>

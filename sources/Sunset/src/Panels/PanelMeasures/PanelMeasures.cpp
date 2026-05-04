@@ -11,6 +11,10 @@
 #include "Panels/PanelMeasures/Grid/Grid.h"
 #include "Settings/Settings.h"
 #include "Utils/Timer.h"
+#pragma warning(push, 0)
+#include <wx/msgdlg.h>
+#include <wx/dcclient.h>
+#pragma warning(pop)
 
 
 PanelMeasures *ThePanelMeasures = nullptr;

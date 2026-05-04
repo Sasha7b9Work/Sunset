@@ -3,6 +3,7 @@
 #include "Controls/Bitmap.h"
 #pragma warning(push, 0)
 #include <wx/filename.h>
+#include <wx/icon.h>
 #pragma warning(pop)
 
 

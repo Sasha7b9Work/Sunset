@@ -4,6 +4,7 @@
 #include "Settings/Color.h"
 #pragma warning(push, 0)
 #include <wx/graphics.h>
+#include <wx/dcclient.h>
 #pragma warning(pop)
 
 

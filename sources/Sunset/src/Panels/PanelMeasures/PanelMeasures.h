@@ -1,11 +1,15 @@
 ﻿// 2022/10/28 23:17:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Controls/Notebook.h"
+#pragma warning(push, 0)
+#include <wx/dcmemory.h>
+#pragma warning(pop)
 
 
 class PanelErrors;
 class GraphMeasure;
 class Button;
+class wxGraphicsContext;
 
 
 // Здесь отрисовывается график ну и кнопки разные

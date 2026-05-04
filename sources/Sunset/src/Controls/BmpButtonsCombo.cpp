@@ -6,6 +6,7 @@
 #include "Settings/Settings.h"
 #pragma warning(push, 0)
 #include <wx/settings.h>
+#include <wx/popupwin.h>
 #pragma warning(pop)
 
 

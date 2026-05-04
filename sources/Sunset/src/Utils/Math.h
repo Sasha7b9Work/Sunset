@@ -1,5 +1,8 @@
 ﻿// 2025/7/25 22:29:32 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/gdicmn.h>
+#pragma warning(pop)
 
 
 namespace Math

@@ -8,6 +8,9 @@
 #include "Panels/PanelDebug/Notebook/PageChannelC.h"
 #include "Utils/Math.h"
 #include "Utils/Timer.h"
+#pragma warning(push, 0)
+#include <wx/textctrl.h>
+#pragma warning(pop)
 
 
 PanelRight *ThePanelRight = nullptr;

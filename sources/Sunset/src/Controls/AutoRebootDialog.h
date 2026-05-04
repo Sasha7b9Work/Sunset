@@ -4,6 +4,7 @@
 #pragma warning(push, 0)
 #include <wx/stattext.h>
 #include <wx/sizer.h>
+#include <wx/dialog.h>
 #pragma warning(pop)
 
 

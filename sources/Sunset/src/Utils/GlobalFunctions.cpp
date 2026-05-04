@@ -5,6 +5,8 @@
 #pragma warning(push, 0)
 #include <wx/stattext.h>
 #include <wx/filename.h>
+#include <wx/textctrl.h>
+#include <wx/msgdlg.h>
 #pragma warning(pop)
 
 

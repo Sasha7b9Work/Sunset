@@ -9,6 +9,7 @@
 
 
 class Button;
+class wxTextCtrl;
 
 
 class SpinBox : public Panel
@@ -23,8 +24,8 @@ public:
 
 private:
 
-    int min = 0;
-    int max = 0;
+    int m_min = 0;
+    int m_max = 0;
 
     wxTextCtrl *text = nullptr;
     Button *btnMore = nullptr;

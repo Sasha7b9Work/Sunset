@@ -1,5 +1,8 @@
 ﻿// 2025/08/10 13:41:12 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/bitmap.h>
+#pragma warning(pop)
 
 
 class Bitmap

@@ -5,6 +5,9 @@
 #pragma warning(pop)
 
 
+class wxPanel;
+
+
 class NotebookDebug : public wxNotebook
 {
 public:

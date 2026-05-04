@@ -1,6 +1,9 @@
 ﻿// 2025/09/04 16:37:21 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Settings/Tests/SettingsTests.h"
+#pragma warning(push, 0)
+#include <wx/arrstr.h>
+#pragma warning(pop)
 
 
 const Chan ChC(Chan::_C);

@@ -6,8 +6,8 @@
 
 TextCtrlNumber::TextCtrlNumber(wxWindow *parent, int id, const wxString &text_val, const wxSize &size, int _min, int _max) :
     wxTextCtrl(parent, id, text_val, wxDefaultPosition, size),
-    min(_min),
-    max(_max)
+    m_min(_min),
+    m_max(_max)
 {
     Bind(wxEVT_CHAR, &TextCtrlNumber::OnEventChar, this);
 }
@@ -34,7 +34,7 @@ void TextCtrlNumber::OnEventChar(wxKeyEvent &event)
 
         str.ToLong(&value);
 
-        if (value >= min && value <= max)
+        if (value >= m_min && value <= m_max)
         {
             event.Skip();
             return;

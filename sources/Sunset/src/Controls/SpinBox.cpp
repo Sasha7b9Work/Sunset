@@ -4,13 +4,14 @@
 #include "Controls/Button.h"
 #pragma warning(push, 0)
 #include <wx/button.h>
+#include <wx/textctrl.h>
 #pragma warning(pop)
 
 
 SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
     Panel(parent),
-    min(_min),
-    max(_max)
+    m_min(_min),
+    m_max(_max)
 {
     Panel::SetSize(size);
 
@@ -23,7 +24,7 @@ SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
 
     text->SetEditable(false);
 
-    SetValue(min);
+    SetValue(m_min);
 
     wxSize size_button{ width_btn, 11 };
 
@@ -46,14 +47,14 @@ void SpinBox::OnEventButton(wxCommandEvent &event)
 
     if (id == btnMore->GetId())
     {
-        if (value < max)
+        if (value < m_max)
         {
             SetValue(value + 1);
         }
     }
     else if (id == btnLess->GetId())
     {
-        if (value > min)
+        if (value > m_min)
         {
             SetValue(value - 1);
         }

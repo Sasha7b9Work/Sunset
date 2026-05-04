@@ -5,6 +5,7 @@
 
 class ToggleButton;
 class Notebook;
+class wxBoxSizer;
 
 
 // Это панель - со своей кнопкой выбора, с возможностью открепляться от PanelBoard

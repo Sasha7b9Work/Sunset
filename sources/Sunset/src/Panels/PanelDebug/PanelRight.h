@@ -5,6 +5,9 @@
 #include "Controls/Panel.h"
 
 
+class wxTextCtrl;
+
+
 class PanelRight : public Panel
 {
 public:

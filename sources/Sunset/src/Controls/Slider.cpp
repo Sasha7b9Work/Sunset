@@ -11,8 +11,8 @@
 
 SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxString &_name) :
     Panel(parent),
-    min(_min),
-    max(_max)
+    m_min(_min),
+    m_max(_max)
 {
     Panel::SetSize({ width + 5, TEXTCNTRL_HEIGHT + 5 + 5 });
 
@@ -23,7 +23,7 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
 
     wxSize s{ width - w1 - w2, TEXTCNTRL_HEIGHT + 5 };
 
-    slider = new wxSlider(this, wxID_ANY, min, min, max, { w1, 0 }, s );
+    slider = new wxSlider(this, wxID_ANY, m_min, m_min, m_max, { w1, 0 }, s );
 
     slider->SetMinSize(wxSize(100, 30));
 
@@ -154,7 +154,7 @@ void SliderInt::Pack()
 
 void SliderInt::Unpack()
 {
-    int value = wxClip<int>(Config::ReadInt(GetName(), 0), min, max);
+    int value = wxClip<int>(Config::ReadInt(GetName(), 0), m_min, m_max);
 
     SetValue(value);
 }

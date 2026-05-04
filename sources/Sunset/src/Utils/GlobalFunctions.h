@@ -7,6 +7,10 @@
 
 
 class wxRadioButton;
+class wxWindow;
+class wxStaticText;
+class wxCheckBox;
+class wxTextCtrl;
 
 
 #define FIND_CHECKBUTTON(id)  GF::FindCheckButton(this, (id))

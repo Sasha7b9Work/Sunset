@@ -6,6 +6,9 @@
 #pragma warning(pop)
 
 
+class wxTextCtrl;
+
+
 class ConsoleRS232 : public wxFrame
 {
 public:

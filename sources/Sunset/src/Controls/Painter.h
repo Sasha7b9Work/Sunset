@@ -4,17 +4,19 @@
 #include "Controls/Panel.h"
 #pragma warning(push, 0)
 #include <wx/timer.h>
+#include <wx/dcmemory.h>
 #pragma warning(pop)
 
 
 struct Color;
+class wxGraphicsContext;
 
 
 class Painter : public Panel
 {
 public:
 
-    Painter(wxWindow *parent, const wxPoint &position, const wxSize &size);
+    Painter(wxWindow *, const wxPoint &position, const wxSize &);
 
     virtual void OnPaint(wxPaintEvent &);
 

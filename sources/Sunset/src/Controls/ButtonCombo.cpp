@@ -4,6 +4,9 @@
 #include "MainWindow.h"
 #include "Utils/GlobalFunctions.h"
 #include "Controls/StaticBox.h"
+#pragma warning(push, 0)
+#include <wx/popupwin.h>
+#pragma warning(pop)
 
 
 DrawingButton::DrawingButton(wxWindow *parent, const wxString &label, const wxSize &size, const wxString &_name_file) :

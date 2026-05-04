@@ -1,5 +1,8 @@
 ﻿// 2026/03/09 10:24:13 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#pragma warning(push, 0)
+#include <wx/dcbuffer.h>
+#pragma warning(pop)
 
 
 class KnobWidget : public wxControl
