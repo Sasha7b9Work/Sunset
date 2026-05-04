@@ -4,6 +4,7 @@
 #pragma warning(push, 0)
 #include <wx/gdicmn.h>
 #pragma warning(pop)
+#include <cstring>
 
 
 wxSize BUTTON_SIZE = { BUTTON_WIDTH, BUTTON_HEIGHT };
