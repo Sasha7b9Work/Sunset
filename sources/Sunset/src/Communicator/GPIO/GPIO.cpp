@@ -2,6 +2,7 @@
 #include "defines.h"
 #include "Communicator/GPIO/GPIO.h"
 #include "Utils/Timer.h"
+#include <thread>
 
 
 // Lin specific

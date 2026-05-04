@@ -7,6 +7,8 @@
 #include "IPPP/SCPI/SCPI.h"
 #include "Communicator/ComPort/ComPort.h"
 #include "IPPP/Real/RealDevice.h"
+#include <cstdarg>
+
 
 IDevice *IDevice::impl = nullptr;
 

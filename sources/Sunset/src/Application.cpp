@@ -15,6 +15,7 @@
 #include <wx/msgdlg.h>
 #pragma warning(pop)
 #include <cstdlib>
+#include <locale>
 
 
 wxIMPLEMENT_APP(Application);

@@ -1,6 +1,7 @@
 ﻿// 2025/09/11 08:48:15 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "IPPP/IDevice.h"
+#include <atomic>
 
 
 class RealDevice : public IDevice

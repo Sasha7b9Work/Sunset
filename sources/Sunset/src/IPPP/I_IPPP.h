@@ -1,6 +1,6 @@
 ﻿// 2025/09/07 16:35:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-//#include "Settings/Tests/Ranges.h"
+#include <memory>
 
 
 // Здесь логика работы прибора (логика работы железа фактически)

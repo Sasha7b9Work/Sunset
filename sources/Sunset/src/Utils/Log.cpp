@@ -7,6 +7,7 @@
 #include <wx/textfile.h>
 #include <wx/filename.h>
 #pragma warning(pop)
+#include <iostream>
 
 
 namespace Log

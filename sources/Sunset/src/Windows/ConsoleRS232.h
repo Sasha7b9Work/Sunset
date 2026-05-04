@@ -4,6 +4,7 @@
 #pragma warning(push, 0)
 #include <wx/frame.h>
 #pragma warning(pop)
+#include <mutex>
 
 
 class wxTextCtrl;
