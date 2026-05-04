@@ -7,47 +7,7 @@
 
 #pragma warning (push, 0)
 #include <wx/string.h>
-//#include <wx/grid.h>
-//#include <wx/popupwin.h>
-//#include <wx/scrolwin.h>
-//#include <wx/combo.h>
-//#include <wx/valnum.h>
-//#include <wx/datetime.h>
-//#include <wx/dirctrl.h>
-//#include <wx/dir.h>
-//#include <wx/rawbmp.h>
-//#include <wx/artprov.h>
-//#include <wx/evtloop.h>
-//#include <wx/uiaction.h>
-//#include <wx/wfstream.h>
-//#include <wx/dnd.h>
-//#include <wx/msgdlg.h>
-//#include <wx/splitter.h>
-//#include <wx/progdlg.h>
-//#include <wx/dcbuffer.h>
 
-
-#include <algorithm>
-#include <array>
-#include <functional>
-#include <memory>
-#include <random>
-#include <map>
-#include <queue>
-#include <mutex>
-#include <stack>
-#include <thread>
-#include <iostream>
-#include <errno.h>
-#include <cstring>
-#include <iostream>
-#include <cstdint>
-#include <string>
-#include <cstdarg>
-#include <chrono>
-#include <atomic>
-#include <filesystem>
-#include <limits>
 
 #ifdef WIN32
     #define NDIS_MINIPORT_MAJOR_VERSION 0

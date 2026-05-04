@@ -3,6 +3,7 @@
 #pragma warning(push, 0)
 #include <wx/bitmap.h>
 #pragma warning(pop)
+#include <map>
 
 
 class Bitmap

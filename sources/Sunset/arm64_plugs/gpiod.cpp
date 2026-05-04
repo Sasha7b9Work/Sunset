@@ -1,5 +1,7 @@
+// 2026/05/04 10:36:35 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "gpiod.h"
+#include <map>
 
 
 #ifndef ARM64
