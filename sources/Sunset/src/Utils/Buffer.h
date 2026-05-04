@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Utils/StringUtils.h"
+#include <cstring>
 
 
 template<int size_buffer>
