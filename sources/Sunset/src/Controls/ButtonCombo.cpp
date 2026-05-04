@@ -6,6 +6,7 @@
 #include "Controls/StaticBox.h"
 #pragma warning(push, 0)
 #include <wx/popupwin.h>
+#include <wx/settings.h>
 #pragma warning(pop)
 
 
