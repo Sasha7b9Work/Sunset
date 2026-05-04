@@ -15,7 +15,3 @@ goto Exit
 @echo %TIME%   Complete
 
 :Exit
-
-rmdir ..\..\generated\Linia\Linia2\resources /S /Q
-mkdir ..\..\generated\Linia\Linia2\resources
-robocopy ..\..\..\files\resources ..\..\generated\Linia\Linia2\resources /E /MT:32 /NFL

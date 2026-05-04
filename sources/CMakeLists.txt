@@ -14,7 +14,6 @@ if (COMMAND cmake_policy)
 #    cmake_policy (SET CMP0063 OLD)
 endif ()
 
-# Set project name
 project (Sunset)
 
 set (TARGET_NAME Sunset)
