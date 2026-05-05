@@ -1,0 +1,46 @@
+{
+    "category" : [
+        "BJT",
+        "CMOS",
+        "Discrete"
+    ],
+    
+    "BJT" : {
+        "library" : {
+            "BC Diode Fwd" : {
+                "IntegTime" : [ "MEDIUM", "SHORT" ],
+                "Base" : [ "SMU5:MP", "SMU1:HP" ]
+            },
+            "BC Diode Rev" : {
+                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
+                "VcStart" : "text"
+            }
+        }
+    },
+    
+    "CMOS" : {
+        "library" : {
+            "BC Diode Fwd" : {
+                "IntegTime" : [ "MEDIUM", "SHORT" ],
+                "Base" : [ "SMU5:MP", "SMU1:HP" ]
+            },
+            "BC Diode Rev" : {
+                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
+                "VcStart" : "text"
+            }
+        }
+    },
+    
+    "Discrete" : {
+        "library" : {
+            "BC Diode Fwd" : {
+                "IntegTime" : [ "MEDIUM", "SHORT" ],
+                "Base" : [ "SMU5:MP", "SMU1:HP" ]
+            },
+            "BC Diode Rev" : {
+                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
+                "VcStart" : "text"
+            }
+        }
+    }
+}
