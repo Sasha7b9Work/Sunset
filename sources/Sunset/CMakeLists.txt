@@ -270,5 +270,3 @@ else()
             $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
     )
 endif()
-
-

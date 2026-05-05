@@ -4,7 +4,7 @@
 #include "Controls/BmpButtonsCombo.h"
 #include "Controls/Notebook.h"
 #include "Settings/Tests/SettingsTests.h"
-#include "Settings/FileJSON.h"
+#include "Settings/Tests/Library/Library.h"
 
 
 class Splitter;
@@ -22,14 +22,14 @@ public:
 
 private:
 
-    Splitter *hor_splitter = nullptr;      // Этот сплиттер в горизонтальной плоскости
-    Splitter *vert_splitter = nullptr;      // Левый сплиттер (верх/низ)
+    Splitter *hor_splitter = nullptr;           // Этот сплиттер в горизонтальной плоскости
+    Splitter *vert_splitter = nullptr;          // Левый сплиттер (верх/низ)
 
     PanelCategory *panel_category = nullptr;
     PanelLibrary  *panel_library = nullptr;
     PanelViewTest *panel_view_test = nullptr;
 
-    FileJSON file_main_library;
+    Library library;                            // Здесь находятся тесты, которые можно загрузить
 
     // Загружает главную библиотеку из json-файла
     void LoadMainLibrary();

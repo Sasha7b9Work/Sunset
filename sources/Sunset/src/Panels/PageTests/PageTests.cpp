@@ -12,6 +12,7 @@
 #include "System/Events.h"
 #include "Controls/Splitter.h"
 #include "Controls/Panel.h"
+#include "Settings/FileJSON.h"
 
 
 PageTests *ThePageTests = nullptr;
@@ -52,7 +53,11 @@ PageTests::PageTests(Notebook *board, PageTests *&global) :
 
 void PageTests::LoadMainLibrary()
 {
-    file_main_library.Load("library_main.json");
+    FileJSON file;
+
+    file.Load("library_main.json");
+
+    library.Read(&file);
 }
 
 
