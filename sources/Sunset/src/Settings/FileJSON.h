@@ -47,7 +47,7 @@ private:
 
     bool is_valid = false;
 
-    rapidjson::Document *document = nullptr;
+    rapidjson::Document document;
 
     std::string full_path;
 };

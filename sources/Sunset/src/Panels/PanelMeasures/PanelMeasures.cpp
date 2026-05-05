@@ -249,6 +249,11 @@ void PanelMeasures::EndPaint()
 
 void PanelMeasures::OnEventPaint(wxPaintEvent &)
 {
+    if (!bitmap)
+    {
+        return;
+    }
+
     BeginPaint();
 
     FillRectangle(0, 0, GetDrawingSize().x, GetDrawingSize().y, SET::GUI::color_background->Get());

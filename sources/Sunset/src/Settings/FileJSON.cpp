@@ -18,8 +18,6 @@ bool FileJSON::Load(pchar rel_path)
 
     full_path = wxGetCwd() + "/" + rel_path;
 
-    document = new rapidjson::Document();
-
     wxFile file;
     if (!file.Open(full_path))
     {
@@ -49,15 +47,15 @@ bool FileJSON::Load(pchar rel_path)
     buffer[fileSize] = '\0';
 
     // Используем rapidjson
-    document->Parse(buffer);
+    document.Parse(buffer);
 
     delete[] buffer;  // освобождаем буфер сразу после парсинга
 
-    if (document->HasParseError())
+    if (document.HasParseError())
     {
         LOG_ERROR("Can't parse configuration file \"%s\". Error %d, offset %u",
-            full_path.c_str(), document->GetParseError(), document->GetErrorOffset());
-        is_valid = false;
+            full_path.c_str(), document.GetParseError(), document.GetErrorOffset());
+
         return false;
     }
 
@@ -71,7 +69,7 @@ void FileJSON::Unload()
 {
     is_valid = false;
 
-    SAFE_DELETE(document);
+    document.Clear();
 }
 
 
@@ -79,9 +77,9 @@ int FileJSON::GetIntValue(pchar key)
 {
     CHECK_ON_VALID_INT;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key);
 
-    if (it != document->MemberEnd() && it->value.IsInt())
+    if (it != document.MemberEnd() && it->value.IsInt())
     {
         return it->value.GetInt();
     }
@@ -122,9 +120,9 @@ bool FileJSON::GetBoolValue(pchar key)
 {
     CHECK_ON_VALID_BOOL;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key);
 
-    if (it != document->MemberEnd() && it->value.IsInt())
+    if (it != document.MemberEnd() && it->value.IsInt())
     {
         return it->value.GetInt() != 0;
     }
@@ -139,7 +137,7 @@ int FileJSON::GetIntValue(pchar key1, pchar key2)
 {
     CHECK_ON_VALID_INT;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key1);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key1);
 
     if (it->value.GetType() == rapidjson::Type::kObjectType)
     {
@@ -164,9 +162,9 @@ pchar FileJSON::GetStringValue(pchar key)
 {
     CHECK_ON_VALID_STRING;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key);
 
-    if (it != document->MemberEnd() && it->value.IsString())
+    if (it != document.MemberEnd() && it->value.IsString())
     {
         return it->value.GetString();
     }
@@ -181,7 +179,7 @@ pchar FileJSON::GetStringValue(pchar key1, pchar key2)
 {
     CHECK_ON_VALID_STRING;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key1);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key1);
 
     if (it->value.GetType() == rapidjson::Type::kObjectType)
     {
@@ -206,7 +204,7 @@ pchar FileJSON::GetStringValue(pchar key1, pchar key2, pchar key3)
 {
     CHECK_ON_VALID_STRING;
 
-    rapidjson::Value::ConstMemberIterator it = document->FindMember(key1);
+    rapidjson::Value::ConstMemberIterator it = document.FindMember(key1);
 
     if (it->value.GetType() == rapidjson::Type::kObjectType)
     {
@@ -242,9 +240,9 @@ bool FileJSON::GetVectorStrings(pchar key, wxArrayString &strings)
         return false;
     }
 
-    if (document->HasMember(key))
+    if (document.HasMember(key))
     {
-        rapidjson::Value::ConstMemberIterator it = document->FindMember(key);
+        rapidjson::Value::ConstMemberIterator it = document.FindMember(key);
 
         auto &value = it->value;
 
