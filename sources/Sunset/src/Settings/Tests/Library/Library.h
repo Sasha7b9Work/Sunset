@@ -8,9 +8,23 @@
 class FileJSON;
 
 
+class _Category
+{
+public:
+
+private:
+
+    wxString name;
+};
+
+
 class Library
 {
 public:
 
     void Read(FileJSON *);
+
+private:
+
+    std::vector<_Category> categories;
 };
