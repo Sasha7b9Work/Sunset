@@ -67,7 +67,11 @@ endif()
 
 add_definitions(-DOPT_GENERIC)
 
-set(RapidJSON_DIR "${CMAKE_CURRENT_LIST_DIR}/../../vcpkg_installed/x64-windows/share/rapidjson" CACHE PATH "Path to RapidJSON config")
+if(WIN32)
+    set(RapidJSON_DIR "${CMAKE_CURRENT_LIST_DIR}/../../vcpkg_installed/x64-windows/share/rapidjson" CACHE PATH "Path to RapidJSON config")
+else()
+    set(RapidJSON_DIR "${CMAKE_CURRENT_LIST_DIR}/../../vcpkg_installed/x64-linux/share/rapidjson" CACHE PATH "Path to RapidJSON config")
+endif()
 
 file(GLOB RESOURCES                     resources/*.*)
 file(GLOB SRC                           src/*.*)
