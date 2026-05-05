@@ -20,8 +20,8 @@ public:
 
     virtual ~FileJSON() { Unload(); }
 
-    // Сюда передаются полный путь от .exe-файла
-    bool Load(const std::string &full_path);
+    // Путь относительно каталога с исполняемым файлом
+    bool Load(pchar rel_path);
 
     void Unload();
 

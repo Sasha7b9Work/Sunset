@@ -12,9 +12,9 @@
 #define CHECK_ON_VALID_BOOL     if (!isValid) { LOG_ERROR("Configuration file is not valid"); return false; }
 
 
-bool FileJSON::Load(const std::string &_full_path)
+bool FileJSON::Load(pchar rel_path)
 {
-    full_path = _full_path;
+    full_path = wxGetCwd() + "/" + rel_path;
 
     document = new rapidjson::Document();
 

@@ -11,6 +11,7 @@
 #include "IPPP/Real/Chips.h"
 #include "IPPP/DeviceFactory.h"
 #include "Windows/ConsoleRS232.h"
+#include "Settings/FileJSON.h"
 #pragma warning(push, 0)
 #include <wx/msgdlg.h>
 #pragma warning(pop)
