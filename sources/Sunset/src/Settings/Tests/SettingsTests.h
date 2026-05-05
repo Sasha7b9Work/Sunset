@@ -6,7 +6,7 @@ class wxArrayString;
 
 
 // Категория испытуемого прибора
-struct Category
+struct TypeCategory
 {
     enum E
     {

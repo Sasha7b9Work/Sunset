@@ -11,7 +11,7 @@ const Chan ChB(Chan::_B);
 const Chan ChS(Chan::_S);
 
 
-bool Category::IsBCE()
+bool TypeCategory::IsBCE()
 {
     E v = Current();
 
@@ -19,7 +19,7 @@ bool Category::IsBCE()
 }
 
 
-bool Category::IsGDS()
+bool TypeCategory::IsGDS()
 {
     E v = Current();
 
@@ -160,19 +160,19 @@ void StateJack::PrepareArray(wxArrayString &arr, E v1, E v2, E v3, E v4)
 }
 
 
-Category::E Category::Current()
+TypeCategory::E TypeCategory::Current()
 {
-    return Category::BCE_N;
+    return TypeCategory::BCE_N;
 }
 
 
 bool Chan::IsVisible() const
 {
-    Category::E cat = Category::Current();
+    TypeCategory::E cat = TypeCategory::Current();
 
     if (value == Chan::_B)
     {
-        if (cat == Category::Diod || cat == Category::Resistor || cat == Category::Capacitor)
+        if (cat == TypeCategory::Diod || cat == TypeCategory::Resistor || cat == TypeCategory::Capacitor)
         {
             return false;
         }
@@ -180,13 +180,13 @@ bool Chan::IsVisible() const
 
     if (value == Chan::_S)
     {
-        if (cat == Category::Diod ||
-            cat == Category::Resistor ||
-            cat == Category::Capacitor ||
-            cat == Category::BCE_N ||
-            cat == Category::BCE_P ||
-            cat == Category::GDS_N ||
-            cat == Category::GDS_P)
+        if (cat == TypeCategory::Diod ||
+            cat == TypeCategory::Resistor ||
+            cat == TypeCategory::Capacitor ||
+            cat == TypeCategory::BCE_N ||
+            cat == TypeCategory::BCE_P ||
+            cat == TypeCategory::GDS_N ||
+            cat == TypeCategory::GDS_P)
         {
             return false;
         }

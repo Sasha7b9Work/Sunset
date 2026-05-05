@@ -1,5 +1,6 @@
 ﻿// 2026/05/05 15:08:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
+#include "Settings/Tests/SettingsTests.h"
 
 
 // Класс для хранения набора тестов
@@ -8,13 +9,14 @@
 class FileJSON;
 
 
-class _Category
+class Category
 {
 public:
 
 private:
 
-    wxString name;
+    wxString     name;
+    TypeCategory type;
 };
 
 
@@ -26,5 +28,5 @@ public:
 
 private:
 
-    std::vector<_Category> categories;
+    std::vector<Category> categories;
 };
