@@ -91,13 +91,13 @@ std::vector<float> FileJSON::GetVector3(pchar key, const std::vector<float> &def
 {
     pchar str_value = GetStringValue(key);
 
-    Array<String<>> words;
+    Words words("");
 
     SU::SplitToWords(str_value, words, ", ");
 
     if (words.GetArrayElementCount() != 3)
     {
-        LOG_ERROR_HI("Bad vector for key \"%s\"", key);
+        LOG_ERROR("Bad vector for key \"%s\"", key);
 
         return def;
     }
@@ -124,7 +124,7 @@ bool FileJSON::GetBoolValue(pchar key)
         return it->value.GetInt() != 0;
     }
 
-    LOG_ERROR_HI("Can't find value for \"%s\"", key);
+    LOG_ERROR("Can't find value for \"%s\"", key);
 
     return false;
 }
@@ -149,7 +149,7 @@ int FileJSON::GetIntValue(pchar key1, pchar key2)
         }
     }
 
-    LOG_ERROR_HI("Can't find value for \"%s\" \"%s\"", key1, key2);
+    LOG_ERROR("Can't find value for \"%s\" \"%s\"", key1, key2);
 
     return -1;
 }
@@ -166,7 +166,7 @@ pchar FileJSON::GetStringValue(pchar key)
         return it->value.GetString();
     }
 
-    LOG_ERROR_HI("Can't find value for \"%s\" key in file \"%s\"", key, full_path.c_str());
+    LOG_ERROR("Can't find value for \"%s\" key in file \"%s\"", key, full_path.c_str());
 
     return "";
 }
@@ -191,7 +191,7 @@ pchar FileJSON::GetStringValue(pchar key1, pchar key2)
         }
     }
 
-    LOG_ERROR_HI("Can't find value for \"%s\" \"%s\"", key1, key2);
+    LOG_ERROR("Can't find value for \"%s\" \"%s\"", key1, key2);
 
     return "";
 }
@@ -221,19 +221,19 @@ pchar FileJSON::GetStringValue(pchar key1, pchar key2, pchar key3)
         }
     }
 
-    LOG_ERROR_HI("Can't find value for \"%s\" \"%s\" \"%s\"", key1, key2, key3);
+    LOG_ERROR("Can't find value for \"%s\" \"%s\" \"%s\"", key1, key2, key3);
 
     return "";
 }
 
 
-bool FileJSON::GetVectorStrings(pchar key, Array<String<>> &strings)
+bool FileJSON::GetVectorStrings(pchar key, wxArrayString &strings)
 {
-    strings.ClearArray();
+    strings.Clear();
 
     if (!isValid)
     {
-        LOG_ERROR_HI("Configuration file is not valid");
+        LOG_ERROR("Configuration file is not valid");
         return false;
     }
 
@@ -249,11 +249,11 @@ bool FileJSON::GetVectorStrings(pchar key, Array<String<>> &strings)
             {
                 if (elem->IsString())
                 {
-                    strings.AppendArrayElement(elem->GetString());
+                    strings.Add(elem->GetString());
                 }
             }
         }
     }
 
-    return strings.GetArrayElementCount() != 0;
+    return strings.GetCount() != 0;
 }

@@ -231,6 +231,12 @@ bool Words::Consist(const wxString &word) const
 }
 
 
+int Words::GetArrayElementCount() const
+{
+    return (int)words.GetCount();
+}
+
+
 std::string Words::At(int i) const
 {
     if (i < Size())
@@ -300,4 +306,10 @@ wxString SU::BinToString(uint value, int bit_deth)
     }
 
     return result;
+}
+
+
+double SU::ASCIItoFloat(pchar str)
+{
+    return std::atof(str);
 }

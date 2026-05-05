@@ -55,6 +55,8 @@ struct Words
     // true, если содержит слово
     bool Consist(const wxString &) const;
 
+    int GetArrayElementCount() const;
+
 private:
 
     wxArrayString words;
@@ -91,4 +93,6 @@ namespace SU
 
     // Оставить number последних символов от in. Если строка меньше, то в начале добавить пробелы
     pchar LeaveTheLastOnes(pchar in, int number);
+
+    double ASCIItoFloat(pchar);
 };
