@@ -1,6 +1,6 @@
 // 2025/09/11 14:47:22 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Settings/Tests/DSettings.h"
+#include "Settings/DSettings.h"
 
 
 struct DSettings

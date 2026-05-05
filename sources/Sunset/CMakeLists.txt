@@ -104,6 +104,7 @@ file(GLOB PANEL_TABLES                  src/Panels/PanelTables/*.*)
 file(GLOB PAGE_TESTS                    src/Panels/PageTests/*.*)
 file(GLOB SETTINGS                      src/Settings/*.*)
 file(GLOB SETTINGS_TESTS                src/Settings/Tests/*.*)
+file(GLOB SETTINGS_TESTS_LIBRARY        src/Settings/Tests/Library/*.*)
 file(GLOB SOFTTESTS                     src/SoftTests/*.*)
 file(GLOB STORAGE                       src/Storage/*.*)
 file(GLOB SYSTEM                        src/System/*.*)
@@ -151,6 +152,7 @@ source_group(Panels/PanelTables               FILES ${PANEL_TABLES})
 source_group(Panels/PageTests                 FILES ${PAGE_TESTS})
 source_group(Settings                         FILES ${SETTINGS})
 source_group(Settings/Tests                   FILES ${SETTINGS_TESTS})
+source_group(Settings/Tests/Library           FILES ${SETTINGS_TESTS_LIBRARY})
 source_group(SoftTests                        FILES ${SOFTTESTS})
 source_group(Storage                          FILES ${STORAGE})
 source_group(System                           FILES ${SYSTEM})
@@ -189,6 +191,7 @@ add_executable(${PROJECT_NAME}
     ${PAGE_TESTS}
     ${SETTINGS}
     ${SETTINGS_TESTS}
+    ${SETTINGS_TESTS_LIBRARY}
     ${SOFTTESTS}
     ${STORAGE}
     ${SYSTEM}

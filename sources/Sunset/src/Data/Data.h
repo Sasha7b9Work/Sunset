@@ -1,6 +1,6 @@
 ﻿// 2025/09/07 14:30:34 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
-#include "Settings/Tests/DSettings.h"
+#include "Settings/DSettings.h"
 
 
 class DataConverter
