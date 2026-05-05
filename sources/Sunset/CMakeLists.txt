@@ -243,7 +243,7 @@ else()
 
     pkg_check_modules(GSPELL gspell-1)
 
-    target_link_libraries(${PROJECT_NAME} PRIVATE
+    target_link_libraries(${PROJECT_NAME}
         RapidJSON rapidjson
         wx_gtk3u_core-3.3
         wx_baseu-3.3
