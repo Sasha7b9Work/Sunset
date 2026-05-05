@@ -3,6 +3,9 @@
 #include "Settings/Tests/Ranges.h"
 
 
+// Настройки аппаратной части
+
+
 struct CalK
 {
     double offset;  // Смещение
