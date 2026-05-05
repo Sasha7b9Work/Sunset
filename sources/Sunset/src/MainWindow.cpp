@@ -13,7 +13,6 @@
 #include "Panels/PanelSettings/PanelSettings.h"
 #include "Panels/PanelTables/PanelTables.h"
 #include "Controls/Dialog.h"
-#include "Settings/Tests/Tests.h"
 #include "Controls/Notebook.h"
 #pragma warning(push, 0)
 #include <wx/sizer.h>
@@ -193,8 +192,6 @@ void MainWindow::OnQuit(wxCommandEvent &WXUNUSED(event))
 
 void MainWindow::OnEventCloseWindow(wxCloseEvent &event)
 {
-    Test::Save("example.tst");
-
     SET::GUI::current_panel->Set(main_panel->GetCurrentPanelIndex());
 
     if (ConsoleRS232::self)
