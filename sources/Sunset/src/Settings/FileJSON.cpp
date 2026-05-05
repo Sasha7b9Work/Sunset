@@ -7,13 +7,15 @@
 #pragma warning(pop)
 
 
-#define CHECK_ON_VALID_STRING   if (!isValid) { LOG_ERROR("Configuration file is not valid"); return nullptr; }
-#define CHECK_ON_VALID_INT      if (!isValid) { LOG_ERROR("Configuration file is not valid"); return -1; }
-#define CHECK_ON_VALID_BOOL     if (!isValid) { LOG_ERROR("Configuration file is not valid"); return false; }
+#define CHECK_ON_VALID_STRING   if (!is_valid) { LOG_ERROR("Configuration file is not valid"); return nullptr; }
+#define CHECK_ON_VALID_INT      if (!is_valid) { LOG_ERROR("Configuration file is not valid"); return -1; }
+#define CHECK_ON_VALID_BOOL     if (!is_valid) { LOG_ERROR("Configuration file is not valid"); return false; }
 
 
 bool FileJSON::Load(pchar rel_path)
 {
+    Unload();
+
     full_path = wxGetCwd() + "/" + rel_path;
 
     document = new rapidjson::Document();
@@ -55,10 +57,11 @@ bool FileJSON::Load(pchar rel_path)
     {
         LOG_ERROR("Can't parse configuration file \"%s\". Error %d, offset %u",
             full_path.c_str(), document->GetParseError(), document->GetErrorOffset());
-        isValid = false;
+        is_valid = false;
         return false;
     }
-    isValid = true;
+
+    is_valid = true;
 
     return true;
 }
@@ -66,6 +69,8 @@ bool FileJSON::Load(pchar rel_path)
 
 void FileJSON::Unload()
 {
+    is_valid = false;
+
     SAFE_DELETE(document);
 }
 
@@ -231,7 +236,7 @@ bool FileJSON::GetVectorStrings(pchar key, wxArrayString &strings)
 {
     strings.Clear();
 
-    if (!isValid)
+    if (!is_valid)
     {
         LOG_ERROR("Configuration file is not valid");
         return false;

@@ -39,13 +39,13 @@ public:
 
     bool GetBoolValue(pchar key);
 
-    bool IsValid() const { return isValid; }
+    bool IsValid() const { return is_valid; }
 
     std::vector<float> GetVector3(pchar key, const std::vector<float> &def = {0.0f, 0.0f, 0.0f});
 
 private:
 
-    bool isValid = false;
+    bool is_valid = false;
 
     rapidjson::Document *document = nullptr;
 

@@ -46,6 +46,14 @@ PageTests::PageTests(Notebook *board, PageTests *&global) :
     SetSizer(sizer);
 
     Layout();
+
+    LoadMainLibrary();
+}
+
+
+void PageTests::LoadMainLibrary()
+{
+    file_main_library.Load("library_main.json");
 }
 
 

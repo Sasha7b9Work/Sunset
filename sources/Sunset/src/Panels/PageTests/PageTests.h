@@ -4,6 +4,7 @@
 #include "Controls/BmpButtonsCombo.h"
 #include "Controls/Notebook.h"
 #include "Settings/Tests/SettingsTests.h"
+#include "Settings/FileJSON.h"
 
 
 class Splitter;
@@ -27,6 +28,11 @@ private:
     PanelCategory *panel_category = nullptr;
     PanelLibrary  *panel_library = nullptr;
     PanelViewTest *panel_view_test = nullptr;
+
+    FileJSON file_main_library;
+
+    // Загружает главную библиотеку из json-файла
+    void LoadMainLibrary();
 
     virtual void CallbackOnEventSize() override;
 };
