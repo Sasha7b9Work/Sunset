@@ -1,7 +1,6 @@
 ﻿// 2026/05/05 15:11:52 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Settings/Tests/Library/Library.h"
-#include "Settings/FileJSON.h"
 
 
 bool Library::Read(FileJSON *_file)
@@ -32,6 +31,10 @@ bool Library::Read(FileJSON *_file)
                 }
                 else if (it_value->value.IsObject())
                 {
+                    if (!ParseTest(category, it_value->value))
+                    {
+                        return false;
+                    }
                 }
             }
 
@@ -45,19 +48,29 @@ bool Library::Read(FileJSON *_file)
 
 bool Library::ParseNameCategory(Category &category, pchar name_cat)
 {
-    wxString name = file->GetStringValue(name_cat, "name");
+    category.name = file->GetStringValue(name_cat, "name");
 
-    if (name[0])
-    {
-        category.name = name;
-        return true;
-    }
-
-    return false;
+    return category.name[0] != '\0';
 }
 
 
-void Category::Clear()
+bool Library::ParseTest(Category &category, const rapidjson::Value &value)
 {
-    *this = Category();
+    Test test;
+
+    for (auto it = value.MemberBegin(); it != value.MemberEnd(); it++)
+    {
+        if (it->value.IsString())
+        {
+            test.name = it->name.GetString();
+        }
+        else if (it->value.IsObject())
+        {
+
+        }
+    }
+
+    category.tests.push_back(test);
+
+    return test.name[0] != '\0';
 }

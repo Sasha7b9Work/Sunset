@@ -1,6 +1,7 @@
 ﻿// 2026/05/05 15:08:16 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #pragma once
 #include "Settings/Tests/SettingsTests.h"
+#include "Settings/FileJSON.h"
 
 
 // Класс для хранения набора тестов
@@ -10,13 +11,20 @@ class FileJSON;
 class PanelCategory;
 
 
+class Test
+{
+public:
+
+    wxString name{ "" };
+};
+
+
 class Category
 {
 public:
 
     wxString name{ "" };
-
-    void Clear();
+    std::vector<Test> tests;
 };
 
 
@@ -28,9 +36,11 @@ public:
 
     std::vector<Category> categories;
 
-    bool ParseNameCategory(Category &, pchar name_cat);
-
 private:
 
     FileJSON *file;
+
+    bool ParseNameCategory(Category &, pchar name_cat);
+
+    bool ParseTest(Category &, const rapidjson::Value &);
 };
