@@ -64,4 +64,8 @@ void PanelCategory::UpdateState()
     }
 
     sizer->AddStretchSpacer();
+
+    sizer->Layout();
+
+    Layout();
 }
