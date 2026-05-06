@@ -18,16 +18,16 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Scrolle
 
     SizerVert *main_sizer = new SizerVert();
 
-    for (int i = 0; i < 30; i++)
-    {
-        CheckBox *check_box = new CheckBox(this, wxString::Format("Category %d", i + 1));
-
-        main_sizer->Add(check_box);
-
-        categories.push_back({ check_box });
-    }
-
-    main_sizer->AddStretchSpacer();
+//    for (int i = 0; i < 30; i++)
+//    {
+//        CheckBox *check_box = new CheckBox(this, wxString::Format("Category %d", i + 1));
+//
+//        main_sizer->Add(check_box);
+//
+//        categories.push_back({ check_box });
+//    }
+//
+//    main_sizer->AddStretchSpacer();
 
     ScrolledPanel::SetSizer(main_sizer);
 }

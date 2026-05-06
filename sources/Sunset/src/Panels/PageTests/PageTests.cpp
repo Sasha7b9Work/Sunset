@@ -55,11 +55,13 @@ void PageTests::LoadMainLibrary()
 {
     FileJSON file;
 
-    file.Load("library_main.json");
-
-    library.Read(&file);
-
-    panel_category->UpdateState();
+    if (file.Load("library_main.json"))
+    {
+        if (library.Read(&file))
+        {
+            panel_category->UpdateState();
+        }
+    }
 }
 
 

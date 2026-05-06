@@ -1,8 +1,7 @@
-﻿{
+{
     "category" : [
         "BJT",
-        "CMOS",
-        "Discrete"
+        "CMOS"
     ],
     
     "BJT" : {

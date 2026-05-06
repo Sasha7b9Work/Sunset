@@ -4,7 +4,7 @@
 #include "Settings/FileJSON.h"
 
 
-void Library::Read(FileJSON *file)
+bool Library::Read(FileJSON *file)
 {
     using namespace rapidjson;
 
@@ -18,7 +18,11 @@ void Library::Read(FileJSON *file)
         {
             pchar cat_name = cat[i].GetString();
 
-            categories.push_back({ cat_name });
+            categories.push_back({file->GetStringValue(cat_name, "name")});
         }
+
+        return true;
     }
+
+    return false;
 }

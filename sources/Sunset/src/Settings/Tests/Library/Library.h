@@ -22,7 +22,7 @@ class Library
 {
 public:
 
-    void Read(FileJSON *);
+    bool Read(FileJSON *);
 
     std::vector<Category> categories;
 };
