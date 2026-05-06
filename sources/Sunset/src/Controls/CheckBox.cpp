@@ -3,7 +3,8 @@
 #include "Controls/CheckBox.h"
 
 
-CheckBox::CheckBox(wxWindow *parent, const wxString &text) : wxCheckBox(parent, wxID_ANY, text)
+CheckBox::CheckBox(wxWindow *parent, const wxString &text) :
+    wxCheckBox(parent, wxID_ANY, wxString::FromUTF8(text))
 {
     wxCheckBox::SetCursor(wxCursor(wxCURSOR_HAND));
 }
