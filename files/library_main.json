@@ -1,70 +1,50 @@
 {
     "BJT" : {
         "name" : "Биполярный транзистор",
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
+        "DC Diode Fwd" : {
+            "name" : "База-Коллектор прямое",
+            "settings" : {
+                "IntegTime" : [ "1", "2", "3" ]
             }
         }
     },
     
     "CMOS" : {
         "name" : "Полевой транзистор",
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
+        "DC Diode Fwd" : {
+            "name" : "База-Коллектор прямое",
+            "settings" : {
+                "IntegTime" : [ "1", "2", "3" ]
             }
         }
     },
     
     "Diode" : {
         "name" : "Диод",
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
+        "DC Diode Fwd" : {
+            "name" : "База-Коллектор прямое",
+            "settings" : {
+                "IntegTime" : [ "1", "2", "3" ]
             }
         }
     },
     
     "Resistor" : {
         "name" : "Резистор",
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
+        "DC Diode Fwd" : {
+            "name" : "База-Коллектор прямое",
+            "settings" : {
+                "IntegTime" : [ "1", "2", "3" ]
             }
         }
     },
 
     "Capacitor" : {
         "name" : "Конденсатор",
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
+        "DC Diode Fwd" : {
+            "name" : "База-Коллектор прямое",
+            "settings" : {
+                "IntegTime" : [ "1", "2", "3" ]
             }
         }
     }

@@ -12,26 +12,42 @@ bool Library::Read(FileJSON *file)
 
     for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); it++)
     {
-        pchar cat_name = it->name.GetString();
-
         if (it->value.IsObject())
         {
-            wxString name = file->GetStringValue(cat_name, "name");
+            pchar cat_name = it->name.GetString();
+            const auto &cat_value = it->value;
 
-            if (name[0])
+            Category category;
+
+            for (auto it_value = cat_value.MemberBegin(); it_value != cat_value.MemberEnd(); it_value++)
             {
-                categories.push_back({ name });
+                if (it_value->value.IsString())
+                {
+                    wxString name = file->GetStringValue(cat_name, "name");
+                    if (name[0])
+                    {
+                        category.name = name;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if (it_value->value.IsObject())
+                {
+                    int i = 0;
+                }
             }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
+
+            categories.push_back(category);
         }
     }
 
     return true;
+}
+
+
+void Category::Clear()
+{
+    *this = Category();
 }

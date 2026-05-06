@@ -14,7 +14,9 @@ class Category
 {
 public:
 
-    wxString     name;
+    wxString name{ "" };
+
+    void Clear();
 };
 
 
