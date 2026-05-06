@@ -8,4 +8,7 @@ class PanelCategory : public ScrolledPanel
 public:
 
     PanelCategory(wxWindow *, PanelCategory *&);
+
+    // Обновить состояние в соответствии с библиотеками
+    void UpdateState();
 };

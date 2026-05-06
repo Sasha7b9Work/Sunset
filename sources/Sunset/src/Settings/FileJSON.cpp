@@ -68,8 +68,6 @@ bool FileJSON::Load(pchar rel_path)
 void FileJSON::Unload()
 {
     is_valid = false;
-
-    document.Clear();
 }
 
 

@@ -18,7 +18,10 @@ class FileJSON
 {
 public:
 
-    virtual ~FileJSON() { Unload(); }
+    virtual ~FileJSON()
+    {
+        Unload();
+    }
 
     // Путь относительно каталога с исполняемым файлом
     bool Load(pchar rel_path);
@@ -42,6 +45,11 @@ public:
     bool IsValid() const { return is_valid; }
 
     std::vector<float> GetVector3(pchar key, const std::vector<float> &def = {0.0f, 0.0f, 0.0f});
+
+    const rapidjson::Document &Document() const
+    {
+        return document;
+    }
 
 private:
 

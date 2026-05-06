@@ -20,6 +20,11 @@ public:
 
     PageTests(Notebook *, PageTests *&);
 
+    const Library &GetLibrary() const
+    {
+        return library;
+    }
+
 private:
 
     Splitter *hor_splitter = nullptr;           // Этот сплиттер в горизонтальной плоскости

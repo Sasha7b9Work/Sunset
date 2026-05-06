@@ -1,4 +1,4 @@
-{
+﻿{
     "category" : [
         "BJT",
         "CMOS",
@@ -6,6 +6,7 @@
     ],
     
     "BJT" : {
+        "name" : "Биполярный транзистор",
         "library" : {
             "BC Diode Fwd" : {
                 "IntegTime" : [ "MEDIUM", "SHORT" ],
@@ -17,21 +18,8 @@
             }
         }
     },
-    
     "CMOS" : {
-        "library" : {
-            "BC Diode Fwd" : {
-                "IntegTime" : [ "MEDIUM", "SHORT" ],
-                "Base" : [ "SMU5:MP", "SMU1:HP" ]
-            },
-            "BC Diode Rev" : {
-                "Collector" : [ "SMU6:MP", "SMU2:HR" ],
-                "VcStart" : "text"
-            }
-        }
-    },
-    
-    "Discrete" : {
+        "name" : "Полевой транзистор",
         "library" : {
             "BC Diode Fwd" : {
                 "IntegTime" : [ "MEDIUM", "SHORT" ],

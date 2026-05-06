@@ -28,3 +28,9 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Scrolle
 
     ScrolledPanel::SetSizer(main_sizer);
 }
+
+
+void PanelCategory::UpdateState()
+{
+
+}

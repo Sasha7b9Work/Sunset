@@ -7,16 +7,14 @@
 
 
 class FileJSON;
+class PanelCategory;
 
 
 class Category
 {
 public:
 
-private:
-
     wxString     name;
-    TypeCategory type;
 };
 
 
@@ -25,8 +23,6 @@ class Library
 public:
 
     void Read(FileJSON *);
-
-private:
 
     std::vector<Category> categories;
 };

@@ -58,6 +58,8 @@ void PageTests::LoadMainLibrary()
     file.Load("library_main.json");
 
     library.Read(&file);
+
+    panel_category->UpdateState();
 }
 
 
