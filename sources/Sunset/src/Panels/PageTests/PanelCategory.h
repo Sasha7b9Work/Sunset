@@ -3,6 +3,9 @@
 #include "Controls/Panel.h"
 
 
+class CheckBox;
+
+
 class PanelCategory : public ScrolledPanel
 {
 public:
@@ -11,4 +14,13 @@ public:
 
     // Обновить состояние в соответствии с библиотеками
     void UpdateState();
+
+private:
+
+    struct Category
+    {
+        CheckBox *checkbox;
+    };
+
+    std::vector<Category> categories;
 };
