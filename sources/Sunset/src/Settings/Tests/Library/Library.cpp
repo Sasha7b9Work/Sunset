@@ -4,9 +4,11 @@
 #include "Settings/FileJSON.h"
 
 
-bool Library::Read(FileJSON *file)
+bool Library::Read(FileJSON *_file)
 {
     using namespace rapidjson;
+
+    file = _file;
 
     const Document &doc = file->Document();
 
@@ -23,19 +25,13 @@ bool Library::Read(FileJSON *file)
             {
                 if (it_value->value.IsString())
                 {
-                    wxString name = file->GetStringValue(cat_name, "name");
-                    if (name[0])
-                    {
-                        category.name = name;
-                    }
-                    else
+                    if (!ParseNameCategory(category, cat_name))
                     {
                         return false;
                     }
                 }
                 else if (it_value->value.IsObject())
                 {
-                    int i = 0;
                 }
             }
 
@@ -44,6 +40,20 @@ bool Library::Read(FileJSON *file)
     }
 
     return true;
+}
+
+
+bool Library::ParseNameCategory(Category &category, pchar name_cat)
+{
+    wxString name = file->GetStringValue(name_cat, "name");
+
+    if (name[0])
+    {
+        category.name = name;
+        return true;
+    }
+
+    return false;
 }
 
 

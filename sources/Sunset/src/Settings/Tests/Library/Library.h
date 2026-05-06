@@ -27,4 +27,10 @@ public:
     bool Read(FileJSON *);
 
     std::vector<Category> categories;
+
+    bool ParseNameCategory(Category &, pchar name_cat);
+
+private:
+
+    FileJSON *file;
 };
