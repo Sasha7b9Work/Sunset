@@ -15,30 +15,40 @@ bool Library::Read(FileJSON *_file)
     {
         if (it->value.IsObject())
         {
-            pchar cat_name = it->name.GetString();
-            const auto &cat_value = it->value;
-
             Category category;
 
-            for (auto it_value = cat_value.MemberBegin(); it_value != cat_value.MemberEnd(); it_value++)
+            if (ParseCategory(category, it->name.GetString(), it->value))
             {
-                if (it_value->value.IsString())
-                {
-                    if (!ParseNameCategory(category, cat_name))
-                    {
-                        return false;
-                    }
-                }
-                else if (it_value->value.IsObject())
-                {
-                    if (!ParseTest(category, it_value->value))
-                    {
-                        return false;
-                    }
-                }
+                categories.push_back(category);
             }
+            else
+            {
+                return false;
+            }
+        }
+    }
 
-            categories.push_back(category);
+    return true;
+}
+
+
+bool Library::ParseCategory(Category &category, pchar name, const rapidjson::Value &value)
+{
+    for (auto it_value = value.MemberBegin(); it_value != value.MemberEnd(); it_value++)
+    {
+        if (it_value->value.IsString())
+        {
+            if (!ParseNameCategory(category, name))
+            {
+                return false;
+            }
+        }
+        else if (it_value->value.IsObject())
+        {
+            if (!ParseTest(category, it_value->value))
+            {
+                return false;
+            }
         }
     }
 

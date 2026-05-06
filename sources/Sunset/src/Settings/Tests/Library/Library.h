@@ -40,6 +40,8 @@ private:
 
     FileJSON *file;
 
+    bool ParseCategory(Category &, pchar name, const rapidjson::Value &);
+
     bool ParseNameCategory(Category &, pchar name_cat);
 
     bool ParseTest(Category &, const rapidjson::Value &);
