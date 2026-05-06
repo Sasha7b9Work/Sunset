@@ -37,9 +37,9 @@ PageTests::PageTests(Notebook *board, PageTests *&global) :
 
     panel_view_test = new PanelViewTest(hor_splitter, ThePanelViewTest);
 
-    vert_splitter->SplitHorizontally(panel_category, panel_library, 100);
+    vert_splitter->SplitHorizontally(panel_category, panel_library, 120);
 
-    hor_splitter->SplitVertically(vert_splitter, panel_view_test, 180);
+    hor_splitter->SplitVertically(vert_splitter, panel_view_test, 200);
 
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
     sizer->Add(hor_splitter, 1, wxEXPAND);
