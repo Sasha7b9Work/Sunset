@@ -1,12 +1,4 @@
 {
-    "category" : [
-        "BJT",
-        "CMOS",
-        "Diode",
-        "Resistor",
-        "Capacitor"
-    ],
-    
     "BJT" : {
         "name" : "Биполярный транзистор",
         "library" : {

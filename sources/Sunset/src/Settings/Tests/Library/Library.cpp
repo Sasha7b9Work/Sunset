@@ -10,19 +10,28 @@ bool Library::Read(FileJSON *file)
 
     const Document &doc = file->Document();
 
-    if (doc.HasMember("category") && doc["category"].IsArray())
+    for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); it++)
     {
-        const rapidjson::Value &cat = doc["category"];          // Категория
+        pchar cat_name = it->name.GetString();
 
-        for (SizeType i = 0; i < cat.Size(); i++)
+        if (it->value.IsObject())
         {
-            pchar cat_name = cat[i].GetString();
+            wxString name = file->GetStringValue(cat_name, "name");
 
-            categories.push_back({file->GetStringValue(cat_name, "name")});
+            if (name[0])
+            {
+                categories.push_back({ name });
+            }
+            else
+            {
+                return false;
+            }
         }
-
-        return true;
+        else
+        {
+            return false;
+        }
     }
 
-    return false;
+    return true;
 }
