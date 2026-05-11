@@ -121,7 +121,7 @@ struct ValueBool : public Value<bool>
 
 struct ValueCheckBox : public wxCheckBox
 {
-    ValueCheckBox(wxWindow *parent, const wxString &title, const wxPoint &position, const wxString &_key, const bool &_def);
+    ValueCheckBox(wxWindow *parent, const wxString &title, const wxString &_key, const bool &_def);
 
     void SetNewValue(bool);
 
