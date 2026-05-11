@@ -13,6 +13,7 @@
 #pragma warning(push, 0)
 #include <wx/stattext.h>
 #include <wx/graphics.h>
+#include <wx/sizer.h>
 #pragma warning(pop)
 
 
@@ -29,31 +30,41 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 {
     Panel::SetMinSize({ WIDTH, HEIGHT });
 
+    wxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
+
     wxWindowBase::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 
     Panel::SetName("Register");
 
-    new wxStaticText(this, wxID_ANY, _title + " " + chip->GetNameDevice() + (_functional.IsEmpty() ? wxString("") : (wxString(" : ") + _functional)), {10, 10});
+    {
+        wxStaticText *txt_name = new wxStaticText(this, wxID_ANY, _title + " " + chip->GetNameDevice() + (_functional.IsEmpty() ? wxString("") : (wxString(" : ") + _functional)), { 10, 10 });
 
-    wxSize size_button{ 90, 25 };
+        wxSize size_button{ 90, 25 };
 
-    int x = 690;
+        int x = 690;
 
-    btnSend = new Button(this, wxT("Записать"), size_button);
-    btnSend->SetToolTip(L("Однократная засылка в регистр"));
-    btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
+        btnSend = new Button(this, wxT("Записать"), size_button);
+        btnSend->SetToolTip(L("Однократная засылка в регистр"));
+        btnSend->Bind(wxEVT_BUTTON, &Register::OnEventButton, this);
 
-    windows.push_back(btnSend);
+        windows.push_back(btnSend);
 
-    x -= size_button.x + 5;
+        x -= size_button.x + 5;
 
-    btnAutoSend = new ToggleButton(this, wxT("Автозапись"), size_button);
-    btnAutoSend->SetToolTip(L("Автоматическая засылка в регистр 1 раз в секунду"));
-    btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
+        btnAutoSend = new ToggleButton(this, wxT("Автозапись"), size_button);
+        btnAutoSend->SetToolTip(L("Автоматическая засылка в регистр 1 раз в секунду"));
+        btnAutoSend->Bind(wxEVT_TOGGLEBUTTON, &Register::OnEventToggleButton, this);
 
-    windows.push_back(btnAutoSend);
+        windows.push_back(btnAutoSend);
 
-    x -= size_button.x + 5;
+        wxSizer *top_sizer = new wxBoxSizer(wxHORIZONTAL);                      // В этом сайзере будет название регистра и кнопки
+
+        top_sizer->Add(txt_name);
+        top_sizer->Add(btnAutoSend);
+        top_sizer->Add(btnSend);
+
+        main_sizer->Add(top_sizer);
+    }
 
     {
         painter = new PainterRegister(this, this);
@@ -80,6 +91,8 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     Bind(wxEVT_TIMER, &Register::OnEventTimerAutoSend, this);
 
     timerAutoSend.SetOwner(this, timerAutoSend.GetId());
+
+    SetSizer(main_sizer);
 }
 
 
