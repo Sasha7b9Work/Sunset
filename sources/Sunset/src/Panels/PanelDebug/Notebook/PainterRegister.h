@@ -27,10 +27,17 @@ public:
 
     AnimatedImpulse *animation = nullptr;
 
+    // В этот сайзер будем добавлять чекбоксы, ЛКМ по которым изменяются значения битов регистров
+    wxSizer *GetCheckBoxSizer() const
+    {
+        return checkBoxSizer;
+    }
+
 private:
 
-    bool             first_paint = true;
-    Register        *panel = nullptr;
+    wxSizer  *checkBoxSizer = nullptr;
+    bool      first_paint = true;
+    Register *panel = nullptr;
 
     // Возвращает координаты верхнего левого угла отображения бита
     wxPoint CoordBit(int num_bit);

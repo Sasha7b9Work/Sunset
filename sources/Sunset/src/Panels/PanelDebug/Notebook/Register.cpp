@@ -27,7 +27,7 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     Panel(parent),
     chip(_chip)
 {
-    Panel::SetSize({ WIDTH, HEIGHT });
+    Panel::SetMinSize({ WIDTH, HEIGHT });
 
     wxWindowBase::SetBackgroundColour(parent->GetBackgroundColour().ChangeLightness(110));
 

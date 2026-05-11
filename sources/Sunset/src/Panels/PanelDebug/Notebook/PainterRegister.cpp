@@ -5,6 +5,7 @@
 #include "Panels/PanelDebug/Notebook/AnimatedImpulse.h"
 #pragma warning(push, 0)
 #include <wx/graphics.h>
+#include <wx/sizer.h>
 #pragma warning(pop)
 
 
@@ -12,16 +13,26 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_panel) :
     Panel(parent),
     panel(_panel)
 {
-    Panel::SetSize({ 750, 110 });
+    Panel::SetMinSize({ 750, 110 });
 
     Panel::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
 
     panel->chboxes.resize((uint)_panel->chip->BitDepth() );
 
+    checkBoxSizer = new wxBoxSizer(wxHORIZONTAL);
+    checkBoxSizer->AddSpacer(36);
+
     for (int i = 0; i < panel->chip->BitDepth(); i++)
     {
-        panel->chboxes[(uint)i] = new CheckBoxBit(this, { W_B, W_B });
+        CheckBoxBit *chb = new CheckBoxBit(this, { W_B, W_B });
+        panel->chboxes[(uint)i] = chb;
+        checkBoxSizer->Add(chb, 0, wxALIGN_CENTER_VERTICAL, 0);
     }
+
+    wxBoxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
+    main_sizer->Add(checkBoxSizer, 0, wxTOP, 5);
+
+    SetSizer(main_sizer);
 
     Bind(wxEVT_PAINT, &PainterRegister::OnEventPaint, this);
 
@@ -170,7 +181,7 @@ wxPoint PainterRegister::CoordBit(int num_bit)
 {
     num_bit = panel->chip->BitDepth() - num_bit - 1;
 
-    return { 36 + num_bit * 20, 0 };
+    return { 36 + num_bit * W_B, 25 };
 }
 
 
@@ -219,9 +230,11 @@ void PainterRegister::DrawTitleBit(int num_bit, const wxString &title, wxGraphic
 {
     wxPoint coord = CoordBit(num_bit);
 
-    int d = (num_bit % 2) ? 2 : 6;
+    // Рисуем надпись над чекбоксом (y = 2, а не coord.y + d)
+    int y = 2;  // Фиксированная позиция сверху
+    int width = W_B;
 
-    DrawTextInCenter(coord.x, coord.y + d, W_B, title, 7, gc);
+    DrawTextInCenter(coord.x, y, width, title, 7, gc);
 }
 
 
