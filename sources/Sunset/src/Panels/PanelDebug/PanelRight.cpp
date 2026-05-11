@@ -38,7 +38,7 @@ PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
         wxBoxSizer *hor_sizer = new wxBoxSizer(wxHORIZONTAL);
         hor_sizer->Add(btnStart, 0, wxALL, 5);
         hor_sizer->Add(txtPeriodScan, 0, wxALL, 5);
-        main_sizer->Add(hor_sizer, 0, wxALIGN_CENTER_HORIZONTAL | wxTOP, 10);
+        main_sizer->Add(hor_sizer, 0, wxEXPAND | wxTOP, 10);
     }
 
     {
@@ -66,7 +66,7 @@ PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
             ver_sizer->Add(data[i], 1, wxEXPAND | wxALL, 5);
         }
 
-        main_sizer->Add(ver_sizer, 1, wxEXPAND | wxALL, 5);
+        main_sizer->Add(ver_sizer, 1, wxEXPAND | wxALL, 0);
     }
 
     data[4]->SetMax((1 << 8) - 1);
