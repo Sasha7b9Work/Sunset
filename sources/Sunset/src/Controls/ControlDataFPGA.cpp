@@ -29,6 +29,8 @@ ControlDataFPGA::ControlDataFPGA(wxWindow *parent) :
     btnScale->SetToolTip(L("Изменение масштаба - автоматический или постоянный"));
 
     SetMax((1 << 16) - 1);
+
+    btnScale->SetPosition({ size.x - btnScale->GetSize().x - 2, 1 });
 }
 
 
