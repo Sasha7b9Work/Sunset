@@ -41,7 +41,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
         checkBoxSizer->AddStretchSpacer(1);
 
         wxBoxSizer *vert_sizer = new wxBoxSizer(wxVERTICAL);
-        vert_sizer->AddSpacer(45);
+        vert_sizer->AddSpacer(20);
         vert_sizer->Add(checkBoxSizer);
         vert_sizer->AddStretchSpacer();
 
@@ -147,11 +147,9 @@ void PainterRegister::OnEventPaint(wxPaintEvent &)
     {
         wxPoint coord = CoordBit(i);
 
-        // Рисуем надпись над чекбоксом (y = 2, а не coord.y + d)
-        int y = 30;  // Фиксированная позиция сверху
         int width = W_B;
 
-        DrawTextInCenter(coord.x, y, width, reg->names_bits[(uint)i], 7, gc);
+        DrawTextInCenter(coord.x, 5, width, reg->names_bits[(uint)i], 7, gc);
     }
 
     gc->SetBrush(IsEnabled() ? *wxWHITE_BRUSH : ColorBackground(IsEnabled()));
@@ -200,7 +198,7 @@ wxPoint PainterRegister::CoordBit(int num_bit)
 {
     num_bit = reg->chip->BitDepth() - num_bit - 1;
 
-    return { 36 + num_bit * W_B, 25 };
+    return { 36 + num_bit * W_B, 0 };
 }
 
 
