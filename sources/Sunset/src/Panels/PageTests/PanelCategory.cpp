@@ -79,7 +79,7 @@ void PanelCategory::OnEventCheckBox(wxCommandEvent &event)
     {
         if (cat.checkbox->GetId() == id)
         {
-            int i = 0;
+
         }
     }
 }
