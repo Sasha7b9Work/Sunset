@@ -115,8 +115,8 @@ private:
             static float delta = 0.0f;
 
             // Вычисляем дельту относительно точки захвата
-            float deltaY = (float)(currentPos.y - capturePoint.y) / 10.0f;
-            float deltaX = (float)(-currentPos.x + capturePoint.x) / 10.0f;
+            float deltaY = (float)(currentPos.y - capturePoint.y) / 25.0f;
+            float deltaX = (float)(-currentPos.x + capturePoint.x) / 25.0f;
 
             delta += (deltaX + deltaY);
 
