@@ -50,6 +50,18 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
 
     {
         wxBoxSizer *ver_sizer = new wxBoxSizer(wxVERTICAL);
+
+        if (reg->GetChip()->IsDAC())
+        {
+            RegDAC *dac = (RegDAC *)reg;
+
+            KnobWidget *knob = new KnobWidget(this, 0, 100, 50);
+
+            dac->knob = knob;
+
+            ver_sizer->Add(knob, 0, wxRIGHT | wxTOP, 5);
+        }
+
         ver_sizer->AddStretchSpacer(1);
 
         animation = new AnimatedImpulse(this, ColorBackground(true));

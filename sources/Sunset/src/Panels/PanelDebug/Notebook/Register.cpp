@@ -573,10 +573,6 @@ void ComboRange::UpdateState(std::vector<ModeDescripion> &mode_desc, const std::
 
 RegDAC::RegDAC(wxWindow *parent, pchar _title, Chip *_chip, const wxString &_functional) : Register(parent, _title, _chip, _functional)
 {
-    const int d = 10;
-
-    knob = new KnobWidget(painter, 0, 100, 50);
-    knob->SetPosition({ painter->GetSize().x - d - 70, d });
     knob->Bind(wxEVT_SLIDER, &RegDAC::OnEventKnob, this);
 
     slider = new SliderInt(painter, (chip->BitDepth() - 4) * 20, 0, 100, "");

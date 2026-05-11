@@ -187,7 +187,10 @@ public:
 class RegDAC : public Register
 {
 public:
+
     RegDAC(wxWindow *, pchar _title, Chip *_chip, const wxString &_functional);
+
+    KnobWidget *knob;         // Ручка установки значения
 
 protected:
 
@@ -196,7 +199,6 @@ protected:
 
 private:
 
-    KnobWidget *knob = nullptr;         // Ручка установки значения
     SliderInt *slider = nullptr;        // Ползунок установки значения
 
     void OnEventKnob(wxCommandEvent &);
