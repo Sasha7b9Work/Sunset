@@ -15,6 +15,7 @@ Button::Button(wxWindow *parent, const wxString &label, const wxSize &size, int 
     wxButton(parent, wxID_ANY, label, wxDefaultPosition, size, flags)
 {
     SetCursor(wxCursor(wxCURSOR_HAND));
+    wxButton::SetMinSize(size);
 }
 
 
