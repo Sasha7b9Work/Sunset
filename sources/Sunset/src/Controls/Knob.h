@@ -3,14 +3,13 @@
 #pragma warning(push, 0)
 #include <wx/dcbuffer.h>
 #pragma warning(pop)
-#include <cmath>
 
 
 class KnobWidget : public wxControl
 {
 public:
     KnobWidget(wxWindow *parent, int minValue, int maxValue, int initialValue)
-        : wxControl(parent, wxID_ANY, wxDefaultPosition, {70, 50}, wxBORDER_NONE),
+        : wxControl(parent, wxID_ANY, wxDefaultPosition, { 70, 50 }, wxBORDER_NONE),
         minValue(minValue),
         maxValue(maxValue),
         value(initialValue)
@@ -71,7 +70,7 @@ public:
 private:
     int minValue;
     int maxValue;
-    int value = 0;
+    int value;
     bool dragging = false;
     wxPoint capturePoint; // Точка, где был захвачен виджет
     wxPoint globalCapturePoint;
@@ -116,12 +115,12 @@ private:
             static float delta = 0.0f;
 
             // Вычисляем дельту относительно точки захвата
-            float deltaY = (float)(currentPos.y - capturePoint.y) / 25.0f;
-            float deltaX = (float)(-currentPos.x + capturePoint.x) / 25.0f;
+            float deltaY = (float)(currentPos.y - capturePoint.y) / 50.0f;
+            float deltaX = (float)(-currentPos.x + capturePoint.x) / 50.0f;
 
             delta += (deltaX + deltaY);
 
-            if (std::fabs(delta) >= 1.0f)
+            if ((int)delta != 0)
             {
                 // Изменяем значение в зависимости от направления движения
                 // Тянем вверх (отрицательный deltaY) - увеличиваем значение
