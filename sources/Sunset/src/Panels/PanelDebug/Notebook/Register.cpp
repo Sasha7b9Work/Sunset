@@ -135,11 +135,9 @@ void Register::IncreaseHeight(int dH)
     wxSize size = GetSize();
     size.y += dH;
 
-    SetMinSize(size);
     SetMaxSize(size);
-
+    SetMinSize(size);
     SetSize(size);
-
     Layout();
 }
 

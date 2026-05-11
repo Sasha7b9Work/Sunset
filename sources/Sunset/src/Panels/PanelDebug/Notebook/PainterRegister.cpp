@@ -89,8 +89,8 @@ void PainterRegister::IncreaseHeight(int dH)
 
     size.y += dH;
 
-    SetMinSize(size);
     SetMaxSize(size);
+    SetMinSize(size);
     SetSize(size);
 
     Layout();
