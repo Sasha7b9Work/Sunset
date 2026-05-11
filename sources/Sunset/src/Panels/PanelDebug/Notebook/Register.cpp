@@ -199,7 +199,7 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 void Register::CreateControlMode(int i)
 {
     int x = 10 + i * 300;
-    int y = 110;
+    int y = 100;
 
     new wxStaticText(painter, wxID_ANY, title_modes[i], { x, y });
 
@@ -216,7 +216,7 @@ void Register::CreateControlMode(int i)
     }
 
     combo_modes[i] = new CommandsCombo(painter, title_modes[i], 250, names, tooltips, title_modes[i]);
-    combo_modes[i]->SetPosition({ x, y + 25 });
+    combo_modes[i]->SetPosition({ x, y + 20 });
 
     combo_modes[i]->Bind(wxEVT_COMBOBOX, &Register::OnEventComboMode, this);
 }
