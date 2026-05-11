@@ -5,7 +5,7 @@
 #include "Controls/Panel.h"
 
 
-class wxTextCtrl;
+class TextCtrlNumber;
 
 
 class PanelRight : public Panel
@@ -23,7 +23,7 @@ private:
     Button *btnStart = nullptr;       // Запуск развёртки
     Button *btnStop = nullptr;        // Останов развёртки
 
-    wxTextCtrl *txtPeriodScan = nullptr;    // Период запуска развёртки в миллисекундах
+    TextCtrlNumber *txtPeriodScan = nullptr;    // Период запуска развёртки в миллисекундах
 
     void OnEventButton(wxCommandEvent &);
 };

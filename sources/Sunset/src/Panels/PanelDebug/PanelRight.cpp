@@ -6,56 +6,73 @@
 #include "IPPP/IDevice.h"
 #include "Panels/PanelDebug/Notebook/PageFPGA.h"
 #include "Panels/PanelDebug/Notebook/PageChannelC.h"
+#include "Controls/TextControl.h"
 #include "Utils/Math.h"
 #include "Utils/Timer.h"
 #pragma warning(push, 0)
-#include <wx/textctrl.h>
+#include <wx/sizer.h>
 #pragma warning(pop)
 
 
 PanelRight *ThePanelRight = nullptr;
 
 
-PanelRight::PanelRight(wxWindow *parent, PanelRight *&self) :
+PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
     Panel(parent)
 {
-    self = this;
+    global = this;
+
+    wxBoxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
 
     wxSize size_button{ 75, BUTTON_HEIGHT };
 
-    int y = 30;
-
-    btnStart = new Button{ this, "Старт", size_button };
-    btnStart->SetPosition({ 10, SD::Y_SB(y) });
-
-    btnStart->SetToolTip(wxT("Запуск развёртки"));
-
-    txtPeriodScan = new wxTextCtrl{ this, wxID_ANY, "1000", { 100, SD::Y_SB(y)}, size_button };
-
-    txtPeriodScan->SetToolTip(wxT("Период запуска развёртки в миллисекундах"));
-
-    y += 30;
-
-    btnStop = new Button{ this, "Стоп", size_button };
-    btnStop->SetPosition({ 10, SD::Y_SB(y) });
-
-    btnStop->SetToolTip(wxT("Останов развёртки"));
-
-    btnStop->Enable(false);
-
-    Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
-
-    y += 20;
-
-    for (int i = 0; i < 5; i++)
     {
-        data[i] = new ControlDataFPGA(this);
-        data[i]->SetPosition({ 10, y + i * 95 });
+        btnStart = new Button{ this, "Старт", size_button };
+
+        btnStart->SetToolTip(wxT("Запуск развёртки"));
+
+        txtPeriodScan = new TextCtrlNumber{ this, "1000", size_button,  10, 10000 };
+
+        txtPeriodScan->SetToolTip(wxT("Период запуска развёртки в миллисекундах"));
+
+        wxBoxSizer *hor_sizer = new wxBoxSizer(wxHORIZONTAL);
+        hor_sizer->Add(btnStart);
+        hor_sizer->Add(txtPeriodScan);
+        main_sizer->Add(hor_sizer);
+    }
+
+    {
+        btnStop = new Button{ this, "Стоп", size_button };
+
+        btnStop->SetToolTip(wxT("Останов развёртки"));
+
+        btnStop->Enable(false);
+
+        Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
+
+        wxBoxSizer *hor_sizer = new wxBoxSizer(wxHORIZONTAL);
+        hor_sizer->Add(btnStop);
+        hor_sizer->AddStretchSpacer();
+        main_sizer->Add(hor_sizer);
+    }
+
+    {
+        wxBoxSizer *ver_sizer = new wxBoxSizer(wxVERTICAL);
+
+        for (int i = 0; i < 5; i++)
+        {
+            data[i] = new ControlDataFPGA(this);
+
+            ver_sizer->Add(data[i]);
+        }
+
+        main_sizer->Add(ver_sizer);
     }
 
     data[4]->SetMax((1 << 8) - 1);
 
-//    Fit();
+    SetSizer(main_sizer);
+
     Layout();
 }
 
