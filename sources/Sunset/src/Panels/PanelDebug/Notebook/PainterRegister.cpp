@@ -57,7 +57,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
 
         hor_sizer->AddStretchSpacer(1);
 
-        hor_sizer->Add(ver_sizer, 1, wxEXPAND | wxRIGHT | wxBOTTOM);
+        hor_sizer->Add(ver_sizer, 0, wxEXPAND | wxRIGHT | wxBOTTOM);
     }
 
     main_sizer->Add(hor_sizer, 1, wxEXPAND);
