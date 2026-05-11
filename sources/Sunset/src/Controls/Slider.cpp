@@ -32,7 +32,7 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
 
     slider->SetBackgroundColour(parent->GetBackgroundColour());
 
-    text = new wxStaticText(this, wxID_ANY, "0", wxDefaultPosition, { w1, TEXTCNTRL_HEIGHT });
+    text = new wxStaticText(this, wxID_ANY, "0", wxDefaultPosition, { w1, TEXTCNTRL_HEIGHT }, wxALIGN_RIGHT);
     text->SetMinSize({ w1, TEXTCNTRL_HEIGHT });
 
     wxSize size_button{ 15, 12 };
