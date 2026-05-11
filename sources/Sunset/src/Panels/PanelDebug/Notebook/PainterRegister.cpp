@@ -174,7 +174,7 @@ void PainterRegister::OnEventPaint(wxPaintEvent &)
 
     gc->SetFont(GetDefaultFont(8), *wxBLACK);
 
-    int y = 30;
+    int y = 22;
     gc->DrawText("DB0", W_B * reg->chip->BitDepth() + 45, y);
     gc->DrawText(wxString::Format("DB%d", reg->chip->BitDepth() - 1), 5, y);
 
