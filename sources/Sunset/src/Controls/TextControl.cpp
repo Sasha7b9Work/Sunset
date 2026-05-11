@@ -4,8 +4,8 @@
 #include "Settings/Settings.h"
 
 
-TextCtrlNumber::TextCtrlNumber(wxWindow *parent, int id, const wxString &text_val, const wxSize &size, int _min, int _max) :
-    wxTextCtrl(parent, id, text_val, wxDefaultPosition, size),
+TextCtrlNumber::TextCtrlNumber(wxWindow *parent, const wxString &text_val, const wxSize &size, int _min, int _max) :
+    wxTextCtrl(parent, wxID_ANY, text_val, wxDefaultPosition, size),
     m_min(_min),
     m_max(_max)
 {

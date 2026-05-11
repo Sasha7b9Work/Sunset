@@ -162,7 +162,7 @@ void Register::SetDescriptionBits(int index, const std::vector<StructDescription
 
                 int num_y = elem.desc[0] ? 3 : 2;
 
-                elem.field.text_ctrl_dec = new TextCtrlNumber(painter, wxID_ANY, "",
+                elem.field.text_ctrl_dec = new TextCtrlNumber(painter, "",
                     { PainterRegister::W_B * elem.num_bits + 1, 20 },
                     0, (1 << elem.num_bits) - 1);
                 elem.field.text_ctrl_dec->SetPosition({ x, (PainterRegister::W_B + 1) * num_y });
