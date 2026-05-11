@@ -120,7 +120,13 @@ void PainterRegister::OnEventPaint(wxPaintEvent &)
 
     for (int i = 0; i < num_bits; i++)
     {
-        DrawTitleBit(i, panel->names_bits[(uint)i], gc);
+        wxPoint coord = CoordBit(i);
+
+        // Рисуем надпись над чекбоксом (y = 2, а не coord.y + d)
+        int y = 30;  // Фиксированная позиция сверху
+        int width = W_B;
+
+        DrawTextInCenter(coord.x, y, width, panel->names_bits[(uint)i], 7, gc);
     }
 
     gc->SetBrush(IsEnabled() ? *wxWHITE_BRUSH : ColorBackground(IsEnabled()));
@@ -211,18 +217,6 @@ wxFont PainterRegister::GetDefaultFont(int size)
     }
 
     return font;
-}
-
-
-void PainterRegister::DrawTitleBit(int num_bit, const wxString &title, wxGraphicsContext *gc)
-{
-    wxPoint coord = CoordBit(num_bit);
-
-    // Рисуем надпись над чекбоксом (y = 2, а не coord.y + d)
-    int y = 30;  // Фиксированная позиция сверху
-    int width = W_B;
-
-    DrawTextInCenter(coord.x, y, width, title, 7, gc);
 }
 
 

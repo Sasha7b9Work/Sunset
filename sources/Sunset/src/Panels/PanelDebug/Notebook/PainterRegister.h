@@ -35,8 +35,6 @@ private:
     // Возвращает координаты верхнего левого угла отображения бита
     wxPoint CoordBit(int num_bit);
 
-    void DrawTitleBit(int num_bit, const wxString &title, wxGraphicsContext *);
-
     void DrawDescriptions(int index, wxGraphicsContext *);
 
     // Если нельзя вписать текст в данную ширину, то размер шрифта будет уменьшаться, пока не впишется
