@@ -6,6 +6,7 @@
 #pragma warning(push, 0)
 #include <wx/slider.h>
 #include <wx/stattext.h>
+#include <wx/sizer.h>
 #pragma warning(pop)
 
 
@@ -14,6 +15,8 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
     m_min(_min),
     m_max(_max)
 {
+    wxBoxSizer *main_sizer = new wxBoxSizer(wxHORIZONTAL);
+
     Panel::SetSize({ width + 5, TEXTCNTRL_HEIGHT + 5 + 5 });
 
     Panel::SetName(parent->GetName() + "_" + _name);
@@ -23,13 +26,13 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
 
     wxSize s{ width - w1 - w2, TEXTCNTRL_HEIGHT + 5 };
 
-    slider = new wxSlider(this, wxID_ANY, m_min, m_min, m_max, { w1, 0 }, s );
+    slider = new wxSlider(this, wxID_ANY, m_min, m_min, m_max, wxDefaultPosition, s );
 
     slider->SetMinSize(wxSize(100, 30));
 
     slider->SetBackgroundColour(parent->GetBackgroundColour());
 
-    text = new wxStaticText(this, wxID_ANY, "0", { 0, 5 }, { w1, TEXTCNTRL_HEIGHT }, wxALIGN_RIGHT);
+    text = new wxStaticText(this, wxID_ANY, "0", wxDefaultPosition, { w1, TEXTCNTRL_HEIGHT });
 
     wxSize size_button{ 15, 12 };
 
@@ -51,6 +54,16 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
     btnLess->Bind(wxEVT_LEFT_DOWN, &SliderInt::OnEventMouseDown, this);
 //    btnMore->Bind(wxEVT_LEFT_UP, &SliderInt::OnEventMouseUp, this);
 //    btnLess->Bind(wxEVT_LEFT_UP, &SliderInt::OnEventMouseUp, this);
+
+    wxBoxSizer *ver_sizer = new wxBoxSizer(wxVERTICAL);
+    ver_sizer->Add(btnMore, 0, wxALL, 5);
+    ver_sizer->Add(btnLess, 0, wxALL, 5);
+
+    main_sizer->Add(ver_sizer, 0, wxLEFT, 5);
+    main_sizer->Add(text, 0, wxLEFT | wxRIGHT | wxALIGN_CENTER_VERTICAL, 5);
+    main_sizer->Add(slider, 1, wxEXPAND | wxRIGHT, 5);
+
+    SetSizer(main_sizer);
 }
 
 
