@@ -51,6 +51,11 @@ public:
         return document;
     }
 
+    std::string &GetFullPath()
+    {
+        return full_path;
+    }
+
 private:
 
     bool is_valid = false;

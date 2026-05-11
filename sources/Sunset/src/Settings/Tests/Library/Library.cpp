@@ -23,10 +23,14 @@ bool Library::Read(FileJSON *_file)
             }
             else
             {
+                LOG_ERROR("Load library from %s is FAIL!", _file->GetFullPath().c_str());
+
                 return false;
             }
         }
     }
+
+    LOG_WRITE("Load library from %s is OK!", _file->GetFullPath().c_str());
 
     return true;
 }
