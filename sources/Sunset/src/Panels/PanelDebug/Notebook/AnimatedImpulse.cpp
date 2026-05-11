@@ -7,7 +7,7 @@
 
 
 AnimatedImpulse::AnimatedImpulse(wxWindow *parent, const wxColor &background) :
-    PainterAnimated(parent, wxDefaultPosition, { WIDTH, HEIGHT }),
+    PainterAnimated(parent, { WIDTH, HEIGHT }),
     color_background(background)
 {
     wxWindow::Enable(false);

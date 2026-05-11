@@ -17,7 +17,7 @@ class PainterRegister;
 class CheckBoxBit : public Painter
 {
 public:
-    CheckBoxBit(wxWindow *, const wxPoint &, const wxSize &);
+    CheckBoxBit(wxWindow *, const wxSize &);
 
     void SetValue(bool);
 

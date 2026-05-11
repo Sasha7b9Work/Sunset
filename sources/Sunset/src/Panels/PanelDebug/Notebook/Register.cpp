@@ -703,8 +703,8 @@ uint Register::GetValueFromBits(int first_bit, int num_bits) const
 }
 
 
-CheckBoxBit::CheckBoxBit(wxWindow *parent, const wxPoint &pos, const wxSize &size) :
-    Painter(parent, pos, size)
+CheckBoxBit::CheckBoxBit(wxWindow *parent, const wxSize &size) :
+    Painter(parent, size)
 {
     SetCursor(wxCursor(wxCURSOR_HAND));
 

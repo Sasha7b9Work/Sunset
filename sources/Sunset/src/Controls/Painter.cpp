@@ -8,14 +8,13 @@
 #pragma warning(pop)
 
 
-Painter::Painter(wxWindow *parent, const wxPoint &position, const wxSize &_size) :
+Painter::Painter(wxWindow *parent, const wxSize &_size) :
     Panel(parent),
     size(_size)
 {
     Panel::SetMinSize(size);
     Panel::SetMaxSize(size);
     Panel::SetDoubleBuffered(true);
-    Panel::SetPosition(position);
 
     Panel::Bind(wxEVT_PAINT, &Painter::OnPaint, this);
 
@@ -120,12 +119,11 @@ void Painter::OnPaint(wxPaintEvent &)
 }
 
 
-PainterRect::PainterRect(wxWindow *parent, const wxPoint &position, const wxSize &size) :
+PainterRect::PainterRect(wxWindow *parent, const wxSize &size) :
     Panel(parent)
 {
     Panel::SetMinSize(size);
     Panel::SetMaxSize(size);
-    Panel::SetPosition(position);
     Panel::SetDoubleBuffered(true);
     Panel::Bind(wxEVT_PAINT, &PainterRect::OnPaint, this);
 
@@ -161,10 +159,9 @@ void PainterRect::SetColor(const Color &_color)
 }
 
 
-PainterBMP::PainterBMP(wxWindow *parent, const wxPoint &position, const wxSize &size, const wxString &file_name, const wxColour &alpha) :
+PainterBMP::PainterBMP(wxWindow *parent, const wxSize &size, const wxString &file_name, const wxColour &alpha) :
     Panel(parent)
 {
-    Panel::SetPosition(position);
     Panel::SetSize(size);
 
     bitmap = Bitmap::Get(file_name);
@@ -204,8 +201,8 @@ void PainterBMP::OnEventPaint(wxPaintEvent &)
 }
 
 
-PainterAnimated::PainterAnimated(wxWindow *parent, const wxPoint &position, const wxSize &size) :
-    Painter(parent, position, size)
+PainterAnimated::PainterAnimated(wxWindow *parent, const wxSize &size) :
+    Painter(parent, size)
 {
     timer.SetOwner(this, timer.GetId());
 
