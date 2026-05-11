@@ -3,6 +3,7 @@
 #pragma warning(push, 0)
 #include <wx/dcbuffer.h>
 #pragma warning(pop)
+#include <cmath>
 
 
 class KnobWidget : public wxControl
