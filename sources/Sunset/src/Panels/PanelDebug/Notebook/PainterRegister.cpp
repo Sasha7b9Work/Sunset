@@ -219,7 +219,7 @@ void PainterRegister::DrawTitleBit(int num_bit, const wxString &title, wxGraphic
     wxPoint coord = CoordBit(num_bit);
 
     // Рисуем надпись над чекбоксом (y = 2, а не coord.y + d)
-    int y = 2;  // Фиксированная позиция сверху
+    int y = 30;  // Фиксированная позиция сверху
     int width = W_B;
 
     DrawTextInCenter(coord.x, y, width, title, 7, gc);
