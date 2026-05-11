@@ -28,7 +28,11 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
     {
         CheckBoxBit *chb = new CheckBoxBit(this, { W_B, W_B });
         reg->chboxes[(uint)i] = chb;
-        checkBoxSizer->Add(chb, 0, wxALIGN_CENTER_VERTICAL, 0);
+    }
+
+    for (int i = reg->chip->BitDepth() - 1; i >= 0; i--)
+    {
+        checkBoxSizer->Add(reg->chboxes[(uint)i], 0, wxALIGN_CENTER_VERTICAL, 0);
     }
 
     main_sizer->AddSpacer(40);
