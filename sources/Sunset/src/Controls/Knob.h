@@ -70,7 +70,7 @@ public:
 private:
     int minValue;
     int maxValue;
-    int value;
+    int value = 0;
     bool dragging = false;
     wxPoint capturePoint; // Точка, где был захвачен виджет
     wxPoint globalCapturePoint;
@@ -120,7 +120,7 @@ private:
 
             delta += (deltaX + deltaY);
 
-            if ((int)delta != 0)
+            if (std::fabsf(delta) >= 1.0f)
             {
                 // Изменяем значение в зависимости от направления движения
                 // Тянем вверх (отрицательный deltaY) - увеличиваем значение
