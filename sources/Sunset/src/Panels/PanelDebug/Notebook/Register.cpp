@@ -124,9 +124,9 @@ void Register::AppendModes(const wxString &title, const std::vector<ModeDescripi
 
     IncreaseHeight(dH);
 
-    PageChip *page_chip = (PageChip *)GetParent();
+    Layout();
 
-    page_chip->Rebuild();
+    GetParent()->Layout();
 }
 
 

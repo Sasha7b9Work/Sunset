@@ -32,26 +32,6 @@ void PageChip::AppendRegister(Register *reg)
 }
 
 
-void PageChip::Rebuild()
-{
-    for (uint i = 0; i < registers.size(); i++)
-    {
-        Register *reg = registers[i];
-
-        int y = 0;
-
-        if(i != 0)
-        {
-            Register *prev = registers[i - 1];
-
-            y = prev->GetPosition().y + prev->GetSize().y - 1;
-        }
-
-        reg->SetPosition({ 0, y });
-    }
-}
-
-
 void PageChip::OnRightClick(wxMouseEvent &event)
 {
     wxMenu menu;

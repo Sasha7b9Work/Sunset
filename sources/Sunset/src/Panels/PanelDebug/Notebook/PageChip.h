@@ -22,8 +22,6 @@ public:
     void Pack();
     void Unpack();
 
-    void Rebuild();
-
     // Заслать ве значения регистров в прибор
     void SendAllRegisters();
 
