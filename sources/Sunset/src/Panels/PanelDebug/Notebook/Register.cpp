@@ -60,11 +60,11 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
         wxSizer *top_sizer = new wxBoxSizer(wxHORIZONTAL);                      // В этом сайзере будет название регистра и кнопки
 
         top_sizer->Add(txt_name, 0, wxALIGN_CENTER_VERTICAL | wxLEFT, 10);
-        top_sizer->AddStretchSpacer(2);
+        top_sizer->AddStretchSpacer(1);
         top_sizer->Add(btnAutoSend, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 5);
         top_sizer->Add(btnSend, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 10);
 
-        main_sizer->Add(top_sizer);
+        main_sizer->Add(top_sizer, 0, wxEXPAND | wxTOP, 10);
     }
 
     {
