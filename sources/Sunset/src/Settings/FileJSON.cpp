@@ -59,6 +59,8 @@ bool FileJSON::Load(pchar rel_path)
         return false;
     }
 
+    LOG_WRITE("Loading file %s is OK!", full_path.c_str());
+
     is_valid = true;
 
     return true;
