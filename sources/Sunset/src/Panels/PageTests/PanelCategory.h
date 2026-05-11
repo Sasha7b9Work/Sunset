@@ -4,6 +4,7 @@
 
 
 class CheckBox;
+class Library;
 
 
 class PanelCategory : public ScrolledPanel
@@ -13,7 +14,7 @@ public:
     PanelCategory(wxWindow *, PanelCategory *&);
 
     // Обновить состояние в соответствии с библиотеками
-    void UpdateState();
+    void UpdateState(const Library &);
 
 private:
 
@@ -23,4 +24,6 @@ private:
     };
 
     std::vector<Category> categories;
+
+    void OnEventCheckBox(wxCommandEvent &);
 };

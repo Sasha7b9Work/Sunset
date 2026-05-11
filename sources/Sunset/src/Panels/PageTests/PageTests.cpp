@@ -59,7 +59,7 @@ void PageTests::LoadMainLibrary()
     {
         if (library.Read(&file))
         {
-            panel_category->UpdateState();
+            panel_category->UpdateState(library);
         }
     }
 }

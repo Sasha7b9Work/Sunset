@@ -30,10 +30,12 @@ PanelCategory::PanelCategory(wxWindow *parent, PanelCategory *&global) : Scrolle
 //    main_sizer->AddStretchSpacer();
 
     ScrolledPanel::SetSizer(main_sizer);
+
+    Bind(wxEVT_CHECKBOX, &PanelCategory::OnEventCheckBox, this);
 }
 
 
-void PanelCategory::UpdateState()
+void PanelCategory::UpdateState(const Library &lib)
 {
     wxSizer *sizer = GetSizer();
 
@@ -52,8 +54,6 @@ void PanelCategory::UpdateState()
 
     categories.clear();
 
-    const Library &lib = ThePageTests->GetLibrary();
-
     for (size_t i = 0; i < lib.categories.size(); i++)
     {
         const ::Category &cat = lib.categories[i];
@@ -68,4 +68,18 @@ void PanelCategory::UpdateState()
     sizer->Layout();
 
     Layout();
+}
+
+
+void PanelCategory::OnEventCheckBox(wxCommandEvent &event)
+{
+    int id = event.GetId();
+
+    for(Category &cat : categories)
+    {
+        if (cat.checkbox->GetId() == id)
+        {
+            int i = 0;
+        }
+    }
 }
