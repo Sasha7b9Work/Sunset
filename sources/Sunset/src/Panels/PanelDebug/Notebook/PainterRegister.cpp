@@ -41,7 +41,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
         checkBoxSizer->AddStretchSpacer(1);
 
         wxBoxSizer *vert_sizer = new wxBoxSizer(wxVERTICAL);
-        vert_sizer->AddSpacer(20);
+        vert_sizer->AddSpacer(W_B);
         vert_sizer->Add(checkBoxSizer);
         vert_sizer->AddStretchSpacer();
 
@@ -123,9 +123,6 @@ void PainterRegister::OnEventPaint(wxPaintEvent &)
 
     int num_bits = reg->chip->BitDepth();
 
-    int w = 20;
-    int h = w;
-
     bool pen_is_white = false;           // Признак того, что заполнение идёт белым
 
     for (int i = 0; i < num_bits; i++)
@@ -140,7 +137,7 @@ void PainterRegister::OnEventPaint(wxPaintEvent &)
 
         wxPoint coord = CoordBit(i);
 
-        gc->DrawRectangle(coord.x, coord.y, w, h);
+        gc->DrawRectangle(coord.x, coord.y, W_B, W_B);
     }
 
     for (int i = 0; i < num_bits; i++)
