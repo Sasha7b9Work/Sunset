@@ -30,7 +30,7 @@ public:
 private:
 
     bool      first_paint = true;
-    Register *panel = nullptr;
+    Register *reg = nullptr;
 
     // Возвращает координаты верхнего левого угла отображения бита
     wxPoint CoordBit(int num_bit);
