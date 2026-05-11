@@ -57,10 +57,8 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 
     x -= size_button.x + 5;
 
-    int y0 = 40;
-
     {
-        painter = new PainterRegister(this, this, { 10, y0 });
+        painter = new PainterRegister(this, this);
 
         for (auto box : chboxes)
         {

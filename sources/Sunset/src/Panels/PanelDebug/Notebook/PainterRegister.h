@@ -15,7 +15,7 @@ public:
     // Ширина бита
     static const int W_B = 20;
 
-    PainterRegister(wxWindow *, Register *, const wxPoint &position);
+    PainterRegister(wxWindow *, Register *);
 
     wxFont GetDefaultFont(int size = -1);
 

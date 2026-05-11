@@ -8,11 +8,10 @@
 #pragma warning(pop)
 
 
-PainterRegister::PainterRegister(wxWindow *parent, Register *_panel, const wxPoint &position) :
+PainterRegister::PainterRegister(wxWindow *parent, Register *_panel) :
     Panel(parent),
     panel(_panel)
 {
-    Panel::SetPosition(position);
     Panel::SetSize({ 750, 110 });
 
     Panel::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
