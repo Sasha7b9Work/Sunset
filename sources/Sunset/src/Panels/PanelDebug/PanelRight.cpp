@@ -36,9 +36,9 @@ PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
         txtPeriodScan->SetToolTip(wxT("Период запуска развёртки в миллисекундах"));
 
         wxBoxSizer *hor_sizer = new wxBoxSizer(wxHORIZONTAL);
-        hor_sizer->Add(btnStart);
-        hor_sizer->Add(txtPeriodScan);
-        main_sizer->Add(hor_sizer);
+        hor_sizer->Add(btnStart, 0, wxALL, 5);
+        hor_sizer->Add(txtPeriodScan, 0, wxALL, 5);
+        main_sizer->Add(hor_sizer, 0, wxALIGN_CENTER_HORIZONTAL | wxTOP, 10);
     }
 
     {
@@ -51,9 +51,9 @@ PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
         Bind(wxEVT_BUTTON, &PanelRight::OnEventButton, this);
 
         wxBoxSizer *hor_sizer = new wxBoxSizer(wxHORIZONTAL);
-        hor_sizer->Add(btnStop);
+        hor_sizer->Add(btnStop, 0, wxALL, 5);
         hor_sizer->AddStretchSpacer();
-        main_sizer->Add(hor_sizer);
+        main_sizer->Add(hor_sizer, 0, wxEXPAND | wxBOTTOM, 10);
     }
 
     {
@@ -63,10 +63,10 @@ PanelRight::PanelRight(wxWindow *parent, PanelRight *&global) :
         {
             data[i] = new ControlDataFPGA(this);
 
-            ver_sizer->Add(data[i]);
+            ver_sizer->Add(data[i], 1, wxEXPAND | wxALL, 5);
         }
 
-        main_sizer->Add(ver_sizer);
+        main_sizer->Add(ver_sizer, 1, wxEXPAND | wxALL, 5);
     }
 
     data[4]->SetMax((1 << 8) - 1);
