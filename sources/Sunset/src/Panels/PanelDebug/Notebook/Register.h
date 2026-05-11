@@ -86,11 +86,8 @@ class Register : public Panel
 
 public:
 
-    static const int WIDTH = 800;
-    static const int HEIGHT = 155;
-
-    Register(wxWindow *parent, const wxString &_title,      // Это написано на изображении
-        Chip *, const wxString &_functional);
+    Register(wxWindow *parent, const wxString &_title,  // Это написано на изображении
+        Chip *, const wxString &_functional);           // На  значение append_height нужно увеличить высоту
 
     void SetNamesBits(const wxArrayString &);
 
@@ -150,9 +147,6 @@ protected:
     // Привести комбобоксы команд и режимов в соотвествие с битовыми полями
     void UpdateComboCommandsAndModes();
 
-    // Увеличить высоту на dH
-    void IncreaseHeight(int dH);
-
     void OnEventTextCtrl(wxCommandEvent &);
     // ЛКМ по состоянию бита CheckBoxBit
     void OnEventCheckBoxBit(wxCommandEvent &);
@@ -168,6 +162,8 @@ protected:
     void SetActiveAcross(bool active, wxWindow *wnd);
 
     virtual void OnEventUpdateComboCommandsAndModes() = 0;
+
+    wxSize GetMinSize() const;
 };
 
 

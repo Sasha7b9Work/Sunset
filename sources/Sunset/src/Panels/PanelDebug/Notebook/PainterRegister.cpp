@@ -13,7 +13,11 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
     Panel(parent),
     reg(_reg)
 {
-    Panel::SetMinSize({ 750, 110 });
+    wxSize size = _reg->GetMinSize();
+    size.x -= 50;
+    size.y -= 45;
+
+    Panel::SetMinSize(size);
 
     Panel::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
 
@@ -80,22 +84,6 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
     SetSizer(main_sizer);
 
     Bind(wxEVT_PAINT, &PainterRegister::OnEventPaint, this);
-}
-
-
-void PainterRegister::IncreaseHeight(int dH)
-{
-    wxSize size = GetSize();
-
-    size.y += dH;
-
-    SetMaxSize(size);
-    SetMinSize(size);
-    SetSize(size);
-
-    Layout();
-
-    Refresh();
 }
 
 

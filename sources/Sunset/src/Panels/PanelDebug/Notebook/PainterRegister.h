@@ -22,9 +22,6 @@ public:
     // Возвращает координату X бита num_bit
     int BitX(int num_bit, int all_bits) const;
 
-    // Увеличить высоту на dH
-    void IncreaseHeight(int dH);
-
     AnimatedImpulse *animation = nullptr;
 
 private:

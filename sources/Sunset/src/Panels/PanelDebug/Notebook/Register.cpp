@@ -28,7 +28,9 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
     Panel(parent),
     chip(_chip)
 {
-    Panel::SetMinSize({ WIDTH, HEIGHT });
+    wxSize size = GetMinSize();
+
+    Panel::SetMinSize(size);
 
     wxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
 
@@ -99,6 +101,15 @@ Register::Register(wxWindow *parent, const wxString &_title, Chip *_chip, const 
 }
 
 
+wxSize Register::GetMinSize() const
+{
+    static const int WIDTH = 800;
+    static const int HEIGHT = 155;
+
+    return { WIDTH, (chip == regs[3]) ? (HEIGHT + 50) : HEIGHT };
+}
+
+
 void Register::SetNamesBits(const wxArrayString &_names)
 {
     names_bits = _names;
@@ -118,27 +129,9 @@ void Register::AppendModes(const wxString &title, const std::vector<ModeDescripi
         }
     }
 
-    int dH = 30;
-
-    painter->IncreaseHeight(dH);
-
-    IncreaseHeight(dH);
-
     Layout();
 
     GetParent()->Layout();
-}
-
-
-void Register::IncreaseHeight(int dH)
-{
-    wxSize size = GetSize();
-    size.y += dH;
-
-    SetMaxSize(size);
-    SetMinSize(size);
-    SetSize(size);
-    Layout();
 }
 
 
