@@ -7,7 +7,7 @@
 
 
 Panel::Panel(wxWindow *parent) :
-    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER)
+    wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize)
 {
 }
 

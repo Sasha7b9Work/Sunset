@@ -17,7 +17,7 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
 {
     wxBoxSizer *main_sizer = new wxBoxSizer(wxHORIZONTAL);
 
-    Panel::SetSize({ width + 25, TEXTCNTRL_HEIGHT + 5 + 5 });
+    Panel::SetSize({ width, TEXTCNTRL_HEIGHT + 5 + 5 });
 
     Panel::SetName(parent->GetName() + "_" + _name);
 

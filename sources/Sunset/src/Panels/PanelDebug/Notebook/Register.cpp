@@ -752,6 +752,8 @@ void CheckBoxBit::RePaint()
 {
     BeginPaint(IsEnabled() ? *wxWHITE : *wxLIGHT_GREY);
 
+    DrawRectangle(0, 0, GetSize().x, GetSize().y - 1, *wxBLACK);
+
     wxFont font(7, wxFONTFAMILY_DEFAULT,
         wxFONTSTYLE_NORMAL,
         wxFONTWEIGHT_BOLD);
