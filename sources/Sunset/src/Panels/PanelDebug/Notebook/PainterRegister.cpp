@@ -21,28 +21,43 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
 
     reg->chboxes.resize((uint)_reg->chip->BitDepth() );
 
-    wxSizer *checkBoxSizer = new wxBoxSizer(wxHORIZONTAL);
-    checkBoxSizer->AddSpacer(36);
+    wxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);                  // Здесь будут находиться чекбоксы битов и AnimatedImpulse
 
-    for (int i = 0; i < reg->chip->BitDepth(); i++)
     {
-        CheckBoxBit *chb = new CheckBoxBit(this, { W_B, W_B });
-        reg->chboxes[(uint)i] = chb;
+        wxSizer *checkBoxSizer = new wxBoxSizer(wxHORIZONTAL);
+        checkBoxSizer->AddSpacer(36);
+
+        for (int i = 0; i < reg->chip->BitDepth(); i++)
+        {
+            CheckBoxBit *chb = new CheckBoxBit(this, { W_B, W_B });
+            reg->chboxes[(uint)i] = chb;
+        }
+
+        for (int i = reg->chip->BitDepth() - 1; i >= 0; i--)
+        {
+            checkBoxSizer->Add(reg->chboxes[(uint)i], 0, wxALIGN_CENTER_VERTICAL, 0);
+        }
+
+        checkBoxSizer->AddStretchSpacer(1);
+
+        wxSizer *vert_sizer = new wxBoxSizer(wxVERTICAL);
+        vert_sizer->AddSpacer(45);
+        vert_sizer->Add(checkBoxSizer);
+        vert_sizer->AddStretchSpacer();
+
+        sizer->Add(vert_sizer);
     }
 
-    for (int i = reg->chip->BitDepth() - 1; i >= 0; i--)
     {
-        checkBoxSizer->Add(reg->chboxes[(uint)i], 0, wxALIGN_CENTER_VERTICAL, 0);
+        animation = new AnimatedImpulse(this, ColorBackground(true));
+        sizer->AddStretchSpacer(1);
+        sizer->Add(animation, 1, wxALIGN_CENTER_VERTICAL | wxRIGHT);
     }
 
-    main_sizer->AddSpacer(40);
-    main_sizer->Add(checkBoxSizer, 0, wxTOP, 5);
-
+    main_sizer->Add(sizer);
     SetSizer(main_sizer);
 
     Bind(wxEVT_PAINT, &PainterRegister::OnEventPaint, this);
-
-    animation = new AnimatedImpulse(this, ColorBackground(true));
 }
 
 
