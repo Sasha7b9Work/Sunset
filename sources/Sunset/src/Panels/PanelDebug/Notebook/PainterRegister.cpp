@@ -53,13 +53,17 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_reg) :
 
         if (reg->GetChip()->IsDAC())
         {
+            wxBoxSizer *h_sizer = new wxBoxSizer(wxHORIZONTAL);
+            h_sizer->AddStretchSpacer();
+
             RegDAC *dac = (RegDAC *)reg;
 
             KnobWidget *knob = new KnobWidget(this, 0, 100, 50);
 
             dac->knob = knob;
 
-            ver_sizer->Add(knob, 0, wxRIGHT | wxTOP, 5);
+            h_sizer->Add(knob, 1, wxEXPAND | wxRIGHT | wxTOP, 5);
+            ver_sizer->Add(h_sizer);
         }
 
         ver_sizer->AddStretchSpacer(1);
