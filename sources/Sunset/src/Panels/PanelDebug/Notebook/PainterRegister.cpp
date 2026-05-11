@@ -17,9 +17,11 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_panel) :
 
     Panel::SetBackgroundColour(GetBackgroundColour().ChangeLightness(150));
 
+    wxBoxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
+
     panel->chboxes.resize((uint)_panel->chip->BitDepth() );
 
-    checkBoxSizer = new wxBoxSizer(wxHORIZONTAL);
+    wxSizer *checkBoxSizer = new wxBoxSizer(wxHORIZONTAL);
     checkBoxSizer->AddSpacer(36);
 
     for (int i = 0; i < panel->chip->BitDepth(); i++)
@@ -29,7 +31,7 @@ PainterRegister::PainterRegister(wxWindow *parent, Register *_panel) :
         checkBoxSizer->Add(chb, 0, wxALIGN_CENTER_VERTICAL, 0);
     }
 
-    wxBoxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
+    main_sizer->AddSpacer(40);
     main_sizer->Add(checkBoxSizer, 0, wxTOP, 5);
 
     SetSizer(main_sizer);
