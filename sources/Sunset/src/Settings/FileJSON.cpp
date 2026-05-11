@@ -2,6 +2,7 @@
 #include "defines.h"
 #include "Settings/FileJSON.h"
 #include "Utils/StringUtils.h"
+#include "Utils/GlobalFunctions.h"
 #pragma warning(push, 0)
 #include <wx/file.h>
 #pragma warning(pop)
@@ -16,7 +17,7 @@ bool FileJSON::Load(pchar rel_path)
 {
     Unload();
 
-    full_path = wxGetCwd() + "/" + rel_path;
+    full_path = GF::GetFullPath(rel_path);
 
     wxFile file;
     if (!file.Open(full_path))

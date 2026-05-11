@@ -3,6 +3,7 @@
 #include "Utils/Log.h"
 #include "Utils/StringUtils.h"
 #include "Windows/ConsoleRS232.h"
+#include "Utils/GlobalFunctions.h"
 #pragma warning(push, 0)
 #include <wx/textfile.h>
 #include <wx/filename.h>
@@ -34,11 +35,7 @@ void Log::Init()
     mutex.lock();
 
     {
-        wxFileName fname{ wxGetCwd() + "/Linia.log" };
-
-        fname.Normalize(wxPATH_NORM_ABSOLUTE);
-
-        file_name = fname.GetFullPath();
+        file_name = GF::GetFullPath("Linia.log");
 
         if (wxFile::Exists(file_name))
         {

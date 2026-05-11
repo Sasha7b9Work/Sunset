@@ -24,8 +24,8 @@ class wxSpinCtrl;
 
 namespace GF
 {
-    // Возвращает каталог, где хранятся файлы *.mod и создаёт его, если таковой не существует
-    wxString DirForModFiles();
+    // Возвращает абсолютный путь относительно каталога с исполняемым файлом
+    std::string GetFullPath(pchar rel_path);
 
     // Центрировать text относительно border
     void HorizontalAlignCenter(wxStaticText *label, wxWindow *border);

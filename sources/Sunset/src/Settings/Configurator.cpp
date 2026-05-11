@@ -1,6 +1,7 @@
 ﻿// 2023/08/11 17:01:17 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Settings/Configurator.h"
+#include "Utils/GlobalFunctions.h"
 #pragma warning(push, 0)
 #include <wx/config.h>
 #include <wx/fileconf.h>
@@ -16,7 +17,7 @@ namespace Config
 
 void Config::Init()
 {
-    wxString file_name_config = wxGetCwd() + "/Linia.conf";
+    wxString file_name_config = GF::GetFullPath("Linia.conf");
 
     file = new wxFileConfig("", "", file_name_config);
 
