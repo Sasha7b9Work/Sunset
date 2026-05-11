@@ -11,37 +11,12 @@ PageNotebook::PageNotebook(Notebook *board, const wxString &_name) :
     Panel(board->GetCenterContainer()),
     name(_name)
 {
-    Bind(wxEVT_SIZE, &PageNotebook::OnEventSize, this);
 }
 
 
 const wxString &PageNotebook::GetPanelName() const
 {
     return name;
-}
-
-
-void PageNotebook::OnEventSize(wxSizeEvent &event)
-{
-    const wxSize size = GetParent()->GetSize();
-
-    if (size.x && size.y)
-    {
-        if (size != prev_size)
-        {
-            prev_size = size;
-
-            SetMinSize(size);
-            SetSize(size);
-
-            Refresh();
-
-            CallbackOnEventSize();
-            Refresh();
-        }
-    }
-
-    event.Skip();
 }
 
 

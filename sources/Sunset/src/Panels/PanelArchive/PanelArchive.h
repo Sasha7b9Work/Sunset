@@ -8,8 +8,4 @@ class PanelArchive : public PageNotebook
 public:
 
     PanelArchive(Notebook *, PanelArchive *&);
-
-private:
-
-    virtual void CallbackOnEventSize() override;
 };

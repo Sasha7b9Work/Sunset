@@ -11,10 +11,3 @@ PanelSettings::PanelSettings(Notebook *board, PanelSettings *&self) :
 {
     self = this;
 }
-
-
-void PanelSettings::CallbackOnEventSize()
-{
-
-}
-

@@ -33,13 +33,9 @@ SliderInt::SliderInt(wxWindow *parent, int width, int _min, int _max, const wxSt
 
     wxSize size_button{ 15, 12 };
 
-    int x = w1 + slider->GetSize().x;
-
     btnMore = new Button(this, "", size_button);
-    btnMore->SetPosition({ x, 0 });
     btnMore->SetBackgroundColour(btnMore->GetBackgroundColour().ChangeLightness(LIGHTNESS));
     btnLess = new Button(this, "", size_button);
-    btnLess->SetPosition({ x, size_button.y });
     btnLess->SetBackgroundColour(btnLess->GetBackgroundColour().ChangeLightness(LIGHTNESS));
 
     btnMore->SetCursor(wxCursor(wxCURSOR_HAND));
@@ -209,13 +205,9 @@ SliderFloat::SliderFloat(wxWindow *parent, int width, const wxString &name) :
 
     wxSize size_button{ 15, 12 };
 
-    int x = w1 + slider->GetSize().x;
-
     btnMore = new Button(this, "", size_button);
-    btnMore->SetPosition({ x, 0 });
     btnMore->SetBackgroundColour(btnMore->GetBackgroundColour().ChangeLightness(LIGHTNESS));
     btnLess = new Button(this, "", size_button);
-    btnLess->SetPosition({ x, size_button.y });
     btnLess->SetBackgroundColour(btnLess->GetBackgroundColour().ChangeLightness(LIGHTNESS));
 
     Bind(wxEVT_SLIDER, &SliderFloat::OnEventSlider, this);
@@ -402,7 +394,5 @@ SliderFloatPercents::SliderFloatPercents(wxWindow *parent, int width, int _min_p
     min_percents(_min_percents),
     max_percents(_max_percents)
 {
-    text->SetPosition({0, 0});
-
     textPercents = new wxStaticText(this, wxID_ANY, "0", wxDefaultPosition, { 50, TEXTCNTRL_HEIGHT - 5 });
 }

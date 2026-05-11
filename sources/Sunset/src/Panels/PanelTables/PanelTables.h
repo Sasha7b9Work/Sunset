@@ -8,8 +8,4 @@ class PanelTables : public PageNotebook
 public:
 
     PanelTables(Notebook *, PanelTables *&);
-
-private:
-
-    virtual void CallbackOnEventSize() override;
 };

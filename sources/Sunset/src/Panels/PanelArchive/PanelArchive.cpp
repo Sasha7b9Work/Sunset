@@ -10,9 +10,3 @@ PanelArchive::PanelArchive(Notebook *board, PanelArchive *&self) : PageNotebook(
 {
     self = this;
 }
-
-
-void PanelArchive::CallbackOnEventSize()
-{
-
-}

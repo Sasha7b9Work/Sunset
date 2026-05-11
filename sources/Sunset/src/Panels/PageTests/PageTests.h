@@ -33,7 +33,5 @@ private:
 
     // Загружает главную библиотеку из json-файла
     void LoadMainLibrary();
-
-    virtual void CallbackOnEventSize() override;
 };
  

@@ -29,11 +29,9 @@ SpinBox::SpinBox(wxWindow *parent, const wxSize &size, int _min, int _max) :
     wxSize size_button{ width_btn, 11 };
 
     btnMore = new Button(this, ".", size_button);
-    btnMore->SetPosition({ size_text.x, 0 });
     btnMore->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 
     btnLess = new Button(this, ".", size_button);
-    btnLess->SetPosition({ size_text.x, size_button.y });
 
     btnLess->Bind(wxEVT_BUTTON, &SpinBox::OnEventButton, this);
 }

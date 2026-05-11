@@ -23,8 +23,6 @@ ControlDataFPGA::ControlDataFPGA(wxWindow *parent) :
 
     painter = new PainterDataFPGA(this, size);
 
-    painter->SetPosition({ 0, 0 });
-
     btnScale = new ToggleButton(painter, L("м"), { 17, 17 });
     btnScale->Bind(wxEVT_TOGGLEBUTTON, &ControlDataFPGA::OnEventToggleButon, this);
 

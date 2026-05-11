@@ -8,9 +8,5 @@ class PanelSettings : public PageNotebook
 public:
 
     PanelSettings(Notebook *, PanelSettings *&);
-
-private:
-
-    virtual void CallbackOnEventSize() override;
 };
 

@@ -11,9 +11,3 @@ PanelReports::PanelReports(Notebook *board, PanelReports *&self) :
 {
     self = this;
 }
-
-
-void PanelReports::CallbackOnEventSize()
-{
-
-}

@@ -16,6 +16,4 @@ public:
     void Unpack();
 
     void Pack();
-
-    virtual void CallbackOnEventSize() override { }
 };

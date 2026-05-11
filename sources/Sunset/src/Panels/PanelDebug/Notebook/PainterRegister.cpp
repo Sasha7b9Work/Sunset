@@ -65,7 +65,6 @@ void PainterRegister::SetPositionAnimationWidget()
     wxPoint pos = { GetSize().x, GetSize().y };
     pos.x -= AnimatedImpulse::WIDTH + 5;
     pos.y -= AnimatedImpulse::HEIGHT + 5;
-    animation->SetPosition(pos);
 }
 
 

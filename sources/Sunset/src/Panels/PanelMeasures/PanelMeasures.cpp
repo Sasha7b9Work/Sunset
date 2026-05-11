@@ -74,35 +74,6 @@ void PanelMeasures::FullScreen(bool full)
 }
 
 
-void PanelMeasures::CallbackOnEventSize()
-{
-    SAFE_DELETE(bitmap);
-
-    const wxSize size = GetParent()->GetSize();
-
-    bitmap = new wxBitmap(size.x, size.y);
-
-    IGrid::Create();
-
-    int w = btnHelp->GetSize().x;
-    int d = 10;
-    int x0 = size.x - d - btnHelp->GetSize().x;
-    int y0 = d;
-
-    btnHelp->SetPosition({ x0, y0 });
-
-    btnLessX->SetPosition({ x0 - 2 * (w + d), y0 });
-    btnMoreX->SetPosition({ x0 - 1 * (w + d), y0 });
-
-    btnLessY->SetPosition({ x0, y0 + 2 * (w + d) });
-    btnMoreY->SetPosition({ x0, y0 + w + d });
-
-    panel_errors->ReInit();
-
-    Layout();
-}
-
-
 void PanelMeasures::OnEventMouseDown(wxMouseEvent &event)
 {
     pos_mouse_down = event.GetPosition();

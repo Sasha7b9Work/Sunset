@@ -8,8 +8,4 @@ class PanelReports : public PageNotebook
 public:
 
     PanelReports(Notebook *, PanelReports *&);
-
-private:
-
-    virtual void CallbackOnEventSize() override;
 };

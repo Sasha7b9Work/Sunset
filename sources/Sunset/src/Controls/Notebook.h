@@ -19,17 +19,9 @@ public:
 
     const wxString &GetPanelName() const;
 
-protected:
-
-    // Эта функция будет вызываться при наступлении события wxEVT_SIZE
-    virtual void CallbackOnEventSize() = 0;
-
 private:
 
     wxString name;
-    wxSize prev_size{ -1, -1 };             // Здесь храним размер, обработанный в предыдущем событии wxEVT_SIZE
-
-    void OnEventSize(wxSizeEvent &);
 };
 
 

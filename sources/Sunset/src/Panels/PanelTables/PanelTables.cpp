@@ -11,9 +11,3 @@ PanelTables::PanelTables(Notebook *board, PanelTables *&self) :
 {
     self = this;
 }
-
-
-void PanelTables::CallbackOnEventSize()
-{
-
-}
