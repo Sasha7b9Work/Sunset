@@ -6,7 +6,7 @@
 PanelViewTest *ThePanelViewTest = nullptr;
 
 
-PanelViewTest::PanelViewTest(wxWindow *parent, PanelViewTest *&global) : Panel(parent)
+PanelViewTest::PanelViewTest(wxWindow *parent, PanelViewTest *&global) : Panel(parent, wxSIMPLE_BORDER)
 {
     global = this;
 }

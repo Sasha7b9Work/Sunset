@@ -10,9 +10,11 @@
 PanelLibrary *ThePanelLibrary = nullptr;
 
 
-PanelLibrary::PanelLibrary(wxWindow *parent, PanelLibrary *&global) : Panel(parent)
+PanelLibrary::PanelLibrary(wxWindow *parent, PanelLibrary *&global) : Panel(parent, wxSIMPLE_BORDER)
 {
     global = this;
+
+
 
     SizerVert *main_sizer = new SizerVert();
 

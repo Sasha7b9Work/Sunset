@@ -52,7 +52,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
 //    main_panel->AddPanel(new PanelArchive(main_panel, ThePanelArchive));
 //    main_panel->AddPanel(new PanelSettings(main_panel, ThePanelSettings));
 
-    sizer->Add(main_panel, 1, wxEXPAND);
+    sizer->Add(main_panel, 1, wxEXPAND | wxALL);
     SetSizer(sizer);
 
     main_panel->SetCurrentPanelIndex(0);

@@ -10,7 +10,7 @@ class Panel : public wxPanel
 {
 public:
 
-    Panel(wxWindow *);
+    Panel(wxWindow *, long style = 0);
 };
 
 
