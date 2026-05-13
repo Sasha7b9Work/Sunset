@@ -88,7 +88,7 @@ bool SCPI::BufferSCPI::PeriodicTask()
 
         if (!result)
         {
-            LOG_ERROR("Error process message %s", message);
+            LOG_ERROR("Error process message %s", message); //-V111
         }
 
         RemoveMessage();
@@ -118,7 +118,7 @@ bool SCPI::BufferSCPI::ExistMessage()
 
     if (pos > 0)
     {
-        std::memmove(buffer, buffer + pos, (size_t)(Size() - pos));
+        std::memmove(buffer, buffer + pos, (size_t)(Size() - pos)); //-V201
         pointer -= pos;
     }
 
@@ -164,7 +164,7 @@ void SCPI::BufferSCPI::RemoveMessage()
 
     if (pos >= 0)
     {
-        std::memmove(buffer, buffer + pos + 1, (size_t)(pointer - pos + 1));
+        std::memmove(buffer, buffer + pos + 1, (size_t)pointer - pos + 1); //-V201
         pointer = pointer - pos - 1;
     }
 }

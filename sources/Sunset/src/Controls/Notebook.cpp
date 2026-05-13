@@ -125,7 +125,7 @@ void Notebook::SetCurrentPanelIndex(int index)
         return;
     }
 
-    PageNotebook *panel = (PageNotebook *)buttons[(size_t)index]->GetClientData();
+    PageNotebook *panel = (PageNotebook *)buttons[(uint64)index]->GetClientData();
 
     SetCurrentPanel(panel);
 

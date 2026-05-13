@@ -6,7 +6,7 @@
 #pragma warning(pop)
 
 
-Panel::Panel(wxWindow *parent, long style) :
+Panel::Panel(wxWindow *parent, long style) : //-V126
     wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, style)
 {
 }
