@@ -73,6 +73,8 @@ private:
     // Координаты мыши при нажатии кнопки
     wxPoint pos_mouse_down;
 
+    void Init();
+
     void BeginPaint();
 
     void EndPaint();

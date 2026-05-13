@@ -33,15 +33,15 @@ public:
 
     void AddPanel(PageNotebook *);
 
-    // Переключиться на панель по индексу
-    void SetCurrentPanelIndex(int index);
-
     wxPanel *GetCenterContainer() const
     {
         return centerContainer;
     }
 
     int GetCurrentPanelIndex() const;
+
+    // Переключиться на панель по указателю
+    void SetCurrentPanel(PageNotebook *);
 
 private:
 
@@ -59,8 +59,8 @@ private:
 
     void OnEventButtonToggle(wxCommandEvent &);
 
-    // Переключиться на панель по указателю
-    void SetCurrentPanel(PageNotebook *);
+    // Переключиться на панель по индексу
+    void SetCurrentPanelIndex(int index);
 
     int GetPanelIndex(PageNotebook *) const;
 };

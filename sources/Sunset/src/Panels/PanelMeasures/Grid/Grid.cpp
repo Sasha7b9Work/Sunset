@@ -13,11 +13,11 @@
 IGrid *TheGrid = nullptr;
 
 
-void IGrid::Create()
+void IGrid::Create(IGrid *&global)
 {
-    if (!TheGrid)
+    if (!global)
     {
-        TheGrid = new GridNew(TheGrid);
+        global = new GridNew(global);
     }
 }
 

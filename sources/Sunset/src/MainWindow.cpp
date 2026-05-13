@@ -45,8 +45,8 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     main_panel= new Notebook(this);
     main_panel->AddPanel(new PanelDebug(main_panel, ThePanelDebug));
     main_panel->AddPanel(new PageTests(main_panel, ThePageTests));
+    main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
 
-//    main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
 //    main_panel->AddPanel(new PanelTables(main_panel, ThePanelTables));
 //    main_panel->AddPanel(new PanelReports(main_panel, ThePanelReports));
 //    main_panel->AddPanel(new PanelArchive(main_panel, ThePanelArchive));
@@ -55,7 +55,12 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     sizer->Add(main_panel, 1, wxEXPAND | wxALL);
     SetSizer(sizer);
 
-    main_panel->SetCurrentPanelIndex(0);
+    main_panel->SetCurrentPanel(ThePanelMeasures);
+    TheApp->ProcessPendingEvents();
+    TheApp->Yield();
+    main_panel->SetCurrentPanel(ThePanelDebug);
+    TheApp->ProcessPendingEvents();
+    TheApp->Yield();
 
     SetPosition();
 

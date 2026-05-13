@@ -15,7 +15,7 @@ public:
 
     virtual ~IGrid() {}
 
-    static void Create();
+    static void Create(IGrid *&);
 
     virtual void OnChangedOffsetMeasure(const wxPoint &) = 0;
     virtual void OnMouseDown() = 0;
