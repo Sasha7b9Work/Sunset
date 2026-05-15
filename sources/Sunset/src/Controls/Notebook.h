@@ -46,7 +46,7 @@ public:
 private:
 
     wxBoxSizer *mainSizer = nullptr;        // Вертикальный главный sizer
-    wxBoxSizer *topSizer = nullptr;         // Горизонтальный sizer для верхних кнопок
+    wxBoxSizer *sizer_buttons = nullptr;    // Горизонтальный sizer для верхних кнопок
 
     wxPanel *centerContainer = nullptr;     // Контейнер для центральной области
     wxBoxSizer *centerSizer = nullptr;      // Sizer для центрального контейнера
@@ -58,9 +58,6 @@ private:
     void AddTopButton(PageNotebook *);
 
     void OnEventButtonToggle(wxCommandEvent &);
-
-    // Переключиться на панель по индексу
-    void SetCurrentPanelIndex(int index);
 
     int GetPanelIndex(PageNotebook *) const;
 };

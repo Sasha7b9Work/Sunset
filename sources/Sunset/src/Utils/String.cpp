@@ -59,6 +59,12 @@ String::String(pchar format, ...) : buffer(nullptr)
 }
 
 
+String::~String()
+{
+    std::free(buffer);
+}
+
+
 void String::Set(pchar value)
 {
     Free();
@@ -68,6 +74,23 @@ void String::Set(pchar value)
     if (buffer)
     {
         std::strcpy(buffer, value);
+    }
+}
+
+
+char *String::c_str() const
+{
+    return buffer;
+}
+
+
+void String::Free()
+{
+    if(buffer)
+    {
+        std::free(buffer);
+        buffer = nullptr;
+        Set("");
     }
 }
 
@@ -118,37 +141,6 @@ void String::Append(char symbol)
 }
 
 
-String::~String()
-{
-    std::free(buffer);
-}
-
-
-void String::Free()
-{
-    if(buffer)
-    {
-        std::free(buffer);
-        buffer = nullptr;
-        Set("");
-    }
-}
-
-
-char *String::c_str() const
-{
-    return buffer;
-}
-
-
-void String::Allocate(int size)
-{
-    std::free(buffer);
-
-    buffer = static_cast<char *>(std::malloc(static_cast<uint>(size + 1)));
-}
-
-
 void String::RemoveFromBegin(int numSymbols)
 {
     if (std::strlen(buffer) == static_cast<uint>(numSymbols))
@@ -188,6 +180,14 @@ int String::Size() const
 }
 
 
+void String::Allocate(int size)
+{
+    std::free(buffer);
+
+    buffer = static_cast<char *>(std::malloc(static_cast<uint>(size + 1)));
+}
+
+
 char &String::operator[](int i) const
 {
     static char result = 0;
@@ -201,34 +201,11 @@ char &String::operator[](int i) const
 }
 
 
-bool String::operator!=(pchar rhs) const
-{
-    return std::strcmp(buffer, rhs) != 0;
-}
-
-
-bool String::operator==(pchar rhs) const
-{
-    return std::strcmp(buffer, rhs) == 0;
-}
-
-
 String String::GetWord(int num, pchar delimit) const
 {
     char out[1024];
 
     return String(SU::GetWord(buffer, num, out, delimit));
-}
-
-
-bool String::BeginWith(pchar symbols) const
-{
-    if (std::strlen(buffer) >= std::strlen(symbols))
-    {
-        return std::memcmp(buffer, symbols, std::strlen(symbols)) == 0;
-    }
-
-    return false;
 }
 
 
@@ -251,4 +228,25 @@ void String::ToUpper()
         *p = (char)std::toupper(*p);
         p++;
     }
+}
+bool String::BeginWith(pchar symbols) const
+{
+    if (std::strlen(buffer) >= std::strlen(symbols))
+    {
+        return std::memcmp(buffer, symbols, std::strlen(symbols)) == 0;
+    }
+
+    return false;
+}
+
+
+bool String::operator!=(pchar rhs) const
+{
+    return std::strcmp(buffer, rhs) != 0;
+}
+
+
+bool String::operator==(pchar rhs) const
+{
+    return std::strcmp(buffer, rhs) == 0;
 }

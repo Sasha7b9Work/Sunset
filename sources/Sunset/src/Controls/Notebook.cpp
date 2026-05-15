@@ -27,11 +27,11 @@ Notebook::Notebook(wxWindow *parent) :
     mainSizer = new wxBoxSizer(wxVERTICAL);
 
     // === Верхняя область с кнопками ===
-    wxPanel *topPanel = new wxPanel(this, wxID_ANY);
-    topPanel->SetMinSize(wxSize(-1, 30));
-    topPanel->SetMaxSize(wxSize(-1, 30));
-    topSizer = new wxBoxSizer(wxHORIZONTAL);
-    topPanel->SetSizer(topSizer);
+    wxPanel *panel_buttons = new wxPanel(this, wxID_ANY);
+    panel_buttons->SetMinSize(wxSize(-1, 30));
+    panel_buttons->SetMaxSize(wxSize(-1, 30));
+    sizer_buttons = new wxBoxSizer(wxHORIZONTAL);
+    panel_buttons->SetSizer(sizer_buttons);
 
     // === Центральная область (динамическое содержимое) ===
     centerContainer = new wxPanel(this, wxID_ANY);
@@ -40,7 +40,7 @@ Notebook::Notebook(wxWindow *parent) :
 
     // Добавляем все области в главный sizer
     // Пропорции: 0 (минимальный размер), 1 (растягивается), 0 (минимальный размер)
-    mainSizer->Add(topPanel, 0, wxEXPAND | wxALL);
+    mainSizer->Add(panel_buttons, 0, wxEXPAND | wxALL);
     mainSizer->Add(centerContainer, 1, wxEXPAND | wxALL);
 
     SetSizer(mainSizer);
@@ -84,6 +84,11 @@ void Notebook::SetCurrentPanel(PageNotebook *panel)
     currentPanel = panel;
     currentPanel->Show();
 
+    panel->Layout();
+    if (panel->GetSizer())
+    {
+        panel->GetSizer()->Layout();
+    }
     // Обновляем макет
     centerSizer->Layout();
     centerContainer->Layout();
@@ -94,9 +99,8 @@ void Notebook::SetCurrentPanel(PageNotebook *panel)
         btn->SetValue(btn->GetClientData() == panel);
     }
 
-//    // Принудительная перерисовка
-//    currentPanel->Refresh();
-//    currentPanel->Update();
+    currentPanel->Refresh();
+    currentPanel->Update();
 }
 
 
@@ -118,31 +122,13 @@ void Notebook::AddPanel(PageNotebook *panel)
 }
 
 
-void Notebook::SetCurrentPanelIndex(int index)
-{
-    if (index < 0 || index >= static_cast<int>(buttons.size()))
-    {
-        return;
-    }
-
-    PageNotebook *panel = (PageNotebook *)buttons[(uint64)index]->GetClientData();
-
-    SetCurrentPanel(panel);
-
-    wxCommandEvent event;
-    event.SetEventObject(buttons[(uint64)index]);
-    event.SetInt(1);
-    OnEventButtonToggle(event);
-}
-
-
 void Notebook::AddTopButton(PageNotebook *panel)
 {
-    ToggleButton *btn = new ToggleButton((wxPanel *)topSizer->GetContainingWindow(), panel->GetPanelName());
+    ToggleButton *btn = new ToggleButton((wxPanel *)sizer_buttons->GetContainingWindow(), panel->GetPanelName());
     btn->SetClientData((wxObject *)panel);
     btn->Bind(wxEVT_TOGGLEBUTTON, &Notebook::OnEventButtonToggle, this);
-    topSizer->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
-    topSizer->Layout();
+    sizer_buttons->Add(btn, 0, wxRIGHT | wxTOP | wxBOTTOM, 5);
+    sizer_buttons->Layout();
     buttons.push_back(btn);
 }
 
