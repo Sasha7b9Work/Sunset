@@ -11,7 +11,7 @@ bool Library::Read(FileJSON *_file)
 
     const Document &doc = file->Document();
 
-    for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); it++)
+    for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); ++it)
     {
         if (it->value.IsObject())
         {
@@ -38,7 +38,7 @@ bool Library::Read(FileJSON *_file)
 
 bool Library::ParseCategory(Category &category, pchar name, const rapidjson::Value &value)
 {
-    for (auto it_value = value.MemberBegin(); it_value != value.MemberEnd(); it_value++)
+    for (auto it_value = value.MemberBegin(); it_value != value.MemberEnd(); ++it_value)
     {
         if (it_value->value.IsString())
         {
@@ -72,7 +72,7 @@ bool Library::ParseTest(Category &category, const rapidjson::Value &value)
 {
     Test test;
 
-    for (auto it = value.MemberBegin(); it != value.MemberEnd(); it++)
+    for (auto it = value.MemberBegin(); it != value.MemberEnd(); ++it)
     {
         if (it->value.IsString())
         {
