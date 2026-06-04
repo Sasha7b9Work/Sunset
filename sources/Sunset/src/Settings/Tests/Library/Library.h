@@ -15,7 +15,7 @@ class Test
 {
 public:
 
-    wxString name{ "" };
+    wxString _name{ "" };
 };
 
 

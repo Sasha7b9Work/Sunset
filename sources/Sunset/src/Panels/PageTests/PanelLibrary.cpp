@@ -98,7 +98,7 @@ void PanelLibrary::BuildListTests(std::vector<const ::Category *> &categories)
     {
         for (auto test : cat->tests)
         {
-            AddItem(test.name);
+            AddItem(test._name);
         }
     }
 }

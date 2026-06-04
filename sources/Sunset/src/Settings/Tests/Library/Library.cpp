@@ -76,7 +76,8 @@ bool Library::ParseTest(Category &category, const rapidjson::Value &value)
     {
         if (it->value.IsString())
         {
-            test.name = it->name.GetString();
+            надо правильно распарсить
+            test._name = it->name.GetString();
         }
         else if (it->value.IsObject())
         {
@@ -86,5 +87,5 @@ bool Library::ParseTest(Category &category, const rapidjson::Value &value)
 
     category.tests.push_back(test);
 
-    return test.name[0] != '\0';
+    return test._name[0] != '\0';
 }
