@@ -5,6 +5,7 @@
 #include "Settings/Tests/Library/Library.h"
 #pragma warning(push, 0)
 #include <wx/checkbox.h>
+#include <wx/listctrl.h>
 #pragma warning(pop)
 
 
@@ -15,16 +16,67 @@ PanelLibrary::PanelLibrary(wxWindow *parent, PanelLibrary *&global) : Panel(pare
 {
     global = this;
 
-
-
     SizerVert *main_sizer = new SizerVert();
 
-    for (int i = 0; i < 10; i++)
-    {
-//        main_sizer->Add(new wxCheckBox(this, wxID_ANY, wxString::Format("")));
-    }
+    listView = new wxListView(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_LIST | wxLC_SINGLE_SEL);
+
+    imageList = new wxImageList(16, 16, true, 0);
+    listView->SetImageList(imageList, wxIMAGE_LIST_SMALL);
+
+    main_sizer->Add(listView, 1, wxEXPAND | wxALL, 0);
 
     Panel::SetSizer(main_sizer);
+}
+
+
+PanelLibrary::~PanelLibrary()
+{
+    if (imageList)
+        delete imageList;
+}
+
+
+void PanelLibrary::ClearList()
+{
+    if (listView)
+        listView->DeleteAllItems();
+}
+
+
+void PanelLibrary::AddItem(const wxString &text, int iconIndex)
+{
+    if (!listView) return;
+
+    long index = listView->InsertItem(listView->GetItemCount(), text, iconIndex);
+    listView->SetItem(index, 0, text);
+}
+
+
+void PanelLibrary::AddItem(const wxString &text)
+{
+    AddItem(text, -1);
+}
+
+
+int PanelLibrary::AddIcon(const wxString &iconPath)
+{
+    if (!imageList) return -1;
+
+    wxBitmap bitmap(iconPath, wxBITMAP_TYPE_PNG);
+    if (bitmap.IsOk())
+    {
+        return imageList->Add(bitmap);
+    }
+    return -1;
+}
+
+
+void PanelLibrary::SetItemIcon(long itemIndex, int iconIndex)
+{
+    if (listView && itemIndex >= 0 && itemIndex < listView->GetItemCount())
+    {
+        listView->SetItemImage(itemIndex, iconIndex);
+    }
 }
 
 
