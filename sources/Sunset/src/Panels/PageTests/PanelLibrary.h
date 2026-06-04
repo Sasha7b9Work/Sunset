@@ -17,10 +17,10 @@ public:
 
     void BuildListTests(std::vector<const ::Category *> &categories);
 
-    void ClearList();                           // Очистить весь список
-    void AddItem(const wxString &text);         // Добавить элемент без иконки
-    void AddItem(const wxString &text, int iconIndex);  // Добавить элемент с иконкой
-    int AddIcon(const wxString &iconPath);      // Загрузить иконку в imageList
+    void ClearList();                                   // Очистить весь список
+    void AddItem(const wxString &);                     // Добавить элемент без иконки
+    void AddItem(const wxString &, int iconIndex);      // Добавить элемент с иконкой
+    int AddIcon(const wxString &iconPath);              // Загрузить иконку в imageList
     void SetItemIcon(long itemIndex, int iconIndex);    // Установить иконку существующему элементу
 
 private:
