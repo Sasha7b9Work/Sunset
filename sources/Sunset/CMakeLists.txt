@@ -263,11 +263,4 @@ else()
     target_include_directories(${PROJECT_NAME} PRIVATE ${GTK3_INCLUDE_DIRS})
     target_compile_options(${PROJECT_NAME} PRIVATE ${GTK3_CFLAGS_OTHER})
 
-    # Копируем ресурсы в директорию сборки
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_CURRENT_SOURCE_DIR}/resources
-            $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
-    )
 endif()
-
