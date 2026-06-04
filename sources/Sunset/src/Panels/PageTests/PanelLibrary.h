@@ -3,9 +3,14 @@
 #include "Controls/Panel.h"
 
 
+class ::Category;
+
+
 class PanelLibrary : public Panel
 {
 public:
 
     PanelLibrary(wxWindow *, PanelLibrary *&);
+
+    void BuildListTests(std::vector<const ::Category *> &categories);
 };

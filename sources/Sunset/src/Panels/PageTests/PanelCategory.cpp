@@ -60,7 +60,7 @@ void PanelCategory::UpdateState(const Library &lib)
 
         CheckBox *checkbox = new CheckBox(this, cat.name);
         sizer->Add(checkbox);
-        categories.push_back({ checkbox });
+        categories.push_back({ checkbox, cat });
     }
 
     sizer->AddStretchSpacer();
@@ -73,13 +73,23 @@ void PanelCategory::UpdateState(const Library &lib)
 
 void PanelCategory::OnEventCheckBox(wxCommandEvent &event)
 {
-    int id = event.GetId();
+    BuildListTests();
 
-    for(Category &cat : categories)
+    event.Skip();
+}
+
+
+void PanelCategory::BuildListTests()
+{
+    std::vector<const ::Category *> cats;
+
+    for (const Category &cat : categories)
     {
-        if (cat.checkbox->GetId() == id)
+        if (cat.checkbox->IsChecked())
         {
-
+            cats.push_back(&cat.category);
         }
     }
+
+    ThePanelLibrary->BuildListTests(cats);
 }

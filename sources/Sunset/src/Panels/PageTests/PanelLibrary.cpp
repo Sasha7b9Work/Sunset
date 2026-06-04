@@ -2,6 +2,7 @@
 #include "defines.h"
 #include "Panels/PageTests/PanelLibrary.h"
 #include "Controls/Sizers.h"
+#include "Settings/Tests/Library/Library.h"
 #pragma warning(push, 0)
 #include <wx/checkbox.h>
 #pragma warning(pop)
@@ -24,4 +25,10 @@ PanelLibrary::PanelLibrary(wxWindow *parent, PanelLibrary *&global) : Panel(pare
     }
 
     Panel::SetSizer(main_sizer);
+}
+
+
+void PanelLibrary::BuildListTests(std::vector<const ::Category *> &categories)
+{
+
 }

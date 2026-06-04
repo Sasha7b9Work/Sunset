@@ -5,6 +5,7 @@
 
 class CheckBox;
 class Library;
+class ::Category;
 
 
 class PanelCategory : public ScrolledPanel
@@ -20,10 +21,14 @@ private:
 
     struct Category
     {
-        CheckBox *checkbox;
+        CheckBox *checkbox;             // Чекбокс, которым выбирается данная категория
+        const ::Category &category;
     };
 
     std::vector<Category> categories;
 
     void OnEventCheckBox(wxCommandEvent &);
+
+    // Построить список тестов для категорий выбранных чекбоксами
+    void BuildListTests();
 };
