@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Sunset
+Comment=
+Exec=pkexec /mnt/nvme/Sunset/sources/generated/Linia/Sunset/Sunset
+Icon=
+Path=/mnt/nvme/Sunset/sources/generated/Linia/Sunset
+Terminal=true
+StartupNotify=false

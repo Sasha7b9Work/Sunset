@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <action id="local.pkexec.sunset">
+    <defaults>
+      <!-- Ключевая строка: разрешить запуск без пароля -->
+      <allow_active>yes</allow_active>
+    </defaults>
+    <!-- Путь к вашему приложению -->
+    <annotate key="org.freedesktop.policykit.exec.path">/mnt/nvme/Sunset/sources/generated/Linia/Sunset/Sunset</annotate>
+    <!-- Важно: разрешить графический интерфейс -->
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>
