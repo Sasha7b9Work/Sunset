@@ -4,6 +4,7 @@
 #include "Panels/PageTests/PageTests.h"
 #include "Controls/Sizers.h"
 #include "Controls/CheckBox.h"
+#include "Panels/PageTests/PanelLibrary.h"
 #pragma warning(push, 0)
 #include <wx/checkbox.h>
 #pragma warning(pop)

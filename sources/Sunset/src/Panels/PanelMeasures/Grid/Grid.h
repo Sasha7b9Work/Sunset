@@ -202,7 +202,7 @@ private:
         return NumCells();
     }
 
-    int NumCellsY() const override
+    int NumCellsY() const override //-V524
     {
         return NumCells();
     }

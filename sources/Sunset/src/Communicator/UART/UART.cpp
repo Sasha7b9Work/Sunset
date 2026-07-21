@@ -313,7 +313,7 @@ void *UART::ReaderThreadFunc(void *)
 #ifdef WIN32
     #pragma warning(push, 0)
 #endif
-        FD_SET(fd, &read_fds);
+        FD_SET(fd, &read_fds); //-V101
 #ifdef WIN32
     #pragma warning(pop)
 #endif
@@ -323,7 +323,7 @@ void *UART::ReaderThreadFunc(void *)
         // select блокируется до появления данных или таймаута
         int result = select(fd + 1, &read_fds, nullptr, nullptr, &timeout);
 
-        if (result > 0 && FD_ISSET(fd, &read_fds))
+        if (result > 0 && FD_ISSET(fd, &read_fds)) //-V201
         {
             int bytes_read = read(fd, buffer, sizeof(buffer));
 
