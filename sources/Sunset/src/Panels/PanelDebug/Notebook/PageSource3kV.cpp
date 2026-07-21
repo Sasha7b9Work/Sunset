@@ -18,26 +18,34 @@ PageSource3kV::PageSource3kV(wxNotebook *parent) :
     std::vector<StructDescription::CommandStruct> commandsPolarity;
     commandsPolarity.emplace_back(StructDescription::CommandStruct{ 0b0, "Положительная" });
     commandsPolarity.emplace_back(StructDescription::CommandStruct{ 0b1, "Отрицательная" });
-    desc0.emplace_back(StructDescription{ 0, 1, "п", "полярность", { true, commandsPolarity } });
+    desc0.emplace_back(StructDescription{ 0, 1, "п", "полярность выходного сигнала", { true, commandsPolarity } });
 
     std::vector<StructDescription::CommandStruct> commandsRanges;
     commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b000, "Обрыв коллектора" });
-    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b001, "Обрыв коллектора (Режима ОЖИДАНИЕ нет)" });
-    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b010, "Диапазон 50 В" });
-    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b011, "30 В" });
-    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b100, "300 В" });
-    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b101, "3000 В" });
+    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b001, "+/- 30 В" });
+    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b010, "+/- 300 В" });
+    commandsRanges.emplace_back(StructDescription::CommandStruct{ 0b011, "+/- 3000 В" });
     desc0.emplace_back(StructDescription{ 1, 3, "пределы", "пределы", { true, commandsRanges } });
 
     std::vector<StructDescription::CommandStruct> commandsMode;
-    commandsMode.emplace_back(StructDescription::CommandStruct{ 0b0, "Выбор режима AC" });
-    commandsMode.emplace_back(StructDescription::CommandStruct{ 0b1, "Выбор режима DC, IMP, SIN" });
+    commandsMode.emplace_back(StructDescription::CommandStruct{ 0b0, "AC" });
+    commandsMode.emplace_back(StructDescription::CommandStruct{ 0b1, "DC, IMP, SIN" });
     desc0.emplace_back(StructDescription{ 4, 1, "р", "режим", { true, commandsMode } });
 
     std::vector<StructDescription::CommandStruct> commandsFiltr;
     commandsFiltr.emplace_back(StructDescription::CommandStruct{ 0b0, "Отключён" });
     commandsFiltr.emplace_back(StructDescription::CommandStruct{ 0b1, "Включён" });
-    desc0.emplace_back(StructDescription{ 5, 1, "ф", "фильтр", { true, commandsFiltr } });
+    desc0.emplace_back(StructDescription{ 5, 1, "ф", "сглаживающий фильтр", { true, commandsFiltr } });
+
+    std::vector<StructDescription::CommandStruct> commands300V;
+    commands300V.emplace_back(StructDescription::CommandStruct{ 0b0, "Выключен" });
+    commands300V.emplace_back(StructDescription::CommandStruct{ 0b1, "Включён" });
+    desc0.emplace_back(StructDescription{ 6, 1, " ", "совместное включение диапазона источника 300 В и диапазона измерителя 200 мА", { true, commands300V } });
+
+    std::vector<StructDescription::CommandStruct> commands30V;
+    commands30V.emplace_back(StructDescription::CommandStruct{ 0b0, "Выключен" });
+    commands30V.emplace_back(StructDescription::CommandStruct{ 0b1, "Включён" });
+    desc0.emplace_back(StructDescription{ 7, 1, " ", "совместное включение диапазона источника 30 В и диапазона измерителя 200 мА", { true, commands30V} });
 
     reg0->SetDescriptionBits(0, desc0);
 
