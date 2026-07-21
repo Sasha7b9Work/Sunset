@@ -9,10 +9,10 @@
 #pragma warning(pop)
 
 
-PanelDebug *ThePanelDebug = nullptr;
+PanelDebug *PanelDebug::self = nullptr;
 
 
-PanelDebug::PanelDebug(Notebook *board, PanelDebug *&self) : PageNotebook(board, L("Отладка"))
+PanelDebug::PanelDebug(Notebook *board) : PageNotebook(board, L("Отладка"))
 {
     self = this;
 

@@ -43,7 +43,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
 
     wxBoxSizer *sizer = new wxBoxSizer(wxHORIZONTAL);
     main_panel= new Notebook(this);
-    main_panel->AddPanel(new PanelDebug(main_panel, ThePanelDebug));
+    main_panel->AddPanel(new PanelDebug(main_panel));
     main_panel->AddPanel(new PageTests(main_panel, ThePageTests));
     main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
 
@@ -58,7 +58,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     main_panel->SetCurrentPanel(ThePanelMeasures);
     TheApp->ProcessPendingEvents();
     TheApp->Yield();
-    main_panel->SetCurrentPanel(ThePanelDebug);
+    main_panel->SetCurrentPanel(PanelDebug::self);
     TheApp->ProcessPendingEvents();
     TheApp->Yield();
 

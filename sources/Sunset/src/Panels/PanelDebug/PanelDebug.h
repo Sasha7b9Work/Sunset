@@ -7,7 +7,9 @@ class PanelDebug : public PageNotebook
 {
 public:
 
-    PanelDebug(Notebook *, PanelDebug *&);
+    static PanelDebug *self;
+
+    PanelDebug(Notebook *);
 
     virtual bool Show(bool) override;
 
