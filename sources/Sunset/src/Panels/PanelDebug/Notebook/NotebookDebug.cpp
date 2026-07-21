@@ -13,10 +13,10 @@
 #include "Settings/Configurator.h"
 
 
-NotebookDebug *TheNotebookDebug = nullptr;
+NotebookDebug *NotebookDebug::self = nullptr;
 
 
-NotebookDebug::NotebookDebug(wxWindow *parent, NotebookDebug *&self) :
+NotebookDebug::NotebookDebug(wxWindow *parent) :
     wxNotebook(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxBK_TOP)
 {
     self = this;

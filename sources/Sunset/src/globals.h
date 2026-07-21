@@ -6,13 +6,11 @@ class Application;
 class AutoCursors;
 class IGrid;
 class MainWindow;
-class NotebookDebug;
 
 extern Application   *TheApp;
 extern AutoCursors   *TheAutoCursors;
 extern IGrid         *TheGrid;
 extern MainWindow    *TheMainWindow;
-extern NotebookDebug *TheNotebookDebug;
 
 class PanelArchive;
 class PanelDebug;
