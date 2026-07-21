@@ -5,7 +5,7 @@
 #include "Utils/SystemDepend.h"
 #include "IPPP/IDevice.h"
 #include "Panels/PanelDebug/Notebook/PageFPGA.h"
-#include "Panels/PanelDebug/Notebook/PageChannelC.h"
+#include "Panels/PanelDebug/Notebook/PageChannelForm.h"
 #include "Controls/TextControl.h"
 #include "Utils/Math.h"
 #include "Utils/Timer.h"

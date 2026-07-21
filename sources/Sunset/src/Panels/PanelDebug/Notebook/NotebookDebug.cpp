@@ -4,7 +4,7 @@
 #include "Panels/PanelDebug/Notebook/PageFPGA.h"
 #include "Panels/PanelDebug/Notebook/PageSource3kV.h"
 #include "Panels/PanelDebug/Notebook/PageCommutator.h"
-#include "Panels/PanelDebug/Notebook/PageChannelC.h"
+#include "Panels/PanelDebug/Notebook/PageChannelForm.h"
 #include "Panels/PanelDebug/Notebook/PageChannelB.h"
 #include "Panels/PanelDebug/Notebook/PageChannelS.h"
 #include "Panels/PanelDebug/Notebook/PageMeasCurrent.h"
