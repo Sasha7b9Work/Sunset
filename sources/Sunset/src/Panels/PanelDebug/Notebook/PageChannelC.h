@@ -3,11 +3,17 @@
 #include "Panels/PanelDebug/Notebook/PageChip.h"
 
 
-class PageChannelC : public PageChip
+/*
+
+    Канал C - Формирователь
+
+*/
+
+class PageChannelForm : public PageChip
 {
 public:
 
-    PageChannelC(wxNotebook *);
+    PageChannelForm(wxNotebook *);
 
-    static PageChannelC *self;
+    static PageChannelForm *self;
 };

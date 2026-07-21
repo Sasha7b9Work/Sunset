@@ -11,10 +11,10 @@
 */
 
 
-PageChannelC *PageChannelC::self = nullptr;
+PageChannelForm *PageChannelForm::self = nullptr;
 
 
-PageChannelC::PageChannelC(wxNotebook *parent) :
+PageChannelForm::PageChannelForm(wxNotebook *parent) :
     PageChip(parent, L("Формирователь"))
 {
     self = this;

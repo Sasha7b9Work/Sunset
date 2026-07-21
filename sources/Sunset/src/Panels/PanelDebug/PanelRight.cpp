@@ -126,7 +126,7 @@ void PanelRight::OnEventButton(wxCommandEvent &event)
         str_value.ToInt(&int_value);
 
         PageFPGA::self->SendAllRegisters();
-        PageChannelC::self->SendAllRegisters();
+        PageChannelForm::self->SendAllRegisters();
 
         IDevice::impl->SendCommand(wxString::Format(":SCAN:START %d", int_value));
 
