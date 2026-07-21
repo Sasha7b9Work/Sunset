@@ -3,7 +3,7 @@
 #include "Controls/Panel.h"
 
 
-class ::Category;
+class LibraryCategory;
 class wxListView;
 class wxImageList;
 
@@ -15,7 +15,7 @@ public:
     PanelLibrary(wxWindow *, PanelLibrary *&);
     ~PanelLibrary();
 
-    void BuildListTests(std::vector<const ::Category *> &categories);
+    void BuildListTests(std::vector<const LibraryCategory *> &categories);
 
     void ClearList();                                   // Очистить весь список
     void AddItem(const wxString &);                     // Добавить элемент без иконки

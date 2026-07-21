@@ -90,7 +90,7 @@ void PanelLibrary::SetItemIcon(long itemIndex, int iconIndex)
 }
 
 
-void PanelLibrary::BuildListTests(std::vector<const ::Category *> &categories)
+void PanelLibrary::BuildListTests(std::vector<const LibraryCategory *> &categories)
 {
     ClearList();
 

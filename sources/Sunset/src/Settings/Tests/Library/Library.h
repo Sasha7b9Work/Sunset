@@ -19,7 +19,7 @@ public:
 };
 
 
-class Category
+class LibraryCategory
 {
 public:
 
@@ -34,15 +34,15 @@ public:
 
     bool Read(FileJSON *);
 
-    std::vector<Category> categories;
+    std::vector<LibraryCategory> categories;
 
 private:
 
     FileJSON *file;
 
-    bool ParseCategory(Category &, pchar name, const rapidjson::Value &);
+    bool ParseCategory(LibraryCategory &, pchar name, const rapidjson::Value &);
 
-    bool ParseNameCategory(Category &, pchar name_cat);
+    bool ParseNameCategory(LibraryCategory &, pchar name_cat);
 
-    bool ParseTest(Category &, const rapidjson::Value &);
+    bool ParseTest(LibraryCategory &, const rapidjson::Value &);
 };

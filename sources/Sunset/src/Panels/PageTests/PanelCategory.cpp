@@ -56,7 +56,7 @@ void PanelCategory::UpdateState(const Library &lib)
 
     for (size_t i = 0; i < lib.categories.size(); i++)
     {
-        const ::Category &cat = lib.categories[i];
+        const LibraryCategory &cat = lib.categories[i];
 
         CheckBox *checkbox = new CheckBox(this, cat.name);
         sizer->Add(checkbox);
@@ -81,7 +81,7 @@ void PanelCategory::OnEventCheckBox(wxCommandEvent &event)
 
 void PanelCategory::BuildListTests()
 {
-    std::vector<const ::Category *> cats;
+    std::vector<const LibraryCategory *> cats;
 
     for (const Category &cat : categories)
     {

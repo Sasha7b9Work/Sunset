@@ -15,7 +15,7 @@ bool Library::Read(FileJSON *_file)
     {
         if (it->value.IsObject())
         {
-            Category category;
+            LibraryCategory category;
 
             if (ParseCategory(category, it->name.GetString(), it->value))
             {
@@ -36,7 +36,7 @@ bool Library::Read(FileJSON *_file)
 }
 
 
-bool Library::ParseCategory(Category &category, pchar name, const rapidjson::Value &value)
+bool Library::ParseCategory(LibraryCategory &category, pchar name, const rapidjson::Value &value)
 {
     for (auto it_value = value.MemberBegin(); it_value != value.MemberEnd(); ++it_value)
     {
@@ -60,7 +60,7 @@ bool Library::ParseCategory(Category &category, pchar name, const rapidjson::Val
 }
 
 
-bool Library::ParseNameCategory(Category &category, pchar name_cat)
+bool Library::ParseNameCategory(LibraryCategory &category, pchar name_cat)
 {
     category.name = file->GetStringValue(name_cat, "name");
 
@@ -68,7 +68,7 @@ bool Library::ParseNameCategory(Category &category, pchar name_cat)
 }
 
 
-bool Library::ParseTest(Category &category, const rapidjson::Value &value)
+bool Library::ParseTest(LibraryCategory &category, const rapidjson::Value &value)
 {
     Test test;
 

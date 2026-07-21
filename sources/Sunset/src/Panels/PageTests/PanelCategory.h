@@ -5,7 +5,7 @@
 
 class CheckBox;
 class Library;
-class ::Category;
+class LibraryCategory;
 
 
 class PanelCategory : public ScrolledPanel
@@ -22,7 +22,7 @@ private:
     struct Category
     {
         CheckBox *checkbox;             // Чекбокс, которым выбирается данная категория
-        const ::Category &category;
+        const LibraryCategory &category;
     };
 
     std::vector<Category> categories;
