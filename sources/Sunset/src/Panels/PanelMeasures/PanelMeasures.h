@@ -27,6 +27,8 @@ class PanelMeasures : public PageNotebook
 
 public:
 
+    static PanelMeasures *self;
+
     ~PanelMeasures();
 
     void SetColorBrush(const wxColor &);
@@ -54,7 +56,7 @@ public:
 
 private:
 
-    PanelMeasures(Notebook *, PanelMeasures *&);
+    PanelMeasures(Notebook *);
 
     Button *btnHelp = nullptr,
         *btnLessX = nullptr,

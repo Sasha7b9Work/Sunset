@@ -28,7 +28,6 @@ class PanelViewTest;
 
 class PanelRight;
 
-extern PanelMeasures *ThePanelMeasures;
 extern PanelReports  *ThePanelReports;
 extern PanelSettings *ThePanelSettings;
 extern PanelTables   *ThePanelTables;

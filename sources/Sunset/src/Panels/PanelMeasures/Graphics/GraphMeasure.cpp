@@ -17,8 +17,8 @@ void GraphMeasure::AppendPoint(const wxPoint2DDouble &point)
 
 void GraphMeasure::Draw()
 {
-    ThePanelMeasures->gc->SetBrush(color);
-    ThePanelMeasures->gc->SetPen(color);
+    PanelMeasures::self->gc->SetBrush(color);
+    PanelMeasures::self->gc->SetPen(color);
 
     rel_points.clear();
 
@@ -45,7 +45,7 @@ void GraphMeasure::Draw()
 
     Spline().Draw(rel_points, very_big ? false : true, true);
 
-    ThePanelMeasures->LoadColors();
+    PanelMeasures::self->LoadColors();
 }
 
 

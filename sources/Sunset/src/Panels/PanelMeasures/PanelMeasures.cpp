@@ -17,10 +17,10 @@
 #pragma warning(pop)
 
 
-PanelMeasures *ThePanelMeasures = nullptr;
+PanelMeasures *PanelMeasures::self = nullptr;
 
 
-PanelMeasures::PanelMeasures(Notebook *board, PanelMeasures *&self) : PageNotebook(board, L("Измерения"))
+PanelMeasures::PanelMeasures(Notebook *board) : PageNotebook(board, L("Измерения"))
 {
     self = this;
 
@@ -281,33 +281,33 @@ void PanelMeasures::OnEventPaint(wxPaintEvent &)
 
 void Point::Draw(int x, int y) const
 {
-    ThePanelMeasures->gc->StrokeLine(x, y, x + 0.01, y);
+    PanelMeasures::self->gc->StrokeLine(x, y, x + 0.01, y);
 }
 
 
 void Line::Draw() const
 {
-    ThePanelMeasures->gc->StrokeLine(x1, y1, x2, y2);
+    PanelMeasures::self->gc->StrokeLine(x1, y1, x2, y2);
 }
 
 
 void Line::Draw(const wxColor &color) const
 {
-    ThePanelMeasures->SetColorPen(color);
-    ThePanelMeasures->gc->StrokeLine(x1, y1, x2, y2);
+    PanelMeasures::self->SetColorPen(color);
+    PanelMeasures::self->gc->StrokeLine(x1, y1, x2, y2);
 }
 
 
 void Rect::Fill(int x, int y, const wxColor &color) const
 {
-    ThePanelMeasures->SetColorBrush(color);
-    ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
+    PanelMeasures::self->SetColorBrush(color);
+    PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
 }
 
 
 void Rect::Draw(int x, int y, const wxColor &color) const
 {
-    ThePanelMeasures->SetColorPen(color);
+    PanelMeasures::self->SetColorPen(color);
     Line(x, y, x + width, y).Draw();
     Line(x + width, y, x + width, y + height).Draw();
     Line(x, y + height, x + width, y + height).Draw();
@@ -323,32 +323,32 @@ Text::Text(const wxString &_text) : text(_text)
 
 void Text::SetFont()
 {
-    ThePanelMeasures->gc->SetFont(wxFont(10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL), ThePanelMeasures->color_pen);
+    PanelMeasures::self->gc->SetFont(wxFont(10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL), PanelMeasures::self->color_pen);
 }
 
 
 void Text::Draw(int x, int y) const
 {
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
 void Text::DrawAboutCenterLeft(int x, int y, bool fillBackground) const
 {
     double width, height, descent, externalLeading;
-    ThePanelMeasures->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
+    PanelMeasures::self->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
 
     x -= (int)(width + 0.5);
     y -= (int)(height / 2.0 + 0.5);
 
     if (fillBackground)
     {
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_brush);
-        ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_pen);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_brush);
+        PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_pen);
     }
 
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
@@ -362,78 +362,78 @@ void PanelMeasures::FillRectangle(int x, int y, int width, int height, const wxC
 void Text::DrawAboutCenterDown(int x, int y, bool fillBackground) const
 {
     double width, height, descent, externalLeading;
-    ThePanelMeasures->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
+    PanelMeasures::self->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
 
     x -= (int)(width / 2.0 + 0.5);
 
     if (fillBackground)
     {
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_brush);
-        ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_pen);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_brush);
+        PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_pen);
     }
 
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
 void Text::DrawAboutCenterUp(int x, int y, bool fillBackground) const
 {
     double width, height, descent, externalLeading;
-    ThePanelMeasures->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
+    PanelMeasures::self->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
 
     y -= (int)(height);
     x -= (int)(width / 2);
 
     if (fillBackground)
     {
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_brush);
-        ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_pen);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_brush);
+        PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_pen);
     }
 
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
 void Text::DrawAboutRightUp(int x, int y, bool fillBackground, bool frame) const
 {
     double width, height, descent, externalLeading;
-    ThePanelMeasures->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
+    PanelMeasures::self->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
 
     y -= (int)(height);
 
     if (fillBackground)
     {
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_brush);
-        ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_pen);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_brush);
+        PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_pen);
 
         if (frame)
         {
-            Rect((int)width, (int)height).Draw(x, y, ThePanelMeasures->color_pen);
+            Rect((int)width, (int)height).Draw(x, y, PanelMeasures::self->color_pen);
         }
     }
 
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
 void Text::DrawAboutCenterRigth(int x, int y, bool fillBackground) const
 {
     double width, height, descent, externalLeading;
-    ThePanelMeasures->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
+    PanelMeasures::self->gc->GetTextExtent(text, &width, &height, &descent, &externalLeading);
 
     y -= (int)(height / 2.0 + 0.5);
 
     if (fillBackground)
     {
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_brush);
-        ThePanelMeasures->gc->DrawRectangle(x, y, width, height);
-        ThePanelMeasures->gc->SetPen(ThePanelMeasures->color_pen);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_brush);
+        PanelMeasures::self->gc->DrawRectangle(x, y, width, height);
+        PanelMeasures::self->gc->SetPen(PanelMeasures::self->color_pen);
     }
 
-    ThePanelMeasures->gc->DrawText(text, x, y);
+    PanelMeasures::self->gc->DrawText(text, x, y);
 }
 
 
@@ -441,11 +441,11 @@ void Spline::Draw(const std::vector<wxPoint> &points, bool smooth, bool draw_poi
 {
     if (smooth)
     {
-        GraphicsSplineRenderer::DrawSplinePath(ThePanelMeasures->gc, points, 1.0);
+        GraphicsSplineRenderer::DrawSplinePath(PanelMeasures::self->gc, points, 1.0);
     }
     else
     {
-        wxGraphicsPath path = ThePanelMeasures->gc->CreatePath();
+        wxGraphicsPath path = PanelMeasures::self->gc->CreatePath();
 
         path.MoveToPoint(points[0].x, points[0].y);
 
@@ -454,19 +454,19 @@ void Spline::Draw(const std::vector<wxPoint> &points, bool smooth, bool draw_poi
             path.AddLineToPoint(points[i].x, points[i].y);
         }
 
-        ThePanelMeasures->gc->StrokePath(path);
+        PanelMeasures::self->gc->StrokePath(path);
     }
 
     if (draw_points)
     {
-        wxGraphicsPath path_circle = ThePanelMeasures->gc->CreatePath();
+        wxGraphicsPath path_circle = PanelMeasures::self->gc->CreatePath();
 
         for (const auto &pt : points)
         {
             path_circle.AddCircle(pt.x, pt.y, SET::GUI::size_point->Get());
         }
 
-        ThePanelMeasures->gc->FillPath(path_circle);
+        PanelMeasures::self->gc->FillPath(path_circle);
     }
 }
 
@@ -497,8 +497,8 @@ void PanelMeasures::SetColorPen(const wxColor &_color)
 
 void PanelMeasures::LoadColors()
 {
-    ThePanelMeasures->gc->SetPen(color_pen);
-    ThePanelMeasures->gc->SetBrush(color_brush);
+    PanelMeasures::self->gc->SetPen(color_pen);
+    PanelMeasures::self->gc->SetBrush(color_brush);
 }
 
 

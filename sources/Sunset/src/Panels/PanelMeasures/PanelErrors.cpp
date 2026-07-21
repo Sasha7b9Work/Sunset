@@ -62,7 +62,7 @@ void PanelErrors::ReInit()
 {
     wxSize size = GetSize();
 
-    size.x = ThePanelMeasures->GetFullSize().x;
+    size.x = PanelMeasures::self->GetFullSize().x;
 
     SetSize(size);                                                  // Корректируем размер под размер дисплея
 }

@@ -45,7 +45,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     main_panel= new Notebook(this);
     main_panel->AddPanel(new PanelDebug(main_panel));
     main_panel->AddPanel(new PageTests(main_panel, ThePageTests));
-    main_panel->AddPanel(new PanelMeasures(main_panel, ThePanelMeasures));
+    main_panel->AddPanel(new PanelMeasures(main_panel));
 
 //    main_panel->AddPanel(new PanelTables(main_panel, ThePanelTables));
 //    main_panel->AddPanel(new PanelReports(main_panel, ThePanelReports));
@@ -55,7 +55,7 @@ MainWindow::MainWindow(MainWindow *&self, const wxString &title)
     sizer->Add(main_panel, 1, wxEXPAND | wxALL);
     SetSizer(sizer);
 
-    main_panel->SetCurrentPanel(ThePanelMeasures);
+    main_panel->SetCurrentPanel(PanelMeasures::self);
     TheApp->ProcessPendingEvents();
     TheApp->Yield();
     main_panel->SetCurrentPanel(PanelDebug::self);
@@ -249,11 +249,11 @@ void MainWindow::SetMode(ModeMainWindow::E mode)
 {
     ModeMainWindow::current = mode;
 
-    if (ThePanelMeasures)
+    if (PanelMeasures::self)
     {
-        ThePanelMeasures->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
+        PanelMeasures::self->Show(mode == ModeMainWindow::Standard || mode == ModeMainWindow::FullGraph);
 
-        ThePanelMeasures->FullScreen(mode == ModeMainWindow::FullGraph);
+        PanelMeasures::self->FullScreen(mode == ModeMainWindow::FullGraph);
     }
 
     wxFrame::Layout();
