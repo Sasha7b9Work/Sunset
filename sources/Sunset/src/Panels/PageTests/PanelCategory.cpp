@@ -61,7 +61,7 @@ void PanelCategory::UpdateState(const Library &lib)
 
         CheckBox *checkbox = new CheckBox(this, cat.name);
         sizer->Add(checkbox);
-        categories.push_back({ checkbox, cat });
+        categories.emplace_back(Category{ checkbox, cat });
     }
 
     sizer->AddStretchSpacer();
