@@ -16,7 +16,7 @@ PageCommutator::PageCommutator(wxNotebook *parent) :
 {
     self = this;
 
-    Register *reg1 = new RegFPGA(this, regs[1]);
+    Register *reg1 = new RegFPGA(this, regs[REG::_1_Commutator]);
 
     std::vector<StructDescription::CommandStruct> commandsBase; //-V827 //-V826
     commandsBase.emplace_back(StructDescription::CommandStruct{ 0b00000, "Обрыв" });

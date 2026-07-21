@@ -106,7 +106,7 @@ wxSize Register::GetMinSize() const
     static const int WIDTH = 800;
     static const int HEIGHT = 155;
 
-    return { WIDTH, (chip == regs[3]) ? (HEIGHT + 50) : HEIGHT };
+    return { WIDTH, (chip == regs[REG::_3_ChannelB]) ? (HEIGHT + 50) : HEIGHT };
 }
 
 

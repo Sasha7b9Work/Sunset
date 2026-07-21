@@ -21,7 +21,7 @@ PageChannelS::PageChannelS(wxNotebook *parent) :
     self = this;
 
     {
-        RegAD5531 *dac4 = new RegAD5531(this, dacs[4], "");
+        RegAD5531 *dac4 = new RegAD5531(this, dacs[DAC::_4_ChannelS_DAC1], "");
 
         std::vector<StructDescription> desc4;
         desc4.emplace_back(StructDescription{ 0, dac4->GetChip()->BitDepth(), "", "", { true } });
@@ -31,7 +31,7 @@ PageChannelS::PageChannelS(wxNotebook *parent) :
     }
 
     {
-        RegAD5531 *dac5 = new RegAD5531(this, dacs[5], "");
+        RegAD5531 *dac5 = new RegAD5531(this, dacs[DAC::_5_ChannelS_DAC2], "");
 
         std::vector<StructDescription> desc5;
         desc5.emplace_back(StructDescription{ 0, dac5->GetChip()->BitDepth(), "", "", { true } });
@@ -40,7 +40,7 @@ PageChannelS::PageChannelS(wxNotebook *parent) :
         AppendRegister(dac5);
     }
 
-    RegFPGA *reg4 = new RegFPGA(this, regs[4]);
+    RegFPGA *reg4 = new RegFPGA(this, regs[REG::_4_ChannelS]);
 
     AppendRegister(reg4);
 }

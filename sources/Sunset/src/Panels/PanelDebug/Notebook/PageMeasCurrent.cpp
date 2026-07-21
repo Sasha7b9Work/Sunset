@@ -16,7 +16,7 @@ PageMeasCurrent::PageMeasCurrent(wxNotebook *parent) :
 {
     self = this;
 
-    RegFPGA *reg5 = new RegFPGA(this, regs[5]);
+    RegFPGA *reg5 = new RegFPGA(this, regs[REG::_5_MeasCurrent]);
 
     std::vector<StructDescription> desc5;
 

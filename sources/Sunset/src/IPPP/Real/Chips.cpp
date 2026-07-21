@@ -74,7 +74,7 @@ int REG::BitDepth() const
 {
     static const int depth[Count] =
     {
-        24,
+         8,
         16,
          8,
         24,

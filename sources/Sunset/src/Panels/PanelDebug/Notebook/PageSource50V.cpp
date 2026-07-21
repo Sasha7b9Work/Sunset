@@ -17,7 +17,7 @@ PageSource50V::PageSource50V(wxNotebook *parent) :
 {
     self = this;
 
-    RegAD5443 *regDAC7 = new RegAD5443(this, dacs[6], L("Управление с Orange Pi"));
+    RegAD5443 *regDAC7 = new RegAD5443(this, dacs[DAC::_6_Source_50V], L("Управление с Orange Pi"));
 
     AppendRegister(regDAC7);
 }

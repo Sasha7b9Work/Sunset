@@ -20,13 +20,13 @@ PageChannelC::PageChannelC(wxNotebook *parent) :
     self = this;
 
     {
-        RegAD5443 *dac1 = new RegAD5443(this, dacs[1], L("Измеритель"));
+        RegAD5443 *dac1 = new RegAD5443(this, dacs[DAC::_1_ChannelC_Meas], L("Измеритель"));
 
         AppendRegister(dac1);
     }
 
     {
-        RegFPGA *fpga2 = new RegFPGA(this, regs[2]);
+        RegFPGA *fpga2 = new RegFPGA(this, regs[REG::_2_ChannelC]);
 
         std::vector<StructDescription> desc0;
         desc0.reserve(6);
@@ -73,7 +73,7 @@ PageChannelC::PageChannelC(wxNotebook *parent) :
     }
 
     {
-        RegAD5443 *dac0 = new RegAD5443(this, dacs[0], L("Формирователь. Управление с Orange Pi"));
+        RegAD5443 *dac0 = new RegAD5443(this, dacs[DAC::_0_ChannelC_Form], L("Формирователь. Управление с Orange Pi"));
 
         AppendRegister(dac0);
     }

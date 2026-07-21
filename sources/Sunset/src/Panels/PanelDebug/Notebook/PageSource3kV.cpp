@@ -3,10 +3,6 @@
 #include "Panels/PanelDebug/Notebook/PageSource3kV.h"
 #include "Panels/PanelDebug/Notebook/Register.h"
 
-/*
-    Регистр управления 24 разряда
-*/
-
 PageSource3kV *PageSource3kV::self = nullptr;
 
 
@@ -15,7 +11,7 @@ PageSource3kV::PageSource3kV(wxNotebook *parent) :
 {
     self = this;
 
-    Register *reg0 = new RegFPGA(this, regs[0]);
+    Register *reg0 = new RegFPGA(this, regs[REG::_0_Source3kV]);
 
     std::vector<StructDescription> desc0;
 
