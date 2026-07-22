@@ -32,19 +32,19 @@ struct OutputPinInfo
 
 /*
           Стало     Было          Стало    Было
-     1                       21 SPI_MISO
-     2                       22 F_CON2
-     3 T13                   23 SPI_CLK
-     4                       24 SPICS
-     5 T14                   25 GND
+                             21 SPI_MISO
+                             22 F_CON2
+                             23 SPI_CLK
+                             24 SPICS
+                             25 GND
      6 GND                   26 F_CON1
-     7 T15                   27 ENB_PC
+                             27 ENB_PC
      8 TX                    28 T18
      9 GND                   29 T16
     10 RX                    30 GND
-    11 KA                    31 EN_DDA1
+                             31 EN_DDA1
     12 T17                   32 ST_EXT
-    13 KB                    33 K_STOP
+                             33 K_STOP
     14 GND                   34 GND
     15 K_START               35 EN_DDA2
     16 DT_DDAC               36 FULL
