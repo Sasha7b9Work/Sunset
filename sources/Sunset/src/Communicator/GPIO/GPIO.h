@@ -30,17 +30,42 @@ struct OutputPinInfo
 };
 
 
+/*
+          Стало     Было          Стало    Было
+     1                       21 SPI_MISO
+     2                       22 F_CON2
+     3 T13                   23 SPI_CLK
+     4                       24 SPICS
+     5 T14                   25 GND
+     6 GND                   26 F_CON1
+     7 T15                   27 ENB_PC
+     8 TX                    28 T18
+     9 GND                   29 T16
+    10 RX                    30 GND
+    11 KA                    31 EN_DDA1
+    12 T17                   32 ST_EXT
+    13 KB                    33 K_STOP
+    14 GND                   34 GND
+    15 K_START               35 EN_DDA2
+    16 DT_DDAC               36 FULL
+    17                       37 FIT
+    18 CLK_DDAC              38
+    19                       39 GND
+    20 GND                   40
+*/
+
+
 class Pin
 {
 public:
     enum E
-    {
+    {                                  //   Tребуется изменение
         In_START,       // 15 Кнопка СТАРТ
-        In_STOP,        // 21 Кнопка СТОП
-        In_DAT_F0,      // 16
-        In_SPI_MOSI,    // 18
+        In_STOP,        // 21 Кнопка СТОП    +
+        In_DAT_F0,      // 16                +
+        In_SPI_MOSI,    // 18                +
         In_DAT_F2,      // 22
-        Out_SPI_CS,     // 24
+        Out_SPI_CS,     // 24                +
         In_FIFO_FULL,   // 36
         Out_REQ_RD,     // 32
         In_KA,          // 11 GPIO1_A4
