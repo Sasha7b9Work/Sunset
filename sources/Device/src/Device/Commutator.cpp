@@ -8,12 +8,12 @@ namespace Commutator
 {
     ChipREG &REG = ChipREG::Get(ChipREG::COMMUTATOR);
 
-    static PinIn pin3000VE(Port::_C, Pin::_4);     // 44
-    static PinIn pin200EN(Port::_C, Pin::_5);      // 45
-    static PinIn pin200EP(Port::_B, Pin::_0);      // 46
-    static PinIn pin20EN(Port::_B, Pin::_1);       // 47
-    static PinIn pin20EP(Port::_B, Pin::_2);       // 48
-                 PinOut pinENRGK(Port::_F, Pin::_7);      // 19
+    static PinIn pin3000VE(Port::_C, Pin::_4);      // pin44
+    static PinIn pin200EN(Port::_C, Pin::_5);       // pin45
+    static PinIn pin200EP(Port::_B, Pin::_0);       // pin46
+    static PinIn pin20EN(Port::_B, Pin::_1);        // pin47
+    static PinIn pin20EP(Port::_B, Pin::_2);        // pin48
+           PinOut pinENRGK(Port::_F, Pin::_7);      // pin19
 
     static StructPinIn pins[] =
     {

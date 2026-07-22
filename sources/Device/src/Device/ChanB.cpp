@@ -6,10 +6,10 @@
 
 namespace ChanB
 {
-    static PinOut pin3_50_V(Port::_G, Pin::_11);   // 57 Определяет режим высокого напряжения/режим большого тока
-    PinOut pinEND1B(Port::_C, Pin::_3);     // 29 Разрешение DAC
-    PinOut pinEND2B(Port::_C, Pin::_2);     // 28 Разрешение DAC
-    PinOut pinENRGB(Port::_C, Pin::_1);     // 27 Разрешение регистра
+    static PinOut pin3_50_V(Port::_G, Pin::_11);   // pin57 Определяет режим высокого напряжения/режим большого тока
+           PinOut pinEND1B(Port::_C, Pin::_3);     // pin29 Разрешение DAC
+           PinOut pinEND2B(Port::_C, Pin::_2);     // pin28 Разрешение DAC
+           PinOut pinENRGB(Port::_C, Pin::_1);     // pin27 Разрешение регистра
 }
 
 

@@ -6,14 +6,14 @@
 
 namespace Source50V
 {
-    static PinOut pin50EP(Port::_A, Pin::_6);      // 42
-    static PinOut pin50EN(Port::_F, Pin::_11);     // 49
+    static PinOut pin50EP(Port::_A, Pin::_6);   // pin42
+    static PinOut pin50EN(Port::_F, Pin::_11);  // pin49
 }
 
 
 namespace Source3kV
 {
-    PinOut pinENRGV(Port::_F, Pin::_8);      // 20 Разрешение регистра источника напряжения 3кВ
+    PinOut pinENRGV(Port::_F, Pin::_8);         // pin20 Разрешение регистра источника напряжения 3кВ
 
     PinOut *GetPinENRGV()
     {

@@ -7,14 +7,14 @@
 
 namespace FPGA
 {
-    static PinIn  pinLIMIT(Port::_E, Pin::_7);          // 58
-    static PinOut pinA0_RG(Port::_G, Pin::_5);          // 90
-    static PinOut pinA1_RG(Port::_G, Pin::_6);          // 91
-    static PinOut pinCLK_RG(Port::_G, Pin::_7);         // 92
-    static PinOut pinWR_RG(Port::_G, Pin::_8);          // 93
-    static PinOut pinDAT_RG(Port::_D, Pin::_13);        // 82
-    static PinOut pinSTART_TB(Port::_G, Pin::_4);       // 89
-    static PinOut pinSTOP_TB(Port::_E, Pin::_7);        // 58
+    static PinIn  pinLIMIT(Port::_E, Pin::_7);          // pin58
+    static PinOut pinA0_RG(Port::_G, Pin::_5);          // pin90
+    static PinOut pinA1_RG(Port::_G, Pin::_6);          // pin91
+    static PinOut pinCLK_RG(Port::_G, Pin::_7);         // pin92
+    static PinOut pinWR_RG(Port::_G, Pin::_8);          // pin93
+    static PinOut pinDAT_RG(Port::_D, Pin::_13);        // pin82
+    static PinOut pinSTART_TB(Port::_A, Pin::_2);       // pin36
+    static PinOut pinSTOP_TB(Port::_F, Pin::_5);        // pin15
 
     static uint lengths[10] = { 9, 8, 8, 0, 0, 0, 0, 0, 0, 0 };
 

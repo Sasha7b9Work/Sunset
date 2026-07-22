@@ -9,9 +9,9 @@
 
 namespace PCM
 {
-    static PinOut pPI_ENB_STM(Port::_D, Pin::_12);  // PD12 81
-    //Pin    pPI_TX;                                // PB6  136
-    //Pin    pPI_RX;                                // PA10 102
+    static PinOut pPI_ENB_STM(Port::_D, Pin::_12);  // PD12  pin81
+    //Pin    pPI_TX;                                // PB6  pin136
+    //Pin    pPI_RX;                                // PA10 pin102
 
     static BufferOSDP in_buffer(1024);
 

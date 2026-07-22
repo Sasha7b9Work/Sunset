@@ -44,8 +44,9 @@ XP13 Источник напряжения 3 кВ
 136 PB6     TX          GPIO1.2:10
 102 PA10    RX          GPIO1.2:8
 
-89  PG3     A2_RG       DD1.2:59
-15          ST_TB       DD1.2:53
+    FPGA
+15  PF5     STOP_TB     DD1.2:73
+36  PA2     START_TB    DD1.2:53
 90  PG5     A0_Rg       DD1.2:69
 91  PG6     A1_Rg       DD1.2:70
 92  PG7     CLK_Rg      DD1.2:71
