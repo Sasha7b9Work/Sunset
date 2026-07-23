@@ -52,10 +52,11 @@ void RealIPPP::PressButtonStop()
 }
 
 
-bool RealIPPP::ReadData(int data[5][MAX_NUMBER_POINTS])
+bool RealIPPP::ReadData(int /*data*/[5][MAX_NUMBER_POINTS])
 {
     bool result = false;
 
+    /*
     static bool prev = false;
 
     if (pinFIFO_FULL.Get() && prev == false)
@@ -110,6 +111,7 @@ bool RealIPPP::ReadData(int data[5][MAX_NUMBER_POINTS])
     }
 
     prev = pinFIFO_FULL.Get();
+    */
 
     return result;
 }
