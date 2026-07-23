@@ -96,28 +96,9 @@ void SPI::DeInit()
     LOG_WRITE("SPI deinitialized");
 }
 
-bool SPI::WriteDynamicDAC(int number_DAC, uint16 value)
+bool SPI::WriteDynamicDAC(int /*number_DAC*/, uint16 /*value*/)
 {
-    if (number_DAC < 1 || number_DAC > 2)
-    {
-        LOG_ERROR("Invalid DAC number: %d", number_DAC);
-        return false;
-    }
-
-    // Получаем правильный FD для DAC
-    int fd = (number_DAC == 1) ? fd_cs0 : fd_cs1;
-    if (fd < 0)
-    {
-        LOG_ERROR("SPI device for DAC%d not initialized", number_DAC);
-        return false;
-    }
-
-    uint8 data[2];
-    data[0] = static_cast<uint8>((value >> 8) & 0xFF);
-    data[1] = static_cast<uint8>(value & 0xFF);
-
-    // Отправка - CS управляется аппаратно
-    return Write(fd, data, 2);
+    return false;
 }
 
 bool SPI::Write(int fd, uint8 *data, size_t length)
@@ -151,6 +132,34 @@ bool SPI::Write(int fd, uint8 *data, size_t length)
     }
 
     return true;
+}
+
+
+bool SPI::WriteFPGA(int dac_number, uint8 *data, size_t length)
+{
+    // Проверка параметров
+    if (dac_number < 1 || dac_number > 2)
+    {
+        LOG_ERROR("Invalid DAC number: %d. Valid range: 1-2", dac_number);
+        return false;
+    }
+
+    if (data == nullptr || length == 0)
+    {
+        LOG_ERROR("Invalid data or length");
+        return false;
+    }
+
+    // Получаем правильный FD для DAC
+    int fd = (dac_number == 1) ? fd_cs0 : fd_cs1;
+    if (fd < 0)
+    {
+        LOG_ERROR("SPI device for DAC%d not initialized", dac_number);
+        return false;
+    }
+
+    // Используем существующую функцию Write с нужным fd
+    return Write(fd, data, length);
 }
 
 
