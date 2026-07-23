@@ -78,22 +78,16 @@ namespace GPIO
     */
     // Отдельные массивы для разных типов пинов
     static InputPinInfo g_input_pins[] = {
-        PinInfo::GetInputPinInfo(15),
-        PinInfo::GetInputPinInfo(21),
-        PinInfo::GetInputPinInfo(16),
-        PinInfo::GetInputPinInfo(18),
-        PinInfo::GetInputPinInfo(22),
-        PinInfo::GetInputPinInfo(36),
-//        { {  8, "gpiochip1", nullptr, nullptr, "15:GPIO1-B0" }, false, nullptr },  // START     0
-//        { {  9, "gpiochip1", nullptr, nullptr, "21:GPIO1-B1" }, false, nullptr },  // STOP      1
-//        { { 13, "gpiochip3", nullptr, nullptr, "16:GPIO3-B5" }, false, nullptr },  // DAT_F0    2
-//        { { 14, "gpiochip3", nullptr, nullptr, "18:GPIO3-B6" }, false, nullptr },  // SPI MOSI  3
-//        { {  2, "gpiochip1", nullptr, nullptr, "22:GPIO1-A2" }, false, nullptr },  // DAT_F2    4
-//        { {  5, "gpiochip3", nullptr, nullptr, "36:GPIO3-A5" }, false, nullptr },  // FIFO_FULL 5
+        PinInfo::GetInputPinInfo(Pin::In_START),
+        PinInfo::GetInputPinInfo(Pin::In_STOP),
+        PinInfo::GetInputPinInfo(Pin::In_DAT_F0),
+        PinInfo::GetInputPinInfo(Pin::In_SPI_MOSI),
+        PinInfo::GetInputPinInfo(Pin::In_DAT_F2),
+        PinInfo::GetInputPinInfo(Pin::In_FIFO_FULL),
 
         // \todo Проверить
-        { {  4, "gpiochip1", nullptr, nullptr }, false, nullptr},   // KA        6
-        { {  7, "gpiochip1", nullptr, nullptr }, false, nullptr}    // KB        7
+        PinInfo::GetInputPinInfo(Pin::In_KA),
+        PinInfo::GetInputPinInfo(Pin::In_KB)
     };
 
     static OutputPinInfo g_output_pins[] = {
@@ -483,6 +477,27 @@ bool Pin::Get() const
     }
 
     return false;
+}
+
+
+int Pin::GetNumberPin() const
+{
+    static const int numbers[Count] =
+    {
+        15,
+        21,
+        16,
+        18,
+        22,
+        24,
+        36,
+        32,
+        11,
+        13,
+        26
+    };
+
+    return numbers[type_];
 }
 
 
