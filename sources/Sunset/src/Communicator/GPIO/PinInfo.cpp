@@ -82,11 +82,6 @@ InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
     result.hw.chip_name = names_chips[pin.num_chip];
-    result.hw.chip = nullptr;
-    result.hw.line = nullptr;
-
-    result.last_state = false;
-    result.callback = nullptr;
 
     return result;
 }
@@ -108,8 +103,6 @@ OutputPinInfo PinInfo::GetOutputPinInfo(Pin::E pin_e)
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
     result.hw.chip_name = names_chips[pin.num_chip];
-    result.hw.chip = nullptr;
-    result.hw.line = nullptr;
 
     return result;
 }
