@@ -14,7 +14,6 @@
 
 
 PinIn pinDAT_F0(Pin::In_DAT_F0);
-PinIn pinSPI_MOSI(Pin::In_SPI_MOSI);
 PinIn pinDAT_F2(Pin::In_DAT_F2);
 PinIn pinFIFO_FULL(Pin::In_FIFO_FULL);
 
@@ -25,7 +24,6 @@ PinIn pinKB(Pin::In_KB);
 
 PinOut pinREQ_RD(Pin::Out_REQ_RD);
 PinOut pinOut(Pin::Out);
-PinOut pinSPI_CS(Pin::Out_SPI_CS);
 
 
 namespace GPIO

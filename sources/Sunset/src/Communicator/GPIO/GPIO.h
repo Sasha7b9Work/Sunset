@@ -54,23 +54,24 @@ struct OutputPinInfo
     20 GND      GNDK         40          RDY
 
 
-    Замены
+       Замены
 
        Было       Стало
-
     16 DAT_F0     DT_DDAC
     18 DAT_F1     CLK_DDAC
-    19 SPI1_MOSI  -
-    21 STOP       SPI_MISO
     22 DAT_F2     F_CON2
-    23 SPI1_CLK   SPI_CLK
-    24 DAT_F3     SPICS
     26 SCICS      F_CON1
     27 ENB_STM    ENB_PC
     32 REQ_RD     ST_EXT
     33 -          KN_STOP
     37 -          FIT
     40 RDY        -
+
+        Сделано
+    19 SPI1_MOSI  -
+    21 STOP       SPI_MISO
+    23 SPI1_CLK   SPI_CLK
+    24 DAT_F3     SPICS
 
     SPI0_M2:
     21 MISO
@@ -157,7 +158,6 @@ namespace GPIO
 
 
 extern PinIn pinDAT_F0;
-extern PinIn pinSPI_MOSI;
 extern PinIn pinDAT_F2;
 extern PinIn pinFIFO_FULL;
 
@@ -168,4 +168,3 @@ extern PinIn pinKB;
 
 extern PinOut pinREQ_RD;
 extern PinOut pinOut;
-extern PinOut pinSPI_CS;
