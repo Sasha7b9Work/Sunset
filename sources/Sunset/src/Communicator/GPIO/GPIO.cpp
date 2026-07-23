@@ -41,13 +41,13 @@ namespace GPIO
          4  5.0V
          5  GPIO0_B7
          6
-         7
+         7  GPIO1_D6
          8
-         9
+         9  GND
         10
-        11
+        11  GPIO1_A4
         12
-        13
+        13  GPIO1_A7
         14
         15  GPIO1_B0    gpiochip1   (1 * 8) + 0 = 8
         16
@@ -78,12 +78,18 @@ namespace GPIO
     */
     // Отдельные массивы для разных типов пинов
     static InputPinInfo g_input_pins[] = {
-        { {  8, "gpiochip1", nullptr, nullptr, "15:GPIO1-B0" }, false, nullptr },  // START     0
-        { {  9, "gpiochip1", nullptr, nullptr, "21:GPIO1-B1" }, false, nullptr },  // STOP      1
-        { { 13, "gpiochip3", nullptr, nullptr, "16:GPIO3-B5" }, false, nullptr },  // DAT_F0    2
-        { { 14, "gpiochip3", nullptr, nullptr, "18:GPIO3-B6" }, false, nullptr },  // SPI MOSI  3
-        { {  2, "gpiochip1", nullptr, nullptr, "22:GPIO1-A2" }, false, nullptr },  // DAT_F2    4
-        { {  5, "gpiochip3", nullptr, nullptr, "36:GPIO3-A5" }, false, nullptr },  // FIFO_FULL 5
+        PinInfo::GetInputPinInfo(15),
+        PinInfo::GetInputPinInfo(21),
+        PinInfo::GetInputPinInfo(16),
+        PinInfo::GetInputPinInfo(18),
+        PinInfo::GetInputPinInfo(22),
+        PinInfo::GetInputPinInfo(36),
+//        { {  8, "gpiochip1", nullptr, nullptr, "15:GPIO1-B0" }, false, nullptr },  // START     0
+//        { {  9, "gpiochip1", nullptr, nullptr, "21:GPIO1-B1" }, false, nullptr },  // STOP      1
+//        { { 13, "gpiochip3", nullptr, nullptr, "16:GPIO3-B5" }, false, nullptr },  // DAT_F0    2
+//        { { 14, "gpiochip3", nullptr, nullptr, "18:GPIO3-B6" }, false, nullptr },  // SPI MOSI  3
+//        { {  2, "gpiochip1", nullptr, nullptr, "22:GPIO1-A2" }, false, nullptr },  // DAT_F2    4
+//        { {  5, "gpiochip3", nullptr, nullptr, "36:GPIO3-A5" }, false, nullptr },  // FIFO_FULL 5
 
         // \todo Проверить
         { {  4, "gpiochip1", nullptr, nullptr, "11:GPIO1-A4" }, false, nullptr},   // KA        6
