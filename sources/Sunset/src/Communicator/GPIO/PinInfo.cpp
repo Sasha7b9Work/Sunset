@@ -12,7 +12,7 @@ namespace PinInfo
         pchar G;
     };
 
-    static Info pins[40] =
+    static const Info pins[40] =
     {
         {  1, 0, ""   },
         {  2, 0, ""   },
@@ -56,7 +56,7 @@ namespace PinInfo
         { 40, 3, "A3" }
     };
 
-    static pchar names_chips[4] =
+    static const pchar names_chips[4] =
     {
         "gpiochip0",
         "gpiochip1",
@@ -77,7 +77,7 @@ InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
         return result;
     }
 
-    Info &pin = pins[num_pin];
+    const Info &pin = pins[num_pin];
 
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
@@ -98,7 +98,7 @@ OutputPinInfo PinInfo::GetOutputPinInfo(Pin::E pin_e)
         return result;
     }
 
-    Info &pin = pins[num_pin];
+    const Info &pin = pins[num_pin];
 
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
