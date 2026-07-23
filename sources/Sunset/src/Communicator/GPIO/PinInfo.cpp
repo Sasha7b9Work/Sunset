@@ -54,7 +54,15 @@ namespace PinInfo
         { 38, 3, "A4" },
         { 39, 0, ""   },
         { 40, 3, "A3" }
-    }; 
+    };
+
+    static pchar names_chips[4] =
+    {
+        "gpiochip0",
+        "gpiochip1",
+        "gpiochip2",
+        "gpiochip3"
+    };
 }
 
 
@@ -73,20 +81,35 @@ InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
 
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
-    static pchar names[4] =
-    {
-        "gpiochip0",
-        "gpiochip1",
-        "gpiochip2",
-        "gpiochip3"
-    };
-
-    result.hw.chip_name = names[pin.num_chip];
+    result.hw.chip_name = names_chips[pin.num_chip];
     result.hw.chip = nullptr;
     result.hw.line = nullptr;
 
     result.last_state = false;
     result.callback = nullptr;
+
+    return result;
+}
+
+
+OutputPinInfo PinInfo::GetOutputPinInfo(Pin::E pin_e)
+{
+    OutputPinInfo result;
+
+    int num_pin = Pin(pin_e).GetNumberPin();
+
+    if (std::strlen(pins[num_pin].G) != 2)
+    {
+        return result;
+    }
+
+    Info &pin = pins[num_pin];
+
+    result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
+
+    result.hw.chip_name = names_chips[pin.num_chip];
+    result.hw.chip = nullptr;
+    result.hw.line = nullptr;
 
     return result;
 }

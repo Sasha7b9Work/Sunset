@@ -77,7 +77,8 @@ namespace GPIO
         40
     */
     // Отдельные массивы для разных типов пинов
-    static InputPinInfo g_input_pins[] = {
+    static InputPinInfo g_input_pins[] =
+    {
         PinInfo::GetInputPinInfo(Pin::In_START),
         PinInfo::GetInputPinInfo(Pin::In_STOP),
         PinInfo::GetInputPinInfo(Pin::In_DAT_F0),
@@ -90,12 +91,11 @@ namespace GPIO
         PinInfo::GetInputPinInfo(Pin::In_KB)
     };
 
-    static OutputPinInfo g_output_pins[] = {
-        { {  3, "gpiochip1", nullptr, nullptr }},    // REQ_RD   0
-        { { 12, "gpiochip1", nullptr, nullptr }},    // SPI CS   1
-
-        // \todo Проверить
-        { { 13, "gpiochip1", nullptr, nullptr }}     // Out      2
+    static OutputPinInfo g_output_pins[] =
+    {
+        PinInfo::GetOutputPinInfo(Pin::Out_REQ_RD),
+        PinInfo::GetOutputPinInfo(Pin::Out_SPI_CS),
+        PinInfo::GetOutputPinInfo(Pin::Out)
     };
 
     // Маппинг enum Pin::Type на индексы в массивах

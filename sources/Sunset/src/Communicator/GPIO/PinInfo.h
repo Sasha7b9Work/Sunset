@@ -119,4 +119,6 @@ struct InputPinInfo
 namespace PinInfo
 {
     InputPinInfo GetInputPinInfo(Pin::E);
+
+    OutputPinInfo GetOutputPinInfo(Pin::E);
 }
