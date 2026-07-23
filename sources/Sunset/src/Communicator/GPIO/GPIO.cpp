@@ -92,16 +92,16 @@ namespace GPIO
 //        { {  5, "gpiochip3", nullptr, nullptr, "36:GPIO3-A5" }, false, nullptr },  // FIFO_FULL 5
 
         // \todo Проверить
-        { {  4, "gpiochip1", nullptr, nullptr, "11:GPIO1-A4" }, false, nullptr},   // KA        6
-        { {  7, "gpiochip1", nullptr, nullptr, "13:GPIO1-A7" }, false, nullptr}    // KB        7
+        { {  4, "gpiochip1", nullptr, nullptr }, false, nullptr},   // KA        6
+        { {  7, "gpiochip1", nullptr, nullptr }, false, nullptr}    // KB        7
     };
 
     static OutputPinInfo g_output_pins[] = {
-        { {  3, "gpiochip1", nullptr, nullptr, "32:GPIO1-A3" }},    // REQ_RD   0
-        { { 12, "gpiochip1", nullptr, nullptr, "24:GPIO1-B4" }},    // SPI CS   1
+        { {  3, "gpiochip1", nullptr, nullptr }},    // REQ_RD   0
+        { { 12, "gpiochip1", nullptr, nullptr }},    // SPI CS   1
 
         // \todo Проверить
-        { { 13, "gpiochip1", nullptr, nullptr, "26:GPIO1-B5" }}     // Out      2
+        { { 13, "gpiochip1", nullptr, nullptr }}     // Out      2
     };
 
     // Маппинг enum Pin::Type на индексы в массивах
@@ -197,7 +197,7 @@ namespace GPIO
 
             info.last_state = (gpiod_line_get_value(info.hw.line) == 1);
 
-            LOG_WRITE("GPIO input pin %s:%s:%d initialized", info.hw.name_connector, info.hw.chip_name, info.hw.pin_number);
+            LOG_WRITE("GPIO input pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
         }
 
         for (int i = 0; i < OUTPUT_PINS_COUNT; i++) //-V1008
@@ -230,7 +230,7 @@ namespace GPIO
                 continue;
             }
 
-            LOG_WRITE("GPIO output pin %s:%s:%d initialized", info.hw.name_connector, info.hw.chip_name, info.hw.pin_number);
+            LOG_WRITE("GPIO output pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
         }
 
         g_stop_monitoring = false;

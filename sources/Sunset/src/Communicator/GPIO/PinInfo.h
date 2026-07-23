@@ -13,7 +13,6 @@ struct HardwarePinInfo
     const char *chip_name;   // Имя GPIO чипа
     gpiod_chip *chip;        // Дескриптор чипа
     gpiod_line *line;        // Дескриптор линии
-    pchar name_connector;    // Так он обозначен на разъёме
 };
 
 
