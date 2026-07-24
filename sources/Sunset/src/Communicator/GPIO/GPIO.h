@@ -1,5 +1,5 @@
 #pragma once
-#include "Communicator/GPIO/PinInfo.h"
+#include "Communicator/GPIO/PinStorage.h"
 
 
 class PinIn : public Pin

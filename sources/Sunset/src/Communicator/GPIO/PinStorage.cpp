@@ -1,6 +1,6 @@
 // 2026/07/23 16:23:32 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Communicator/GPIO/PinInfo.h"
+#include "Communicator/GPIO/PinStorage.h"
 
 
 namespace PinStorage
