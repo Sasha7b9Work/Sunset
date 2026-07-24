@@ -57,18 +57,51 @@ class Pin
 public:
     enum E
     {
-        In_START,       // 15 Кнопка СТАРТ
-        In_STOP,        // 21 Кнопка СТОП
-        In_FIFO_FULL,   // 36
-        In_KA,          // 11 GPIO1_A4
-        In_KB,          // 13 GPIO1_A7
+        _00,
+        _01,
+        _02,
+        T13_03,
+        _04,
+        T14_05,
+        _06,
+        T15_07,
+        _08,
+        _09,
+        _10,
+        KN_A_11,
+        T17_12,
+        KN_B_13,
+        _14,
+        KN_START_15,
+        DT_DDAC_16_out,
+        _17,
+        CLK_DDAC_18_out,
+        _19,
+        _20,
+        _21,
+        F_CON2_22,
+        _23,
+        _24,
+        _25,
+        F_CON1_26,
+        ENB_PC_27,
+        _28,
+        _29,
+        _30,
+        EN_DDA1_31_out,
+        ST_EXT_32,
+        KN_STOP_33,
+        _34,
+        EN_DDA2_35_out,
+        FULL_36,
+        FIT_37,
+        _38,
+        _39,
+        _40,
         Count
     };
 
     explicit Pin(E type) : type_(type) {}
-
-    // Номер на физическом разъёме
-    int GetNumberPin() const;
 
     E type() const
     {

@@ -13,27 +13,24 @@
 #include <sys/time.h>
 
 
-PinIn pinFIFO_FULL(Pin::In_FIFO_FULL);
-PinIn pinSTART(Pin::In_START);
-PinIn pinSTOP(Pin::In_STOP);
-PinIn pinKA(Pin::In_KA);
-PinIn pinKB(Pin::In_KB);
+PinIn pinFIFO_FULL(Pin::FULL_36);
+PinIn pinSTART(Pin::KN_START_15);
+PinIn pinSTOP(Pin::KN_STOP_33);
+PinIn pinKA(Pin::KN_A_11);
+PinIn pinKB(Pin::KN_B_13);
 
 
 namespace GPIO
 {
     static InputPinInfo g_input_pins[] =
     {
-        PinInfo::GetInputPinInfo(Pin::In_START),
-        PinInfo::GetInputPinInfo(Pin::In_STOP),
-        PinInfo::GetInputPinInfo(Pin::In_FIFO_FULL),
-        PinInfo::GetInputPinInfo(Pin::In_KA),
-        PinInfo::GetInputPinInfo(Pin::In_KB)
+        PinInfo::GetInputPinInfo(Pin::T13_03),
+        PinInfo::GetInputPinInfo(Pin::T14_05)
     };
 
     static OutputPinInfo g_output_pins[] =
     {
-        OutputPinInfo()
+        PinInfo::GetOutputPinInfo(Pin::EN_DDA1_31_out)
     };
 
     // Маппинг enum Pin::Type на индексы в массивах
@@ -410,21 +407,6 @@ bool Pin::Get() const
     }
 
     return false;
-}
-
-
-int Pin::GetNumberPin() const
-{
-    static const int numbers[Count] =
-    {
-        15,
-        21,
-        16,
-        18,
-        22
-    };
-
-    return numbers[type_];
 }
 
 

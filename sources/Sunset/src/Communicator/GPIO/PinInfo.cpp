@@ -70,14 +70,12 @@ InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
 {
     InputPinInfo result;
 
-    int num_pin = Pin(pin_e).GetNumberPin();
-
-    if (std::strlen(pins[num_pin].G) != 2)
+    if (std::strlen(pins[pin_e].G) != 2)
     {
         return result;
     }
 
-    const Info &pin = pins[num_pin];
+    const Info &pin = pins[pin_e];
 
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
@@ -91,14 +89,12 @@ OutputPinInfo PinInfo::GetOutputPinInfo(Pin::E pin_e)
 {
     OutputPinInfo result;
 
-    int num_pin = Pin(pin_e).GetNumberPin();
-
-    if (std::strlen(pins[num_pin].G) != 2)
+    if (std::strlen(pins[pin_e].G) != 2)
     {
         return result;
     }
 
-    const Info &pin = pins[num_pin];
+    const Info &pin = pins[pin_e];
 
     result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
 
