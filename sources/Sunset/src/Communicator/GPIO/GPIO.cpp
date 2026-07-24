@@ -13,17 +13,11 @@
 #include <sys/time.h>
 
 
-PinIn pinDAT_F0(Pin::In_DAT_F0);
-PinIn pinDAT_F2(Pin::In_DAT_F2);
 PinIn pinFIFO_FULL(Pin::In_FIFO_FULL);
-
 PinIn pinSTART(Pin::In_START);
 PinIn pinSTOP(Pin::In_STOP);
 PinIn pinKA(Pin::In_KA);
 PinIn pinKB(Pin::In_KB);
-
-PinOut pinREQ_RD(Pin::Out_REQ_RD);
-PinOut pinOut(Pin::Out);
 
 
 namespace GPIO
@@ -32,39 +26,27 @@ namespace GPIO
     {
         PinInfo::GetInputPinInfo(Pin::In_START),
         PinInfo::GetInputPinInfo(Pin::In_STOP),
-        PinInfo::GetInputPinInfo(Pin::In_DAT_F0),
-        PinInfo::GetInputPinInfo(Pin::In_SPI_MOSI),
-        PinInfo::GetInputPinInfo(Pin::In_DAT_F2),
         PinInfo::GetInputPinInfo(Pin::In_FIFO_FULL),
-
-        // \todo Проверить
         PinInfo::GetInputPinInfo(Pin::In_KA),
         PinInfo::GetInputPinInfo(Pin::In_KB)
     };
 
     static OutputPinInfo g_output_pins[] =
     {
-        PinInfo::GetOutputPinInfo(Pin::Out_REQ_RD),
-        PinInfo::GetOutputPinInfo(Pin::Out_SPI_CS),
-        PinInfo::GetOutputPinInfo(Pin::Out)
+        OutputPinInfo()
     };
 
     // Маппинг enum Pin::Type на индексы в массивах
     static const struct {
         bool is_input;
         int index;
-    } g_pin_mapping[] = {
+    } g_pin_mapping[Pin::Count] =
+    {
         { true,  0 },   // START
         { true,  1 },   // STOP
-        { true,  2 },   // DAT_F0
         { true,  3 },   // SPI MOSI
-        { true,  4 },   // DAT_F2
         { false, 1 },   // Out SPI CS
-        { true,  5 },   // FIFO_FULL
-        { false, 0 },   // REQ_RD
-        { true,  6 },   // KA
-        { true,  7 },   // KB
-        { false, 2 }    // Out
+        { true,  5 }    // FIFO_FULL
     };
 
     static pthread_t g_monitor_thread;
@@ -439,13 +421,7 @@ int Pin::GetNumberPin() const
         21,
         16,
         18,
-        22,
-        24,
-        36,
-        32,
-        11,
-        13,
-        26
+        22
     };
 
     return numbers[type_];

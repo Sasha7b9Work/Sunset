@@ -47,14 +47,10 @@ namespace GPIO
 }
 
 
-extern PinIn pinDAT_F0;
-extern PinIn pinDAT_F2;
 extern PinIn pinFIFO_FULL;
-
 extern PinIn pinSTART;
 extern PinIn pinSTOP;
 extern PinIn pinKA;
 extern PinIn pinKB;
 
-extern PinOut pinREQ_RD;
 extern PinOut pinOut;

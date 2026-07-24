@@ -26,8 +26,6 @@ void I_IPPP::SetInstance(std::unique_ptr<I_IPPP> device)
     {
         IDevice::impl = new RealDevice();
 
-        pinREQ_RD.Set(false);    // Это состояние означает, что чтение не нужно
-
         Keyboard::Init();
     }
 
