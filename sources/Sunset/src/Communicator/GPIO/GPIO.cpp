@@ -25,15 +25,31 @@ namespace GPIO
     static PinInfo pins[] =
     {
         PinStorage::GetInputPinInfo(Pin::T13_03),
-        PinStorage::GetInputPinInfo(Pin::T14_05)
+        PinStorage::GetInputPinInfo(Pin::T14_05),
+        PinStorage::GetInputPinInfo(Pin::T15_07),
+        PinStorage::GetInputPinInfo(Pin::KN_A_11),
+        PinStorage::GetInputPinInfo(Pin::T17_12),
+        PinStorage::GetInputPinInfo(Pin::KN_B_13),
+        PinStorage::GetInputPinInfo(Pin::KN_START_15),
+        PinStorage::GetInputPinInfo(Pin::DT_DDAC_16_out),
+        PinStorage::GetInputPinInfo(Pin::CLK_DDAC_18_out),
+        PinStorage::GetInputPinInfo(Pin::F_CON2_22),
+        PinStorage::GetInputPinInfo(Pin::F_CON1_26),
+        PinStorage::GetInputPinInfo(Pin::ENB_PC_27),
+        PinStorage::GetInputPinInfo(Pin::EN_DDA1_31_out),
+        PinStorage::GetInputPinInfo(Pin::ST_EXT_32),
+        PinStorage::GetInputPinInfo(Pin::KN_STOP_33),
+        PinStorage::GetInputPinInfo(Pin::EN_DDA2_35_out),
+        PinStorage::GetInputPinInfo(Pin::FULL_36),
+        PinStorage::GetInputPinInfo(Pin::FIT_37)
     };
 
-    static const int PINS_COUNT = sizeof(pins) / sizeof(pins[0]);
+    constexpr size_t PINS_COUNT = std::size(pins);
 
     // Вспомогательные функции для получения информации о пинах
     PinInfo *GetPinInfo(Pin::E type)
     {
-        for (int i = 0; i < PINS_COUNT; i++)
+        for (size_t i = 0; i < PINS_COUNT; i++)
         {
             if (pins[i].pin == type)
             {
@@ -52,7 +68,7 @@ namespace GPIO
     {
         LOG_WRITE("Initializing GPIO...");
 
-        for (int i = 0; i < PINS_COUNT; i++)
+        for (size_t i = 0; i < PINS_COUNT; i++)
         {
             PinInfo &info = pins[i];
 
@@ -127,7 +143,7 @@ namespace GPIO
     {
         LOG_WRITE("Deinitializing GPIO...");
 
-        for (int i = 0; i < PINS_COUNT; i++)
+        for (size_t i = 0; i < PINS_COUNT; i++)
         {
             PinInfo &info = pins[i];
 
