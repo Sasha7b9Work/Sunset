@@ -5,6 +5,31 @@
 
 namespace PinStorage
 {
+    static void FillPinInfo(PinInfo &);
+}
+
+
+PinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
+{
+    PinInfo info{ pin_e, true };
+
+    FillPinInfo(info);
+
+    return info;
+}
+
+
+PinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
+{
+    PinInfo info{ pin_e, false };
+
+    FillPinInfo(info);
+
+    return info;
+}
+
+void PinStorage::FillPinInfo(PinInfo &info)
+{
     struct Info
     {
         int num_pin;
@@ -63,42 +88,13 @@ namespace PinStorage
         "gpiochip2",
         "gpiochip3"
     };
-}
 
+    const Info &pin = pins[info.pin];
 
-PinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
-{
-    PinInfo result{ pin_e, true };
-
-    if (std::strlen(pins[pin_e].G) != 2)
+    if (std::strlen(pins[info.pin].G) == 2)
     {
-        return result;
+        info.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
+
+        info.hw.chip_name = names_chips[pin.num_chip];
     }
-
-    const Info &pin = pins[pin_e];
-
-    result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
-
-    result.hw.chip_name = names_chips[pin.num_chip];
-
-    return result;
-}
-
-
-PinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
-{
-    PinInfo result{ pin_e, false };
-
-    if (std::strlen(pins[pin_e].G) != 2)
-    {
-        return result;
-    }
-
-    const Info &pin = pins[pin_e];
-
-    result.hw.pin_number = (pin.G[0] - 'A') * 8 + pin.G[1] - '0';
-
-    result.hw.chip_name = names_chips[pin.num_chip];
-
-    return result;
 }
