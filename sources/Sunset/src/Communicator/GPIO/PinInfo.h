@@ -143,7 +143,7 @@ struct InputPinInfo
 };
 
 
-namespace PinInfo
+namespace PinStorage
 {
     InputPinInfo GetInputPinInfo(Pin::E);
 

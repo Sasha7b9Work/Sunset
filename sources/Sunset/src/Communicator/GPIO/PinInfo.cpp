@@ -3,7 +3,7 @@
 #include "Communicator/GPIO/PinInfo.h"
 
 
-namespace PinInfo
+namespace PinStorage
 {
     struct Info
     {
@@ -66,7 +66,7 @@ namespace PinInfo
 }
 
 
-InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
+InputPinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
 {
     InputPinInfo result;
 
@@ -85,7 +85,7 @@ InputPinInfo PinInfo::GetInputPinInfo(Pin::E pin_e)
 }
 
 
-OutputPinInfo PinInfo::GetOutputPinInfo(Pin::E pin_e)
+OutputPinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
 {
     OutputPinInfo result;
 

@@ -24,13 +24,13 @@ namespace GPIO
 {
     static InputPinInfo g_input_pins[] =
     {
-        PinInfo::GetInputPinInfo(Pin::T13_03),
-        PinInfo::GetInputPinInfo(Pin::T14_05)
+        PinStorage::GetInputPinInfo(Pin::T13_03),
+        PinStorage::GetInputPinInfo(Pin::T14_05)
     };
 
     static OutputPinInfo g_output_pins[] =
     {
-        PinInfo::GetOutputPinInfo(Pin::EN_DDA1_31_out)
+        PinStorage::GetOutputPinInfo(Pin::EN_DDA1_31_out)
     };
 
     // Маппинг enum Pin::Type на индексы в массивах
