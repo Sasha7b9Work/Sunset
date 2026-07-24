@@ -16,10 +16,10 @@ namespace Keyboard
     static const int64 TIME_EVENT_BTN = 100;    // Столько мс состояние кнопки не должно меняться, чтобы действие свершилось (пропустить дребезг контактов)
     static const int64 TIME_EVENT_GOV = 3;
 
-    static void CallbackOnSTART(bool);
-    static void CallbackOnSTOP(bool);
-    static void CallbackOnKA(bool);
-    static void CallbackOnKB(bool);
+//    static void CallbackOnSTART(bool);
+//    static void CallbackOnSTOP(bool);
+//    static void CallbackOnKA(bool);
+//    static void CallbackOnKB(bool);
 
     struct StructPin
     {
@@ -34,13 +34,13 @@ namespace Keyboard
 
 void Keyboard::Init()
 {
-    pinSTART.SetChangeCallback(CallbackOnSTART);
-
-    pinSTOP.SetChangeCallback(CallbackOnSTOP);
-
-    pinKA.SetChangeCallback(CallbackOnKA);
-
-    pinKB.SetChangeCallback(CallbackOnKB);
+//    pinSTART.SetChangeCallback(CallbackOnSTART);
+//
+//    pinSTOP.SetChangeCallback(CallbackOnSTOP);
+//
+//    pinKA.SetChangeCallback(CallbackOnKA);
+//
+//    pinKB.SetChangeCallback(CallbackOnKB);
 
     for (int i = 0; i < 4; ++i)
     {
@@ -97,29 +97,29 @@ void Keyboard::PeriodicTask()
 }
 
 
-void Keyboard::CallbackOnSTART(bool press)
-{
-    PIN_START.press = press;
-    PIN_START.event_time = Timer::CurrentTimeMS();
-}
+//void Keyboard::CallbackOnSTART(bool press)
+//{
+//    PIN_START.press = press;
+//    PIN_START.event_time = Timer::CurrentTimeMS();
+//}
 
 
-void Keyboard::CallbackOnSTOP(bool press)
-{
-    PIN_STOP.press = press;
-    PIN_STOP.event_time = Timer::CurrentTimeMS();
-}
+//void Keyboard::CallbackOnSTOP(bool press)
+//{
+//    PIN_STOP.press = press;
+//    PIN_STOP.event_time = Timer::CurrentTimeMS();
+//}
 
 
-void Keyboard::CallbackOnKA(bool press)
-{
-    PIN_KA.press = press;
-    PIN_KA.event_time = Timer::CurrentTimeMS();
-}
+//void Keyboard::CallbackOnKA(bool press)
+//{
+//    PIN_KA.press = press;
+//    PIN_KA.event_time = Timer::CurrentTimeMS();
+//}
 
 
-void Keyboard::CallbackOnKB(bool press)
-{
-    PIN_KB.press = press;
-    PIN_KB.event_time = Timer::CurrentTimeMS();
-}
+//void Keyboard::CallbackOnKB(bool press)
+//{
+//    PIN_KB.press = press;
+//    PIN_KB.event_time = Timer::CurrentTimeMS();
+//}

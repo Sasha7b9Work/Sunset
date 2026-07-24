@@ -66,9 +66,9 @@ namespace PinStorage
 }
 
 
-InputPinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
+PinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
 {
-    InputPinInfo result;
+    PinInfo result{ pin_e, true };
 
     if (std::strlen(pins[pin_e].G) != 2)
     {
@@ -85,9 +85,9 @@ InputPinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
 }
 
 
-OutputPinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
+PinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
 {
-    OutputPinInfo result;
+    PinInfo result{ pin_e, false };
 
     if (std::strlen(pins[pin_e].G) != 2)
     {

@@ -129,23 +129,18 @@ struct HardwarePinInfo
 };
 
 
-struct OutputPinInfo
+struct PinInfo
 {
+    PinInfo(Pin::E _pin, bool input) : pin(_pin), is_input(input) { }
     HardwarePinInfo hw;
-};
-
-
-struct InputPinInfo
-{
-    HardwarePinInfo hw;
+    Pin::E pin = Pin::Count;
+    bool is_input = false;
     bool last_state = false;                        // Последнее состояние
-    std::function<void(bool)> callback = nullptr;   // Callback функция
 };
 
 
 namespace PinStorage
 {
-    InputPinInfo GetInputPinInfo(Pin::E);
-
-    OutputPinInfo GetOutputPinInfo(Pin::E);
+    PinInfo GetInputPinInfo(Pin::E);
+    PinInfo GetOutputPinInfo(Pin::E);
 }

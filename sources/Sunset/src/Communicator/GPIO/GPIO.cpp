@@ -22,63 +22,27 @@ PinIn pinKB(Pin::KN_B_13);
 
 namespace GPIO
 {
-    static InputPinInfo g_input_pins[] =
+    static PinInfo pins[] =
     {
         PinStorage::GetInputPinInfo(Pin::T13_03),
         PinStorage::GetInputPinInfo(Pin::T14_05)
     };
 
-    static OutputPinInfo g_output_pins[] =
-    {
-        PinStorage::GetOutputPinInfo(Pin::EN_DDA1_31_out)
-    };
-
-    // Маппинг enum Pin::Type на индексы в массивах
-    static const struct {
-        bool is_input;
-        int index;
-    } g_pin_mapping[Pin::Count] =
-    {
-        { true,  0 },   // START
-        { true,  1 },   // STOP
-        { true,  3 },   // SPI MOSI
-        { false, 1 },   // Out SPI CS
-        { true,  5 }    // FIFO_FULL
-    };
-
-    static pthread_t g_monitor_thread;
-    static bool g_thread_running = false;
-    static bool g_stop_monitoring = false;
-
-    static const int INPUT_PINS_COUNT = sizeof(g_input_pins) / sizeof(g_input_pins[0]);
-    static const int OUTPUT_PINS_COUNT = sizeof(g_output_pins) / sizeof(g_output_pins[0]);
+    static const int PINS_COUNT = sizeof(pins) / sizeof(pins[0]);
 
     // Вспомогательные функции для получения информации о пинах
-    InputPinInfo *GetInputPinInfo(Pin::E type)
+    PinInfo *GetPinInfo(Pin::E type)
     {
-        if (type >= Pin::Count) return nullptr;
-
-        auto &mapping = g_pin_mapping[type];
-        if (mapping.is_input)
+        for (int i = 0; i < PINS_COUNT; i++)
         {
-            return &g_input_pins[mapping.index];
+            if (pins[i].pin == type)
+            {
+                return &pins[i];
+            }
         }
+
         return nullptr;
     }
-
-    OutputPinInfo *GetOutputPinInfo(Pin::E type)
-    {
-        if (type >= Pin::Count) return nullptr;
-
-        auto &mapping = g_pin_mapping[type];
-        if (!mapping.is_input)
-        {
-            return &g_output_pins[mapping.index];
-        }
-        return nullptr;
-    }
-
-    static void *MonitorThreadFunc(void *arg);
 }
 
 
@@ -88,84 +52,74 @@ namespace GPIO
     {
         LOG_WRITE("Initializing GPIO...");
 
-        for (int i = 0; i < INPUT_PINS_COUNT; i++)
+        for (int i = 0; i < PINS_COUNT; i++)
         {
-            InputPinInfo &info = g_input_pins[i];
+            PinInfo &info = pins[i];
 
-            info.hw.chip = gpiod_chip_open_by_name(info.hw.chip_name);
-            if (!info.hw.chip)
+            if (info.is_input)
             {
-                LOG_ERROR("Cannot open GPIO chip %s", info.hw.chip_name);
-                continue;
-            }
+                info.hw.chip = gpiod_chip_open_by_name(info.hw.chip_name);
+                if (!info.hw.chip)
+                {
+                    LOG_ERROR("Cannot open GPIO chip %s", info.hw.chip_name);
+                    continue;
+                }
 
-            info.hw.line = gpiod_chip_get_line(info.hw.chip, (uint)info.hw.pin_number);
-            if (!info.hw.line)
+                info.hw.line = gpiod_chip_get_line(info.hw.chip, (uint)info.hw.pin_number);
+                if (!info.hw.line)
+                {
+                    LOG_ERROR("Cannot get GPIO line %d", info.hw.pin_number);
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                    continue;
+                }
+
+                int ret = gpiod_line_request_input_flags(info.hw.line, nullptr,
+                    GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_DOWN);
+                if (ret < 0)
+                {
+                    LOG_ERROR("Cannot request GPIO line %d as input", info.hw.pin_number);
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                    info.hw.line = nullptr;
+                    continue;
+                }
+
+                info.last_state = (gpiod_line_get_value(info.hw.line) == 1);
+
+                LOG_WRITE("GPIO input pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
+            }
+            else
             {
-                LOG_ERROR("Cannot get GPIO line %d", info.hw.pin_number);
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
-                continue;
+                info.hw.chip = gpiod_chip_open_by_name(info.hw.chip_name);
+                if (!info.hw.chip)
+                {
+                    LOG_ERROR("Cannot open GPIO chip %s", info.hw.chip_name);
+                    continue;
+                }
+
+                info.hw.line = gpiod_chip_get_line(info.hw.chip, (uint)info.hw.pin_number);
+                if (!info.hw.line)
+                {
+                    LOG_ERROR("Cannot get GPIO line for pin %d", info.hw.pin_number);
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                    continue;
+                }
+
+                int ret = gpiod_line_request_output(info.hw.line, nullptr, 0);
+                if (ret < 0)
+                {
+                    LOG_ERROR("Cannot request GPIO line for pin %d as output", info.hw.pin_number);
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                    info.hw.line = nullptr;
+                    continue;
+                }
+
+                LOG_WRITE("GPIO output pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
+
             }
-
-            int ret = gpiod_line_request_input_flags(info.hw.line, nullptr,
-                GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_DOWN);
-            if (ret < 0)
-            {
-                LOG_ERROR("Cannot request GPIO line %d as input", info.hw.pin_number);
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
-                info.hw.line = nullptr;
-                continue;
-            }
-
-            info.last_state = (gpiod_line_get_value(info.hw.line) == 1);
-
-            LOG_WRITE("GPIO input pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
-        }
-
-        for (int i = 0; i < OUTPUT_PINS_COUNT; i++) //-V1008
-        {
-            OutputPinInfo &info = g_output_pins[i];
-
-            info.hw.chip = gpiod_chip_open_by_name(info.hw.chip_name);
-            if (!info.hw.chip)
-            {
-                LOG_ERROR("Cannot open GPIO chip %s", info.hw.chip_name);
-                continue;
-            }
-
-            info.hw.line = gpiod_chip_get_line(info.hw.chip, (uint)info.hw.pin_number);
-            if (!info.hw.line)
-            {
-                LOG_ERROR("Cannot get GPIO line for pin %d", info.hw.pin_number);
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
-                continue;
-            }
-
-            int ret = gpiod_line_request_output(info.hw.line, nullptr, 0);
-            if (ret < 0)
-            {
-                LOG_ERROR("Cannot request GPIO line for pin %d as output", info.hw.pin_number);
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
-                info.hw.line = nullptr;
-                continue;
-            }
-
-            LOG_WRITE("GPIO output pin %s:%d initialized", info.hw.chip_name, info.hw.pin_number);
-        }
-
-        g_stop_monitoring = false;
-        if (pthread_create(&g_monitor_thread, nullptr, MonitorThreadFunc, nullptr) == 0)
-        {
-            g_thread_running = true;
-            LOG_WRITE("GPIO monitor thread started");
-        }
-        else
-        {
-            LOG_ERROR("Cannot create GPIO monitor thread");
         }
     }
 
@@ -173,199 +127,41 @@ namespace GPIO
     {
         LOG_WRITE("Deinitializing GPIO...");
 
-        if (g_thread_running)
+        for (int i = 0; i < PINS_COUNT; i++)
         {
-            g_stop_monitoring = true;
-            pthread_join(g_monitor_thread, nullptr);
-            g_thread_running = false;
-        }
+            PinInfo &info = pins[i];
 
-        for (int i = 0; i < INPUT_PINS_COUNT; i++)
-        {
-            InputPinInfo &info = g_input_pins[i];
-
-            if (info.hw.line)
+            if (info.is_input)
             {
-                gpiod_line_release(info.hw.line);
-                info.hw.line = nullptr;
+                if (info.hw.line)
+                {
+                    gpiod_line_release(info.hw.line);
+                    info.hw.line = nullptr;
+                }
+
+                if (info.hw.chip)
+                {
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                }
             }
-
-            if (info.hw.chip)
+            else
             {
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
-            }
-        }
+                if (info.hw.line)
+                {
+                    gpiod_line_release(info.hw.line);
+                    info.hw.line = nullptr;
+                }
 
-        for (int i = 0; i < OUTPUT_PINS_COUNT; i++) //-V1008
-        {
-            OutputPinInfo &info = g_output_pins[i];
-
-            if (info.hw.line)
-            {
-                gpiod_line_release(info.hw.line);
-                info.hw.line = nullptr;
-            }
-
-            if (info.hw.chip)
-            {
-                gpiod_chip_close(info.hw.chip);
-                info.hw.chip = nullptr;
+                if (info.hw.chip)
+                {
+                    gpiod_chip_close(info.hw.chip);
+                    info.hw.chip = nullptr;
+                }
             }
         }
 
         LOG_WRITE("GPIO deinitialized");
-    }
-
-    static void *MonitorThreadFunc(void *arg)
-    {
-        (void)arg;
-
-        LOG_WRITE("GPIO event-driven monitor thread started");
-
-        fd_set read_fds;
-        int max_fd = 0;
-        int input_pins[INPUT_PINS_COUNT];
-        int input_count = 0;
-
-        for (int i = 0; i < INPUT_PINS_COUNT; i++)
-        {
-            InputPinInfo &info = g_input_pins[i];
-
-            if (!info.hw.line)
-                continue;
-
-            gpiod_line_release(info.hw.line);
-
-            int ret = gpiod_line_request_both_edges_events_flags(
-                info.hw.line,
-                nullptr,
-                GPIOD_LINE_REQUEST_FLAG_BIAS_PULL_UP
-            );
-
-            if (ret < 0)
-            {
-                LOG_ERROR("Cannot request events for GPIO pin %d", info.hw.pin_number);
-                continue;
-            }
-
-            int fd = gpiod_line_event_get_fd(info.hw.line);
-            if (fd < 0)
-            {
-                LOG_ERROR("Cannot get event fd for GPIO pin %d", info.hw.pin_number);
-                continue;
-            }
-
-            input_pins[input_count] = i;
-            input_count++;
-
-            if (fd > max_fd)
-                max_fd = fd;
-
-            info.last_state = (gpiod_line_get_value(info.hw.line) == 1);
-        }
-
-        if (input_count == 0)
-        {
-            LOG_ERROR("No input pins configured for event monitoring");
-            return nullptr;
-        }
-
-        while (!g_stop_monitoring)
-        {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
-
-            FD_ZERO(&read_fds);
-
-            for (int i = 0; i < input_count; i++)
-            {
-                int pin_idx = input_pins[i];
-                InputPinInfo &info = g_input_pins[pin_idx];
-
-                if (info.hw.line)
-                {
-                    int fd = gpiod_line_event_get_fd(info.hw.line);
-                    if (fd >= 0)
-                    {
-#ifdef WIN32
-    #pragma warning(push, 0)
-#endif
-                        FD_SET(fd, &read_fds);
-#ifdef WIN32
-    #pragma warning(pop)
-#endif
-                    }
-                }
-            }
-
-            struct timeval timeout;
-            timeout.tv_sec = 1;
-            timeout.tv_usec = 0;
-
-            int result = select(max_fd + 1, &read_fds, nullptr, nullptr, &timeout);
-
-            if (result < 0)
-            {
-                if (errno == EINTR)
-                    continue;
-
-                LOG_ERROR("select() failed in GPIO monitor: %s", strerror(errno));
-                break;
-            }
-            else if (result == 0)
-            {
-                continue;
-            }
-
-            for (int i = 0; i < input_count; i++)
-            {
-                int pin_idx = input_pins[i];
-                InputPinInfo &info = g_input_pins[pin_idx];
-
-                if (!info.hw.line || !info.callback)
-                    continue;
-
-                int fd = gpiod_line_event_get_fd(info.hw.line);
-                if (fd < 0 || !FD_ISSET(fd, &read_fds))
-                    continue;
-
-                struct gpiod_line_event event;
-                int ret = gpiod_line_event_read(info.hw.line, &event);
-
-                if (ret < 0)
-                {
-                    LOG_ERROR("Cannot read GPIO event for pin %d", info.hw.pin_number);
-                    continue;
-                }
-
-                bool new_state;
-                if (event.event_type == GPIOD_LINE_EVENT_RISING_EDGE)
-                {
-                    new_state = true;
-                }
-                else if (event.event_type == GPIOD_LINE_EVENT_FALLING_EDGE)
-                {
-                    new_state = false;
-                }
-                else
-                {
-                    continue;
-                }
-
-                if (new_state != info.last_state)
-                {
-                    info.last_state = new_state;
-
-                    info.callback(new_state);
-
-                    LOG_WRITE("GPIO pin %d event: %s -> %s", info.hw.pin_number, new_state ? "RISING" : "FALLING", new_state ? "HIGH" : "LOW");
-                }
-            }
-        }
-
-        LOG_WRITE("GPIO event-driven monitor thread stopped");
-
-        return nullptr;
     }
 }
 
@@ -378,31 +174,19 @@ bool PinIn::GetHardware(gpiod_line *line)
 
 bool Pin::Get() const
 {
-    if (type_ >= Pin::Count) return false;
 
-    // Сначала пробуем как input pin
-    InputPinInfo *input_info = GPIO::GetInputPinInfo(type_);
-    if (input_info && input_info->hw.line)
+    PinInfo *info = GPIO::GetPinInfo(type_);
+
+    if (info && info->hw.line)
     {
-        int val = gpiod_line_get_value(input_info->hw.line);
+        int val = gpiod_line_get_value(info->hw.line);
+
         if (val < 0)
         {
-            LOG_ERROR("Error: Cannot read GPIO pin number %d", input_info->hw.pin_number);
+            LOG_ERROR("Error: Cannot read GPIO pin number %d", info->hw.pin_number);
             return false;
         }
-        return (val == 1);
-    }
 
-    // Если не input, то пробуем как output pin
-    OutputPinInfo *output_info = GPIO::GetOutputPinInfo(type_);
-    if (output_info && output_info->hw.line)
-    {
-        int val = gpiod_line_get_value(output_info->hw.line);
-        if (val < 0)
-        {
-            LOG_ERROR("Cannot read GPIO pin %d", output_info->hw.pin_number);
-            return false;
-        }
         return (val == 1);
     }
 
@@ -412,15 +196,23 @@ bool Pin::Get() const
 
 void PinOut::Set(bool state)
 {
-    if (type_ >= Pin::Count) return;
+    PinInfo *info = GPIO::GetPinInfo(type_);
 
-    OutputPinInfo *info = GPIO::GetOutputPinInfo(type_);
-    if (!info || !info->hw.line) return;
-
-    int ret = gpiod_line_set_value(info->hw.line, state ? 1 : 0);
-    if (ret < 0)
+    if (info && info->hw.line)
     {
-        LOG_ERROR("Error: Cannot set GPIO pin %d to %s", info->hw.pin_number, state ? "HIGH" : "LOW");
+        if (info->is_input)
+        {
+            LOG_ERROR("Pin is input");
+        }
+        else
+        {
+            int ret = gpiod_line_set_value(info->hw.line, state ? 1 : 0);
+
+            if (ret < 0)
+            {
+                LOG_ERROR("Error: Cannot set GPIO pin %d to %s", info->hw.pin_number, state ? "HIGH" : "LOW");
+            }
+        }
     }
 }
 
@@ -440,19 +232,4 @@ void PinOut::ToHi()
 void PinOut::ToLow()
 {
     Set(false);
-}
-
-
-void PinIn::SetChangeCallback(ChangeCallback callback)
-{
-    callback_ = callback;
-
-    if (type_ < Pin::Count)
-    {
-        InputPinInfo *info = GPIO::GetInputPinInfo(type_);
-        if (info)
-        {
-            info->callback = callback;
-        }
-    }
 }

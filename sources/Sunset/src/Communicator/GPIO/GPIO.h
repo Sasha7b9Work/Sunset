@@ -10,8 +10,6 @@ public:
 
     using ChangeCallback = std::function<void(bool)>;
 
-    void SetChangeCallback(ChangeCallback);
-
     // Время чтения пина - 0.5 мкс
     static bool GetHardware(gpiod_line *);
 
@@ -42,15 +40,11 @@ namespace GPIO
     void Init();
     void DeInit();
 
-    InputPinInfo *GetInputPinInfo(Pin::E);
-    OutputPinInfo *GetOutputPinInfo(Pin::E);
+    PinInfo *GetPinInfo(Pin::E);
 }
-
 
 extern PinIn pinFIFO_FULL;
 extern PinIn pinSTART;
 extern PinIn pinSTOP;
 extern PinIn pinKA;
 extern PinIn pinKB;
-
-extern PinOut pinOut;
