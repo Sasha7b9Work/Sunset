@@ -108,7 +108,7 @@ public:
         return type_;
     }
 
-    bool Get() const;
+    bool GetState() const;
 
 protected:
     E type_;
@@ -131,16 +131,15 @@ struct HardwarePinInfo
 
 struct PinInfo
 {
-    PinInfo(Pin::E _pin, bool input) : pin(_pin), is_input(input) { }
+    PinInfo(Pin::E _pin, bool _is_input) : pin(_pin), is_input(_is_input) { }
     HardwarePinInfo hw;
     Pin::E pin = Pin::Count;
-    bool is_input = false;
-    bool last_state = false;                        // Последнее состояние
+    bool is_input = true;               // true, если это входной пин
+    bool last_state = false;            // Последнее состояние
 };
 
 
 namespace PinStorage
 {
-    PinInfo GetInputPinInfo(Pin::E);
-    PinInfo GetOutputPinInfo(Pin::E);
+    PinInfo GetPinInfo(Pin::E, bool is_input);
 }

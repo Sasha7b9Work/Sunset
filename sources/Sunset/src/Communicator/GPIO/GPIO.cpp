@@ -24,24 +24,24 @@ namespace GPIO
 {
     static PinInfo pins[] =
     {
-        PinStorage::GetInputPinInfo(Pin::T13_03),
-        PinStorage::GetInputPinInfo(Pin::T14_05),
-        PinStorage::GetInputPinInfo(Pin::T15_07),
-        PinStorage::GetInputPinInfo(Pin::KN_A_11),
-        PinStorage::GetInputPinInfo(Pin::T17_12),
-        PinStorage::GetInputPinInfo(Pin::KN_B_13),
-        PinStorage::GetInputPinInfo(Pin::KN_START_15),
-        PinStorage::GetOutputPinInfo(Pin::DT_DDAC_16_out),
-        PinStorage::GetOutputPinInfo(Pin::CLK_DDAC_18_out),
-        PinStorage::GetInputPinInfo(Pin::F_CON2_22),
-        PinStorage::GetInputPinInfo(Pin::F_CON1_26),
-        PinStorage::GetInputPinInfo(Pin::ENB_PC_27),
-        PinStorage::GetOutputPinInfo(Pin::EN_DDA1_31_out),
-        PinStorage::GetInputPinInfo(Pin::ST_EXT_32),
-        PinStorage::GetInputPinInfo(Pin::KN_STOP_33),
-        PinStorage::GetOutputPinInfo(Pin::EN_DDA2_35_out),
-        PinStorage::GetInputPinInfo(Pin::FULL_36),
-        PinStorage::GetInputPinInfo(Pin::FIT_37)
+        PinStorage::GetPinInfo(Pin::T13_03, true),
+        PinStorage::GetPinInfo(Pin::T14_05, true),
+        PinStorage::GetPinInfo(Pin::T15_07, true),
+        PinStorage::GetPinInfo(Pin::KN_A_11, true),
+        PinStorage::GetPinInfo(Pin::T17_12, true),
+        PinStorage::GetPinInfo(Pin::KN_B_13, true),
+        PinStorage::GetPinInfo(Pin::KN_START_15, true),
+        PinStorage::GetPinInfo(Pin::DT_DDAC_16_out, false),
+        PinStorage::GetPinInfo(Pin::CLK_DDAC_18_out, false),
+        PinStorage::GetPinInfo(Pin::F_CON2_22, true),
+        PinStorage::GetPinInfo(Pin::F_CON1_26, true),
+        PinStorage::GetPinInfo(Pin::ENB_PC_27, true),
+        PinStorage::GetPinInfo(Pin::EN_DDA1_31_out, false),
+        PinStorage::GetPinInfo(Pin::ST_EXT_32, true),
+        PinStorage::GetPinInfo(Pin::KN_STOP_33, true),
+        PinStorage::GetPinInfo(Pin::EN_DDA2_35_out, false),
+        PinStorage::GetPinInfo(Pin::FULL_36, true),
+        PinStorage::GetPinInfo(Pin::FIT_37, true)
     };
 
     constexpr size_t PINS_COUNT = std::size(pins);
@@ -188,9 +188,8 @@ bool PinIn::GetHardware(gpiod_line *line)
 }
 
 
-bool Pin::Get() const
+bool Pin::GetState() const
 {
-
     PinInfo *info = GPIO::GetPinInfo(type_);
 
     if (info && info->hw.line)

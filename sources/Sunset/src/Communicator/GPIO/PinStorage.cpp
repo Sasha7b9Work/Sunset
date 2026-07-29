@@ -3,33 +3,10 @@
 #include "Communicator/GPIO/PinStorage.h"
 
 
-namespace PinStorage
+PinInfo PinStorage::GetPinInfo(Pin::E pin_e, bool is_input)
 {
-    static void FillPinInfo(PinInfo &);
-}
+    PinInfo info{ pin_e, is_input };
 
-
-PinInfo PinStorage::GetInputPinInfo(Pin::E pin_e)
-{
-    PinInfo info{ pin_e, true };
-
-    FillPinInfo(info);
-
-    return info;
-}
-
-
-PinInfo PinStorage::GetOutputPinInfo(Pin::E pin_e)
-{
-    PinInfo info{ pin_e, false };
-
-    FillPinInfo(info);
-
-    return info;
-}
-
-void PinStorage::FillPinInfo(PinInfo &info)
-{
     struct Info
     {
         int num_pin;
@@ -97,4 +74,6 @@ void PinStorage::FillPinInfo(PinInfo &info)
 
         info.hw.chip_name = names_chips[pin.num_chip];
     }
+
+    return info;
 }
